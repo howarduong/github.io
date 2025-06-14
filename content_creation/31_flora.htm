@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create and Use Flora</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style type="text/css">
+<!--
+.blue {
+	color: #0080FF;
+}
+.orange {
+	color: #FF8040;
+}
+.pink {
+	color: #F0F;
+}
+.green {
+	color: #008000;
+}
+.red {
+	color: #F00;
+}
+.green {
+	color: #008000;
+}
+.orange {
+	color: #FF8040;
+}
+.orange {
+	color: #FF8040;
+}
+-->
+</style>
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - CREATE AND USE FLORA -->
+<h1><a name="lessonTitle">Create and Use Flora</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="31_flora.htm#Creating">Creating your flora artwork</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#FloraPolyTex">Flora texture size and polycount</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#FloraUV">Flora UV coordinatesx</A></LI>
+</UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="31_flora.htm#Configuring">Flora configuration</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#FloraXML">Flora.xml</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#FloraDRAW">Flora draw distance</A></LI>
+</UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="31_flora.htm#Noise">Flora placement, noise and weight</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#FloraNoise">Flora noise</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#FloraWeight">Keeping flora off paths, the weight tag</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#Misc_Tags">Miscellaneous xml tags </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="31_flora.htm#Tips">Art and performance tips</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>Flora is the millions of small objects populating the landscape, providing 
+detail and depth to the landscape. Typical flora objects include grass, stones, 
+small ferns, and flowers. They are automatically created as the player moves 
+around the world, and fade based on distance.</p>
+
+<p>An <i>Ecotype</i>, as referred to in this document, is another name for a 
+type of ecosystem. In your world, ecotypes are linked to  
+terrain textures. Wherever a particular texture is used, you will find the 
+associated flora growing there.</p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Creating your flora artwork</a></h2></span>
+<DIV>
+
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FloraPolyTex" id="FloraPolyTex">Flora texture size and polycount</a></span></h3>
+  <DIV>
+    <p>Flora objects are simply standard static <code>.visual</code> files, created in 
+      a 3d application, and exported using BigWorld's Visual Exporter.</p>
+    <p>Ecotypes are groups of visual files associated with a particular terrain texture. For example the terrain texture &quot;grass.tga&quot; might have 10 different grass like models (visuals) associated with it.</p>
+    <p>&nbsp;</p>
+    <p><strong>Flora triangle density:</strong></p>
+    <p>The number of flora triangles drawn by the engine depends on the vertex buffer setting<code> &lt;vb_size&gt; </code>in the flora.xml file, this specifies the number of bytes available for the vertex buffer. The default setting is 5,000,000, this is then multiplied by the graphics setting &quot;flora density&quot;</p>
+    <p><strong>Very High Flora</strong> has a multiplier of<strong> 6</strong> so the vertex buffer will be <strong>30,000,000</strong> bytes</p>
+<p><strong>High Flora</strong> has a multiplier of<strong> 1</strong> so the vertex buffer will be<strong> 5,000,000</strong> bytes</p>
+    <p><strong>Medium Flora</strong> has a multiplier of<strong> 0.5</strong> so the vertex buffer will be<strong> 2,500,000</strong> bytes</p>
+    <p><strong>Low Flora</strong> has a multiplier of<strong> 0.25</strong> so the vertex buffer will be<strong> 1,250,000</strong> bytes</p>
+    <p>&nbsp;</p>
+<p><strong>Ecotype triangle limit:</strong></p>
+    <p>There is also an internal triangle limit per each ecotype which is again dependant on the<strong> vertex buffer</strong> and <strong>flora density</strong> graphics settings. </p>
+<p>To work out the number of triangles available to each ecotype you can do the following:</p>
+    <p>Number of triangles available to each ecotype <strong>= ( ( ( vb_size in bytes ) * graphics setting ) / 625 ) / 16 ) / 3</strong></p>
+    <p><strong>625</strong> = number of 4x4 flora blocks</p>
+    <p><strong>16</strong> = bytes per vertex</p>
+    <p><strong>3 </strong>= verts in a triangle</p>
+    <p>&nbsp;</p>
+    <p>Or put more simply; <strong>vb_size * graphics setting / 30,000 </strong>which gives you the following table. </p>
+<table class="alternate" cellspacing=0>
+  <tbody>
+    <tr>
+      <th class=FirstCol    >Flora Detail Level</th>
+      <th                   >Number of Triangles per Ecotype</th>
+    </tr>
+    <tr>
+      <td class=oddRow1stCol><strong>Very High Flora</strong></td>
+      <td class=oddRow      ><p class=imgBlt>960 triangles per ecotype set</p></td>
+    </tr>
+    <tr>
+      <td class=evnRow1stCol><strong>High Flora</strong></td>
+      <td class=evnRow      >160  triangles per ecotype set        <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td class=oddRow1stCol><strong>Medium Flora</strong></td>
+      <td class=oddRow      >80  triangles per ecotype set</td>
+    </tr>
+    <tr>
+      <td class=evnRow1stCol><strong>Low Flora</strong></td>
+      <td class=evnRow      >40  triangles per ecotype set</td>
+    </tr>
+  </tbody>
+</table>
+<p>So when using High Flora density the total number of triangles making up an ecotype should be no more than 160 triangles &ndash; In the game, there will be 160 triangles of flora drawn 
+    for each 4<i>x</i>4m block of terrain (1 terrain quad).</p>
+<p>As an example, if your grass ecotype consisted of the following; </p>
+<pre>&lt;flora.xml&gt;
+  <sup>...</sup>
+  &lt;ecotypes&gt;
+    <sup>...</sup>
+    &lt;gra_grass_long&gt;
+      &lt;texture&gt;   maps/landscape/gra_grass_02.dds       &lt;/texture&gt;
+      &lt;visual&gt;    grassland/flora/flower.visual &lt;/visual&gt; &lt;!-- A 100 triangle flower model --&gt;
+      &lt;visual&gt;    grassland/flora/shrub.visual &lt;/visual&gt; &lt;!-- An 80 triangle shrub model --&gt;
+  <sup>...</sup></pre>
+<p>then your shrub model will not be drawn at high flora density settings because the 160 triangle limit would of been exceeded. </p>
+<p>&nbsp;</p>
+<p><strong>Flora object density</strong>:</p>
+<p>Using higher polycount objects isn't necessarily better. The more polygons in each object the fewer objects can be drawn per 4x4m flora block. </p>
+<p>You could draw one extremely detailed flora object per block or like in the example below use simpler objects to get a more dense flora cover. </p>
+<p class=imgLvl1><img src="31_flora_files/image051.gif"> <img src="31_flora_files/image052.gif"></p>
+<p class=imgLvl1>&nbsp;</p>
+<p class=imgLvl1><strong>Flora Texture size</strong>:</p>
+    <p>Within a single ecotype, all flora objects must use a single  
+    bitmap. </p>
+    <p>The size of each ecotype bitmap is defined by the <code>&lt;texture_width&gt; X &lt;/texture_width&gt;</code> and <code>&lt;texture_height&gt; Y &lt;/texture_height&gt;</code> tags in the <strong>flora.xml</strong> file.</p>
+    <p>The default settings are 512<i>x</i>256. Exceeding 512x512 is not recommended. </p>
+<p>&nbsp;</p>
+    <p>If it is your intention to have grass and flower flora growing on 
+      the <code>greengrass</code> ecotype, then both grass and flowers must be drawn 
+      on the same bitmap.</p>
+    <p>There can be more than one flora object per ecotype, but each ecotype can 
+      have only 1 texture.</p>
+    <p>Flora is drawn with full alpha-blending enabled, so make sure that you use 
+      the alpha channel to its fullest extent.</p>
+    <p>Below is an example of a flora texture and its alpha channel. As you can see, multiple 
+      objects can be displayed within the one ecotype, provided they use the same 
+      bitmap and some careful UV mapping.</p>
+    <p class=imgLvl1><img src="31_flora_files/image053.gif"> <img src="31_flora_files/image054.gif"></p>
+    <p class=imgLvl1></p>
+  </DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FloraUV" id="DirectXShader2">Flora UV coordinates</a></span></h3>
+  <DIV>
+    <p> When creating the flora UV's it's  important to remain inside the 0,1 boundary of the UV coordinates. The flora system compounds multiple flora bitmaps into a large texture, if your UV's stray outside the 0,1 boundary the flora model may borrow texture from a neighbouring bitmap.
+    <p class=imgLvl1><img src="31_flora_files/image057.gif" width="200" height="200"> <img src="31_flora_files/image058.gif" width="202" height="197"></p>
+  </DIV>
+  <DIV> </DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Configuring">Flora configuration</a></h2></span>
+<DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FloraXML" id="DirectXShader6">Flora.xml</a></span></h3>
+<DIV>
+  <p>WorldEditor automatically seeds the world with the flora that you created. 
+In order to do this, you must correctly configure the game.  
+  <p>The space.setting file located in each space folder contains a tag &lt;flora&gt; describing the location of that particular space's flora.xml file. This allows you to define different flora rules per space. </p>
+  <p>If a space's space.settings file does not contain  a &lt;flora&gt; tag then the space will default to the flora.xml described by the resources.xml. In the case of the FantasyDemo this flora.xml is located in res/environments </p>
+  <p>Your flora configuration file is specified in <code>bigworld/res/resources.xml</code>'s file, in the <code>&lt;environment&gt;</code> section's <code>&lt;floraXML&gt;</code> tag.
+    You can change this setting to another location for your game, if you like.</p>
+  <pre>&lt;resources.xml&gt;
+  <sup>...</sup>
+  &lt;environment&gt;
+    <sup>...</sup>
+    <span class="thickRedBorder";">&lt;floraXML&gt; system/data/flora.xml &lt;/floraXML&gt; </span>
+  <sup>...</sup></pre>
+  <p>The ecotypes present in your world can then be configured in the flora 
+    configuration file (in the example above, <code>system/data/flora.xml</code>),
+    in the <code>&lt;ecotypes&gt;</code> tag. Examples of ecotype that you might
+    have are: grass, arid grass, swamp mud, water verge, dusty path, etc...</p>
+  <pre>&lt;flora.xml&gt;
+  <sup>...</sup>
+  &lt;ecotypes&gt;
+    <sup>...</sup>
+    &lt;gra_grass_long&gt;
+      &lt;texture&gt;   maps/landscape/gra_grass_02.dds       &lt;/texture&gt;
+      &lt;texture&gt;   maps/landscape/lev_grass_02.dds       &lt;/texture&gt;
+      &lt;visual&gt;    grassland/flora/gra_grass_long.visual &lt;/visual&gt;
+  <sup>...</sup></pre>
+  <p>Each ecotype has the following information:</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif">A list of terrain textures to 
+    use in WorldEditor. This list represents all terrain textures that will have 
+    this particular ecotype growing upon it.</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif">A list of visuals. This is the 
+    list of meshes that will grow in that ecotype. Within this list, all visuals 
+    must use the same texture.</p>
+  <p>When adding ecotypes, <b>always add it to the bottom of the list</b> &ndash;
+    this will save you from having to recalculate the ecotypes for the entire world 
+    again.</p>
+  <p>In the example configuration above, the <code>gra_grass_long.visual</code> will grow wherever in the world the predominant texture is <code>gra_grass_02.dds</code>.</p>
+</DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FloraDRAW" id="DirectXShader5">Flora draw distances</a></span></h3>
+<DIV>
+  <p>Flora is drawn using  alpha   blend (8 bit alpha) which softly fades the flora in and out of   view, and predominatly alpha test (1 bit alpha) when close to the player.<br>
+    <br>
+    Here are the   settings from the flora.xml file for fantasy demo.    
+    <pre>&lt;AlphaTestRef&gt;			128			&lt;/AlphaTestRef&gt;
+&lt;ShadowAlphaTestRef&gt;		128			&lt;/ShadowAlphaTestRef&gt;
+&lt;AlphaTestDistance&gt;		25			&lt;/AlphaTestDistance&gt; 
+&lt;AlphaBlendDistance&gt;		0			&lt;/AlphaBlendDistance&gt; 
+&lt;AlphaTestFadePercent&gt;		75			&lt;/AlphaTestFadePercent&gt;
+&lt;AlphaBlendFadePercent&gt;		50			&lt;/AlphaBlendFadePercent&gt;<sup>...</sup></pre>
+    <p>Flora will draw to a maximum of 50 meters from the player. Using the above default settings, alpha tested flora will be drawn 25 meters from the player and alpha blended flora will be drawn out to the 50 meter mark.<br>
+      &lt;AlphaBlendDistance&gt;   Is measured from the 50 meter mark towards the player. So when set to the default 0, the flora will use alpha   blend all the way out to the 50 meter mark.<br>
+      &lt;AlphaTestDistance&gt; determines how far out from   the player that alpha test should be used. So when set 25 the flora will   be drawn using alpha test 25 meters from the player. <br>
+    <p class=imgLvl1><img src="31_flora_files/image063.gif" width="364" height="320"></p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Noise">Flora placment, noise and weight</a></h2></span>
+<DIV>
+
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FloraNoise" id="DirectXShader">Flora noise</a></span></h3>
+  <DIV>
+    <p>Flora such as grass, flowers, and ferns do not grow evenly dispersed around 
+      the world. Instead, they clump together in some places, and do not grow in 
+    others.
+<p>To simulate this, we have added the ability to add noise to the distribution 
+      of flora, via the <code>&lt;generator&gt;</code> tag, as illustrated below:</p>
+    <pre>&lt;flora.xml&gt;
+  <sup>...</sup>
+  &lt;ecotypes&gt;
+    <sup>...</sup>
+    &lt;gra_grass_long&gt;
+      <sup>...</sup>
+      &lt;generator&gt; chooseMax
+	<span class="blue">&lt;fixed&gt;<br>		&lt;value&gt; 1.1 &lt;/value&gt;<br>	&lt;/fixed&gt;</span>
+        <span class="green">&lt;noise&gt;
+          &lt;frequency&gt; 0.15 &lt;/frequency&gt;
+          &lt;generator&gt; visual
+            &lt;visual&gt; flora/dry_grass/flower_3_tris_stem_1_tris02.visual    &lt;/visual&gt;
+            &lt;visual&gt; flora/dry_grass/flower_3_tris_stem_1_tris.visual      &lt;/visual&gt;
+          &lt;/generator&gt;   
+        &lt;/noise&gt;</span>
+        <span class="pink">&lt;noise&gt;
+          &lt;frequency&gt; 0.8 &lt;/frequency&gt;  
+          &lt;generator&gt; visual
+            &lt;visual&gt; flora/dry_grass/grass_upsidedown_2_tris.visual        &lt;/visual&gt;    
+            &lt;visual&gt; flora/dry_grass/grass_upsidedown_1_tris.visual        &lt;/visual&gt;    
+            &lt;visual&gt; flora/dry_grass/grass_upsidedown_1_tris02.visual      &lt;/visual&gt;
+            &lt;visual&gt; flora/dry_grass/grass_upside_upsidedown_2_tris.visual &lt;/visual&gt;
+            &lt;visual&gt; flora/dry_grass/grass_3_tris.visual                   &lt;/visual&gt;
+          &lt;/generator&gt;
+         &lt;/noise&gt;   </span>
+         <span class="orange">&lt;noise&gt;
+           &lt;frequency&gt;  4.0 &lt;/frequency&gt;  
+           &lt;generator&gt; visual
+             &lt;visual&gt; flora/dry_grass/grass_upsidedown_1_tris02.visual      &lt;/visual&gt;
+             &lt;visual&gt; flora/dry_grass/grass_upside_upsidedown_2_tris.visual &lt;/visual&gt;
+             &lt;visual&gt; flora/dry_grass/flower_3_tris_stem_1_tris02.visual    &lt;/visual&gt;
+             &lt;visual&gt; flora/dry_grass/flower_3_tris_stem_1_tris.visual      &lt;/visual&gt;
+           &lt;/generator&gt;
+         &lt;/noise&gt; 
+  </span>&lt;/generator&gt;
+       <sup>...</sup></pre>
+    <p class=tipLvl1>&nbsp;</p>
+    <p>The following diagram displays graphically what is occuring in the above noise generator. </p>
+    <p><img src="31_flora_files/image002.jpg" width="1016" height="419"></p>
+    <p> The <code>&lt;generator&gt;</code> is Choosing the Maximum <code>&quot;choosemax&quot;</code> values above the <code>&lt;fixed&gt;</code> level to place flora objects. </p>
+    <p>So in the image to the right, blue indicates no flora and the other indicate flora comprised of the visuals listed in the above .xml. </p>
+  </DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FloraWeight" id="DirectXShader4">Keeping flora off paths, the weight tag</a></span></h3>
+  <DIV>
+    <p>The above noise settings can sometimes cause your flora objects to creep into places that you have defined as <code>&lt;empty&gt;</code> ecotypes within the flora.xml file. This usually manifests as flora growing on paths or roads. 
+<p>This can be fixed using the <code>&lt;weight&gt;</code> tag found inside the <strong>material_kinds.xml</strong> file (bigworld\res\system\data\material_kinds.xml)    
+    <p><img src="31_flora_files/image004.jpg" width="660" height="351">
+    <img src="31_flora_files/image005.jpg" width="660" height="351">    
+    <pre>&lt;kind&gt;<br>		&lt;id&gt;	9	&lt;/id&gt;<br>		&lt;desc&gt;	Dirt	&lt;/desc&gt;<br>		&lt;sound&gt; dirt    &lt;/sound&gt;
+		<span class="red">&lt;weight&gt;	1.0	&lt;/weight&gt;</span><br>		&lt;help&gt; Hard crunchy snow. &lt;/help&gt;<br>		&lt;sfx&gt;	sets/global/fx/sfx/sfx_pchang_dirt.xml &lt;/sfx&gt;<br>		&lt;terrain&gt; maps/landscape/path01 &lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/path02
+		<span class="red"><span class="green">&lt;weight&gt;	4.0	&lt;/weight&gt;</span></span>
+		&lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/path03 &lt;/terrain&gt;
+&lt;/kind&gt;</pre>
+<p>To get a good understanding of how the &lt;weight&gt; tag works you must first understand <strong>Texture Blend Maps</strong> and <strong>Flora Blend Maps</strong>
+<p>
+<p><strong>Texture and Flora Blend Maps</strong>:
+<p>The resolution of the terrain texture brush is determined by the <strong>Texture Blend Map </strong>settings used when the space was initially created.
+<p><img src="31_flora_files/image062.gif" width="327" height="275">
+<p>The engine uses a similar blend map, the <strong>Flora Blend Map </strong>to decide what  ecotype is going to be placed in a given location. The resolution of this <strong>Flora Blend Map </strong>is always half the resolution of the <strong>Texture Blend Map</strong> for advanced terrain, and full size for simple terrain.
+<p>The &lt;weight&gt; tag mentioned above simply multiplies the value of a given texture in the <strong>Flora Blend Map</strong>. So when we give the texture path02.tga a weight tag of 4.0 its effect in the flora blend map is 4 times as strong as the other textures, preventing flora from creeping into its territory. 
+<p>
+<p>Note: For further uses of the material_kinds.xml file please read <a href="20_terrain_texture_maps.htm#MaterialType">Terrain Material Kinds</a></DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Misc_Tags" id="Misc_Tags">Miscellaneous xml tags </a></h2>
+</span>
+<DIV>
+  <p>Here are several other tags useful xml tags associated with flora</p>
+  <p><strong>&lt;vb_size&gt;</strong> This tag controls the size of a vertex buffer which will determine how many
+flora objects can be shown at once depending on its size. Larger values result in more flora but come at a performance cost. </p>
+  <p><strong>&lt;flex&gt;	0.0	&lt;/flex&gt;</strong> Determines how much the flora object is effected by the in game wind. 0 = no effect, 1.0 = full effect. </p>
+  <p><strong>&lt;density&gt;	0.8					&lt;/density&gt; </strong>Can be used to control how often a flora object is placed on the terrain. Valid values are between 0 and 1.0. This will not increase the total amount of flora, only scale it back from its maximum (1.0) value. To increase the overall amount of flora see the tag <code>&lt;vb_size&gt;</code>. </p>
+  <p><strong>&lt;scaleVariation&gt;	0.7		&lt;/scaleVariation&gt;</strong> Applies a random scale variation factor to the flora object. A scaleVariation value of  0.5 will cause an object of size 1.0m to be drawn between 0.5m and 1.5m tall. </p>
+  <p><strong>&lt;weight&gt;	5 &lt;/weight&gt;</strong> This tag is found within the <code>material_kinds.xml</code>file located <em>bigworld\res\system\data\material_kinds.xml</em> although not located in the <code>flora.xml</code> file it does affect the way flora is placed on the ground. All ecotypes have a certain amount of creep, i.e. they will spread into other areas, the <code>&lt;weight&gt; </code>tag can be used to prevent other ecotypes from invading a particular ecotype. High values will prevent other ecotypes from creeping into the area defined by this ecotypes texture. This is useful for preventing grass growing on paths for example.</p>
+</DIV>
+<!-------- HORIZONTAL RULE --------><span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Tips">Art and performance tips</a></h2>
+</span><span onclick=toggle_heading()></span>
+<DIV>
+
+<p>When creating and placing the flora, keep in mind the following:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">The impact in the game's 
+performance will be directly related to how many pixels are drawn on the screen
+&ndash; the vertex cost is negligible.</p>
+<p class=lvl2>Therefore, make sure that your detail objects do not cover too 
+many pixels, <i>i.e.</i>, do not make thick head - high grass unless you know 
+exactly what you are doing.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">The colour of the detail 
+objects is very important.</p>
+
+<p class=lvl2>Since you want them to fade out seamlessly, and you do not want to 
+see the intersection between the objects and the ground, make sure that the 
+texture colour matches exactly the colour of the terrain on which each detail 
+object sits.</p>
+
+<p class=lvl2>Obviously, you can add more colour variation in towards the top of 
+the object, as this will not be sitting directly on the ground. For example, the 
+stems of flowers should exactly match the colour of the ground on which they are 
+sitting, while the petals can be bright and bold.</p>
+
+<p class=lvl2>Slightly darken the alpha map of your flora objects where they 
+intersect with the ground. This tends to hide the intersection, and also blends 
+the colours of the flora with the colour of the terrain.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Variety is also very important, 
+so try to fit as many different visuals into the one ecotype (<i>i.e.</i>, on 
+the one ecotype texture).</p>
+
+<p class=lvl2>Small variations in a grass object can add a lot to the realism of 
+your flora.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Flora density is not only controlled by the vertex buffer size but also by the number of triangles in each visual.</p>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

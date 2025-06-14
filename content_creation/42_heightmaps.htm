@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Using greyscale heightmaps to edit terrain</TITLE>
+<LINK  href="style.css" type=text/css rel=stylesheet>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2963" name=GENERATOR>
+<style type="text/css">
+<!--
+.red {
+	color: #F00;
+}
+-->
+</style>
+</HEAD>
+<BODY>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<H1><a name="lessonTitle">The Project view and using greyscale heightmaps to edit terrain</a></H1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+  <LI></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="42_heightmaps.htm#ProjectView">Project view</A></LI>
+</UL>
+<UL>
+  <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="42_heightmaps.htm#Creating">Creating heightmaps </A></LI>
+  <UL STYLE="display:none">
+    <LI><IMG SRC="images/leaf.bmp"><A HREF="42_heightmaps.htm#Design_Prototyping">Heightmaps for level design prototyping</A></LI>
+  </UL>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="42_heightmaps.htm#Importing_Height_Maps">Importing heightmaps</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="42_heightmaps.htm#Exporting_Height_Maps">Exporting heightmaps</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="ProjectView" id="ProjectView">Project view</a></span></h2>
+<DIV>
+  <p>The project view <img src="42_heightmaps_files/image013.jpg" width="30" height="30"> gives the user a top down view of the scene. This view can be used for navigation purposes (middle clicking on the project view will navigate the user to the chosen point), or for generating a minimap. Each chunk is photographed and a copy of this photograph is stored in the chunks corresponding .cdata file and a compilation of all the chunks is written to the space.thumbnail.dds file located in the space fodder. </p>
+  <p>The dimensions photographed by the project view can be modified by altering the space.settings file &lt;bounds&gt; tag, each number refers to an offset of chunks from the origin.
+    </p><blockquote>
+      <p>&lt;bounds&gt;<br>
+      &lt;minX&gt;	-10	&lt;/minX&gt;<br>
+      &lt;maxX&gt;	10	&lt;/maxX&gt;<br>
+      &lt;minY&gt;	-10	&lt;/minY&gt;<br>
+      &lt;maxY&gt;	10	&lt;/maxY&gt;<br>
+    &lt;/bounds&gt;</p>
+  </blockquote>
+<p class="red"> <strong>Warning: Modifications to the space.settings file will change the bounds loaded by WorldEditor and what chunks are loaded on the server. </strong></p>
+<p>Users wishing to get a higher resolution photograph of the terrain should consult the Python API reference manual (bigworld/doc/api_python/python_worldeditor.chm) for the function WorldEditor.photographChunk.</p>
+</DIV>
+<p>&nbsp;</p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Creating heightmaps </a></h2></span>
+<DIV>
+
+<p>BigWorld's WorldEditor allows you to take advantage of 3rd party 
+  heightmap-editing tools to rapidly generate and refine terrain height.</p>
+<p>There are many applications available that can create greyscale maps for 
+  representing terrain height. Some of them allow the user to simulate complex 
+  geographical processes, such as wind and water erosion. Some of the more 
+  powerful heightmap-editing tools include:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">
+<a href="http://www.world-machine.com/">World Machine</a></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">
+<a href="http://www.planetside.co.uk/terragen/">Terragen</a></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">
+<a href="http://www.daz3d.com/program/bryce/index.php">Bryce</a></p>
+
+<p>FantasyDemo's space heightmap was generated in World Machine and composited 
+in Photoshop </p>
+<p>You can find several example heightmaps in the <em>fantasydemo\example_terrain_textures\</em> folder. </p>
+<p class=imgLvl1><img src="42_heightmaps_files/image003.jpg"></p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Design_Prototyping">Heightmaps for level design prototyping</a></h3></span>
+<DIV>
+
+<p>The heightmap feature can also be useful for blocking out areas during 
+prototyping. Quick sketches in Photoshop can be imported into WorldEditor to 
+check distances and lines of sight, and to adjust other design issues before 
+world building begins.</p>
+
+<p class=imgLvl1><img src="42_heightmaps_files/image002.jpg"></p>
+
+<p>A quick sketch in Photoshop can help designers prototype terrain layouts.</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Importing_Height_Maps">Importing heightmaps</a></h2>
+</span>
+<DIV>
+
+<p>The <b>Terrain Import/Export Tool</b> toolbar button 
+(<img src="42_heightmaps_files/image014.gif">) activates the <b>Terrain 
+Import/Export</b> panel, which uses the viewport to display an overhead 
+representation of the terrain height in greyscale.</p>
+
+<p class=imgLvl1><img src="42_heightmaps_files/image015.gif"></p>
+
+<p>The <b>Terrain Import/Export</b> panel's <b>Import</b> button allows you to 
+import the following types of heightmap.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><code>.raw</code> (16bit)</p>
+<p class=imgBltLvl1><img src="images/bullet.gif"><code>.r16</code> (16bit)</p>
+<p class=imgBltLvl1><img src="images/bullet.gif"><code>.bmp</code> (8bit/channel)</p>
+<p class=imgBltLvl1><img src="images/bullet.gif"><code>.ter</code> (Terragen files)</p>
+<p class=imgBltLvl1><img src="images/bullet.gif"><code>.dt2</code> (DTED2)</p>
+
+<p class=noteLvl1><img src="images/note.bmp">Be aware that when using lower bit 
+depth images (8bit), you will get terracing artifacts in your terrain, due to 
+the precision information stored in the 8-bit image. If you want to 16-bit 
+images by hand, Photoshop CS is capable of editing them. </p>
+
+<p>Once the file is imported, you can adjust the minimum and maximum height of 
+the map, either via the <b>Height</b> fields or via its sliders.</p>
+
+<p>The strength of the imported map can be adjusted using the <b>Strength</b> 
+field/slider &ndash; this is similar to the <b>Layer Opacity</b> feature in 
+Photoshop.</p>
+<p>There are several options for how the imported height map is applied to the existing terrain</p>
+<p class=imgBltLvl1><img src="images/bullet.gif"> Replace: Simply swaps the existing terrain for the imported terrain. Commonly used to add features to the terrain but usually requires some clean up at the edges.</p>
+<p class=imgBltLvl1><img src="images/bullet.gif"> Add: Adds the two terrain values together </p>
+<p class=imgBltLvl1><img src="images/bullet.gif"> Subtract: Subtracts one terrain from the other. </p>
+<p class=imgBltLvl1><img src="images/bullet.gif"> Overlay: Values less than 128 are subtracted, values higher than 128 are added. </p>
+<p class=imgBltLvl1><img src="images/bullet.gif"> Minimum: Chooses the lowest value of the two heights. This blend mode is great for cutting away at mountains. </p>
+<p class=imgBltLvl1><img src="images/bullet.gif"> Maximum: Chooses the highest value of the two heights. Great for adding mountains to non mountainous areas. </p>
+<p>The <code>Alt</code> keyboard shortcut sets the <b>Height</b> field's maximum
+value to the height of the terrain clicked.</p>
+<p>Handles on the imported heightmap allow the user to adjust the size of the 
+imported map. You can snap the handles to chunk boundaries (100m<i>x</i>100m) by 
+using the <code>Shift</code> keyboard shortcut. </p>
+
+<p class=imgLvl1><img src="42_heightmaps_files/image006.jpg"></p>
+
+<p>The buttons on the bottom of the <b>Terrain Import/Export</b> group box allow
+you to rotate, flip, and mirror the imported map.</p>
+
+<p>The <b>Renormalise Colour</b> button (<img src="42_heightmaps_files/image016.gif">) 
+simply readjusts the levels displayed in the preview &ndash; it does not affect 
+the overall terrain height.</p>
+
+<p>The way in which the new layer is applied to the terrain is configured via
+the <b>Mode</b> drop-down list box. These different mathematical instructions 
+can be useful for adding features to already existing terrain. The 
+<b>Maximum</b> option is great for adding mountains to your terrain, while  
+<b>Minimum</b> is useful for cutting out canyons and rivers.</p>
+
+<p>When you are satisfied with the outcome, click the <b>Place</b> button to 
+place the terrain.</p>
+<p>&nbsp;</p>
+</DIV>
+<DIV>
+  <h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Exporting_Height_Maps">Exporting heightmaps</a></span></h2>
+  <DIV>
+    <p>Terrain height can be exported, which is useful for:</p>
+    <p class=imgBltLvl1><img src="images/bullet.gif">Moving existing terrain 
+      features to different locations.</p>
+    <p class=imgBltLvl1><img src="images/bullet.gif">Exporting your world to touch 
+      it up in Photoshop </p>
+    <p class=imgBltLvl1><img src="images/bullet.gif">Adding another erosion pass in 
+      your favourite terrain-editing tool.</p>
+    <p>To export a heightmap, use the blue handles to select the area that you need to 
+      export, then click the <b>Export</b> button &ndash; this will invoke the <b>Save As</b> dialog box, where you can specify the folder and file name of
+      the exported heightmap. We suggest using a 16-bit file type, as they do not 
+      suffer from precision artifacts found in 8-bit formats. </p>
+    <p><img src="42_heightmaps_files/image010.jpg" width="350" height="276"> <img src="42_heightmaps_files/image020.gif" width="449" height="199"></p>
+    <p>&nbsp;</p>
+    <p>When a height map is exported it will generate an *.xml file for the purpose of remembering the exact position it was exported from. This allows the user to modify the map with the assurance that if re-imported it will automatically snap back to the same position. </p>
+    <pre>&lt;root&gt;<br>	&lt;export&gt;<br>		&lt;minHeight&gt;	19.360001	&lt;/minHeight&gt;<br>		&lt;maxHeight&gt;	299.880005	&lt;/maxHeight&gt;<br>		&lt;imageWidth&gt;	779	&lt;/imageWidth&gt;<br>		&lt;imageHeight&gt;	789	&lt;/imageHeight&gt;<br>		&lt;littleEndian&gt;	true	&lt;/littleEndian&gt;<br>		&lt;left&gt;	3.570073	&lt;/left&gt;<br>		&lt;top&gt;	11.604759	&lt;/top&gt;<br>		&lt;right&gt;	9.651198	&lt;/right&gt;<br>		&lt;bottom&gt;	5.447620	&lt;/bottom&gt;<br>		&lt;absolute&gt;	false	&lt;/absolute&gt;<br>	&lt;/export&gt;<br>&lt;/root&gt;<br>
+  </pre>
+    <p>In the example above we have exported a section of mountain that  will be edited in Photoshop so that it can be placed seamlessly elsewhere in the scene. </p>
+    <p>The file <code>mountain.r16 </code>must first be renamed to mountain.raw so that photoshop can open it. </p>
+    <p><span class="imgBltLvl1"><span class="noteLvl3"><img src="images/note.bmp" alt="note"></span> Versions of photoshop later than 7.0 are required to edit 16 bit images</span></p>
+    <p><img src="42_heightmaps_files/image019.gif" width="301" height="412"></p>
+    <p>When you try to open a .raw file Photoshop will prompt you with a dialog requesting the dimensions, channel count, bit depth and byte order. </p>
+    <p>Dimensions : Can be found in the exported .xml file (see above)</p>
+    <p>Channels : should be set to 1 for .raw files </p>
+    <p>Bit depth  : should be set to 16 for .raw files</p>
+    <p>Byte Order: IBM PC </p>
+    <p>Once inside photoshop we are going to take the mountain image and darken its edges using a mask. This will prevent hard edges in the terrain when we import the texture. The image below is a before and after shot of the exported terrain with a black border mask. </p>
+    <p><img src="42_heightmaps_files/image012.jpg" width="191" height="195"> <img src="42_heightmaps_files/image008.jpg" width="314" height="226"></p>
+    <p>The image is then saved as a .raw file with the same options used during open. <span onclick=toggle_heading()></span></p>
+    <p><img src="42_heightmaps_files/image007.jpg" width="517" height="342"></p>
+    <p>When you import the height map into WorldEditor the alternative layering mode<strong> Additive </strong>can be used to place the modified height map onto the terrain.The dark texture borders will ensure the mountain is blended into the terrain without  causing a hard transition in height.</p>
+    <p><img src="42_heightmaps_files/image011.jpg" width="500" height="230"></p>
+    <p>The imported mountain sits where there was once an empty valley. </p>
+  </DIV>
+  </DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align=center width="100%" size=2>
+
+<p class=copyrightInfo>Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</BODY>
+</HTML>

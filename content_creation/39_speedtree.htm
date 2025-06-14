@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Using SpeedTree in the BigWorld engine</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style type="text/css">
+<!--
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+}
+.style4 {font-size: 8pt}
+.style5 {font-size: 9px}
+-->
+</style>
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1>Using SpeedTree in the BigWorld engine</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#PlacingTrees">Placing SpeedTrees in the world through World Editor </A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="39_speedtree.htm#Hints">Hints and Tips</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#Values">Values and Colours</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#Specular">Specular Lighting</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#LeafDimming">Leaf Dimming</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#ReduceTextureSpace">Reduce wasted texture space</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#Billboards">How many billboards and what size texture?</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#BillboardLighting">Billboard lighting </A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#Collision_Volume">Defining a trees collision volume </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#GeneratedFiles">Engine generated files</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#LevelOfDetail">SpeedTree LOD </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.htm#SpeedTreeWind">SpeedTree and Wind </A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p><b>Please note that SpeedTree is an optional add-on to the BigWorld package. 
+Speed Tree CAD is supplied with the SpeedTree licence &ndash; it is not part of 
+the BigWorld toolset.</b></p>
+
+<p>Describing all the functionality of SpeedTree CAD is beyond the scope of this
+tutorial. All the documentation on how to create your own trees can be found 
+with the SpeedTree package.</p>
+<p>All the trees packaged within BigWorld were made using SpeedTreeCAD 4.2</p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="PlacingTrees">Placing SpeedTrees in the world through World Editor </a></h2></span>
+<DIV>
+
+<p>SpeedTrees can be accessed in WorldEditor via the <b>Asset Browser</b> 
+panel's <b>Trees</b> virtual folder.<p>
+
+<p class=imgLvl1><img src="39_speedtree_files/image008.gif"></p>
+
+<p>To place a tree simply, select it in the <b>Asset Browser</b> panel, then
+either drag it into the desired location in the viewport, or position the mouse
+cursor over the desired location then press <code>Enter</b>. SpeedTrees can now 
+be moved, rotated and scaled, just like any other object.<p>
+
+<p class=tipLvl1><img src="images/tip.bmp">When placing trees, it can be handy 
+to set (in the <b>Object Tool</b> panel) the <b>Locking Mode</b> to 
+<b>Terrain</b>.</p>
+
+<p class=imgLvl3><img src="39_speedtree_files/image009.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Hints">Hints and Tips</a></h2></span>
+<DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Values">Values and Colours</a></h3></span>
+<DIV>
+
+<p>Many textures shipped with SpeedTree use a low range of values (see example 
+below). If you use the stock SpeedTree textures, it can be useful to play with 
+the values and colours to match the colours of other texture in your game. For 
+FantasyDemo, the value and colour saturation was increased.</p>
+
+<p><table><tr>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image010.gif"></p>
+      <p class=captLvl0>Lower range of levels of texture shipped with SpeedTree</p></td>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image011.gif"></p>
+      <p class=captLvl0>Adjusted levels and colours to use more range</p></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><span onClick="toggle_heading()"><a name="Specular" id="Specular">Specular Lighting </a></span></h3>
+</span>
+<DIV>
+  <p> Both the normal map and the normal maps alpha chanel  effect the specular values of the tree. </p>
+<p>The normal map alters the leaf geometry's normal (angle at which the light effects it). Whilst the alpha map determines how strong the specular highlight will be. </p>
+  
+  <p class=numBltLvl1><img src="39_speedtree_files/image012.jpg" width="307" height="154"></p>
+  <p>&nbsp;</p>
+  <p>Generally, specular highlights tend to appear on  half of the leaf surface due to the folded shapes of leaves. </p>
+  <p>The specular lighting of SpeedTree leaves can be significantly improved by authoring the leaf billboard normal maps by hand.</p>
+  <p><img src="39_speedtree_files/image007.jpg" width="161" height="141"></p>
+  <p class=captLvl0>Half the leaf shines with a low gloss highlight </p>
+  <p class=numBltLvl1>1 To author the leaf normal maps we need to create a colour pallet.</p>
+  <p class=numBltLvl1>2 Create a radial gradient in Photoshop</p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image004.jpg" width="64" height="64"></p>
+  <p class=numBltLvl1>3 Convert that gradient into a normal map using <a href="http://developer.nvidia.com/object/photoshop_dds_plugins.html">Nvidias Photoshop Plugins</a> </p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image020.gif" width="417" height="370"> <img src="39_speedtree_files/image006.jpg" width="200" height="176"></p>
+  <p class=numBltLvl1>4 This converted texture will now be used as our colour pallet for hand painting the leaf normals. </p>
+  <p class=numBltLvl1>5Take the leaf diffuse map into Photoshop and choose normal colour (directions) from the colour pallet that best represent the direction of the leaf face.</p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image008.jpg" width="134" height="143"> <img src="39_speedtree_files/image009.jpg" width="134" height="143"></p>
+  <p class=numBltLvl1>6 Be sure to paint outside the bounds of the leaf where possible. This will ensure you get a nice even highlight across the half of the leaf. </p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image010.jpg" width="252" height="171"></p>
+  <p class=numBltLvl1>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp" alt=""><a name="LeafDimming" id="LeafDimming">Leaf Dimming</a></span></h3>
+</span>
+<DIV>
+  <p>The leaf dimming parameter defined in SpeedTreeCAD's Lighting tab is used by the BigWorld engine to darken some of the trees billboards. If excessive dimming is used it can result in sections of the tree appearing too dark. </p>
+  <p>Note: Only shader model 3 uses the dimming feature. </p>
+<p>&nbsp;</p>
+  <p><img src="39_speedtree_files/image021.gif" width="255" height="329"> <img src="39_speedtree_files/image013.jpg" width="318" height="281"></p>
+  <p class=captLvl0>An example of excessive leaf dimming, note the excessively shadowed leaves</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="ReduceTextureSpace">Reduce wasted texture space</a></h3>
+</span>
+<DIV>
+
+<p>When SpeedTree creates a composite map, it takes all the separate textures
+used to create a tree and tries to fit them into the smallest possible space.</p>
+
+<p>Sometimes, textures can be created that have a large amount of wasted 
+texture space &ndash; this usually occurs because of an abnormally-sized frond 
+texture.</p>
+
+<p>In the example below, the frond texture was resized so that the composite 
+map would fit into a 1024<i>x</i>1024 space.</p>
+
+<p><table><tr>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image012.gif"></p>
+       <p class=captLvl0>Before resize</p></td>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image013.gif"></p>
+      <p class=captLvl0>After resize</p></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Billboards">How many billboards and what size texture?</a></h3></span>
+<DIV>
+
+<p>Most SpeedTrees in FantasyDemo use six vertical, plus one horizontal 
+billboard, each at 128x128 pixels.</p>
+
+<p>For very large trees or tree clusters, it is recommended that you test the
+effectiveness of your billboards from different angles. If they do not look 
+right, then increase the number and/or size of the textures.</p>
+<p>Billboards do not need to be power of 2 textures, you can use the Adjust Billboard Sizes slider to make the billboards fit comfortably in the composite map. </p>
+<p class=imgLvl1><img src="39_speedtree_files/image014.gif"></p>
+<p class=captLvl1>Most common settings used to export trees from SpeedTree Cad into FantasyDemo</p>
+<p class=captLvl1>&nbsp;</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="BillboardLighting" id="BillboardLighting">Billboard lighting </a></h3>
+</span>
+<DIV>
+
+<p>If you are using normal mapping on SpeedTree billboards then make sure you turn on the<strong> Uniform lighting </strong>option when exporting the composite map. This will ensure that there is no directional lighting baked into the billboard maps.</p>
+
+<p><img src="39_speedtree_files/image018.gif" width="510" height="565"></p>
+<p class=imgLvl1>&nbsp;</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Collision_Volume">Defining a tree's collision volume </a></h2></span>
+<DIV>
+
+<p>Collision geometry for SpeedTrees is defined within SpeedTree Cad &ndash; 
+to view the collision objects, press the <b>Toggle Collision Objects</b> 
+(<img src="39_speedtree_files/image004.gif">) button's drop-down arrow, then select 
+its shape (in the example below, we selected the <b>Add Box</b> menu item).</p>
+
+<p class=imgLvl1><img src="39_speedtree_files/image005.gif"></p>
+
+<p>Move the collision objects around until they look similar to the tree's
+geometry. It's best to use simple collision volumes, cubes are much more efficient than spheres, try to avoid spheres as much as possible. </p>
+<p>There is no need to define the collision volume of the trunk. BigWorld uses the trunk geometry as collision data automatically. </p>
+<p class=imgLvl1><img src="39_speedtree_files/image006.gif"></p>
+
+<p>Be careful when defining the collision objects for the foliage &ndash; if 
+they hang too low, then the player will bump into them.</p>
+
+<p>You can see In WorldEditor the collision geometry defined in SpeedTree Cad
+and the automatically generated trunk collision volume by selecting the <b>General Options</b> panel's <b>Show</b> group box's 
+<b>Scenery&rarr;BSP</b> check box.</p>
+
+<p class=imgLvl1><img src="39_speedtree_files/image007.gif" align=top>
+                 <img src="39_speedtree_files/image001.jpg"></p>
+
+</DIV>
+
+<p>
+  <!-------- HORIZONTAL RULE -------->
+</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="GeneratedFiles" id="GeneratedFiles">Engine generated files</a></span></h2>
+<DIV>
+  <p>When a SpeedTree is first placed in WorldEditor two files will be created. </p>
+  <p>1. <strong>.bsp2</strong> file (A collision scene file)</p>
+  <p>2. <strong>.ctree </strong>file (A cached tree file)</p>
+  <p>These files need to be saved to your project. If you are using source control, make sure they are committed.</p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="LevelOfDetail" id="LevelOfDetail">SpeedTree LOD</a></h2>
+</span>
+<DIV>
+  <p>&nbsp;</p>
+  <p>SpeedTree Level of Detail (LOD) settings can be defined within the <strong>speedtree.xml</strong> file located in <em>C:\m</em><em>f\bigworld\res\system\data\speedtree.xml</em></p>
+  <p>Most of the parameters defined within speedtree.xml can be changed (preview only) whilst the client is running using the client watchers ~(tilde) + F7, 13 [SpeedTree], </p>
+  <p><img src="39_speedtree_files/image002.jpg" width="260" height="323"></p>
+  <p>&nbsp;</p>
+  <p>The contents of the speedtree.xml file are as follows. Comments within the xml file should explain how the parameters effect SpeedTree. </p>
+  <p>&nbsp;</p>
+  
+<pre>&lt;speedtree.xml&gt;<br>	&lt;lodMode&gt; -2 &lt;/lodMode&gt;<br>	&lt;!-- lodMode to use:<br>		-1: dynamic (near and far LOD defined per tree using speedtreeCAD defined values);<br>		-2: dynamic (use global near and far LOD values);<br>		[0.0 - 1.0]: forces static value.<br>	--&gt;<br>	<br>	&lt;lodNear&gt; 40 &lt;/lodNear&gt;<br>	&lt;!-- Distance from camera at which trees will start <br>		to display maximum detail. Only used if lodMode is -2 --&gt;<br>		<br>	&lt;lodFar&gt; 200 &lt;/lodFar&gt;<br>	&lt;!-- Distance from camera from which trees be rendered <br>	as billboards only. Only used if lodMode is -2 --&gt;<br>	<br>	&lt;lod0Yardstick&gt; 60 &lt;/lod0Yardstick&gt;<br>	&lt;!-- Trees taller than the yardstick will LOD to billboard farther than LodFar.<br>	Trees shorter than the yardstick will LOD to billboard closer than LodFar.<br>	This should be set to average the height of your trees--&gt;<br>	<br>	&lt;lod0Variance&gt; 0.3 &lt;/lod0Variance&gt;<br>	&lt;!-- How much will the lod level vary depending on the size of the tree --&gt;<br>	<br>	&lt;speedWindINI&gt; system/data/speedwind.ini &lt;/speedWindINI&gt;<br>	&lt;!-- Global SpeedWind setup file --&gt;<br>	<br>	&lt;fxFiles&gt;<br>		&lt;branches&gt; 		shaders/speedtree/branches.fx 	&lt;/branches&gt; <br>		&lt;leaves&gt; 		shaders/speedtree/leaves.fx 	&lt;/leaves&gt; <br>		&lt;billboards&gt; 	shaders/speedtree/billboards.fx &lt;/billboards&gt; <br>		&lt;shadows&gt; 		shaders/speedtree/speedtree_shadows.fx &lt;/shadows&gt; <br>	&lt;/fxFiles&gt;<br>	&lt;!-- Effect file used to render trees --&gt;<br>	<br>	&lt;billboardOptimiser&gt;<br>		&lt;fxFile&gt;	shaders/speedtree/billboards_opt.fx	&lt;/fxFile&gt;<br>		&lt;enabled&gt;	true &lt;/enabled&gt;<br>		&lt;textureAtlas&gt;<br>			&lt;!-- The optimiser will create one big <br>			texture to hold all billboards --&gt;<br>			<br>			&lt;minSize&gt;	128	&lt;/minSize&gt;<br>			&lt;maxSize&gt;	2048	&lt;/maxSize&gt;<br>			&lt;mipLevels&gt;	7		&lt;/mipLevels&gt;<br>			&lt;!-- <br>				2^(mipLevels-1) should not <br>				be greater than minSize<br>			--&gt;<br>			<br>			&lt;save&gt;			false	&lt;/save&gt;<br>			&lt;!-- If true, will save the texture atlas into a file called <br>			bboptimiser.dds, in the current work dir. This can be useful<br>			for debugging and also to tune the ideal parameters of the <br>			texture atlas. The file will be resaved for every new tree <br>			type read from disk. So, make sure all tree types have been <br>			loaded before making any decision based on this file. --&gt;<br>			<br>		&lt;/textureAtlas&gt;<br>		<br>		&lt;buffers&gt;<br>			&lt;framesToRecycle&gt;	5		&lt;/framesToRecycle&gt;	<br>			&lt;!-- number of frames before a buffer is <br>			made available for reuse by a new chunk --&gt;<br>			<br>			&lt;framesToDelete&gt;	100	&lt;/framesToDelete&gt;	<br>			&lt;!-- number of frames since last time before a <br>			buffer is permanently deleted --&gt;<br>			<br>		&lt;/buffers&gt;<br>	&lt;/billboardOptimiser&gt;<br>&lt;/speedtree.xml&gt;<br>
+</pre>
+  <p class="style1 style4">
+</DIV>
+<!-------- HORIZONTAL RULE -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="SpeedTreeWind" id="SpeedTreeWind">SpeedTree and Wind</a></h2>
+</span>
+<DIV>
+  <p>SpeedTree Trees are effected by in game wind. How they are effected is controlled by the speedwind.ini file located in <em>bigworld\res\system\data\speedwind.ini</em>. This file is a global setting for all trees. </p>
+  <p>If you want each tree to have its own speedwind setting you must include a separate <em>speedwind.ini</em> file in the directory containing the tree. Having separate <em>speedwind.ini</em> files per tree is less efficient than having one global setting and may slow engine performance. </p>
+  <p>The following properties of the speedwind.ini file are described in SpeedTree CADs User Reference document under the heading SpeedWind dialog. </p>
+  <p>&nbsp;</p>
+  <pre>NumWindMatricesAndLeafAngles 6 8<br>WindResponseAndLimit 0.4 0.01<br>MaxBendAngle 70<br>BranchExponent 3<br>LeafExponent 0.8<br>GustStrengthMinMax 0.1 0.5<br>GustDurationMinMax 2 5<br>GustFrequency 0.166667<br>BranchOscillationX_LaLsHaHs 2 3 15 4<br>BranchOscillationY_LaLsHaHs 1 3 65 3<br>LeafRocking_LaLsHaHs 1 3 5 15 <br>LeafRustling_LaLsHaHs 2 3 5 10  </pre>
+  </p>
+  <p>These settings correspond with the settings available in SpeedTreeCAD under the Edit SpeedWind parameters</p>
+  <p><img src="39_speedtree_files/image011.jpg" width="794" height="413"></p>
+  <p>The effect of changes to the speedwind.ini file can be previewed in the client using the client watchers</p>
+  <p>~(tilde) F7 - Client settings - Weather - WindVelX and WindVelY</p>
+  <p>The maximum wind speed is 15.  </p>
+  <p><img src="39_speedtree_files/image003.jpg" width="264" height="333"></p>
+  <p>Wind speed and gustiness is defined by the <a href="file:///C:/mf/bigworld/doc/content_creation/21_change_environ_settings.htm#Weather">weather system</a></p>
+  <p>&nbsp;</p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

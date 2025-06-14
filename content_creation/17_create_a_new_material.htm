@@ -1,0 +1,142 @@
+
+<head>
+   <title>Tints</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">Tints</a></h1> 
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="17_create_a_new_material.htm#Tint">Creating a material tint</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="17_create_a_new_material.htm#Variation">Increase world variation - Using tints in WorldEditor</A></LI>
+</UL>
+<UL>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="17_create_a_new_material.htm#LODTints">Level Of Detail LOD and Tints</A></LI>
+  </UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<!-- SECTION - CREATING A MATERIAL TINT -->
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Tint">Creating a material tint</a></h2></span> 
+<DIV>
+ 
+<p>Tints are an efficient way of creating multiple material variants of a single 
+model. Tints are also the only way of making material properties accessible
+to game programmers. For example if you wanted to </p>
+
+
+<p class=imgbltlvl2><img src="images/bullet.gif">change materials in-game,</p>
+ 
+<p class=imgbltlvl2><img alt=* src="images/bullet.gif">change texture in-game,</p>
+    
+<p class=imgbltlvl2><img alt=* src="images/bullet.gif">alter a material property (such as a Self Illumination amount)
+</p>
+<p>then you must add a tint to the material property. </p>
+<p>Once a tint is added then the specific property you wish to change must be  
+<a href="03_create_model.htm#Expose_Python">exposed to Python</a> to allow programmers
+access to the property via code. </p> 
+
+<p>In the example below, we needed two types of chimneys. The one to be 
+used in the township has a bitmap and effect file different to the second one,
+which is used outside the town.</p>
+
+<p class=numBltLvl1><img src="17_create_a_new_material_files/image011.gif"></p>
+
+<p>This could be achieved by re-exporting a duplicate of the original model, 
+but a more efficient way would be to create a tint from the existing model. This 
+reduces the number of models that the game engine needs to load into memory.</p>
+
+<p>Before creating a tint, you should create a material file (<code>.mfm</code>),
+which will act as the new tint. This procedure is outlined in this manual, in the section
+<a href="34_fx_files_and_materials.htm">BigWorld shaders and Materials &ndash; 
+Creating a material MFM file</a>. The MFM will be 
+selected later during the tint creation process.</p>
+
+<p>To create a tint:</p>
+
+<p class=numBltLvl1>1 Open ModelEditor.</p>
+
+<p class=numBltLvl1>2 Load the model to which you want a tint applied.</p>
+
+<p class=numBltLvl1>3 In the <b>Materials Settings</b> panel, select the primary 
+material (in the example below <b>stonewall_natural_a</b>), then click the 
+<b>Add Tint</b> (<img src="17_create_a_new_material_files/image016.gif">) button
+&ndash; the <b>New Tint</b> dialog box will be displayed.</p>
+
+<p class=imgLvl2><img src="17_create_a_new_material_files/image017.gif"></p>
+
+<p class=numBltLvl1>4 In the <b>New Tint</b> dialog box, specify the name for
+the new tint, then select the <b>MFM</b> option button and select the 
+<code>.mfm</code> file you have created previously.
+
+<p class=imgLvl2><img src="17_create_a_new_material_files/image018.gif"></p>
+
+<p class=lvl2>The new material (tint) will be added under the primary material. You can
+  preview the effect by clicking the tint.</p>
+
+<p class=imgLvl2><img src="17_create_a_new_material_files/image019.gif"></p>
+
+<p class=lvl2>This tint is now open to game programmers to change during the 
+game.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Variation">Increase world variation - Using tints in WorldEditor</a></h2></span>
+<DIV>
+ 
+<p>Single models, primitives, and visual files can have multiple tint variations, 
+allowing world builders to increase the variation of the game world without 
+having to increase the number of models that need to be loaded.</p>
+
+<p>In the example above, a chimney was created with two available materials 
+(the default <b>stonewall_natural_a</b> and the tint <b>brickChimney</b>).</p>
+<p>When this object is placed in the world, it will default to the 
+<b>stonewall_natural_a</b> material. To use the object's tint, simply 
+activate the <b>Properties</b> panel, then in the object's <b>dye</b> entry, 
+select the desired tint.</p>
+
+<p class=imgLvl2><img src="17_create_a_new_material_files/image015.gif"></p> 
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="LODTints" id="LODTints">Level Of Detail (LOD) and Tints </a></h2>
+</span>
+<DIV>
+  <p>Tints are automatically maintained throughout a LOD tree. </p>
+  <p>If both the LOD0 and LOD1 models share material and tint names then the BigWorld engine will automatically chose to display the same tint on the LOD1 model that is displayed on the LOD0 model. </p>
+  <p>So if your avatar has 2 different tints (red, and blue) and it is currently set to the &quot;red&quot; tint then the second level LOD model will automatically display its red tint providing it has the same material name and tint name. </p>
+  <p class=imgLvl2></p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

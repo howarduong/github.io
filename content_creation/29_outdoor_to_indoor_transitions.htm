@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Outdoor-to-Indoor Transitions</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body> 
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+ 
+<!-- CHAPTER - OUTDOOR-TO-INDOOR TRANSITIONS -->
+<h1><a name="lessonTitle">Outdoor-to-Indoor Transitions</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="29_outdoor_to_indoor_transitions.htm#Creating">Creating an entrance/exit</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="29_outdoor_to_indoor_transitions.htm#Cutting">Cutting the Terrain</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="29_outdoor_to_indoor_transitions.htm#Placing">Placing an interior shell</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Creating an entrance/exit</a></h2></span>
+<DIV>
+
+<p>To create an entrance/exit in WorldEditor, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Open WorldEditor.</p>
+
+<p class=numBltLvl1>2 To create a seamless entryway between an outdoor space and 
+an indoor shell, first select an appropriate location for your entrance.</p>
+
+<p class=lvl2>If you have not created any area for this, it is suggested that 
+you create a gentle hillside in the terrain, in order to have an area that an 
+entrance model can be <i>moulded</i> into.</p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image003.gif"></p>
+
+<p class=lvl2>To make future additions to the interior shell set easy, do the 
+following:</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Face the entrance/exit either
+north, south, east, or west.</p> 
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the <b>Object</b> 
+panel's <b>Object Grid Snaps</b> group box's <b>Enabled</b> check box, then 
+click its <b>Shell Snaps</b> button &ndash; this will set the x, y, z, and Angle
+field to optimal values for shell placement.</p>
+
+<p class=imgLvl3><img src="29_outdoor_to_indoor_transitions_files/image042.gif"></p>
+
+<p class=numBltLvl1>3 Now that we have selected an area that is appropriate for 
+an entrance/exit, we should place and position our entrance/exit model.</p>
+
+<p class=lvl2>For the purposes of this tutorial, we use <b>one</b> entrance/exit 
+model, <b>one</b> entrance/exit shell and <b>one</b> interior shell.</p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image005.gif"></p>
+ 
+<p class=numBltLvl1>4 Position your entrance/exit into the hillside itself.</p>
+
+<p class=lvl2>You should try to 'bury' it into the terrain, as you will later 
+cut away the overlapping terrain sections.</p> 
+ 
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image007.gif"> 
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Cutting">Cutting the Terrain</a></h2></span>
+<DIV>
+
+<p>This section describes how to cut the terrain as part of creating an 
+entrance/exit in your world.</p>
+
+<p class=numBltLvl1>1 Select the <b>Terrain Mesh Tool</b> 
+(<img src="29_outdoor_to_indoor_transitions_files/image043.gif">) toolbar 
+button &ndash; the <b>Terrain Mesh Cut/Repair</b> panel will  be activated.</p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image044.gif"> 
+
+<p class=numBltLvl1>2 Select the <b>Brush Mode</b> group box's <b>Cut</b> option
+button.</p>
+
+<p class=numBltLvl1>3 Set the <b>Size</b> field to <b>1</b>.</p>
+
+<p class=numBltLvl1>4 Zoom into your entrance/exit model for a better view of 
+the areas of terrain that you will need to cut.</p>
+
+<p class=numBltLvl1>5 Click the <b>Pole Markers</b> 
+(<img src="29_outdoor_to_indoor_transitions_files/image045.gif">) toolbar 
+button &ndash; this will activate the <i>Pole Markers</i> chunk visualisation
+mode.</p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image011.gif"></p>
+ 
+<p class=numBltLvl1>6 Cut the terrain by dragging the mouse over the areas that 
+are blocking the entrance/exit. It is important to leave room for reshaping the 
+terrain around your entrance/exit model after this cutting process.</p> 
+ 
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image013.gif"></p>
+ 
+<p class=imgLvl2>After this step, you will now notice large holes in the terrain 
+from certain angles.</p>
+
+<p class=numBltLvl1>7 Click the <b>Terrain Height Tool</b> 
+(<img src="29_outdoor_to_indoor_transitions_files/image046.gif">) toolbar button 
+&ndash; the <b>Terrain Height</b> panel will be activated.</p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image047.gif"></p>
+
+<p class=numBltLvl1>8 Gently reshape the terrain to fit perfectly around this 
+model.</p>
+
+<p class=imgLvl2>This is the most difficult and time consuming step in the 
+entire process, as terrain heights will differ from model to model. It might 
+take a few minutes of <i>massaging</i> the terrain into the correct shapes, and 
+you might even have to reposition the entrance/exit.</p> 
+ 
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image015.gif"></p>
+
+<p class=tipLvl2><img src="images/tip.bmp">To help with areas in this terrain 
+blending, try placing objects such as plants, etc., as it would also be a 
+natural area for these models to exist, and where they help to draw the eye 
+away from the transition area.</p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image018.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Placing">Placing an interior shell</a></h2></span>
+<DIV>
+
+<p>This section describes how to place your interior shell (which must contain 
+an <i>exit</i> portal) as part of creating an entrance/exit in your world.</p>
+
+<p>If you do not have a shell with an <i>exit</i> portal, then see the lesson
+<a href="06_create_shell.htm">Create an Internal Shell</a>.</p>
+
+<p class=numBltLvl1>1 Click the <b>Object Tool</b> 
+(<img src="29_outdoor_to_indoor_transitions_files/image049.gif">) toolbar 
+button &ndash; the <b>Object</b> panel will be activated.</p>
+
+<p class=numBltLvl1>2 In the <b>Asset Browser</b> panel, select the 
+<b>Shells</b> virtual folder.</p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image048.gif"></p>
+
+<p class=numBltLvl1>3 Drag the desired shell from the assets list to the 
+viewport.</p>
+<p class=numBltLvl1>4 Ensure that your exit portal (B) begins before the overlapping terrain cut (A) (see diagram 1). Otherwise the player will not be able to enter the exit portal and will instead collide with the terrain and be lifted to the surface as in diagram 2. </p>
+
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image001.jpg" width="245" height="159"> <img src="29_outdoor_to_indoor_transitions_files/image002.jpg" width="245" height="159"></p>
+<p class=numBltLvl1>5 Connect all your interior shells to this entry/exit 
+portal. Shells can be snapped into place using the portal resolving feature
+&ndash; simply select your shell and middle-click over a shell you would like it 
+to snap to.</p>
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image022.gif">
+                 <img src="29_outdoor_to_indoor_transitions_files/image024.gif"></p>
+
+
+<p class=lvl2>You can continue to build your interior spaces inward from this 
+entrance.</p> 
+ 
+<p class=imgLvl2><img src="29_outdoor_to_indoor_transitions_files/image002.gif">
+                 <img src="29_outdoor_to_indoor_transitions_files/image004.gif"></p>
+
+<p>Another method of transition form indoor to outdoor space is to simply use
+additional models to surround your entrance/exit. This method does not require 
+you to <i>cut</i> into any terrain segments, and may be useful in some, yet not 
+all situations. Be creative with your entrances &ndash; this is a great example 
+of the use of additional objects to turn the entrance into a feature, and blend 
+it perfectly with the scenery, without cutting away terrain.</p> 
+ 
+<p class=tipLvl1><img src="images/tip.bmp">For objects that act as a façade to 
+internal entrances, it might be necessary to turn the WorldEditor's editable 
+flag <b>Outside Only</b> to <b>True</b> in the <b>Properties</b> panel. This 
+prevents the façade from being rendered as if it were inside the internal chunk. 
+For more details, see the lesson 
+<a href="06_create_shell.htm">Create Internal Shells</a>.</p> 
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

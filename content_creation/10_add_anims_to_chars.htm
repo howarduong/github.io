@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>  
+  <title>Add Animations to Characters</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">Add Animations to Characters</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="10_add_anims_to_chars.htm#Importing">Importing a new character</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="10_add_anims_to_chars.htm#Importing2">Adding an animation to a model </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="10_add_anims_to_chars.htm#Viewing">Viewing the animation and altering its frame rate</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="10_add_anims_to_chars.htm#Node_Blending">Per-node animation blending</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="10_add_anims_to_chars.htm#BlendBones">Blend bones</A></LI> 
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="10_add_anims_to_chars.htm#Compressing">Compressing animations</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Importing">Importing a new character</a></h2></span>
+<DIV>
+
+<p>To export a model from 3ds Max or Maya into ModelEditor, follow the steps 
+below:</p>
+
+<p class=numBltLvl1>1 Open ModelEditor.</p>
+
+<p class=numBltLvl1>2 Select the <b>File&rarr;Open Model</b> menu item, or use 
+the <code>Ctrl+O</code> keyboard shortcut, to display the file browser.</p>
+
+<p class=numBltLvl1>3 Specify the model that was exported, then click the 
+<b>Open</b> button.</p>
+
+<p class=imgLvl2><img src="10_add_anims_to_chars_files/image003.png"></p>
+<p class=captLvl2>Ranger model file chosen in the file browser</p>
+
+<p class=noteLvl2><img src="images/note.bmp">Alternatively, you can use the 
+<b>Asset Browser</b> panel. Select the <b>Assets</b> tab, then enter the 
+name of the model in the search field. Use the virtual folders to filter 
+between things like shells, particles, and models. Once you have located your 
+asset, double-click or drag it to the viewport.</p>
+
+<p class=imgLvl4><img src="10_add_anims_to_chars_files/image002.png"></p>
+
+<p class=numBltLvl1>4 The chosen model will be displayed in ModelEditor's 
+viewport.</p>
+
+<p class=imgLvl2><img src="10_add_anims_to_chars_files/image004.png"></p>
+<p class=captLvl2>Ranger model in the viewport</p>
+
+<p class=numBltLvl1>5 You can overwrite the model's thumbnail via the <b>Create
+Thumbnail</b> (<img src="10_add_anims_to_chars_files/image025.gif">) toolbar
+button.</p>
+<p class=lvl2>The thumbnail image is stored with the visual file in the same 
+folder, and saved as a JPEG.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Importing2">Adding an animation to a model </a></h2></span>
+<DIV>
+
+<p>To add an animation to a model in ModelEditor, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Select the <b>Animations</b> tab.</p>
+
+<p class=numBltLvl1>2 Click the <img src="10_add_anims_to_chars_files/image026.gif">
+button.</p>
+
+<p class=imgLvl2><img src="10_add_anims_to_chars_files/image007.png"></p>
+
+<p class=noteLvl2><img src="images/note.bmp">In the example above, all 
+animations have been added to a LOD model used by the ranger. Models can share 
+animations by sharing a common LOD model containing those animations. For 
+details on sharing animations via LODs, see the section 
+<a href="32_best_practices.htm">Animation tree &ndash; Using LOD models to 
+share animations</a>.</p>
+
+
+<p class=numBltLvl1>3 In the <b>Open</b> dialog box, specify the desired 
+<code>.animation</code> file.</p>
+
+<p class=imgLvl2><img src="10_add_anims_to_chars_files/image008.png"></p>
+
+<p class=lvl2>Providing that the skeletal hierarchy and naming convention are the 
+same as the hierarchy of your model, the animation should play.</p>
+<p class=lvl2>Alternatively, you can add animations to a model by dragging 
+animations from the Asset Browser to the animation window.</p>
+
+<p class=imgLvl2><img src="10_add_anims_to_chars_files/image001.jpg"></p>
+<p class=captLvl2>Dragging animations from the <b>Asset Browser</b> panel to the <b>Animations</b> panel</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Viewing">Viewing the animation and altering its frame rate</a></h2></span>
+<DIV>
+
+<p>The controls for <b>play</b> and <b>stop</b> affect only the currently 
+selected animation. The way the animation plays will be determined by the 
+various other settings found in the <b>Animations</b> panel.</p>
+
+<p>The <b>Current Frame</b> slider allows you to inspect the frames 
+individually, much like the time slider in 3ds Max. There is also the <b>Frame 
+Rate</b> slider, which adjusts the playing speed for the animation. Frame rate 
+changes can be saved to the animation, so that changes are reflected within the 
+game. To do that, click the <b>Save Frame Rate</b> button, then save the model.</p>
+
+<p class=imgLvl1><img src="10_add_anims_to_chars_files/image011.png"></p>
+
+<p>The <b>Loop Animation</b> button 
+(<img src="10_add_anims_to_chars_files/image027.png">) plays the selected 
+animation continuously, and is a helpful device for inspecting your animations. 
+Please note that it does not affect how the animation is played in the game 
+&ndash; it is only a preview  feature.</p>
+
+<p>You can also set the initial and final frames to include in the animation via 
+the <b>Include Frames</b> fields. This is handy for determining whether frames 
+can be cut out of the sequence.</p>
+
+<p class=imgLvl1><img src="10_add_anims_to_chars_files/image012.png"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Node_Blending">Per-node animation blending</a></h2></span>
+<DIV>
+
+<p>In the BigWorld engine, multiple animations can be blended over the top of
+  each other and played at the same time. In order to blend animations
+  successfully, blend values must be given to each node (bone) within the
+  animation. Node Blend values are set within the Animations
+  tab in ModelEditor.</p>
+
+<p>Let us compare the two animations: <code>holddrink_stand.animation</code> and 
+<code>m_walk.animation</code>, which are successfully blended in the FantasyDemo 
+when a character walks whilst holding a cup.</p>
+
+<p>As you can see from the diagram below, the important nodes in the 
+<code>holddrink_stand.animation</code> are the ones in the right arm. If you did 
+not use those nodes, then you would drop the drink. To signify the importance of 
+these nodes, all nodes from <code>biped R Clavicle</code> down the right arm are 
+given a weighting of <b>1.0</b>, while the nodes in the legs (that play no part 
+in the <code>holddrink</code> animation) are given a weight of <b>0.0</b>.</p>
+
+<p>The <code>m_walk.animation</code> however, requires that almost every node be 
+given some weighting. When a character walks, nearly all bones in the body move.</p>
+
+<p>Node Blending values do not effect the strength of an animation when
+  only a single animation is being played. So if a particular node
+  within an animation is given a <b>Node Blending</b> value of <b>0.01</b>, then
+ it will play  exactly as it is seen in your 3D package, providing no other animation
+  is being played at the same time. However, as soon as another animation is
+  introduced, the node blend values of the combined animations are determined, 
+and a blended animation will result.</p>
+
+<p>A <b>Node Blend</b> value of <b>0.0</b> is a special case &ndash; when a node 
+is given a blend value of 0.0 it will not animate, even if it is the only animation 
+playing at the time. </p>
+<p class="lvl1"><table><tr>
+  <td valign="top"><p class="imglvl0"><img src="10_add_anims_to_chars_files/image013.png"></p>
+                   <p class="captLvl0"><b>Node Blend</b> values for <code>holddrink_stand.animation</code></p></td>
+  <td valign="top"><p class="imglvl0"><img src="10_add_anims_to_chars_files/image014.png"></p>
+                   <p class="captLvl0"><b>Node Blend</b> values for <code>m_walk.animation</code></p></td></tr></table></p>
+
+<p>Not all animations can successfully be blended together to give a visually
+  appealing result. Our artists tried, unsuccessfully, to get a
+  <code>Stand_Shoot_gun.animation</code> to blend with a <code>Run.animation</code>,
+  until someone pointed out that a person shooting a gun whilst running looks
+  nothing like a person standing and shooting a gun, or a person running. In
+  this case a new <code>Run_withgun.animation</code> had to be created.</p>
+
+<p>The settings in the <b>Actions</b> panel determine which animations can
+  play at the same time. For further information on this panel, see section
+  <b>Modify Animations with Actions</b>.</p>
+<p>Blend values greater than 1.0 can be assigned to a node to give it more weight when blending by manually entering a higher value in the blend value dialog. </p>
+<p>Its important to recognise that strong node blend values will effect the <a href="11_create_actions.htm#Blending">blend in and blend out</a> times between actions. In the diagram below a node with a strong blend weight in  Action A will still be the strongest influence at the time marker <img src="10_add_anims_to_chars_files/image028.gif" width="26" height="26">, if blending with a significantly less weighty node. </p>
+<p><img src="10_add_anims_to_chars_files/image027.gif" width="512" height="206"></p>
+<p class=noteLvl1><img src="images/note.bmp">If you are previewing a skinned 
+object, then you will probably see a series of <code>BlendBones</code> listed in 
+the <b>Node Blending</b> display. These are required by the engine for animating skinned objects and can be ignored by the artist. </p>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name=BlendBones id="BlendBones">Blend bones</a></span></h3>
+<DIV>
+  <p>In the Node Blending panel of the Animation tab you may see extra bones in your rig with the prefix &quot;<strong>BlendBone</strong>&quot;    
+<p>Blend bones are used by the engine to handle vertices influenced by multiple bones (Soft Skinning). Each
+  bone is converted from world space into skin space, creating a blend bone. Blend bones do not contribute
+  to the visual splitter's 17 bone limit or the 256 bone maximum for hardware skinning so their contribution
+  can be safely ignored.
+
+  <p><BR>
+  </DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Compressing">Compressing animations</a></h2></span>
+<DIV>
+
+<p>The BigWorld Engine automatically compresses animations. The animation 
+compression facility within ModelEditor allows animators to adjust these 
+compression settings using a visual tool that shows changes to compression 
+in real time.</p>
+
+<p>Animation compression is important as it improves game performance. It also 
+allows animators to import animations that use more key frames and more 
+precision.</p>
+
+<p>When animations are loaded into ModelEditor they will have a default
+amount of compression applied to them. This compression value has been
+optimised to give maximum compression without visual
+artifacts. Up to 80% compression is performed automatically by this
+automated process.</p>
+
+<p>Although the automatic compression has been highly optimised, we
+suggest going through each animation manually and adjusting the values
+using the visual feedback tool (described below). Nothing beats the
+eye of an animator. This way you might reduce the file size
+slightly, improving game performance.</p>
+
+<p>To compress an animation, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Open the model in ModelEditor.</p>
+
+<p class=numBltLvl1>2 In the <b>Animations</b> tab, select the desired animation
+to be compressed.</p>
+
+<p class=numBltLvl1>3 In the <b>Compression Settings</b> group box, click the
+<img src="10_add_anims_to_chars_files/image028.png"> to view the real time 
+compression.</p>
+  
+<p class=imgLvl2><img src="10_add_anims_to_chars_files/image015.png"></p>
+
+<p class=numBltLvl1>4 Increase the compression with the sliders, and you will 
+notice that a wire frame
+representation of the model maintains the 0% compression, while the shaded model
+displays the animation as it would appear after compression. 
+This allows the animator to choose the appropriate level of
+compression. Simply play with the compression percentage until the compression
+is satisfactory, usually when the wire frame model is
+just visible under the shaded model.</p>
+<p class=lvl2>Do not worry about losing animation data by using the
+compression facility. This compression does not write over the original
+animation file &ndash; all compressed animation data is written to a separate 
+<code>.anca</code> file, leaving the original <code>.animation</code>
+file intact. So if you decide at a later date that 80% compression on a run
+animation is too much, you can easily reduce it to 70% without having to
+re-export your animation.</p>
+<p class=lvl2>A display at the bottom of the compression rollout indicates
+how many keys have been compressed and the difference in file size.</p>
+
+<p class=imgLvl2><img src="10_add_anims_to_chars_files/image024.gif"></p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

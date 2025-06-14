@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Morph Targets and Blend Shapes</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1>Morph Targets and Blend Shapes</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp" alt=""><A HREF="40_morph_and_blend_shape_animation.htm#Restrictions">Morph target restrictions</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="40_morph_and_blend_shape_animation.htm#3dsMax_Morph_Targets">3ds Max Morph Targets</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp" alt=""><A HREF="40_morph_and_blend_shape_animation.htm#Export_Morph">Exporting 3ds Max Morph Target Visuals and Animations</A></LI>
+</UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="40_morph_and_blend_shape_animation.htm#Maya_Blend_Shapes">Maya Blend Shapes</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp" alt=""><A HREF="40_morph_and_blend_shape_animation.htm#Blendshapes_Skin">Using blendshapes with skeletal animation</A></LI>
+ <LI><IMG SRC="images/leaf.bmp" alt=""><A HREF="40_morph_and_blend_shape_animation.htm#Export_Blend_Shapes">Exporting Maya Blend Shapes</A></LI>
+</UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p>The BigWorld engine supports both <b>Mesh Morph Target</b> from 3ds Max and 
+<b>Mesh Blend Shapes</b> from Maya. It does not support UV mapping morph targets.</p>
+
+<p>Morph targets are commonly used for facial expressions and lip sync, although
+by no means are they restricted to these uses.</p>
+
+<p>When making facial animations, it is best to create a base <i>relaxed</i> 
+pose, and have all the morph targets added to this base.</p>
+
+<p>Morph targets  must contain the same vertex count as the base object. It
+is therefore recommended to create your morph targets only when the character 
+has been taken as far down the art pipeline as possible. A single revision at 
+the mesh level will require the recreation of all your morph targets.</p>
+
+<p>The vertex morph animation is relative to the local coordinate system of the 
+morph target. This allows you to place all morph targets anywhere in the scene. 
+Do not alter the morph target's local coordinate system, otherwise all the 
+vertices will offset relative to that local coordinate change when the animation 
+is played. </p>
+
+<p class=imgLvl1><img src="40_morph_and_blend_shape_animation_files/image001.jpg"></p>
+<p class=captLvl1>Morph targets in 3dsMax placed around the player character</p>
+<p class=captLvl1>&nbsp;</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Restrictions" id="Restrictions">Morph target restrictions</a></span></h2>
+<DIV>
+  <p>There are several restrictions and rules that need to be followed in order for morph targets to work.</p>
+  <p><strong>The order of morph and skin matter:</strong> In both 3dsMax and Maya the morph targets must be applied underneath the skinning otherwise the result seen in BigWorld will differ to the result seen in the 3d App.</p>
+  <p><strong>Do not alter the vertex count after creating morph targets:</strong> Once a morph target has been added you cannot make changes to the mesh which will alter the vertex index. Alterations that commonly effect vertex index include (cutting, extruding, dividing,    turn edges, adding geometry, removing geometry). 
+Note: Alterations that do not modify the vertex index such as moving vertices should be OK, but I advise testing your workflow on a simple cube before starting on a character.</p>
+  <p>&nbsp;</p>
+  </DIV>
+
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="3dsMax_Morph_Targets">3ds Max Morph Targets</a></h2></span>
+<DIV>
+<DIV>
+<p>In 3ds Max, the typical workflow for creating morph targets is to make copies 
+of the base object and move vertices within these copies to create the morph 
+targets. Alterations must not affect the vertex count of the copied object. So 
+operations like <i>cut</i>, <i>divide</i>, and <i>extrude</i> cannot be used.</p>
+
+<p>Morph targets in 3ds Max are added using the <b>Morpher</b> modifier.</p>
+
+<p class=numBltLvl1>1 Select your base object and add a <b>Morpher</b> modifier.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image001.gif"></p>
+
+<p class=numBltLvl1>2 Click either the <b>Pick Object from Scene</b> or the 
+<b>Load Multiple Targets</b> button to select the morph targets to use for the 
+base object.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image002.gif"> 
+                 <img src="40_morph_and_blend_shape_animation_files/image003.gif"></p>
+
+<p class=numBltLvl1>3 Once the targets have been added to your object, set key 
+frames for the sliders to create your animation.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image004.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="Export_Morph">Exporting 3ds Max Morph Target Visuals and Animations</a></h3>
+</span>
+<DIV>
+
+<p>Before exporting your morph target model, make sure you hide all  
+morph targets and set them to 0%. If you exported the visual mid animation that exported pose would be used as the neutral position. Subsequent animations added to the model  would play on top of this &quot;neutral&quot; pose.</p>
+<blockquote>
+  <p>	<img src="40_morph_and_blend_shape_animation_files/image015.gif" width="145" height="81"></p>
+  <p>Morph targets set to neutral pose 0% on export of visual. </p>
+</blockquote>
+<p class=numBltLvl1>1 Export the object as an animated visual.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image005.gif"></p>
+
+<p class=numBltLvl1>2 Export the animations with the <b>Export Morph Animation</b> 
+selected.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image006.gif"></p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Maya_Blend_Shapes">Maya Blend Shapes</a></h2></span>
+<DIV>
+<DIV>
+<p>To add blend shapes to an object in Maya, follow the steps below:</p>
+<p class=numBltLvl1>1 Firstly ensure that all your blendshape objects have a uniqe name.</p>
+<p class=numBltLvl1>2 Shift select all the blend shape objects then shift select the base 
+  object (the base object must be selected last).</p>
+<p class=numBltLvl1>2 Select the <b>Create Deformers &rarr; Blend Shape&rarr;
+<img src="40_morph_and_blend_shape_animation_files/image013.gif"></b> menu item 
+&ndash; the <b>Create Blend Shape Options</b> dialog box will be displayed.</p>
+
+<p class=numBltLvl1>3 In the <b>Create Blend Shape Options</b> dialog box's
+<b>Basic</b> tab:</p>
+
+<p class=ltrBltLvl2>A In the <b>BlendShape Node</b> field, type the name of your
+blend shape.</p>
+
+<p class=ltrBltLvl2>B Click the <b>Create</b> button.</p>
+
+<p class=imgLvl3><img src="40_morph_and_blend_shape_animation_files/image014.gif"></p>
+
+<p>To view and animate your blend shapes, you can select the <b>Window &rarr;
+Animation Editors &rarr; Blend Shape</b> menu item &ndash; the <b>Blend Shape</b>
+dialog box will be displayed.</p>
+
+<p class=imgLvl1><img src="40_morph_and_blend_shape_animation_files/image010.gif"></p>
+<p class=imgLvl1>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name=Blendshapes_Skin id="Blendshapes_Skin">Using blendshapes with skeletal animation</a></h3>
+</span>
+<DIV>
+<p class=imgLvl1>&nbsp;</p>
+<p class=imgLvl1>When using morphs on a skinned object it is important to create the blend targets first, then skin the object. </p>
+<p class=imgLvl1>If you create the blend shapes after skinning the mesh will animate differently in BigWorld than it does in Maya. </p>
+<p class=imgLvl1>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Export_Blend_Shapes">Exporting Maya Blend Shapes</a></h3></span>
+<DIV>
+
+<p>Before exporting your blend shape model, make sure you hide all  
+blend shapes and set them to 0%. If you exported the visual mid animation that exported pose would be used as the neutral position. Subsequent animations added to the model  would play on top of this &quot;neutral&quot; pose.</p>
+<p><span class="imgLvl1"><img src="40_morph_and_blend_shape_animation_files/image010.gif"></span></p>
+<p>Blend shapes set to neutral pose 0% on export of visual. </p>
+<p>To export the blend shape animation, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Select the <b>File &rarr; Export All</b> menu item &ndash; 
+the <b>Export</b> dialog box will displayed.</p>
+
+<p class=numBltLvl1>2 In the <b>Export</b> dialog box, specify the folder, file
+name, and file type (<b>BigWorld Asset</b>) of the animation, then click the
+<b>Export</b> button &ndash; the <b>Visual Exporter</b> dialog box will be 
+displayed.</p>
+
+<p class=numBltLvl1>3 In the <b>Visual Exporter</b> dialog box, select the 
+<b>Visual</b> options button and the <b>Animated Type</b> group box's 
+<b>Animated, skinned</b> option button, then click the <b>OK</b> button.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image011.gif"></p>
+
+</DIV>
+</DIV>
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

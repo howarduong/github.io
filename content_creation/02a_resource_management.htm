@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <title>Manage Resources</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!-------- CHAPTER TITLE -------->
+<h1><a name="lessonTitle">Manage Resources</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Case">Letter Case</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#BWAssets">Reusing BigWorld art assets</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="02a_resource_management.htm#OrganiseAssets">Organising art resources</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Sets">Sets</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Characters">Characters - Avatars and NPC's</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Others">Non specific reources</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Terrain">Terrain Maps</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Particles">Particles</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Source">Working with source creation files</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Working_with_the_Asset_Browser">Working with the Asset Browser</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02a_resource_management.htm#Customise_Asset_Browser">Customising the Asset Browser</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>When creating content for a game using BigWorld, you need to establish an 
+efficient and safe way to handle potentially large amounts of generated data.</p>
+
+<p>Optimising the resources folder structure, combined with effective
+version control software, should help any artist feel comfortable in negotiating the
+content creation process.</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Case" id="Case">Letter Case</a></span></h2>
+<DIV>
+  <p>It is extremely important to maintain a consistent letter case (upper/lower) throughout development. </p>
+  <p>Although  the BigWorld tools and Windows are case insensitive, the BigWorld server and its scripts run on Linux which is case sensitive. Problems may arise if there is a reference to an art asset within the servers scripts that has inconsistent case.</p>
+  <p>For this reason we recommend that <strong>lower case</strong> be used for the file names of all art assets.</p>
+  <p>In order to prevent case problems occurring we recommend that the source control software you are using be set up to prevent upper case files from being committed.</p>
+  <p>&nbsp;</p>
+</DIV>
+<p>
+  <!-------- SECTION - ORGANISING ART RESOURCES-SETS --------></p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="BWAssets" id="BWAssets">Reusing BigWorld art assets </a></span></h2>
+<DIV>
+  <p>For information regarding the reuse of BigWorld art assets please refer to <a href="../licensing_information.html">licensing_information.html</a></p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="OrganiseAssets" id="OrganiseAssets"> Organising art resources</a></h2></span>
+<DIV>
+
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="Sets" id="Sets"> Sets</a></h3></span>
+<DIV>
+<p>We have attempted to optimise the resource paths so that world
+  building is simpler, requiring less navigation and allowing more time
+  to be spent on enriching the game environment. The following describes
+  the ways we have tried to organise common resources in a way more friendly
+  to world builders. An empty file structure resembling the setup below
+  can be found within the <code>\bigworld\doc\tools_tutorial_examples</code> 
+  folder under. It may be useful to copy this folder structure 
+  to your 
+  <cde>res folder. </cde>
+</p>
+<p>Although the location of art resources is flexible (providing they lie 
+  within the <code>res</code> path), we have found the following structure 
+  to be useful:</p>
+
+<p>Artist assets have been organised in folders representing similar environments called 
+<code>sets</code>. In the example below the folder 
+<code>res/sets/temperate</code> pertains to a warm outdoor scene.</p>
+   <!-- Image --> 
+   <p class="imglvl1"><img src="02a_resource_management_files/image001.gif"></p> 
+   <p class=captLvl1>Resource folder structure</p>
+
+<p>Within each <code>sets</code> folder, the following sub-folders are found:</p>
+   <!-- Image-bulleted list --> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+   <code>flora</code> - Contains the visual, model, primitive, and texture files of <a href="31_flora.htm">flora objects</a> specific to the set.</p> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+   <code>materials</code> - Contains <a href="34_fx_files_and_materials.htm">material</a> <code>*.mfm</code> files used within the set.</p> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+   <code>props</code> - Contains the visual, model, primitive, and texture files of props that are specific to the set.</p> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+   <code>shells</code> - Contains
+the <a href="06_create_shell.htm">shell visual</a> files, as well as the  model, primitive, and texture files of shells
+specific to the set. (Shells will only be recognised by the engine if
+they are located in a folder named <code>shells</code>).</p>
+
+<p>If the game world has a good deal of variety, then the <code>props</code> 
+folder can become cluttered.<br>
+It is up to the user to determine the volume of objects that will
+eventually populate a particular set, and to devise a sub-folder
+structure to adequately categorise similar objects.<br>
+We recommend limiting the sub-folder categorization, in order to reduce
+the amount of time world builders spend navigating resource trees.</p> 
+
+<p class="lvl1">Below is an example of such a folder structure:</p>
+   <!-- Image --> 
+   <p class="imglvl1"><img src="02a_resource_management_files/image002.gif"></p> 
+   <p class=captLvl1>Example folder structure</p>
+
+<p>Because animations and level of detail (<i>LOD</i>) models are not used by the world builders when placing objects, 
+they can be organised within their own sub-folders <code>animations</code> and <code>lods</code> respectively.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Characters"> Characters - Avatars and NPC's</a></h3></span>
+<DIV>
+
+
+<p>Avatars (player-controlled characters) and NPC's (<i>Non-Player Characters</i>) are not specific to a set, 
+and therefore are more complex than most BigWorld objects.<br>
+   For this reason they are given their own folder structure.</p>
+   <!-- Image --> 
+   <p class="imglvl1"><img src="02a_resource_management_files/image003.gif"></p> 
+   <p class=captLvl1>Character folder structure</p>
+
+<p>In this structure, the following sub-folders are found:</p>
+   <!-- Image-bulleted list --> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*"><code>res/characters</code> - Common folder for character files.</p> 
+   <p class="imgBltLvl2"><img src="images/bullet.gif" alt="*"><code>avatars</code> - Contains one sub-folders for each avatar type. The folder <code>knight</code> in the example above contains the model, visual, primitives, LOD, and texture files for the knight avatar.</p> 
+      <p class="imgBltLvl3"><img src="images/bullet.gif" alt="*"><code>animations</code> - Contains animation files shared between characters.</p> 
+   <p class="imgBltLvl2"><img src="images/bullet.gif" alt="*"><code>npc</code> - Contains one sub-folder for each NPC type. The folder <code>crow</code> in the example above contains the model, visual, primitives, LOD, and texture files for the crow creature.</p>
+</DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Others">Non-specific resources</a></h3></span>
+<DIV>
+
+<p>Assets not specific to a particular set are stored within sub-folders under <code>res</code>.</p>
+   <!-- Image -->
+   <p class="imglvl1"><img src="02a_resource_management_files/image004.gif"></p> 
+   <p class=captLvl1>Non-specific resources folder structure</p>
+
+<p>Examples include:</p>
+   <!-- Image-bulleted list --> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*"><code>res/flora</code> - Contains the visual, model, primitive, and texture files of flora objects that are not specific to a particular set.</p> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*"><code>res/maps</code> -  Contains
+texture files that are not specific to a particular set, or that are
+used within multiple sets. For example, a special alpha map used in
+both a particle system, and a special effect shimmer object, would be
+stored in this folder.</p> 
+  <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*"><code>res/maps/fx</code> - Contains
+the visual, model, and primitive files related to special effects such
+as explosion debris that are not specific to a particular set.</p> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*"><code>res/maps/particles</code> - Contains maps used specifically within the particle system.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Terrain">Terrain Maps</a></h3></span>
+<DIV>
+
+<p>Terrain maps are placed in  their own directory (<code>res/maps/terrain</code>) in order to avoid confusion with other texture maps, and to aid in world building. The World Editor will only display bitmaps that are placed in this directory. If you need to store your terrain maps in a different directory structure you will need to <a href="#Customise_Asset_Browser">edit the Asset Browser.</a> </p>
+   <!-- Image --> 
+   <p class="imglvl1"><img src="02a_resource_management_files/image005.gif"></p> 
+   <p class=captLvl1>Terrain maps folder structure</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Particles">Particles</a></h3></span>
+<DIV>
+
+<p>Particle system XML files are stored under the folder <code>res/particles</code>. No other files should be stored here.</p>
+
+<p>ParticleEditor saves particle systems to this folder.
+Texture files used within particle systems can be stored under <code>res/maps/particles</code>.</p>
+   <!-- Image --> 
+   <p class="imglvl1"><img src="02a_resource_management_files/image006.gif"></p> 
+   <p class=captLvl1>Particle system folder structure</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Source">Working with source creation files</a></h2></span>
+<DIV>
+
+<p>Source (or working) files are the actual content created using
+either a 3D package such as 3ds Max / Maya, or a 2D image program like
+Photoshop.</p>
+
+<p>We suggest you follow these protocols when working with original source material:</p>
+   <!-- Image-bulleted list --> 
+   <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">The source
+files are created locally, then copied to a network or committed to source control to be shared by other
+artists. Any modifications  made locally first should always be  updated on the
+network.</p> 
+  <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">Consider
+using a version control program, such as SVN, Perforce or CVS, to update the network
+content with the final working files for each asset. This is very
+helpful in tracking changes and retrieving past versions of the
+resources.</p> 
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Working_with_the_Asset_Browser">Working with the Asset Browser</a></h2></span>
+<DIV>
+
+<p>The Asset Browser is a resource browsing facility built into all the
+BigWorld content creation tools (WorldEditor, ModelEditor and
+ParticleEditor). It can be accessed from the Assets tab in any of the content creation tools. </p>
+<p>When using the Asset Browser it can be useful to move it to a second monitor or dock it on the other side of the screen. To move the Asset Browser simply select and drag the Assets tab to the new location. </p>
+
+<p class=imgLvl1><img src="02a_resource_management_files/image007.gif"></p>
+<p class=captLvl1><b>Asset Browser</b> panel's virtual folders</p>
+
+<p>The Asset Browser's parent  folders are filters, not  directory structures.  If you select the <b>Models</b> virtual folder, then the Asset browser will only show models located in those folders outlined in the tools <a href="02a_resource_management.htm#Customise_Asset_Browser"><code>ual_config.xml</code></a> within your <a href="01_setup_new_project.htm#Setting">resource paths.</a></p>
+<p> Likewise if you select <strong>Textures</strong> then the Asset browser will show all the textures located in those folders outlined in the tools <a href="02a_resource_management.htm#Customise_Asset_Browser"> ual_config.xml</a> within your <a href="01_setup_new_project.htm#Setting">resource paths.</a> </p>
+
+<p class=imgLvl1><img src="02a_resource_management_files/image008.gif"></p>
+<p class=captLvl1><b>Asset Browser</b> panel &ndash; Using the search field</p>
+
+<p>The dynamic search field will further limit the displayed resources to those resources containing the text typed in the search field. In the example above the Asset browser is displaying all models (because the Models virtual folder is selected) with the text &quot;ranger&quot; in their model name. </p>
+<p>If you want to browse a  folder structure directly, then you can expand any of the virtual folders to display the directory structure inside your resource paths.</p>
+
+<p class=imgLvl1><img src="02a_resource_management_files/image010.gif"></p>
+<p class=captLvl1><b>Asset Browser</b> panel &ndash; Using the virtual folder's tree structure</p>
+
+<p>The favorites folder can be used to collect frequently used assets. To add an asset to Favorites simply drag the asset from the browser window over the favorites folder. All types of assets can be added to the Favorites folder. </p>
+<p>There are three ways to open/add an asset from the Asset Browser.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">In WorldEditor, assets can be added to the world by  selecting the asset and pressing enter in the viewport.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">In all the tools, assets can be dragged directly from the Asset Browser to the tool's viewport.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">In ModelEditor and ParticleEditor, double-clicking an asset opens it in the tool's viewport.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Customise_Asset_Browser">Customising the Asset  Browser</a></h2></span>
+<DIV>
+
+<p>Although most of the virtual folders will point directly to the paths outlined in your <a href="01_setup_new_project.htm#Setting">resource paths</a> there are some exceptions. </p>
+<p>The <b>Particles</b> virtual folder for example will only look inside the <code>res/particles</code> folder. </p>
+<p>The <b>Textures</b> virtual folder within WorldEditor will only look in the <code>res/maps/terrain</code> folder. </p>
+<p>This behaviour can be modified by editing the <code>ual_config.xml</code> found in <code>mf/bigworld/tools/<b>BigWorldTool</b>/resources/ual/ual_config.xml</code>. XML files can be edited with Notepad (Right click Open - With). </p>
+<p>Within <code>ual_config.xml</code> you will find a <code>&lt;Files&gt; &quot;FolderName&quot;</code> tag that instructs the Asset Browser to look in specific places for assets. The example below shows the tag outlining where particles can be found.</p>
+
+<pre>&lt;Files&gt; <b>Particles</b>
+   &lt;path&gt;           <b>particles</b>                                &lt;/path&gt;
+   &lt;disableFilter&gt;  Models;Shells;Prefabs;Trees;Entities;XML &lt;/disableFilter&gt;
+   &lt;folderExclude&gt;  *CVS;*/spaces;*/.bwthumbs                &lt;/folderExclude&gt;
+   &lt;extension&gt;      xml                                      &lt;/extension&gt;
+   &lt;thumbnailSize&gt;  1                                        &lt;/thumbnailSize&gt;
+   &lt;showSubfolders&gt; true                                     &lt;/showSubfolders&gt;
+   &lt;showFiles&gt;      true                                     &lt;/showFiles&gt;
+&lt;/Files&gt;</pre>
+
+<p>As you can see above, the <b>Particles</b> virtual folder is looking in the <code>res/<b>particles</b></code> folder.</p>
+
+<pre>&lt;Files&gt; <b>Particles</b>
+   &lt;path&gt;           <b>particles</b>                                &lt;/path&gt;
+   &lt;path&gt;           <b>temperate/particles</b>                      &lt;/path&gt;
+   &lt;disableFilter&gt;  Models;Shells;Prefabs;Trees;Entities;XML &lt;/disableFilter&gt;
+   &lt;folderExclude&gt;  *CVS;*/spaces;*/.bwthumbs                &lt;/folderExclude&gt;
+   &lt;extension&gt;      xml                                      &lt;/extension&gt;
+   &lt;thumbnailSize&gt;  1                                        &lt;/thumbnailSize&gt;
+   &lt;showSubfolders&gt; true                                     &lt;/showSubfolders&gt;
+   &lt;showFiles&gt;      true                                     &lt;/showFiles&gt;
+&lt;/Files&gt;</pre>
+
+<p>It has now been modified to search in both <code>res/particles</code> and <code>res/temperate/particles</code>.</p>
+
+</DIV>
+
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

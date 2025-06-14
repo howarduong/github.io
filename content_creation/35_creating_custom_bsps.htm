@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create Custom BSPs</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">Create Custom BSPs</a></h1>
+
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="35_creating_custom_bsps.htm#Definition">BSP definition</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="35_creating_custom_bsps.htm#Creating">Creating a BSP for an animated object</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="35_creating_custom_bsps.htm#Material_Kind">Custom BSPs and material collision flags</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="35_creating_custom_bsps.htm#Navigation">Navigation </A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="35_creating_custom_bsps.htm#Vertical_Navigation_Limits">Vertical navigation limits</A></LI>
+ </UL>
+
+
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<!-- SECTION - DEFINITION -->
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Definition">BSP definition</a></h2></span>
+<DIV>
+
+<p>BSPs (Binary Space Partitioning) are used by the BigWorld engine to
+calculate object collisions and terrain shadows. The BigWorld's Visual Exporter
+automatically creates BSPs for non-animated objects.</p>
+
+<p>There are several reasons you may want to create a custom BSP:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">To define what parts of a model 
+can be collision obstacles.</p>
+<p class=imgBltLvl1><img src="images/bullet.gif">To reduce the memory used on the server by using custom BSP's with fewer polygons than the rendered model</p>
+<p class=imgBltLvl1><img src="images/bullet.gif">To define which parts of an 
+  object create shadows.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">To create a BSP for an animated 
+object (BigWorld's Visual Exporter does not create BSPs for animated objects 
+automatically).</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Creating a BSP for an animated object</a></h2></span>
+<DIV>
+
+<p>The tree below is animated, and therefore a BSP is not created when the
+object is exported. </p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image001.gif">
+                 <img src="35_creating_custom_bsps_files/image002.gif">
+                 <img src="35_creating_custom_bsps_files/image003.gif"></p>
+
+<p>To create a BSP, build a lower-polygon mesh that closely represents the
+object (LOD meshes can be useful for this purpose). Take extra care to match the 
+mesh as close as possible in areas where player/object collisions will take 
+place.</p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image004.gif">
+                 <img src="35_creating_custom_bsps_files/image005.gif"></p>
+
+<p>Name the lower-polygon mesh with the suffix <code>_bsp</code>, and export the 
+object as normal. Do not hide the BSP model.</p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image006.gif"></p>
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image011.gif" width="344" height="93"></p>
+
+<p>The model should now have a custom BSP, which can be checked in ModelEditor 
+&ndash; make sure that the <b>Display Settings</b> panel's <b>Show Box</b> check
+box is selected.</p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image009.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Material_Kind">Custom BSPs and material collision flags</a></h2></span>
+<DIV>
+
+<p>Material collision flags are set in ModelEditor's <b>Material Settings</b>
+panel, and define what an object collides with.</p>
+<p>&nbsp;</p>
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image010.gif" width="228" height="186"></p>
+
+<p>The <b>Collision Flag</b> drop-down list box options are described in the
+table below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Option      </th>
+       <th                   >Description </th></tr>
+   <tr>
+     <td class=oddRow1stCol>Camera On Player On </td>
+       <td class=oddRow      >
+Object collides with both the camera and the player.</td></tr>
+
+   <tr>
+     <td class=evnRow1stCol><span class="oddRow1stCol">Camera On Player Off </span></td>
+       <td class=evnRow      >
+Object collides with the camera, but not with the player.</td></tr>
+
+   <tr>
+     <td class=oddRow1stCol>Camera Off Player On</td>
+       <td class=oddRow      >
+Object collides with the player but not the camera.</td>
+   </tr>
+
+ <tr>
+   <td class=evnRow1stCol><span class="oddRow1stCol">Camera Off Player Off</span></td>
+       <td class=evnRow      >
+Object does not collide with anything.</td></tr></table>
+
+<p>An object that collides with the player  prevents the player from moving through that object. </p>
+<p>Camera collision is slightly more complicated. The default camera type in Fantasy Demo draws a ray from the camera to the player. If an object that collides with camera ray then the camera will be said to have collided with that object. In the case of the Fantasy Demo this causes the camera to move forward through the colliding object until it can see the player. </p>
+<p>Individual parts of a custom BSP can be assigned different material
+  collision flags, if the custom BSP model is assigned material names matching the
+  host model. </p>
+<p>&nbsp;</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Navigation" id="Navigation">Navigation and art</a></span></h2>
+<DIV>
+  <h4><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Vertical_Navigation_Limits" id="Vertical_Navigation_Limits">Vertical navigation limit</a></span></h4>
+  <DIV>
+    <p>There are a few restrictions to navigation that artists should be aware of. </p>
+<p>There can be a maximum of 15 vertical navigation points at any one point in a chunk. This means that you should not create an asset such as a building that has more than 15 navigatable vertical levels. This doesn't rule out high rise apartments, it just means that if you do create such an asset you must divide those vertical levels into shells which will also give you the added bonus of better portal occlusion.</p>
+    <p><img src="35_creating_custom_bsps_files/image001.jpg" width="782" height="338"></p>
+  </DIV>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

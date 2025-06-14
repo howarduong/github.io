@@ -1,0 +1,1333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+   <title>Create an Internal Shell</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style type="text/css">
+<!--
+.red {
+	color: #F00;
+}
+-->
+</style>
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!-------- CHAPTER TITLE -------->
+<h1><a name="lessonTitle">Create an Internal Shell</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#What_is_a_Shell">What is a shell? </A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Components_Shells">Components of a shell </A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Portal_restrictions">Portals</A></LI>
+  <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Standard_Portal">Standard portals</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Exit_Portal">Exit portals</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Heavenly_Portal">Heavenly portals</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Portal_Rules">Portal Rules</A></LI>
+ </UL>
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Custom_Hull">Custom Hull </A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#HullRules">Custom Hull Rules</A></LI>
+ </UL> 
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Game_Geometry">Game Geometry</A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#GameGeometryRules">Game Geometry Rules</A></LI>
+ </UL>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#ShellSnaps_WorldEditor">Shell snaps within WorldEditor</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Modelling">Tutorial: Modelling a room as a shell</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#CreatingCeilingHeightVariation">Tutorial: Creating ceiling height variation</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Creating_Portals">Tutorial: Creating portals</A></LI>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Portal_Label">Labelling portals</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Exit">Standard portals</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Exit">Exit portals</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Heavenly">Heavenly portals</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Shell_Planning">Shell planning - dividing up an internal space</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Shell_Navigation">Shell navigation constraints</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Town">Town planning - using portals to create cities and towns</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Type1">City type 1</A></LI> 
+ <LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Type2">City type 2</A></LI> 
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Material_Portals">Portal creation: using materials on custom hulls</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Preventing_Sparkles">Prevent sparkles and improve culling </A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Shell_Flanges">Shell flanges</A></LI> 
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Plugs">Plugs</A></LI> 
+  <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#BuildingPlugForStandardPortal">Tutorial: Plug for the standard portal</A></LI> 
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#BuildingPlugForExitPortal">Tutorial: Plug for the exit Portal</A></LI> 
+  </UL>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#UnderCover">Creating an undercover area</A></LI>
+<UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Shell_Flanges">Shell flanges</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Plugs">Plugs</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#BuildingPlugForStandardPortal">Plug for the standard portal</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#BuildingPlugForExitPortal">Plug for the exit portal</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Outside_only">Outside only: lighting properties</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="06_create_shell.htm#Outside_Only">Outside only </A></LI>
+ <UL STYLE="display:none">
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Shell_Flanges">Shell flanges</A></LI>
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Plugs">Plugs</A></LI>
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#BuildingPlugForStandardPortal">Plug for the standard portal</A></LI>
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#BuildingPlugForExitPortal">Plug for the exit portal</A></LI>
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Outside_only">Outside only: lighting properties</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Referencing">Referencing the room and plug texture maps</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Exporting">Exporting shells</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="06_create_shell.htm#Exporting2">Exporting the plugs</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="What_is_a_Shell">What is a Shell? </a></h2></span>
+<DIV>
+
+<p>Shells are modularised objects built in a 3d application that are designed 
+to snap together in WorldEditor.</p>
+
+<p>Their main purpose is to exclude geometry (including the terrain) from being 
+rendered by the game engine when the player is inside a room,
+  thereby potentially increasing the frame rate performance.</p>
+
+<p class="noteLvl1"><img src="images/note.bmp">Using shells will improve the performance of your game.</p>
+
+<p>Shells also provide an efficient method for level building, since you
+  can simply auto-snap them (middle click) together to create entire rooms, streets or
+  corridors.</p>
+<p>Shells don't have to be inorganic and square. The 3D geometry
+  that defines the explorable space within the shell can be any shape you wish,
+  providing it stays within the bounds of the shell&rsquo;s custom hull (if a
+  custom hull is used) or bounding box.  </p>
+	
+<p>The diagram below illustrates one such implementation of shell design. The
+  explorable space (white) can be any shape. The custom hull (red) must
+  be convex.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image101.gif"></p>
+
+<p>The shells will automatically snap together in WorldEditor at the
+  portals (blue). It is important that you make the explorable areas at
+  the portal boundaries match each other, otherwise there will
+  be an obvious transition between shells.</p>
+
+<p>Shells also allow for a more customisable lighting environment
+  than the outside world. For more information on lighting shells see the
+lesson <a href="22_add_lights_to_world.htm">Add Lights to the World</a>.</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Components_Shells" id="Components_Shells">Components of a shell </a></h2>
+</span>
+<DIV>
+
+<p>Shells consist of up to three unique parts:
+<p class="imgbltLvl1"><img src="images/bullet.gif">portals</p>
+<p class="imgbltLvl1"><img src="images/bullet.gif">custom hull (optional) </p>
+<p class="imgbltLvl1"><img src="images/bullet.gif">game geometry</p>
+
+<!-- SECTION - RULES GOVERNING THE CREATION OF SHELLS - PORTAL RESTRICTIONS -->
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="Portal_restrictions">Portals</a></h3>
+</span>
+<DIV>
+
+<p>Portals are basically windows into a shell &ndash; they tell the game engine 
+when it can see into the next shell.</p>
+
+<p>There are three types of portals, each allowing the engine to see in a different 
+direction:</p>
+<p><span class="tipLvl1"><img src="images/tip.bmp">The type of material or texture 
+assigned to each portal is irrelevant. The textures assigned to 
+the portals are there for visual identification purposes only (they can be found in <code>bigworld\doc\tools_tutorial_examples</code > within the path <code>helper_maps</code></span></p>
+<span onClick="toggle_heading()"><h4><img src="images/expanded.bmp"><a name="Standard_Portal" id="Standard_Portal">Standard portals</a></h4></span>
+<DIV>
+  <p class="imgLvl0"><img src="06_create_shell_files/AID_portal.gif" style="float:left; margin-right:6pt;"></p>
+  <p>Standard/inter-shell portals allow the direct connection of one shell to 
+    another, providing a two-way passage for the player to move through. When two 
+    shells are connected (or resolved), the inside of one shell can be seen when 
+    viewed from the other, and vice-versa.</p>
+  <p>In 3ds Max, the tag line "<code>portal=true</code>" must be added to the <b>Properties</b> dialog box under the <b>Object Properties&rarr;User Defined</b> tab for that portal. To add a Standard portal flag to 
+    your portal geometry in Maya, use the BigWorld Shelf's <b>Add Portal</b> button 
+    (<img src="06_create_shell_files/image010.png">).</p>
+  <p>&nbsp;</p>
+</DIV>
+<h4><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Exit_Portal" id="Exit_Portal">Exit portals</a></span></h4>
+<DIV>
+  <p class="imgLvl0"><img src="06_create_shell_files/AID_exitportal.gif" style="float:left; margin-right:6pt;"></p>
+  <p>Exit portals allow a two-way passage from the inside of a shell to the outside terrain. When the 
+    player is inside the shell, the terrain (outside) will be visible to the player, and vice-versa.</p>
+  <p>In 3ds Max,the tag line "<code>portal=true</code>" followed by 
+    "<code>exit=true</code>" on a new line must be added to the <b>Properties</b> dialog box under <b>Object Properties&rarr;User Defined</b> tab for that portal. To add an Exit flag to your portal geometry in Maya, use 
+    the BigWorld shelf's <b>Add Exit Portal</b> button 
+    (<img src="06_create_shell_files/image011.png">).</p>
+  <p class="imgLvl3"><img src="06_create_shell_files/image132.png"></p>	
+  <p class="captLvl3">Exit portals (green) must be used whenever there is an indoor-to-outdoor 
+    transition.</p>
+</DIV>
+<h4><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Heavenly_Portal" id="Heavenly_Portal">Heavenly portals</a></span></h4>
+<DIV>
+  <p class="imgLvl0"><img src="06_create_shell_files/AID_hportal.gif" style="float:left; margin-right:6pt;"></p>
+  <p>Heavenly portals are essentially one-way Exit portals. They allow all external objects to be rendered from the view of the internal shell. They do not allow the internal shell to be rendered when viewed from outside. Heavenly portals also have the unique feature that they let the sunlight in. </p>
+  <p>The tag line "<code>portal=true</code>" followed by "<code>heaven=true</code>"
+    on a new line must be added to the <b>Properties</b> dialog box under <b>Object 
+      Properties&rarr;User Defined</b> tab for that portal. To add a Heavenly flag to 
+    your portal geometry in Maya, use the BigWorld shelf's <b>Add Heavenly 
+      Portal</b> button (<img src="06_create_shell_files/image012.png">).</p>
+  </DIV>
+<span onclick=toggle_heading()>
+<h4><img src="images/expanded.bmp"><a name="Portal_Rules" id="Portal_Rules">Portal Rules</a></h4>
+</span>
+<DIV>
+
+<p class="numbltlvl1">1 Portals must lie on the surface of a bounding box, or 
+of the custom hull (if one is used).</p>
+<p class="numbltlvl1">2 Portals must be convex. They cannot be concave.</p>
+<p class="imgLvl2"><img src="06_create_shell_files/image107.png">
+<p class="captLvl2">Portals must be convex</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Custom_Hull">Custom Hull </a></h3></span>
+<DIV>
+
+<p>Hulls are a way of defining an artificial bounding box of a shell. The shell's
+bounding box or hull defines what objects lie within it, and is used to cull
+outside objects. Hulls are not a requirement of a shell &ndash; if a shell model is exported 
+without a custom hull, then the model's bounding box is used.</p>
+
+<p>Using custom hulls simplifies the work of making building shells. If you define a custom hull
+then it is very easy to ensure that your portal lies on its surface. If you use the 
+object's bounding box, a single stray vertex on the shell could offset the bounding box,
+making it difficult to place the portal on the bounding box's surface.  </p>
+<p>Below are two instances where a hull would be useful.</p>
+
+<p class="imglvl1"><img src="06_create_shell_files/image134.png"></p>
+
+<p>In the example above, the shell's bounding box (red) cannot be used as the 
+hull, because the blue portal would not be on the boundary of the shell. In this 
+case a custom hull matching the surface of shell1 is required.</p>
+
+<p class="imglvl1"><img src="06_create_shell_files/image119.png"></p>
+
+<p>In the example above, the shell1's bounding box (red) defines the blue object 
+within <code>Shell2</code> as belonging to <code>Shell1</code>. If a hull was 
+used (green line), then the blue object would clearly not belong to 
+<code>Shell01</code>.</p>   
+
+<p class="notelvl0"><img src="images/note.bmp">Hulls must be convex geometry,
+so the yellow line cannot be used as a hull boundary.</p>
+<p class="notelvl0">When exporting a shell with a portal that is not aligned to an axis (as
+in the example above) you may need to turn the exporter option <strong>Snap vertices </strong> to <strong> OFF. </strong></p>
+<p class="notelvl0">The Snap vertices option will force a portal's vertices to snap to the 
+nearest tenth of a millimeter. This is usually a desirable feature when creating portals that
+are aligned to an axis. However, when a portal is not axis-aligned it can cause the portal to 
+be pulled off the surface of a hull or bounding box resulting in the following error.</p>
+<p class="notelvl0"><img src="06_create_shell_files/image124.gif" width="350" height="101"> </p>
+<p class="notelvl0">If you get the following error, try turning <strong>Snap vertices</strong> to <strong>OFF</strong>. 
+If the error persists, your portal is probably positioned incorrectly on the surface of your shell. </p>
+<p class="notelvl0">  <img src="06_create_shell_files/image123.gif" width="302" height="235"></p>
+<h4><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="HullRules" id="HullRules">Custom Hull Rules</a></span></h4>
+<DIV>
+  <p class="numbltlvl1">1 Custom hulls must be convex. They cannot be concave. </p>
+  <p class="numbltlvl1">2 Custom hulls are identified by the suffix &quot;_hull&quot;, for example &quot;insertname_hull&quot; </p>
+  <p class="imgLvl2"><img src="06_create_shell_files/image125.gif" width="192" height="75">
+  
+  <p class="captLvl2">Custom hulls must be convex. </p>
+<span onclick=toggle_heading()></span></DIV>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Game_Geometry">Game Geometry</a></h3>
+</span>
+<DIV>
+
+<p>The geometry of the shell makes up the artistic content of the shell; its walls, floors, archways
+and pillars. </p>
+<p>Just remember that if you haven't used a custom hull, altering the game geometry can affect the 
+bounding box position, which  may result in portals being lost because they no longer lie on the surface of the bounding box. </p>
+
+<h4><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="GameGeometryRules" id="GameGeometryRules">Game Geometry  Rules</a></span></h4>
+<DIV>
+  <p class="numbltlvl1">1 The explorable space of the shell should lie within the bounds of the custom hull (if one is used). 
+  In the diagram below, the player P (red) in the right image would probably experience strange culling anomalies because 
+  he has moved outside the bounds of the custom hull (black). </p>
+  <p class="numbltlvl1">&nbsp;</p>
+  <p class="imgLvl2"><img src="06_create_shell_files/image126.gif" width="290" height="118">
+  
+  <p class="captLvl2">Keep the explorable space within the custom hull. </p>
+</DIV>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="ShellSnaps_WorldEditor" id="ShellSnaps_WorldEditor">Shell snaps within WorldEditor</a></h2>
+</span>
+<DIV>
+
+<p>A shell's movement within World Editor is quantised to 0.01-metre translations and 0.1 degree rotations.
+Sometimes it can be useful to move set dressing items with the same snap restrictions as shells. In such 
+cases you can use the preset snap setting <strong>Shell Snaps</strong> within World Editor. This will force
+any object you move to snap to 0.01-metre translations and 0.1 degree rotations.</p>
+<p><img src="06_create_shell_files/image127.gif" width="212" height="126"></p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Modelling">Modelling a room as a shell</a></h2></span>
+<DIV>
+  <p>Although the following tutorial was performed in 3ds Max, the same principles 
+    apply for those creating shells in Maya. If you are a Maya user, please take the 
+    time to read through the tutorial. </p>
+  <p>To model an example room, follow the steps below:</p>
+  <p class="numBltLvl1">1 Open 3ds Max.</p>
+  <p class="numBltLvl1">2 Load the example file <code>room_shell.max </code> from 
+    the <code>bigworld\doc\ools_tutorial_examples</code> folder  </p>
+  <p class="lvl2">The file can be found in <code>tools_tutorial_examples\working_files\sets\shells\Room_shell.max</code>.</p>
+  <p class="numBltLvl1">3 Create a box at the origin in the
+    perspective viewport, with the following size (in generic units):</p>
+  <p class="imgBltLvl2"><img src="images/bullet.gif">125 length <i>x</i> 110 width <i>x</i> 40 height (in generic units).</p>
+  <p class="imgBltLvl2"><img src="images/bullet.gif">Segments of 3 length <i>x</i> 3 width <i>x</i> 1 height.</p>
+  <p class="numBltLvl1">4 Change to a user viewport to see the home grid in an 
+    isometric view.</p>
+  <p class="imgLvl3"><img src="06_create_shell_files/image005.gif"></p>
+  <p class="captLvl3">Created box with its segments</p>
+  <p class="numBltLvl1">5 Convert the box to an <b>Editable Poly</b>.</p>
+  <p class="numBltLvl1">6 In 3dsMax, use the <b>Move</b> tool to translate it 27.5
+    units in the Y-axis.</p>
+  <p class="imgLvl3"><img src="06_create_shell_files/image006.gif"></p>
+  <p class="captLvl3">Box after translation in 3ds Max</p>
+  <p class="numBltLvl1">7 Create the first portal &ndash; a rectangle object will 
+    be used to represent the portals that the BigWorld engine uses to snap together 
+    different shells.</p>
+  <p class="ltrBltLvl2">A In the front viewport, create a rectangular shape of 
+    40<i>x</i>40 units using 3d grid snap.</p>
+  <p class="ltrBltLvl2">B Apply an <b>Extrude</b> modifier to it, with a height 
+    value of 0.</p>
+  <p class="lvl3">
+  <table>
+    <tr>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image007.gif"></p>
+          <p class="captLvl0"><span class="ltrBltLvl2_Font">A</span> 40<i>x</i>40 rectangle</p></td>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image008.gif"></p>
+          <p class="captLvl0"><span class="ltrBltLvl2_Font">B</span> Extruded rectangle</p></td>
+    </tr>
+  </table>
+  </p>
+  <p class="ltrBltLvl2">C Using the grid snaps, move the shape to the box position 
+    just beside the middle segments.</p>
+  <p class="lvl3">
+  <table>
+    <tr>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image010.gif"> <img src="06_create_shell_files/image011.gif"></p>
+          <p class="captLvl0">Moving the shape near the box, using grid snap</p></td>
+    </tr>
+  </table>
+  </p>
+  <p class="ltrBltLvl2">D Select box's middle-left row of vertices.</p>
+  <p class="ltrBltLvl3">A Select the box.</p>
+  <p class="ltrBltLvl3">B Enter <b>Sub-Object</b> mode.</p>
+  <p class="ltrBltLvl3">C Select the middle row of vertices on the left.</p>
+  <p class="imgLvl4"><img src="06_create_shell_files/image012.gif"></p>
+  <p class="captLvl4">Middle-left row of vertices selected</p>
+  <p class="ltrBltLvl2">E Set the reference coordinate system to <b>Pivot Point 
+    centre</b>.</p>
+  <p class="ltrBltLvl2">F Align middle-left row of box vertices to shape.</p>
+  <p class="ltrBltLvl3">A Using the <b>Align</b> tool, click on the shape.</p>
+  <p class="imgLvl4"><img src="06_create_shell_files/image013.gif"></p>
+  <p class="captLvl4">Aligning the vertices to the shape's left edge</p>
+  <p class="ltrBltLvl3">B In the <b>Align Sub-Object Selection</b> dialog box,
+    select the <b>X Position</b> check box, and in the <b>Target Object</b> group
+    box, select the <b>Minimum</b> option button.</p>
+  <p class="imgLvl4"><img src="06_create_shell_files/image122.png"></p>
+  <p class="captLvl4"><b>Align Sub-Object Selection</b> dialog box</p>
+  <p class="ltrBltLvl3">C The vertices should move in the x-axis, to the left edge 
+    of the shape, as shown below in <b>Top</b> view.</p>
+  <p class="imgBltLvl4"><img src="06_create_shell_files/image015.gif"></p>
+  <p class="captLvl4">Top view showing vertices aligned</p>
+  <p class="ltrBltLvl2">G Align the middle-right row of box vertices to shape.<br>
+    Follow the same procedures as in step <span class="ltrBltLvl2_Font">F</span> with the right row of vertices, so that they also lie on the grid, but this
+    time select the <b>Maximum</b> option button in <b>Target Object</b> group box.</b>
+  <p class="lvl3">
+  <table>
+    <tr>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image016.gif"></p>
+          <p class="captLvl0">Middle-right of vertices selected</p></td>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image017.gif"></p>
+          <p class="captLvl0">Top view showing vertices aligned, using 
+            the right side of shape as the target</p></td>
+    </tr>
+  </table>
+  </p>
+  <p class="ltrBltLvl2">H Both rows of the middle vertices of the box should now 
+    lie on the home-grid.</p>
+  <p class="imgBltLvl3"><img src="06_create_shell_files/image018.gif"></p>
+  <p class="captLvl3">Top view showing vertices aligned to the grid</p>
+  <p class="numBltLvl1">8 Create second portal</p>
+  <p class="ltrBltLvl2">A Exit <b>Sub-Object</b> mode of the box.</p>
+  <p class="ltrBltLvl2">B Select the shape.</p>
+  <p class="ltrBltLvl2">C While holding <code>Shift</code>, click the shape, to 
+    make a new copy of it. </p>
+  <p class="ltrBltLvl2">D Move and snap the copied shape to the adjacent side of 
+    the box, to absolute position <b>[X: 60, Y: 40, Z: 20]</b>.</p>
+  <p class="imgLvl3"><img src="06_create_shell_files/image019.gif"></p>
+  <p class="captLvl3">Shape copied and offset to absolute position</p>
+  <p class="ltrBltLvl2">E Rotate the shape's orientation by 90 degrees in the 
+    z-axis using <b>Angle</b> snap.</p>
+  <p class="imgLvl3"><img src="06_create_shell_files/image020.gif"></p>
+  <p class="captLvl3">Rotating shape by 90 degrees</p>
+  <p class="ltrBltLvl2">F Select the box.</p>
+  <p class="ltrBltLvl2">G Enter <b>Sub-Object</b> mode.</p>
+  <p class="ltrBltLvl2">H Align the middle-left row of box vertices to shape.</p>
+  <p class="ltrBltLvl3">A Select the middle-left row of vertices in line with the 
+    second shape.</p>
+  <p class="ltrBltLvl3">B Align the box's vertices to the
+    shape.</p>
+  <p class="lvl4">In the <b>Align Sub-Object Selection</b> dialog box, select the <b>Y Position</b> check box, and in the <b>Target Object</b> group box, select 
+    the <b>Minimum</b> option button.</p>
+  <p class="ltrBltLvl3">C The vertices should move to the left edge of the shape.</p>
+  <p class="lvl3">
+  <table>
+    <tr>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image125.png"></p></td>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image126.png"></p></td>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image127.png"></p></td>
+    </tr>
+    <tr>
+      <td><p class="captLvl0"><span class="ltrBltLvl3_Font">A</span> Middle-left row of vertices is selected</p></td>
+      <td><p class="captLvl0"><span class="ltrBltLvl3_Font">B</span> <b>Align Sub-Object Selection</b> dialog box</p></td>
+      <td><p class="captLvl0"><span class="ltrBltLvl3_Font">C</span> Vertices moved to left edge</p></td>
+    </tr>
+  </table>
+  </p>
+  <p class="ltrBltLvl2">I Align the middle-right row of box vertices to shape.</p>
+  <p class="ltrBltLvl3">A Select the middle-right row of vertices.</p>
+  <p class="ltrBltLvl3">B Align the box's vertices to the shape.</p>
+  <p class="lvl4">In the <b>Align Sub-Object Selection</b> dialog box, select the <b>Y Position</b> check box, and in <b>Target Object</b> group box, select the <b>Maximum</b> option button.</p>
+  <p class="ltrBltLvl3">C The vertices should move to the left edge of the shape.</p>
+  <p class="lvl3">
+  <table>
+    <tr>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image129.png"></p></td>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image130.png"></p></td>
+      <td valign="top"><p class="imglvl0"><img src="06_create_shell_files/image127.png"></p></td>
+    </tr>
+    <tr>
+      <td><p class="captLvl0"><span class="ltrBltLvl3_Font">A</span> Middle-right row of vertices is selected</p></td>
+      <td><p class="captLvl0"><span class="ltrBltLvl3_Font">B</span> <b>Align Sub-Object Selection</b> dialog box</p></td>
+      <td><p class="captLvl0"><span class="ltrBltLvl3_Font">C</span> Vertices moved to left edge</p></td>
+    </tr>
+  </table>
+  </p>
+  <p class="numBltLvl2">J From the top view, both rows of vertices should now lie 
+    on the grid in line with the second shape.</p>
+  <p class="imgLvl3"><img src="06_create_shell_files/image023.png"></p>
+  <p class="captLvl3">Top view showing vertices aligned to the grid</p>
+  <p class="lvl2">At this point the room only needs an entrance, some sockets, 
+    plugs, and portals.</p>
+  <p class="tiplvl1"><img src="images/tip.bmp">The walls in this example have been 
+    spaced a minimum of 0.5 metres away from the bounding box (outside edges) of the 
+    shell &ndash; this is to allow room for doors to open inside walls, and prevent
+    zero-thickness walls in corners of shells.</p>
+  <p class="notelvl1"><img src="images/note.bmp">Objects must be no larger than
+    100 metres (1,000 generic units) on any axis &ndash; this is the limit of object 
+    size inside the BigWorld engine. </p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="CreatingCeilingHeightVariation">Creating ceiling height variation</a></span></h3>
+  <DIV>
+    <p>To create a ceiling height variation for the room, follow the steps below:</p>
+    <p class="numBltLvl1">1 Enter <b>Poly Select</b> mode.</p>
+    <p class="numBltLvl1">2 On top of the box, select the six polygons opposite the 
+      second shape.</p>
+    <p class="imgLvl2"><img src="06_create_shell_files/image024.png"></p>
+    <p class="numBltLvl1">3 Using the <b>Inset</b> tool, scale the polygons inwards, 
+      to create additional edges inside the original selection.</p>
+    <p class="imgLvl2"><img src="06_create_shell_files/image025.png"></p>
+    <p class="numBltLvl1">4 Using the <b>Extrude</b> tool, slightly raise the height.</p>
+    <p class="imgLvl2"><img src="06_create_shell_files/image026.png"></p>
+    <p class="numBltLvl1">5 Using the <b>Bevel</b> tool, slightly scale the polygons 
+      up and out.</p>
+    <p class="imgLvl2"><img src="06_create_shell_files/image027.png"></p>
+    <p class="numBltLvl1">6 Using the <b>Extrude</b> tool, raise an edge on the 
+      rooftop, to complete the ceiling height variation.</p>
+    <p class="imgLvl2"><img src="06_create_shell_files/image028.png"></p>
+    <p class="numBltLvl1">7 You can now UV Unwrap the object and apply texture maps 
+      to it.</p>
+    <p class="imgLvl2"><img src="06_create_shell_files/image032.png"></p>
+  </DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Creating_Portals">Creating portals</a></h2>
+</span>
+<DIV>
+
+<p>To create a socket for an exit hole, follow the steps below:</p>
+
+<p class="numBltLvl1">1 Enter Sub-Object mode for the "<code>shell_room</code>".</p>
+
+<p class="numBltLvl1">2 Create first portal</p>
+
+<p class="ltrBltLvl2">A Select the polygon next to the
+first shape. </p>
+
+<p class="ltrBltLvl2">B In the <span class="interface">Extrude
+Polygons</span> dialog, set <span class="interface">Extrusion
+Height</span> to <span class="interface">-5.0</span>.&nbsp; </p>
+
+<p class="lvl3"><table><tbody><tr>
+   <td valign="top"><img src="06_create_shell_files/image037.gif"><br>
+                    <p class="captLvl0">Original polygon</p>      </td>
+   <td valign="top"><img src="06_create_shell_files/image038.gif"><br>
+                    <p class="captLvl0"><b>Extrude Polygons</b> dialog box</p>      </td>
+   <td valign="top"><img src="06_create_shell_files/image039.gif"><br>
+                    <p class="captLvl0">Extruded polygon</p>      </td>
+    </tr></tbody></table></p>
+
+<p class="ltrBltLvl2">C Completely detach the polygon, and
+name it "<code>portal_01</code>". </p>
+
+<p class="numBltLvl1">3 Create second portal</p>
+
+<p class="ltrBltLvl2">A Rotate the view so that the polygon next to the second shape is visible. </p>
+
+<p class="ltrBltLvl2">B Select that polygon and apply the same <b>Extrude Polygon</b>
+settings as before. </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/image040.gif"> </p>
+
+<p class="captLvl3">Extruded polygon </p>
+
+<p class="ltrBltLvl2">C Detach this polygon and name it "<code>portal_02</code>".</p>
+
+<p class="numBltLvl1">4 Create third portal</p>
+
+<p class="ltrBltLvl2">A Rotate the view back to see the
+opposite wall. </p>
+
+<p class="ltrBltLvl2">B Select the polygon directly
+opposite "<code>portal_02</code>" </p>
+
+<p class="ltrBltLvl2">C Apply the same <span class="interface">Extrude Polygon</span> settings as
+before. </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/image041.gif"> </p>
+
+<p class="captLvl3">Opposite polygon extruded </p>
+
+<p class="ltrBltLvl2">D Detach the polygon, and name it "<code>exit_portal</code>".</p>
+
+<p class="numBltLvl1">5 Exit Sub-Object. </p>
+
+<p class="numBltLvl1">6 Delete the two rectangle shapes
+previously created. </p>
+
+<p class="numBltLvl1">7 Assign textures to the portal
+objects </p>
+
+<p class="ltrBltLvl2">A Select the two portal objects
+named "<code>portal_01</code>" and "<code>portal_02</code>".</p>
+
+<p class="ltrBltLvl2">B Assign a portal texture to the
+selected portals. </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/AID_portal.gif"> </p>
+
+<p class="captLvl3">Inter-shell portal texture </p>
+
+<p class="ltrBltLvl2">C Select the "<code>exit_portal</code>"
+object. </p>
+
+<p class="ltrBltLvl2">D Assign an exit portal texture to
+it. </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/AID_exitportal.gif"> </p>
+
+<p class="captLvl3">Exit portal texture </p>
+
+<p class="numBltLvl1">8 Assign properties to the portal
+objects </p>
+
+<p class="ltrBltLvl2">A Select the "<code>portal_01</code>"
+object. </p>
+
+<p class="ltrBltLvl2">B Right-click the selected object,
+and in the quad menu select <span class="interface">Properties</span>.</p>
+
+<p class="ltrBltLvl2">C In the <span class="interface">User
+Defined</span> tab, type "<code>portal=true</code>". </p>
+
+<p class="ltrBltLvl3"><img src="06_create_shell_files/image115.gif"></p>
+<p class="captLvl3">3ds Max's <b>Object Properties</b> dialog box &ndash; Setting <code>portal_01</code></b>
+
+<p class="ltrBltLvl2">D Select the "<code>portal_02</code>"
+object. </p>
+
+<p class="ltrBltLvl2">E Set the same properties as for "<code>portal_01</code>".</p>
+
+<p class="ltrBltLvl2">F Select the "<code>exit_portal</code>"
+object. </p>
+
+<p class="ltrBltLvl2">G In the <span class="interface">User
+Defined</span> tab, type "<code>portal=true</code>"
+and "<code>exit=true</code>".&nbsp;</p>
+
+<p class="ltrBltLvl3"><img src="06_create_shell_files/image116.gif"></p>
+<p class="captLvl3">3ds Max's <b>Object Properties</b> dialog box &ndash; Setting <code>portal_02</code></b>
+</DIV>
+
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Portal_Label" id="Portal_Label">Labelling Portals</a></span></h2>
+<DIV>
+  <p>Portals can be labelled so that they can be accessed via game script. This might be used by programmers to close off a portal so that entities cannot navigate their way through.</p>
+  <p>In Maya an empty label is created in Extra Attributes when you click any of the add portal shelf buttons <img src="06_create_shell_files/image010.png" width="24" height="24"> <img src="06_create_shell_files/image011.png" width="24" height="24"> <img src="06_create_shell_files/image012.png" width="24" height="24">.  </p>
+  <p><img src="06_create_shell_files/image130.gif" width="424" height="529"></p>
+  <p>&nbsp;</p>
+  <p>In 3dsMax, labels are added to portals by adding the line <span class="ltrBltLvl2"> "<code>label=your_name</code>" to the User Defined properties tab of the portal geometry.  &quot;your_name&quot; is replaced with what ever label name you chose. </span></p>
+  <p><img src="06_create_shell_files/image131.gif" width="408" height="270"></p>
+<p>&nbsp;</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Shell_Planning" id="Shell_Planning">Shell planning - Dividing up an internal space</a></h2></span>
+<div><p>Before you begin converting your model of a room into a shell it is a good idea to
+sit down with a bit of graph paper and plan out the best way to divide up the room. </p>
+<p>Imagine we have a top down view of our room, as in the image below. </p>
+<p><img src="06_create_shell_files/image119.gif" width="222" height="150"></p>
+<p>1. The first thing you might notice is that in these circumstances, we are
+forced to use a custom hull because the portal doesn't lie on the surface of the bounding box.</p>
+<p><img src="06_create_shell_files/image120.gif" width="222" height="158"></p>
+<p>2. Because custom hulls must be convex, simply adding a custom hull around our object will not suffice, 
+because, again, the portal is not on the surface of the custom hull/bounding box. </p>
+<p><img src="06_create_shell_files/image121.gif" width="222" height="150"></p>
+<p>3. The only way to convert this space into a shell successfully (without artifacts)
+is to divide the space in two, and surround each section with a custom hull. The point at which
+the division occurs will require a portal.</p>
+<p><img src="06_create_shell_files/image122.gif" width="222" height="150"></p>
+</div>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp" alt=""><a name="Shell_Navigation" id="Shell_Planning2">Shell navigation constraints</a></span></h2></span><div>
+  <p>Due to limitations of entity navigation, shells should not be made with more than a single portal connecting two shells. If two doorways are required between two shells it is better to either split the shells or to use a single portal and object blockers.</p>
+<p><img src="06_create_shell_files/image135.png" width="888" height="162"></p>
+</div>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Town">Town planning - Optimising portal culling</a></h2>
+</span>
+<DIV>
+
+<p>Portals can be used to increase the rendering performance of geometry-rich 
+areas such as towns and cities. When designing a city it is important to take 
+into consideration how portals can be utilised.</p>
+ 
+<p>It is important to understand how portals  work in order to maximise their effectiveness.
+In Image 1 in the examples below, player P (red) is rendering the final shell (Shell3) because all the 
+portals (blue) are aligned. </p>
+<p>A better design choice would be to include a second portal (as in Image 2). In this
+example the player will not render shell4. </p>
+<p><span class="imgbltLvl0"><img src="images/bullet.gif">Shell geometry is not used to cull portal tests.</span></p>
+<p><img src="06_create_shell_files/image128.gif" width="704" height="206"></p>
+<p><span class="notelvl1"><img src="images/note.bmp"></span> <a href="32_best_practices.htm#DPVS_Umbra">Umbra</a> software can use shell geometry to occlude portals. </p>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Type1">City type 1</a></h3></span>
+<DIV>
+
+<p>This type features narrow streets with high buildings and surrounding walls. The high walls and 
+tall buildings of this city type occlude vision into neighbouring areas, making 
+it ideal for using shells.</p>
+<p><img src="06_create_shell_files/image005.jpg" width="358" height="252"></p>
+
+<p>Sections of the city can be created as shells. Portals can be placed at
+the end of streets and in archways.</p>
+<p>&nbsp;</p>
+<p><strong>Considerations</strong></p>
+
+
+
+<p class="imgbltLvl0"><img src="images/bullet.gif">If the city contains tall 
+buildings that are to be seen from multiple shells, then these shells must use 
+heavenly portals as their ceiling.</p>
+<p class=lvl1>Heavenly portals allow the outside world to 
+be rendered. Therefore the tall buildings must be outdoor objects and not belong 
+to any shell.</p>
+
+<p class="imgbltLvl0"><img src="images/bullet.gif">Because heavenly portals do 
+not allow players to see into a shell, players cannot look down into the city 
+from a high viewing position, such as a skyscraper &ndash; the heavenly portals 
+allow rendering one way (out), but not in.</p>
+
+<p class="imgbltLvl0"><img src="images/bullet.gif">This type of city should be surrounded with 
+a high wall, to prevent players looking into the city.</p>
+
+<p class="imgbltLvl0"><img src="images/bullet.gif">Shells can be snapped 
+together in WorldEditor, making town- and city-building fast.</p>
+
+<p class="imgbltLvl0"><img src="images/bullet.gif">Terrain geometry under the 
+city can be deleted to further increase rendering performance and prevent 
+Z-fighting. </p>
+
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Type2">City type 2</a></h3></span>
+<DIV>
+
+<p>This type features large streets with open areas such as markets and parks, with mostly small 
+buildings in which you can enter.</p>
+
+<p>Shells can be used 
+to create the interior of houses and buildings.</p>
+
+
+<p class="imgbltLvl0"><img src="images/bullet.gif">It is very important to 
+create at least two shells for each building.</p>
+   <p class=lvl1>The first shell (an entrance hallway, set of stairs, or 
+   reception room) allows the second more important and highly detailed room to 
+   be culled using the portal method.</p>
+   <p class=lvl1>The longer the hall (and hence the further the two portals are 
+   from each other), the bigger is the chance that the room will be culled from
+   outside. Most game designers will use a bent "L" shaped entrance way to
+   maximise portal culling. Multiple shells  will help increase the probability 
+   of culling the main internal shell. </p>
+   <p class=imgLvl1><img src="06_create_shell_files/image118.gif"></p>
+<p class=captLvl1>Portal and shell visibility considerations</p>
+ 
+<p class="imgbltLvl0"><img src="images/bullet.gif">The outside of a shell (brown) is a standard model which we refer to as a  fa&ccedil;ade.</p>
+   <p class=lvl1><span class="notelvl1"><img src="images/note.bmp"></span>Even though the fa&ccedil;ade geometry does not 
+   overlap the shell, its pivot point might. This results in the 3d engine mistaking 
+   the fa&ccedil;ade for an internal object belonging to that shell, and lighting 
+   it as such. To ensure that fa&ccedil;ades light correctly, in WorldEditor's
+   <b>Properties</b> tab, set the <strong> outside only</strong> property to 
+   <b>True</b>.</p>
+
+   <p class=imgLvl1><img src="06_create_shell_files/image014.gif"></p>
+<p class=captLvl1>WorldEditor's <b>Properties</b> tab</p>
+<p class="imgbltLvl0"><img src="images/bullet.gif">Minimise the size of each portal </p>
+<p>Because portal culling depends on portals lining up with each other and the
+  camera, the smaller the size of each portal, the greater the chance that culling 
+  will occur. For this reason, it is best to make the portal dimensions extend just beyond 
+  the size of the geometry defining the doorway, window or entrance, and no further.</p>
+</DIV>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Material_Portals" id="Material_Portals">Portal creation: Using materials on custom hulls</a></h2>
+</span>
+<DIV>
+
+<p>Creating a piece of geometry to represent a portal is not the only way you can create a portal. When using a Custom Hull you can create a portal by assigning a specifically named material to the surface of the custom hull. </p>
+<p>To create portals by assigning materials:</p>
+<p class="numBltLvl1">1 Make sure the name of your Custom Hull has
+the suffix "<code>_hull</code>" &ndash; this allows the exporter to choose this 
+object as your custom hull. </p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image092.gif"> </p>
+
+<p class="captLvl2">Creating a custom shell hull</p>
+
+<p class="numBltLvl1">3 Assign a material with the name <code>standard_portal</code> , <code>exit_portal</code>, or 
+<code>heaven_portal</code>, to one of the surfaces of the custom hull. This will create a portal at that 
+position.</p>
+   <p class=lvl2>The type and name of texture applied to the hull is irrelevant, 
+   but for viewing purposes we use three easily identifiable textures that you 
+   can find in <code>bigworld\res\helpers\maps</code>.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image001.jpg" align=middle>
+                   <img src="images/arrow.bmp"                   align=middle>
+                   <img src="06_create_shell_files/image042.gif" align=middle></p>
+<p class="imgLvl2"><img src="06_create_shell_files/image002.jpg" align=middle>
+                   <img src="images/arrow.bmp"                   align=middle>
+                   <img src="06_create_shell_files/image043.gif" align=middle></p>
+<p class="imgLvl2"><img src="06_create_shell_files/image003.jpg" align=middle>
+                   <img src="images/arrow.bmp"                   align=middle>
+                   <img src="06_create_shell_files/image102.gif" align=middle></p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image094.gif"></p>
+<p class="captLvl2">Creating a portal on a custom hull</p>
+
+<p class="notelvl1"><img src="images/note.bmp">The alternative method for creating portals (using geometry) still works with custom hulls. </p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Preventing_Sparkles">Preventing Sparkles and improve culling </a></h2>
+</span>
+<DIV>
+<DIV>
+
+<p>Sometimes no matter how carefully you make shells they do not
+resolve together closely enough in WorldEditor to prevent players from seeing a small line
+of "sparkles" between shell boundaries. This is due to floating point inaccuracies 
+from asset creation to display. The sparkly line visible in the picture below is a result of the outside world being visible
+between two shells.</p>
+<p>These sparkles are not only visually unappealing, they can result in decreased game performance due to bad culling. See the section on <a href="32_best_practices.htm#AssetsUmbra">how to create assets when using Umbra</a> </p>
+<p class="imgLvl1"><img src="06_create_shell_files/image100.gif"></p>
+
+<p>There are two ways to solve this problem:</p>
+
+<p class="imgbltLvl1"><img src="images/bullet.gif">add a flange to your shell 
+that extends past the boundaries of your shells, or,</p>
+<p class="imgbltLvl1"><img src="images/bullet.gif">use an object to fill the gap 
+between shells &ndash; we call these objects <i>plugs</i>.</p>
+
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Shell_Flanges">Shell flanges</a></h3></span>
+<DIV>
+
+<p>To prevent sparkles (light from outside penetrating gaps between shells) a 
+flange can be added to each shell. The flange should be wider than the visible 
+interior of your shells and overlap with flanges on connecting shells.</p>
+
+<p>Because the flange sits outside the 
+portal (blue), you will need to create a custom hull (yellow). This is because 
+the exporter will not recognise portals unless they are on the shell's bounding box, 
+and the creation of the flange would move the bounding box, preventing the portal from being recognised.</p>
+
+<p class=imgLvl1><img src="06_create_shell_files/image004.jpg" width="433" height="184"></p>
+<p class=captLvl1>Side view of the fantasy demo asset <code> dun_highpassage_4x.visual</code> designed with a flange (inset) </p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Plugs">Plugs</a></h3></span>
+<DIV>
+
+<p>The other way to prevent sparkles (gaps) between your shells
+is to hide the gaps with objects. We call these objects "plugs". Plugs are just standard models that hide any visual gaps
+between shells. They do not have any special specifications and are not
+a requirement for shell design.</p>
+
+<p>In this part you will create plugs for the standard portal and
+the exit portal created earlier in this lesson.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h4><img src="images/expanded.bmp"><a name="BuildingPlugForStandardPortal">Plug for the standard portal</a></h4></span>
+<DIV>
+
+<p>To build a window plug that fits the standard portal socket,
+follow the steps below:<!-- Number-bulleted list --> </p>
+
+<p class="numBltLvl1">1 Create a rectangle shape of 40x40
+units over "<code>portal_02</code>" in the left viewport.<!-- Image -->
+</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image044.gif"></p>
+<p class="captLvl2">Rectangle shape created over portal </p>
+
+<p class="numBltLvl1">2 Create archways.</p>
+
+<p class="ltrBltLvl2">A Inside the rectangle shape, create an archway shape for the window. </p>
+
+<p class="ltrBltLvl2">B Make a copy of the archway shape, so that two windows occupy the rectangle shape. </p>
+
+<p class="ltrBltLvl2">C Collapse the rectangle shape to an editable spline. </p>
+
+<p class="ltrBltLvl2">D Use <b>Attach</b> on the rectangle and on both archways, 
+to combine them all into one shape. </p>
+
+<p class="ltrBltLvl2">E Weld all the vertices.</p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/image045.gif"></p>
+<p class="captLvl3">Rectangle shape with archway windows </p>
+
+<p class="numBltLvl1">3 Apply an extrude modifier to the window shape with a 
+height value of units.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image046.gif"> </p>
+<p class="captLvl2">Extruded window shape </p>
+
+<p class="numBltLvl1">4 Remove polygons outside the object.</p>
+<p class="ltrBltLvl2">A Collapse the window plug to an editable poly. </p>
+
+<p class="ltrBltLvl2">B Enter <b>Sub-Object</b> mode. </p>
+
+<p class="ltrBltLvl2">C Select and delete the polygons around the outside of the 
+extruded object.</p>
+
+<p class="lvl3"><table><tbody><tr>
+   <td valign="top"><img src="06_create_shell_files/image047.gif"><br>
+                    <p class="captLvl0">Outside polygons in red</p></td>
+   <td valign="top"><img src="06_create_shell_files/image048.gif"><br>
+                    <p class="captLvl0">Object with outside polygons removed</p></td></tr></tbody></table></p>
+
+<p class="ltrBltLvl2">D Exit <b>Sub-Object</b> mode. </p>
+
+<p class="numBltLvl1">5 Name the object "<code>plug_windows</code>".</p>
+
+<p class="numBltLvl1">6 Using 3D snap with vertex mode, move the 
+<code>plug_windows</code> object over <code>portal_02</code> and inside the 
+socket you created previously in the lesson.</p>
+
+<p class="lvl2"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image049.gif"></td>
+       <td valign="top"><img src="06_create_shell_files/image050.gif"></td></tr>
+   <tr><td colspan="2"><p class="captLvl0">Plug object moved into position using vertex snaps</p></td></tr></tbody></table></p>
+
+</DIV>
+<span onclick=toggle_heading()><h4><img src="images/expanded.bmp"><a name="BuildingPlugForExitPortal">Plug for the exit portal</a></h4></span>
+<DIV>
+
+<p>To build a window plug that fits the exit portal socket,
+follow the steps below:<!-- Number-bulleted list --> </p>
+
+<p class="numBltLvl1">1 Create a rectangle shape of 40x40 units over 
+<code>exit_portal</code> in the left viewport.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image051.gif"></p>
+<p class="captLvl2">Rectangle shape created over exit portal </p>
+
+<p class="numBltLvl1">2 Create archways.</p>
+
+<p class="ltrBltLvl2">A Use the <b>line shape</b> tool to draw an archway shape 
+over the rectangle that you just created, using the grid snaps as a guide.</p>
+
+<p class="ltrBltLvl2">B Attach the line shape to the rectangle and trim the 
+segments at the bottom to close the shape.</p>
+
+<p class="ltrBltLvl2">C Weld all vertices.</p>
+
+<p class="lvl3"><table><tbody>
+   <tr><td valign="bottom"><img src="06_create_shell_files/image052.gif"></td>
+       <td valign="bottom"><img src="06_create_shell_files/image053.gif"></td>
+   </tr>
+   <tr><td colspan="2"><p class="captLvl0">Archway with vertices attached and welded</p></td>
+   </tr></tbody></table></p>
+
+<p class="numBltLvl1">3 Apply an <b>extrude</b> modifier to the shape with a 
+height value of 5 units.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image054.gif"></p>
+<p class="captLvl2">Extruded window shape </p>
+
+<p class="numBltLvl1">4 Remove polygons outside the shape.</p>
+
+<p class="ltrBltLvl2">A Collapse the shape to an editable poly. </p>
+
+<p class="ltrBltLvl2">B Enter <b>Sub-Object</b> mode. </p>
+
+<p class="ltrBltLvl2">C Select and delete the polygons around the outside only.</p>
+
+<p class="lvl3"><table><tbody><tr>
+   <td valign="top"><img src="06_create_shell_files/image055.gif"><br>
+                    <p class="captLvl0">Outside polygons in red</p></td>
+   <td valign="top"><img src="06_create_shell_files/image056.gif"><br>
+                    <p class="captLvl0">Object with outside polygons removed</p></td></tr></tbody></table></p>
+
+<p class="ltrBltLvl2">D Exit <b>Sub-Object</b> mode.</p>
+
+<p class="numBltLvl1">5 Name the object <code>plug_doorway</code>.</p>
+
+<p class="numBltLvl1">6 Turn on the 3D vertex snaps. </p>
+
+<p class="numBltLvl1">7 Move the <code>plug_doorway</code> object over the 
+<code>exit_portal</code> to fit neatly into the socket created.</p>
+
+<p class="lvl2"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image057.gif"></td>
+       <td valign="top"><img src="06_create_shell_files/image058.gif"></td></tr>
+   <tr><td colspan="2"><p class="captLvl0">Plug object moved into position using vertex snaps</p></td></tr></tbody></table></p>
+
+<p class="numBltLvl1">8 UV unwrap and apply texture maps to both 
+<code>plug_windows</code> and <code>plug_doorway</code> objects.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image059.gif"></p>
+<p class="captLvl2">Texture-mapped window and doorway plugs </p>
+
+<p class="numBltLvl1">9 Build an entrance object to cover the outside doorway.</p>
+
+<p class="ltrBltLvl2">A Create a box next to the <code>exit_portal</code> with 
+the following settings:</p>
+
+<p class="imgBltLvl3"><img src="images/bullet.gif" alt="*">World position: <code>x=-65, y=40, z=0</code>.</p>
+
+<p class="imgBltLvl3"><img src="images/bullet.gif" alt="*">Dimensions (in units): <code>length=60, width=10, height=50</code>.</p>
+
+<p class="imgBltLvl3"><img src="images/bullet.gif" alt="*">Segments: <code>length=3, width=1, height=2</code>.</p>
+
+<p class="imgLvl4"><img src="06_create_shell_files/image060.gif"></p>
+<p class="captLvl4">Box created with specific world position coordinates </p>
+
+<p class="ltrBltLvl2">B Rotate the view until you see the <code>exit_portal</code> object.</p>
+
+<p class="ltrBltLvl2">C With the box still selected, convert it to an editable poly.</p>
+
+<p class="ltrBltLvl2">D Enter <b>Sub-Object</b> mode. </p>
+
+<p class="ltrBltLvl2">E Enlarge the slot for the opening.</p>
+
+<p class="numBltLvl3">1 Enlarge frame to the right.</p>
+
+<p class="imgBltLvl4"><img src="images/bullet.gif">Select the middle-right vertical row of vertices. </p>
+
+<p class="imgBltLvl4"><img src="images/bullet.gif">Using 3D vertex snap, move 
+them to the outside right corner of the exit portal socket.</p>
+
+<p class="lvl4"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image061.gif"></td>
+       <td valign="top"><img src="06_create_shell_files/image062.gif"></td></tr>
+   <tr><td colspan="2"><p class="captLvl0">Vertices snapped to the socket's right corner</p></td></tr></tbody></table></p>
+
+<p class="numBltLvl3">2 Enlarge frame to the left. </p>
+
+<p class="imgBltLvl4"><img src="images/bullet.gif">Select the middle-left row of vertices. </p>
+
+<p class="imgBltLvl4"><img src="images/bullet.gif">Using 3D vertex snap, move them to the outside left
+corner of the exit portal socket.</p>
+
+<p class="lvl4"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image063.gif"></td>
+       <td valign="top"><img src="06_create_shell_files/image064.gif"></td></tr>
+   <tr><td colspan="2"><p class="captLvl0">Vertices snapped to the socket's left corner</p></td></tr></tbody></table></p>
+
+<p class="numBltLvl3">3 Enlarge frame upwards. </p>
+
+<p class="imgBltLvl4"><img src="images/bullet.gif" alt="*">Select the middle-horizontal row of vertices. </p>
+
+<p class="imgBltLvl4"><img src="images/bullet.gif">Using 3D vertex snap, move 
+them up, to the top of the exit portal socket.</p>
+
+<p class="lvl4"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image065.gif"></td>
+       <td valign="top"><img src="06_create_shell_files/image066.gif"></td></tr>
+   <tr><td colspan="2"><p class="captLvl0">Vertices snapped to the top of socket</p></td></tr></tbody></table></p>
+
+<p class="ltrBltLvl2">F Enter <b>polygon</b> mode. </p>
+
+<p class="ltrBltLvl2">G Select the bottom and inside polygons, and delete them, 
+including any isolated vertices.</p>
+
+<p class="lvl4"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image067.gif"><br>
+                        <p class="captLvl0">Inside and bottom polygons selected</p></td>
+       <td valign="top"><img src="06_create_shell_files/image068.gif"><br>
+                        <p class="captLvl0">Inside and bottom polygons deleted</p></td></tr></tbody></table></p>
+
+<p class="ltrBltLvl2">H Enter <b>vertex</b> mode. </p>
+
+<p class="ltrBltLvl2">I Select the inside border vertices and move them 5 units 
+relative in the X-axis.</p>
+
+<p class="lvl3"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image069.gif"><br>
+                        <p class="captLvl0">Before moving</p></td>
+       <td valign="top"><img src="06_create_shell_files/image070.gif"><br>
+                        <p class="captLvl0">After moving</p></td></tr></tbody></table></p>
+
+<p class="ltrBltLvl2">J Create the opening. </p>
+
+<p class="numBltLvl3">1 Rotate the view to the front of the entrance. </p>
+
+<p class="numBltLvl3">2 Enter <b>polygon</b> mode. </p>
+
+<p class="numBltLvl3">3 Select the middle polygon and extrude it inwards -10 
+units.</p>
+
+<p class="lvl4"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image071.gif"><br>
+                        <p class="captLvl0">Before extruding</p></td>
+       <td valign="top"><img src="06_create_shell_files/image072.gif"><br>
+                        <p class="captLvl0">After extruding</p></td></tr></tbody></table></p>
+
+<p class="numBltLvl3">4 While pressing <code>Ctrl</code>, select the bottom 
+polygon.<br>
+
+Now both the middle polygon and bottom polygon are selected. </p>
+
+<p class="numBltLvl3">5 Delete the selected polygons.<!-- Image + Image -->
+</p>
+
+<p class="lvl4"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image073.gif"><br>
+                        <p class="captLvl0">Middle and bottom polygons selected</p></td>
+       <td valign="top"><img src="06_create_shell_files/image074.gif"><br>
+                        <p class="captLvl0">Middle and bottom polygons deleted</p></td></tr></tbody></table></p>
+
+<p class="numBltLvl3">6 You can now UV unwrap and apply texture maps to the 
+entrance object.</p>
+
+<p class="imgLvl4"><img src="06_create_shell_files/image075.gif"></p>
+<p class="captLvl4">Texture-mapped entrance object </p>
+
+<p class="lvl2">The finished 3ds Max scene should now contain a room object, a 
+windows plug, a doorway plug, and an entrance object for outside the shell.</p>
+<span onclick=toggle_heading()></span>
+<DIV></DIV></DIV>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp" alt=""><a name="UnderCover" id="ShellSnaps_WorldEditor2">Creating an undercover area</a></span></h2>
+<DIV>
+  <p>&nbsp;</p>
+  <p><img src="06_create_shell_files/image008.jpg" width="350" height="146"></p>
+  <p>This awning is typical of an outside area that rain should not penetrate. In the Urban demo this was achieved using a shell.</p>
+  <p>Shells can be used to create an outside area that is sheltered from the weather. </p>
+  <p>The <strong>outside only</strong> tag in Particle Editor will prevent particles from being rendered when inside a shell. </p>
+  <p><img src="06_create_shell_files/image129.gif" width="349" height="558"></p>
+  <p>If you create a shell with <strong>exit portals</strong> on all sides of the shell and a <strong>heavenly portal </strong> it will appear as if the shell is an outside space yet it will still prevent particles tagged with <em>Outside only</em> from being rendered. </p>
+  <p><span class="red"><strong>IMPORTANT</strong>: </span>The heavenly portal will allow sunlight and time of day changes to effect the insides of the shell. The location of the heavenly portal is not important, it simply acts as a switch to allow light into the entire shell or not. </p>
+<p><img src="06_create_shell_files/image007.jpg" width="413" height="133"></p>
+<p class=captLvl1>This image shows the portal setup used in the shell <em>office_exit.visual</em></p>
+<p>&nbsp;</p>
+<p><span class="red"><strong>IMPORTANT</strong>: </span>The base of the shell must have some geometry or a <strong>custom BSP</strong>. If no bsp is used an entity will not be able to navigate through this shell. </p>
+<p><img src="06_create_shell_files/image006.jpg" width="350" height="112"></p>
+<p class=captLvl1>Note the custom bsp. Without this entities would fail to navigate the shell</p>
+<p>&nbsp;</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Outside_Only" id="Outside_Only"> Outside only: lighting property</a></span></h2>
+<DIV>
+  <p>Sometimes, objects that exist on the border of exit portals (usually exit 
+    plugs, and building facades) think they belong to the inside of a shell. These
+    objects will not light correctly and may appear dark during the day.
+    This can be fixed by forcing an object to be lit by outside lighting
+  only, from the <strong>Properties</strong> tab in WorldEditor.</p>
+  <p class=imgLvl1><img src="06_create_shell_files/image006.png"></p>
+  <p class=captLvl1>Outside only property</p>
+  <p class=imgLvl1><img src="06_create_shell_files/image007.png"> <img src="06_create_shell_files/image008.png"></p>
+  <p class=captLvl1>Before and after setting the <strong> outside only </strong> property in WorldEditor</p>
+<span onclick=toggle_heading()></span></DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Referencing">Referencing the room and plug texture maps</a></h2>
+</span>
+<DIV>
+
+<p>All art assets to be used in the BigWorld engine must reside in the resource folder &nbsp;<span style="font-weight: bold;">your_game</span>/<span style="font-weight: bold;">res</span>
+or one of its subdirectories.
+This includes bitmaps referenced by any shells or plugs you may create. If your
+shell or plug is referencing bitmaps from another location other than the <span style="font-weight: bold;">/res</span> directory, you must move 
+those bitmaps into the resource folder (or one of its subfolders).<br></p><p>To reference the room and plug texture maps, follow the steps below:
+</p>
+<p class="numBltLvl1">1 Open Windows Explorer. </p>
+
+<p class="numBltLvl1">2 Navigate to your game's resources
+folder <code>res/sets/town</code>. </p>
+
+<p class="numBltLvl1">3 Under folder <code>town</code>,
+create folder <code>shells</code> and another folder for&nbsp;<code>plugs</code>.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image076.gif"></p>
+<p class="captLvl2">Folder <code>shells</code> contains copies of the finished bitmaps</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image080.gif"></p>
+<p class="captLvl2">Folder <code>plugs</code> contains copies of the finished bitmaps</p>
+
+<p class="numBltLvl1">5 Open the 3ds Max <b>Bitmap/Photometric Path Editor</b>
+or the<strong> Asset Tracker</strong> utility. </p>
+
+<p class="numBltLvl1">6 Reassign the materials to the folders just created.</p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image077.gif"></p>
+<p class="captLvl2">3ds Max utility for reassigning bitmaps</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Exporting">Exporting Shells</a></h2></span>
+<DIV>
+
+<p>For shells to export correctly all portals must exist on a 0.1 Metre
+(1 standard 3ds Max unit) grid. Otherwise the shell will not comply with
+the exporter's visual rules. </p>
+
+<p>To export "<code>shell_room</code>", follow the
+steps below:</p>
+
+<p class="numBltLvl1">1 Hide all plugs. </p>
+
+<p class="numBltLvl1">2 Hide the entrance. </p>
+
+<p class="numBltLvl1">3 Make sure that all portals are
+visible in the scene. </p>
+
+<p class="numBltLvl1">4 Select menu item <span class="interface">File&rarr;Export</span>.<br>
+</p>
+
+<p class="numBltLvl1">5 In the <span class="interface">File
+Browser</span> dialog:<!-- Image-bulleted list --> </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Navigate to the new folder <code>shells</code>.</p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">In the <span class="interface">File
+Name</span> field, type "<code>shell_room_exit</code>".</p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">In the <span class="interface">Save As
+Type</span> drop-down list box, select the entry "<code>Visual
+Exporter (*.Visual)</code>". </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Click <span class="interface">Save</span>.
+<!-- Image --> </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/image078.gif"> </p>
+<p class="captLvl3"><b>File Browser</b> dialog </p>
+
+<p class="numBltLvl1">6 In the <span class="interface">Visual
+Exporter</span> dialog:<!-- Image-bulleted list --> </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">In the <span class="interface">Visual
+Type</span> group box, select <span class="interface">Static</span>
+option button. </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Clear the <span class="interface">Allow
+Scale</span> check box. </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Check&nbsp;<span class="interface">Bumpmapped</span>
+if your shell is going to use normal maps. Otherwise leave it unchecked.&nbsp; </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Click <span class="interface">OK</span>.
+<!-- Image --> </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/image002.gif"></p>
+<p class="captLvl3"><b>Visual Exporter</b> dialog
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Exporting2">Exporting the plugs</a></h2></span>
+<DIV>
+
+<p>To export the plugs, follow the steps below:<!-- Number-bulleted list -->
+</p>
+
+<p class="numBltLvl1">1 Centre the plugs to the origin,
+for proper grid snapping with the shell. </p>
+
+<p class="numBltLvl1">2 Hide all visible elements in the
+scene. </p>
+
+<p class="numBltLvl1">3 Unhide the "<code>plug_window</code>s"
+object. </p>
+
+<p class="numBltLvl1">4 Make sure that the home-grid is
+displayed. </p>
+
+<p class="numBltLvl1">5 Select the plug object and centre
+it to the world origin using absolute coordinates, but keep the base of the
+object flat on the grid. </p>
+
+<p class="lvl2"><table><tbody><tr>
+   <td valign="bottom"><img src="06_create_shell_files/image082.gif"><br>
+                       <p class="captLvl0">Original plug object</p></td>
+   <td valign="bottom"><img src="06_create_shell_files/image083.gif"><br>
+                       <p class="captLvl0">Plug object centred to the origin</p></td></tr></tbody></table></p>
+
+<p class="numBltLvl1">6 In the <span class="interface">Hierarchy</span>
+panel, under <span class="interface">Adjust Pivot</span>,
+activate the <span class="interface">Affect Pivot Only</span>
+option. </p>
+
+<p class="numBltLvl1">7 Centre the pivot point at the
+world origin. </p>
+
+<p class="imgLvl2"><img src="06_create_shell_files/image084.gif"> </p>
+<p class="captLvl2"><span class="interface">Affect
+Pivot Only</span> option</p>
+
+<p class="lvl2"><table><tbody>
+   <tr><td valign="top"><img src="06_create_shell_files/image085.gif"><br>
+                        <p class="captLvl0">Original plug object</p></td>
+       <td valign="top"><img src="06_create_shell_files/image086.gif"><br>
+                        <p class="captLvl0">Plug object pivot-point-aligned to the origin</p></td></tr></tbody></table></p>
+
+<p class="numBltLvl1">8 Select menu item <span class="interface">File&rarr;Export...</span>. </p>
+
+<p class="numBltLvl1">9 In the <span class="interface">File
+Browser</span> dialog: </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Navigate to the new folder <code>plugs</code>.</p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">In the <span class="interface">File
+Name</span> field, type "<code>plug_windows</code>". </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">In the <span class="interface">Save As
+Type</span> drop-down list box, select the entry "<code>Visual
+Exporter (*.Visual)</code>". </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Click <span class="interface">Save</span>.
+<!-- Image --> </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/image087.gif"> </p>
+<p class="captLvl3"><span class="interface">File Browser</span> dialog </p>
+
+<p class="numBltLvl1_Gt9"><span class="ltrBltLvl1_Font">10</span>
+In the <span class="interface">Visual Exporter</span>
+dialog:<!-- Image-bulleted list --> </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">In the <span class="interface">Visual
+Type</span> group box, select <span class="interface">Static</span>
+option button. </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Clear the <span class="interface">Allow
+Scale</span> check box. </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Clear the <span class="interface">Bumpmapped</span>
+check box. </p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Click <span class="interface">OK</span>.
+<!-- Image --> </p>
+
+<p class="imgLvl3"><img src="06_create_shell_files/image002.gif"> </p>
+<p class="captLvl3"><span class="interface">Visual Exporter</span> dialog </p>
+
+<p class="numBltLvl1_Gt9"><span class="ltrBltLvl1_Font">11</span>
+With the "<code>plug_windows</code>" object selected,
+select menu item <span class="interface">File&rarr;Save
+Selected</span>. </p>
+
+<p class="numBltLvl1_Gt9"><span class="ltrBltLvl1_Font">12</span>
+Save the object to its own 3ds Max file. </p>
+
+<p class="numBltLvl1_Gt9"><span class="ltrBltLvl1_Font">13</span>
+For the "<code>plug_doorway</code>" object:<!-- Image-bulleted list -->
+</p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Repeat the process above (steps <span class="ltrBltLvl1_Font">1</span> to <span class="ltrBltLvl1_Font">12</span>). </p>
+
+<p class="numBltLvl1_Gt9"><span class="ltrBltLvl1_Font">13</span>
+For the "<code>entrance</code>" object:<!-- Letter-bulleted list -->
+</p>
+
+<p class="ltrBltLvl2">A Unhide, then select the "<code>entrance</code>"
+object. </p>
+
+<p class="ltrBltLvl2">B Edit the pivot point and offset it
+by 5 units in the X-axis relative. </p>
+
+<p class="lvl3"><table><tbody><tr>
+   <td valign="top"><img src="06_create_shell_files/image088.gif"><br>
+                    <p class="captLvl0"><code>entrance</code> object's original pivot point</p></td>
+   <td valign="top"><img src="06_create_shell_files/image089.gif"><br>
+                    <p class="captLvl0"><code>entrance</code> object's pivot point offset</p></td></tr></tbody></table></p>
+
+<p class="ltrBltLvl2">C Using absolute coordinates, centre the object to the 
+world origin on the home-grid.</p>
+
+<p class="lvl3"><table><tbody><tr>
+   <td valign="top"><img src="06_create_shell_files/image090.gif"><br>
+                    <p class="captLvl0"><code>entrance</code> object's original position</p></td>
+   <td valign="top"><img src="06_create_shell_files/image091.gif"><br>
+                    <p class="captLvl0"><code>entrance</code> object centred at the world origin</p></td></tr></tbody></table></p>
+
+<p class="ltrBltLvl2">D Export the "<code>entrance</code>" object. </p>
+
+<p class="imgBltLvl3"><img src="images/bullet.gif" alt="*">Follow steps <span class="ltrBltLvl1_Font">8</span>
+to <span class="ltrBltLvl1_Font">10</span>, saving the object in the same folder 
+as the plug objects.</p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE --------></p>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

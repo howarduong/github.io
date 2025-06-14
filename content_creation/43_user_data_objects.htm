@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Using UDOs (User Data Objects) and Entities</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style type="text/css">
+<!--
+.style4 {color: #000000}
+-->
+</style>
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<H1><a name="lessonTitle">Using UDOs (User Data Objects) and Entities</a></H1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="43_user_data_objects.htm#Properties">UDO and Entity Properties</A></LI>
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="43_user_data_objects.htm#Profiling">Performance profiling using UDO camera nodes </A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="43_user_data_objects.htm#Placing">Placing UDOs</A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>UDOs (User Data Objects) are  objects that can be customised for each project's needs.</p>
+<p>They allow the user to place game logic information in the world, and to link it up with other UDOs and/or entities.
+UDOs could be used to specify player traps, patrol nodes, and good cover positions, for example.</p>
+<p>Entities are dynamic game objects that have script associated with them, they can be client, client-server, or server side entities. Some examples of entities may include, NPC's, monsters, doors, quest Items, vehicles, spawn points. </p>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Properties">UDO and Entity Properties</a></h2>
+</span>
+<DIV>
+
+<p>Custom User Data Objects for your specific game will be created by your team's programmers, 
+and should be accessible in the World Editor's <b>Asset Browser</b> panel's 
+<b>User Data Object</b> virtual folder.</p>
+
+<p class=imgLvl1><img src="43_user_data_objects/image001.gif"></p>
+
+<p>We cannot cover how your specific projects UDOs will operate, so this section 
+describes some of the more useful UDO's available within the BigWorld Demo.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>UDO : CameraNode</b> &ndash;
+Defines a path for a camera fly through. Each node along the 
+path defines the position, rotation and direction of the camera as it passes 
+through that node.<br>
+The BigWorld Demo fly through script will begin the fly through on the camera with property name &quot;camera node0&quot; </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>UDO : PatrolNode</b> &ndash;
+Defines a path upon which the Guard entity will travel.<br>
+Patrol nodes have several useful properties that can be edited within the 
+<b>Properties</b> panel, as described in the table below.
+<p class="imgBltLvl1">&nbsp;</p>
+<table class="alternate" cellspacing=0> 
+  <tbody>
+   <tr><th class=FirstCol    >Property</th>
+       <th                   >Description </th></tr>
+
+   <tr><td class=oddRow1stCol><code>departureSpeed</code></td>
+       <td class=oddRow      >Speed at which an entity will depart from the patrol node.</p>
+<p>Set this to a large value if you want the guard to run away from the patrol node.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>importance</code></td>
+       <td class=evnRow      >Chance an entity will take this path if multiple 
+path choices exist.</p>
+<p>The likelihood of selecting a path is defined by <b>Importance</b> divided by 
+the sum of all possible paths.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>backtrackChange</code></td>
+       <td class=oddRow      >Percentage chance that a guard will turn around 
+when he reaches this node.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>waitSecs</code></td>
+       <td class=evnRow      >How long a Guard entity will wait once it reaches 
+the patrol node.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>radius</code></td>
+       <td class=oddRow      >Size of the patrol node.</p>
+<p>Guards traveling from one patrol node to the next will need to pass somewhere 
+            within the radius of each patrol node.</td></tr>
+</table>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>UDO : PlatformNode</b> &ndash;<span class="evnRow">Path for the floating platform in the online 
+  FantasyDemo space. Its properties include:</p>
+<table class="alternate" cellspacing=0>
+  <tbody>
+    <tr>
+      <th class=FirstCol    >Property</th>
+      <th                   >Description </th>
+    </tr>
+    <tr>
+      <td class=oddRow1stCol><code>Approach Speed </code></td>
+      <td class=oddRow      ><span class="imgBltLvl1">Speed at which a 
+        platform will approach the node. </span>
+        <p></td></tr>
+    <tr>
+      <td class=evnRow1stCol><code>Approach Acceleration</code></td>
+      <td class=evnRow      ><p><span class="imgBltLvl1">Acceleration  
+  used to match the <code>Approach Speed</code>. </span></td>
+    </tr>
+    <tr>
+      <td class=oddRow1stCol><code>Wait Time</code></td>
+      <td class=oddRow      ><span class="imgBltLvl1"> How long a platform will wait 
+  once it reaches the platform node. </span></td>
+    </tr>
+</table>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Entity : IndoorMapInfo</b> &ndash;<span class="evnRow">This entity swaps the outdoor minimap for an indoor minimap, it should be placed at the entrance to indoor (shell) areas so the client knows when to change the minimap. </p>
+<table class="alternate" cellspacing=0>
+  <tbody>
+    <tr>
+      <th class=FirstCol    >Property</th>
+      <th                   >Description </th>
+    </tr>
+    <tr>
+      <td class=oddRow1stCol><code>mapName</code></td>
+      <td class=oddRow      ><span class="imgBltLvl1">Location of the texture to be displayed as minimap (alpha)</span></td>
+    </tr>
+    <tr>
+      <td class=evnRow1stCol><code>Position x,y,z </code></td>
+      <td class=evnRow      ><p><span class="imgBltLvl1">The centre point of the map </span></td>
+    </tr>
+    <tr>
+      <td class=oddRow1stCol><code>worldMapHeight,Width</code></td>
+      <td class=oddRow      ><span class="imgBltLvl1"> The dimensions in world space of the map</span></td>
+    </tr>
+</table>
+<p class="imgBltLvl1"><span onclick=toggle_heading()></span></p>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Placing">Placing UDOs</a></h3></span>
+<DIV>
+
+<p>The default set of UDOs use the same user interface. For the purpose of this manual, we will describe the patrol path UDO.</p>
+
+<p>Patrol nodes are added like any other object within WorldEditor, <i>i.e.</i>, 
+you can either drag the object into the viewport from the <b>Asset Browser</b>
+panel, or select the object and press <code>Enter</code>.</p>
+
+<p> The newly added patrol node will have a selectable cross and circle. 
+Selecting and dragging from the cross will create a new patrol node that is 
+connected to the existing patrol node.</p>
+
+<p class=imgLvl1><img src="43_user_data_objects/image001.jpg">
+   <img src="43_user_data_objects/image002.jpg"></p>
+
+<p>The patrol direction (defined by the direction of blue lines along the patrol link) will by default be in the direction of the newly created patrol node.</p>
+
+<p>If you wish to change the direction of the patrol node, then you can 
+right-click the patrol path and in its context menu select the <b>Swap Link 
+Direction</b> menu item.</p>
+
+<p class=imgLvl1><img src="43_user_data_objects/image004.jpg"></p>
+
+<p>A Guard entity can be linked to the patrol node by selecting the patrol path 
+and dragging from its node circle to the Guard entity, or vice-versa.</p>
+
+<p class=imgLvl1><img src="43_user_data_objects/image003.jpg"></p>
+
+<p>Existing patrol nodes can be linked to each other by dragging from the patrol 
+node circle to the next patrol node.</p>
+
+<p class=imgLvl1><img src="43_user_data_objects/image005.jpg"></p>
+<p class=imgLvl1>&nbsp;</p>
+</DIV>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Profiling" id="Profiling">Performance profiling using UDO camera nodes</a></h2>
+</span>
+<DIV>
+  <p>One of the useful ways in which UDO camera nodes can be used is to run performance profiling </p>
+  <p><span class="imgLvl1"><img src="43_user_data_objects/image003.gif" width="251" height="297"></span></p>
+  <p>Performance profiling can be a powerful tool that allows you to see empirical data about how artwork alterations effect final frame rate. </p>
+  <p>For example, if you want to see how performance is impacted when a set of models is added, textures are up-res 'd or a new shader it included you can run a performance profile before and after the change and compare the differences. </p>
+  <p>Before you can run a performance profile you must set up a series of cameras in a loop as described in the section <a href="#Placing">Placing UDO's </a></p>
+  <p><img src="43_user_data_objects/image006.jpg" width="382" height="264"></p>
+  <p>The very first camera in the loop must have the its name set to<strong> &quot;camera node0&quot; </strong></p>
+  <p><span class="imgLvl1"><img src="43_user_data_objects/image004.gif" width="286" height="282"></span></p>
+  <p>&nbsp;</p>
+  <p>To generate a performance profile <strong>run the client.</strong></p>
+  <p>Open the <strong>Python consol</strong> by pressing <strong>~</strong> (tilde) + <strong>P</strong>  </p>
+  <p>Type <strong>BigWorld.runProfil<span class="style4">er ('camera node0',3,&quot;nameofoutputfile.csv&quot;)</span></strong></p>
+  <p>The <strong>3 </strong>Refers to how many times the profile will repeat the fly through, generally its a good idea to run the fly through more than once and ignore the first data sets, this ensures the data has been loaded into memory and gives a true indication of performance.</p>
+  <p>The above command  will initiate the camera fly through and output the frame rate to a .csv file located in the client executable folder (fantasydemo/game). These files can be compared directly in a spread sheet program like Excel or you can use the python script <strong>caclstats2.py</strong> to generate a .png graph of the performance (framerate) over time. </p>
+  <p>To generate the graph you will need <a href="http://www.python.org/">python 2-5</a> and a number of python libraries (<a href="http://sourceforge.net/project/showfiles.php?group_id=1369&package_id=175103">numpy</a>, <a href="http://sourceforge.net/projects/matplotlib">matplotlib</a>) installed. </p>
+  <p>Copy the .csv file and calcstats2.py to a common directory (I have put them in<code> C:/performance tests/</code>) </p>
+  <p>Go to <strong>Start - Run </strong></p>
+  <p><img src="43_user_data_objects/image007.jpg" width="174" height="103"></p>
+  <p>Type &quot;cmd&quot; in the prompt</p>
+  <p><img src="43_user_data_objects/image005.gif" width="347" height="186"></p>
+  <p>Run the calcstats2.py python script on the generated .csv file  </p>
+  <p><img src="43_user_data_objects/image006.gif" width="669" height="242"></p>
+  <p>This will create a .png file called &quot;output.png&quot;</p>
+  <p>&nbsp; </p>
+  <p><img src="43_user_data_objects/image007.gif" width="368" height="276"></p>
+  <p>The generated .png displays the frame rate over time. Use photoshop to overlay two graphs with before and after test conditions. </p>
+  <p class=imgLvl1>&nbsp;</p>
+  <DIV></DIV>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

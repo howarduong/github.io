@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>BigWorld MAXScripts</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">BigWorld MAXScripts</a> and the BigWorld Maya Shelf</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" alt="" ONCLICK=toggle()><a href="46_bigworld_maxscripts.htm#Installation">Installation</a></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="46_bigworld_maxscripts.htm#MaxInstallation">Maxscript Installation </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="46_bigworld_maxscripts.htm#MayaInstallation">Maya BigWorld Shelf Installation </A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#ExportVisual">Export Visual and Animation</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#CustomHull">Make Custom Hull</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#AddPortal">Add Portal</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#LabelPortal">Label Portal</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#ImportHP">Import Hard Point</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#AddNoteTrack">Add a Note Track</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#FlagBSP">Flag as BSP (collision object)</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#MungeNormals">Munge Normals</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#HitBox">Attach Hitbox and Export Hitbox to XML</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#Divider">Object Divider</a></LI>
+<LI><IMG SRC="images/expandable.bmp" alt="" ONCLICK=toggle()><a href="46_bigworld_maxscripts.htm#Prefab">Prefab Assembler</a></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="46_bigworld_maxscripts.htm#MayaPrefabAssembler">Maya Prefab Assembler </A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#LargeObjectWorkflow">Large Object Workflow</a></LI>
+<LI></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p>The BigWorld MAXScripts simplify some of the BigWorld specific tasks that are required during asset creation. </p>
+<p>All these scripts modify your 3dsMax file, it is highly recommended that you save before using any of these scripts. </p>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Installation" id="Installation">Installation</a></h2></span>
+<DIV>
+
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="MaxInstallation" id="MaxInstallation">Maxscript Installation</a></span></h3>
+  <DIV>
+    <p>The BigWorld Maxscripts have been tested with 3dsMax version 2010 and onwards. If using 3dsMax 2010 please ensure you have service pack 1 installed.</p>
+<p>Drag and drop the BigWorld_MAXScripts.mzp located in <code>bigworld\tools\maxscripts\bigworld_maxscripts_v1.6.mzp</code> file onto the 3dsMax 3d view. </p>
+    <p><img src="46_bigworld_maxscripts_files/image002.jpg" width="338" height="220"></p>
+    <p>Restart 3dsMax. </p>
+    <p>Now your ready to use the toolbar.</p>
+    <p><img src="46_bigworld_maxscripts_files/image001.gif" width="483" height="33"></p>
+    <p>&nbsp;</p>
+  </DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="MayaInstallation" id="DirectXShader2">Maya BigWorld Shelf Installation</a></span></h3>
+<DIV>
+  <p>To install the BigWorld Maya Shelf </p>
+<p><img src="46_bigworld_maxscripts_files/image019.jpg" width="349" height="63"></p>
+<p>1. Ensure the Maya exporters are installed. Information on how to install the exporters can be found in  <code>bigworld\doc\content_tools_reference_guide.pdf</code></p>
+  <p>2. Copy the BigWorld Shelf from <code>bigworld\tools\melscripts\src\shelf\shelf_BigWorld.mel</code> to your Maya shelf folder <code>Documents and Settings\username\My Documents\maya\2011\prefs\shelves</code>  </p>
+  <p>3. Copy the scripts from <code>bigworld\tools\melscripts\src\scripts\ </code>to the Maya scripts folder <code>Documents and Settings\username\My Documents\maya\scripts\</code></p>
+  <p>4. Copy the BigWorld Icons from <code>bigworld\tools\melscripts\src\icons</code> to your Maya Icon folder <code>Documents and Settings\adamm\My Documents\maya\2011\prefs\icons</code></p>
+  <p>5. Copy the BigWorld helper maps from <code>bigworld\tools\melscripts\resources\textures</code> to the <strong>textures</strong> folder of your current Maya Project folder <code>Documents and Settings\username\My Documents\maya\projects\default\textures</code></p>
+  <p>(AID_BSP.bmp, AID_exitportal.bmp, AID_hportal.bmp, AID_Hull.bmp, AID_portal.bmp)</p>
+<p>6. Copy the contents of <code>bigworld\tools\melscripts\resources\assets</code> to the<strong> assets</strong> folder of your current Maya Project folder <code>Documents and Settings\adamm\My Documents\maya\projects\default\assets</code></p>
+<p>(maya_hard_point.mtl, maya_hard_point.obj, hardpoint_helper.bmp)</p>
+<p>7. Add your game res/ path to the BigWorldAsset property of your current Project. </p>
+<p><img src="46_bigworld_maxscripts_files/image024.gif" width="309" height="256"> <img src="46_bigworld_maxscripts_files/image023.gif" width="458" height="256"></p>
+  </p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="ExportVisual" id="AddPortal4">Export Visual</a></span> and Animation</h2>
+</span>
+<DIV>
+  <p>You can export an asset with using the export visual button <img src="46_bigworld_maxscripts_files/image021.jpg" width="24" height="24"> or animations using the export animation button <img src="46_bigworld_maxscripts_files/image022.jpg" width="24" height="24"> (3dsMax only).</p>
+  <p>If you have objects selected the script will do an <strong>Export Selected.</strong></p>
+  <p>If you have nothing selected then the script will do an <strong>Export All</strong>.</p>
+  <p>Further information on specific maxScript commands for the BigWorld exporters can be found in the content tools reference guide (<code>bigworld\doc\content_tools_reference_guide.pdf</code>)</p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="CustomHull" id="AddPortal2">Add Custom Hull</a></span></h2>
+</span>
+<DIV>
+  <p>See the Content Creation manual bigworld/doc/content_creation.chm <a href="06_create_shell.htm#Custom_Hull">shells section</a> for information on Custom Hulls </p>
+<p> Clicking the <strong>Add Hull</strong> button <img src="46_bigworld_maxscripts_files/image004.jpg" width="25" height="24"> converts the selected object into a <strong>Custom Hull</strong>, by appending the suffix &quot;_hull&quot; to the objects name. A custom hull material is added to the object for visualisation purposes. </p>
+<p>In 3dsMax, polygons of the hull can then be assigned portals using the scripts below. </p>
+<p><img src="46_bigworld_maxscripts_files/image005.jpg" width="230" height="168"></p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="AddPortal" id="AddPortal">Add Portal</a></h2>
+</span>
+<DIV>
+
+<p>See the Content Creation manual bigworld/doc/content_creation.chm <a href="06_create_shell.htm#Portal_restrictions">shells section</a> for information regarding Portals</p>
+<p>By clicking the Add Portal button the script will automatically assign a portal flag to the object selected. Subsequent clicks will remove the portal.</p>
+<p><img src="46_bigworld_maxscripts_files/image007.gif" width="31" height="30"> Adds a standard portal flag</p>
+<p><img src="46_bigworld_maxscripts_files/image008.gif" width="31" height="30"> Adds an Exit portal flag</p>
+<p><img src="46_bigworld_maxscripts_files/image009.gif" width="31" height="30"> Adds a Heaven portal flag</p>
+<p>The portal assignment will add a material to the portal to make it easily recognisable. The material library  used is stored in the <em>BigWorld_MaterialLibrary.mat</em>  located in<em> bigworld/tools/maxscripts/resources/materiallibraries/</em></p>
+<p><img src="46_bigworld_maxscripts_files/image001.jpg" width="281" height="208"></p>
+<p>Portal assignment can be done in two ways using this script. </p>
+<p>1. Whole objects (planes) can be assigned portal flags, in which case they will use the &quot;portal = true&quot; custom attribute.</p>
+<p>2. Alternatively, if you are in <strong>sub-object mode</strong>, <strong>Polygon</strong> selection of a <strong>Custom Hull</strong>, then that polygon will be assigned a portal material. </p>
+<DIV> </DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="LabelPortal" id="AddPortal3">Label Portal</a></span></h2>
+</span>
+<DIV>
+  <p>This button adds a <a href="06_create_shell.htm#Portal_Label">label</a> to a selected portal. </p>
+  <p>Only geometry portals can be labeled. </p>
+<p><img src="46_bigworld_maxscripts_files/image006.jpg" width="24" height="24"> Adds a portal label</p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="ImportHP" id="ImportHP">Import Hard Point</a></h2>
+</span>
+<DIV>
+
+<p>See the Content Creation manual bigworld/doc/content_creation.chm section <a href="08_create_lowpoly_char.htm#HP">Hard Points</a> for information regarding Hard Points. </p>
+<p>When multiple artists are creating assets with interdependent Hard Points (e.g. a gun and an avatars hand), discrepancies in the orientation of the Hard Points can occur.  This script should reduce the number of misaligned Hard Points by standardising the Hard Point model and its alignment to the parent node.</p>
+<p>Pressing the Import Hard Point button <img src="46_bigworld_maxscripts_files/image011.gif" width="31" height="30"> will automatically attach and align  a standardised hard point model to the selected object.</p>
+<p>If no object is selected the Hard Point model will be aligned to the world origin (0,0,0).</p>
+<p>The Hard Point representation model will be automatically scaled so that it is ~20cm in scene units no matter your System Unit Settings. The model is a representation of the BigWorld coordinate system. </p>
+<p>The hard point model <em>hard_point.fbx </em>is installed into the 3dsMax's project folder: <em>import</em> folder and uses materials from the <em>BigWorld_MaterialLibrary.mat</em>.</p>
+<p>Note: The standardised <strong>hard_point.fbx</strong> model is located in <strong>3dsMax's Project Path - import folder</strong>. Changing 3dsMax's Project folder will cause this script to loose track of the hard point model. This can be fixed by re-installing the scripts, or moving the hard_point.fbx from the old /import folder to the new Project Path - import folder. </p>
+<p><img src="46_bigworld_maxscripts_files/image012.gif" width="247" height="247"></p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="AddNoteTrack" id="AddNoteTrack">Add a Note Track</a></h2></span>
+<DIV>
+
+<p>See the Content Creation manual bigworld/doc/content_creation.chm section <a href="09_create_char_anims.htm#NoteTracks">Note Tracks</a> for information regarding Note Tracks</p>
+<p>Pressing the Add Note Track button <img src="46_bigworld_maxscripts_files/image010.gif" width="31" height="30"> will allow the user to quickly add a note track of type &quot;cue:&quot; or &quot;sound:&quot; to the selected node at the slider Time.</p>
+<p><img src="46_bigworld_maxscripts_files/image013.gif" width="437" height="289"></p>
+<div> </div>
+</DIV>
+<!-- HORIZONTAL RULE -->
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FlagBSP" id="AddNoteTrack2">Flag as BSP (collision geometry)</a></span></h2>
+<DIV>
+  <p>See the Content Creation manual bigworld/doc/content_creation.chm for information regarding <a href="35_creating_custom_bsps.htm">BSP collision geometry</a></p>
+  <p>Pressing the Convert to BSP button <img src="46_bigworld_maxscripts_files/image014.gif" width="37" height="37"> converts any geometric object to a BigWorld BSP collision object. The suffix &quot;_bsp&quot; is added to the objects name, and a material is applied so the object can be easily recognised within 3dsMax as a BSP object</p>
+  <p><img src="46_bigworld_maxscripts_files/image003.jpg" width="363" height="180"></p>
+<p>&nbsp;</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="MungeNormals" id="AddNoteTrack3">Munge Normals</a></span></h2>
+<DIV>
+  <p>See the Content Creation manual bigworld/doc/content_creation.chm for information regarding the <a href="37_creating_trees_with_better_lighting.htm">mungenormals script.</a></p>
+  <p>Pressing the Munge Normals button <img src="46_bigworld_maxscripts_files/image007.jpg" width="24" height="24"> will cause any normals of currently selected objects with an Edit Normals modifier to splay away from a subsequently selected object.  </p>
+  <p><img src="46_bigworld_maxscripts_files/image015.gif" width="272" height="302"></p>
+  <p>&nbsp;</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="HitBox" id="AddNoteTrack4">Attach Hitbox and Export HitBox to XML</a></span></h2>
+<DIV>
+  <p>By default BigWorld uses the entities bounding boxes for targeting. This works well for most cases, but some times more accurate targeting is needed. This script will generate a skeleton collider xml file that programmers can use for more accurate entity targeting. </p>
+  <p>More detailed information on skeleton colliders can be found in <code>\bigworld\doc\howto_accurately_target_entities.pdf</code></p>
+<p>1. Select all the nodes onto which you would like to attach hitboxes. Try to be conservative, adding hitboxes to individual fingers is unnecessary and will result in poor game performance. </p>
+  <p>2. Press the Attach Hitbox button <img src="46_bigworld_maxscripts_files/image008.jpg" width="25" height="24">. This will  generate hitboxes and attach them to the selected nodes. </p>
+  <p>3. Adjust the size, and position of the hitboxes to best match your target model. Do not break the links between parent and hitbox. If you do, the hitbox will be ignored on export. </p>
+  <p>4. Export the hitboxes to a skeleton collider xml file by pressing the Export Hitbox to XML button <img src="46_bigworld_maxscripts_files/image010.jpg" width="24" height="24">.</p>
+  <p><img src="46_bigworld_maxscripts_files/image012.jpg" width="329" height="467"> <img src="46_bigworld_maxscripts_files/image011.jpg" width="282" height="277"></p>
+  <p>Once loaded (see details in <code>howto_accurately_target_entities.pdf</code>) the skeleton collider can be visualised by turning on the client watcher (~tilde + F7) <strong>Client Settings - displayIMpactBoxes = True</strong></p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Divider" id="AddNoteTrack5">Object Divider</a></span></h2>
+<DIV>
+  <p>Objects imported into BigWorld have a maximum size restriction of 100m, 100m, 200m (XYZ). Sometimes it can be necessary to divide an object into several sections which can be exported individually. </p>
+  <p>The Object Divider script  <img src="46_bigworld_maxscripts_files/image014.jpg" width="24" height="24"> will automatically divide an object up into sections smaller than the user defined Maximum  size setting.</p>
+  <p>This script is usually used in conjunction with the <a href="#Prefab">Prefab Assembler script</a></p>
+  <p>Its a good idea to save your work before using this script as its going to chop up your model into little pieces.</p>
+<p><img src="46_bigworld_maxscripts_files/image016.gif" width="296" height="270"><img src="46_bigworld_maxscripts_files/image018.gif" width="253" height="270"></p>
+<p>The Object divider will recommend a default setting of 70 meters, this is because if an object  with a side length of 70 meters is rotated it will  exceed the 100M <a href="02b_create_objects.htm#Size_Restrictions">object size limit</a> if rotated 45 degrees. This concept is illustrated in the picture above. </p>
+<p>Both the 3dsMax and Maya object dividers will place the divided object pieces on separate special named  layers with the suffix &quot;<strong>_bw_model_layer</strong>&quot;. This is to help facilitate the Prefab Assembler script.</p>
+<p>&nbsp;</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Prefab" id="AddNoteTrack6">Prefab Assembler</a></span></h2>
+<DIV>
+  <p>Due to object size restrictions it is often necessary to divide a very large object into multiple pieces and export each piece individually. These objects are manually reassembled within WorldEditor and a prefab is created for future placement. </p>
+  <p>To aid in manually reassembling the objects relative to each other, users will often  export objects in-place from 3dsMax so that they all share a common pivot point. This can cause serious issues with chunk lending if the pivot point is greater than 100 meters from the objects bounding box and it makes object manipulation extremely difficult, this is NOT a recommended technique. </p>
+  <p>The correct technique is to move each object to the origin and then export so that the objects pivot point is in close proximity to  the objects bounding box. This creates the problem that the user must now reassemble the assets in WorldEditor relative to each other, either by eye, or by first recording the transformation done prior to export.</p>
+<p>To prevent such problems the Prefab Assembler macro script <img src="46_bigworld_maxscripts_files/image013.jpg" alt="" width="24" height="24"> allows you to create a prefab file from multiple objects in 3dsMax.</p>
+<p>&nbsp;</p>
+<p>The script does the following.</p>
+<p>1. Scans the scene for layers with the suffix &quot;<strong>_bw_shell_layer</strong>&quot; or &quot;<strong>_bw_model_layer</strong>&quot; and considers all objects on each layer a single .model</p>
+<p>2. Records the position of each object in each Layer</p>
+<p>3. Moves each object, temporarily to the world origin (0,0,0) to ensure that the objects pivot point resides within the objects bounding box. </p>
+  <p>4. Exports each  layer generating a .model, .visual and .primitive file. </p>
+  <p>5. Generates a <code> .prefab </code> file of  all the above models</p>
+  <p>&nbsp;</p>
+<p>The option to &quot;Export Shells&quot; allows users to export a scene containing multiple shells. Shells are made up of multiple components (portals, custom hulls, shell geometry).</p>
+<p>Users must manually place each shell and all its parts on separate layers with the suffix &quot;<strong>_bw_shell_layer</strong>&quot; so that the Prefab Assembler will correctly export them.</p>
+<p><img src="46_bigworld_maxscripts_files/image022.gif" width="533" height="247"></p>
+<p><img src="46_bigworld_maxscripts_files/image021.gif" width="336" height="376"></p>
+<p>Note: Save your work file before using this script. </p>
+<h3><span onClick="toggle_heading()"><a name="MayaPrefabAssembler" id="DirectXShader3">Maya Prefab Assembler</a></span></h3>
+<DIV>
+  <p>The Maya version of the prefab assembler also requires specifically named layers.</p>
+  <p>Model objects should be placed on layers with the suffix or prefix &quot;_bw_model_layer&quot; (Note the object divider script does this automatically to objects it cuts up)</p>
+  <p>Shell objects should be placed on layers with the suffix or prefix &quot;_bw_shell_layer&quot;</p>
+  <p><img src="46_bigworld_maxscripts_files/image025.gif" width="393" height="155"></p>
+<p>&nbsp;</p>
+</DIV>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="LargeObjectWorkflow" id="AddNoteTrack7">Large object workflow</a></span></h2>
+<DIV>
+  <p>This tutorial will take you through step by step how to create a prefab out of a very large object using the <a href="#Divider">object divider</a> and <a href="#prefab">prefab assembler</a> max/mel scripts. </p>
+  <p>1. Always save your work to a separate backup file first.</p>
+  <p>2. Firstly I have created a very large (greater than 100m) single piece model in 3dsMax of a castle and a second lower resolution model of its BSP </p>
+<p><img src="46_bigworld_maxscripts_files/image015.jpg" width="370" height="206"></p>
+<p>3. The Models are placed over the top of each other and collapsed into a single model using the <em>Attach</em> command in the 3dsMax modifier panel. </p>
+<p>This will make the two models into a single piece model. We need to do this so that the <a href="#Divider">object divider</a> script can divide both objects up equally along the same lines. </p>
+<p>If the model's LODs are already made, they too would be attached to the primary model to make a single object for the object divider. Alternatively the LOD models can be created after the primary model is exported and the prefab created.</p>
+<p>If you model contains neither custom BSP or LOD's then this, and step 6 are unecessary. </p>
+<p>The separate BSP and LOD models must be given unique material names or mesh ID's,  to enable the user to separate the pieces into individual models once the object divider had done its job. </p>
+<p><img src="46_bigworld_maxscripts_files/image016.jpg" width="498" height="407"></p>
+<p>4. Run the <a href="#Divider">object divider</a> <img src="46_bigworld_maxscripts_files/image014.jpg" alt="" width="24" height="24"> script. A dialog will prompt you for an Editable Poly object and for maximum size settings. </p>
+<p>If you plan to rotate your object in WorldEditor then we recommend that you do not exceed 70 meters in any direction. A 70 meter square cube is 100 meters from corner to corner. </p>
+<p><img src="46_bigworld_maxscripts_files/image019.gif" width="296" height="288"></p>
+<p>5. The Object Divider script will put the divided objects on individual layers with specific names. </p>
+<p>Each layer is considered a single BigWorld model by the Prefab assembler script, so if you have multiple mesh on a single layer they will be exported as a single model.</p>
+<p>Only layers with specific names will be exported by the prefab assembler.</p>
+<p>Layers containing the   "<strong>_bw_model_layer</strong>" are considered models by the prefab assembler.</p>
+<p>Layers containing the   "<strong>_bw_shell_layer</strong>" are considered shells by the prefab assembler.
+The placement of individual shells on separate layers must be done manually by the user. 
+<p><img src="46_bigworld_maxscripts_files/image025.gif" width="393" height="155">
+<p>The layer name in conjunction with the model export name will be used as the BigWorld model name when exported by the <a href="#prefab">prefab assembler</a>
+<p>6. Following object division you will then have to separate the BSP and LOD sections from your now divided model using the <em>Detach</em> command in the 3dsMax modifier panel. Ensure that each detached BSP model is appropriately named with the <br>
+  &quot;_bsp&quot; suffix and is located on the appropriate layer.</p>
+<p> <img src="46_bigworld_maxscripts_files/image018.jpg" width="540" height="355"> <img src="46_bigworld_maxscripts_files/image020.gif" width="494" height="257"></p>
+<p>7. You are now ready to export the models using the <a href="#Prefab">Prefab Assembler</a> macro script <img src="46_bigworld_maxscripts_files/image013.jpg" alt="" width="24" height="24"></p>
+<p>Choose an export location within your resource path.</p>
+<p>Choose where to save your prefab file within your resource path. </p>
+<p><img src="46_bigworld_maxscripts_files/image021.gif" width="326" height="359"></p>
+<p>8. You are now ready to place your prefab file in the WorldEditor</p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

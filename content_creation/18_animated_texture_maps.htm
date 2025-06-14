@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  
+  <title>Texture Maps</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <style type="text/css">
+<!--
+.style1 {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.style2 {
+	color: #FF0000;
+	font-weight: bold;
+}
+-->
+  </style>
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">Texture Maps</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="18_animated_texture_maps.htm#Texformat">Texture formats and   compression settings</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="18_animated_texture_maps.htm#Detail_Levels">Texture detail levels - texture compression</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="18_animated_texture_maps.htm#Texformat_File">Texformat - texture compression</A></LI>
+ </UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="18_animated_texture_maps.htm#Animated_Textures">Animated texture maps</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="18_animated_texture_maps.htm#Creating">Creating the texture animation file</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="18_animated_texture_maps.htm#Applying">Applying animated texture map to a material</A></LI>
+ </UL>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="18_animated_texture_maps.htm#cube_maps">Creating Cube Maps</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="18_animated_texture_maps.htm#gui_windows">Authoring textures for re sizable GUI windows</A></LI> 
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Texformat">Texture formats and   compression settings</a></h2>
+</span><span onclick=toggle_heading()></span>
+<DIV>
+<DIV>
+
+<p>BigWorld supports the following texture formats</p>
+
+<p> &quot;dds&quot;, &quot;bmp&quot;, &quot;tga&quot;, &quot;jpg&quot;, &quot;png&quot;, &quot;hdr&quot;, &quot;pfm&quot;, &quot;dib&quot;, &quot;ppm&quot; </p>
+<p>These formats are compressed automatically at runtime into .dds files. </p>
+<p>TGA (targa) files are converted to the DXT3 format, all other file formats are converted 
+  to the DXT1 format.</p>
+<p>Because DXT3 uses twice the disk space than DXT1 you <span class="style2">should only use tga when you require an alpha channel. </span></p>
+<p>Any file with the suffix _ <code>norms or _normal </code>will be converted to an A8R8G8B8 texture. This is to 
+prevent compressing BigWorld's normal maps.</p>
+</DIV>
+<span onClick="toggle_heading()"><h3><img src="images/expanded.bmp"><a name="Detail_Levels">Texture detail levels - texture compression</a></h3></span>
+<DIV>
+  <p>The <code>texture_detail_levels.xml</code> file found in <em>fantasydemo/res/maps </em>
+  is used to globally define the texture compression of multiple textures either by folder or by file name. </p>
+  <p>For example, if all the GUI images in your project were being over-compressed, causing undesirable
+  visual artifacts, you could define the following within the <code>texture_detail_levels.xml</code> to prevent them 
+  from being compressed. </p>
+  <pre><p>&lt;detailLevel&gt;<br>&lt;! -- Defines the directory which compression rules should be applied --&gt;<br>&lt;prefix&gt;gui/maps&lt;/prefix&gt;
+&lt;! -- Files including the word &quot;gui&quot; --&gt;<br>&lt;contains&gt; gui &lt;/contains&gt;<br>&lt;! -- Defines what file type should be compressed. Alternatives include tga --&gt;
+&lt;postfix&gt; bmp &lt;/postfix&gt;
+&lt;! -- Defines what compression the defined file should use. Alternatives include DXT1, DXT3. DXT5 --&gt;<br>&lt;format&gt; A8R8G8B8 &lt;/format&gt;
+&lt;lodMode&gt;1&lt;/lodMode&gt;
+&lt;/detailLevel&gt;  </p></pre></DIV>
+<span onClick="toggle_heading()"><h3><img src="images/expanded.bmp"><a name="Texformat_File">Texformat - texture compression</a></h3></span>
+<DIV>
+  <p>Alternatively, if you find a texture is being over-compressed by the Direct X 
+standards, then you can force it to remain 8-bits per channel (A8R8G8B8) by 
+including a <code>.texformat</code> file with the same name in the same 
+folder. (Such <code>.texformat</code> files can be created in any text editor, such
+as Notepad, for example.) It is usually a better idea to use the <code>texture_detail_levels.xml </code>file
+described above, as this can be tied in with graphics settings. However, in some cases 
+it is easier to use a <code>.texformat </code>file. </p>
+  <p>So, for the following example, let's say that <code>sky_gradient.tga</code> 
+was being over-compressed, resulting in compression artifacts. The file 
+<code>sky_gradient.texformat</code> would then be created and added to the same 
+folder as <code>sky_gradient.tga</code>, thus preventing its compression. The 
+contents of the <code>sky_gradient.texformat</code> file would be the
+following:</p>
+
+<pre>&lt;sky_gradient.texformat&gt;
+   &lt;format&gt; A8R8G8B8 &lt;/format&gt;
+&lt;/sky_gradient.texformat&gt;</pre>
+<p>You can prevent mipmaps from being created entirely if you add the following tag <code>&lt;noResize&gt; true &lt;/noResize&gt;</code> to a texformat file. In fact, this will force the engine to simply use the file provided, and not generate a .dds. This should be used sparingly.  </p>
+</DIV></DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Animated_Textures">Animated texture maps</a></h2></span>
+<DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Creating">Creating the texture animation file</a></h3></span>
+<DIV>
+
+<p>To create an animated texture map, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Create a sequence of animation frames in your preferred 
+software. For this example we will use six frames of an electric field.</p>
+
+<p class=imgLvl2><img src="18_animated_texture_maps_files/image002.jpg">
+                 <img src="18_animated_texture_maps_files/image004.jpg">
+                 <img src="18_animated_texture_maps_files/image006.jpg">
+                 <img src="18_animated_texture_maps_files/image008.jpg">
+                 <img src="18_animated_texture_maps_files/image010.jpg">
+                 <img src="18_animated_texture_maps_files/image012.jpg"></p>
+
+<p class=numBltLvl1>2 A text file has to be written to play the sequence.</p>
+<p class=lvl2> Open a text editor like Notepad and write the following lines
+(which will later be saved as a <code>.texanim</code> file):</p>
+
+<pre>    &lt;root&gt;
+       &lt;frames&gt;abcdef&lt;/frames&gt;
+       &lt;fps&gt; 30 &lt;/fps&gt;
+       &lt;texture&gt;texturepath/electric1.bmp&lt;/texture&gt;
+       &lt;texture&gt;texturepath/electric2.bmp&lt;/texture&gt;
+       &lt;texture&gt;texturepath/electric3.bmp&lt;/texture&gt;
+       &lt;texture&gt;texturepath/electric4.bmp&lt;/texture&gt;
+       &lt;texture&gt;texturepath/electric5.bmp&lt;/texture&gt;
+       &lt;texture&gt;texturepath/electric6.bmp&lt;/texture&gt;
+    &lt;/root&gt;</pre>
+
+<p class=lvl2>The syntax of the <code>.texanim</code> file is described below:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">The <code>&lt;frames&gt;</code> 
+tag determines the order in which the frames will be played &ndash; in this 
+example, six frames (<b>a</b>-<b>f</b>) in sequence.</p>
+<p class=lvl3>If you wished to swap frames 2 and 5, the line would read:
+<code>&lt;frames&gt;a<b>e</b>cd<b>b</b>f&lt;/frames&gt;</code>.</p>
+<p class=lvl3>If you wished to play frame 4 twice to draw out the animation, the 
+line would read: <code>&lt;frames&gt;abc<b>dd</b>ef&lt;/frames&gt;</p>
+<p class=lvl3>If you want to use more than twenty-six frames in a texanim, you can leave out
+the <code>frames</code> section and the textures will be played back in the order 
+they are defined in the <code>.texanim</code> file.</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">The <code>&lt;fps&gt;</code> tag 
+determines how fast the animation will be played &ndash; in this example, thirty 
+frames per second.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">The <code>texture </code>tag 
+determines the file to be played &ndash; the files have to be numbered and 
+written in sequence.</p>
+<p class=lvl3>The texture path should be relative to the resources path. For 
+details on how to set up your texture paths, see the lesson 
+<a href="02a_resource_management.htm">Manage Resources</a>.</p>
+
+<p class=lvl2>When saving the file, name it the same as the first frame in the 
+sequence (but with a <code>.texanim</code> extension) within the same folder as 
+the frames &ndash; in this example, it would be <code>electric1.texanim</code> 
+within folder <code>texturepath</code>.</p>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Applying">Applying animated texture map to a material</a></h3></span>
+<DIV>
+
+<p>To apply an animated texture map to a material, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Open ModelEditor.</p>
+
+<p class=numBltLvl1>2 Load the model to which you want to assign an animated
+texture.</p>
+
+<p class=numBltLvl1>3 In the <b>Material Settings</b> panel, select the material
+that you want to change.</p>
+
+<p class=numBltLvl1>4 In the <b>Properties</b> table, select the <b>Diffuse 
+Map</b> row, then click the <b>Browse</b> 
+(<img src="18_animated_texture_maps_files/image021.gif">) button next to it 
+&ndash; the <b>Open</b> dialog box will be displayed.</p>
+
+<p class=imgLvl2><img src="18_animated_texture_maps_files/image022.gif"></p>
+
+<p class=numBltLvl1>5 In the <b>Open</b> dialog box, navigate to the folder 
+where the animated texture file is (in our example 
+<code>&lt;res&gt;/texturepath</code>), then specify the file name (in our 
+example, <code>electric1.texanim</code>).
+<p class=imgLvl2><img src="18_animated_texture_maps_files/image023.gif"></p>
+
+<p class=numBltLvl1>6 The selected animated material can be previewed in a 
+variety of stand-in objects.</p>
+<p class=lvl2>To preview it in such a away, select the <b>Preview</b> check box,
+and choose an item in its drop-down list.</p>
+
+<p class=imgLvl2><img src="18_animated_texture_maps_files/image020.gif"></p>
+
+<p class=numBltLvl1>7 Save the modified model.</DIV>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="cube_maps">Creating Cube Maps</a></span></h2>
+<DIV>
+  <p>A cube map is composed of six separate images which combine to create a 360 degree panorama. Cube maps are generally used in Bigworld for environment reflection purposes. Cube Maps allow you to do &quot; fake reflections &quot; versus the more processor intensive &quot; raytraced &quot; reflections. Cube maps can be applied to the reflection map channel of BigWorld shaders.</p>
+  <p><img src="18_animated_texture_maps_files/image015.jpg" width="650" height="240"></p>
+  <p>&nbsp;</p>
+  <p><strong>Creating a Cube Map:</strong></p>
+  <p class=imgBltLvl2><img src="images/bullet.gif"> Make 6 screen shots of the environment around you ( e.g.. Top, Bottom, Left, Right, etc ). It would be best to have the images tile together to form a seamless panorama. </p>
+  <p> There are many 3rd party tools available  that make this a task a piece of cake. </p>
+  <p class=imgBltLvl2><img src="images/bullet.gif"> Use an image editing program to ensure that the images are square and to the power of 2 (ie. 256, 512, 1024 etc ). </p>
+  <p class=imgBltLvl2><img src="images/bullet.gif"> Download <strong>CubeMapGen</strong> by ATI. ( http://www.ati.com/developer/cubemapgen/index.html ). This is a great little software that makes creating Cube Maps easy. Below is a quick tutorial on how to create simple Cube Maps.</p>
+  <p>&nbsp;</p>
+  <table width="1336" height="319" border="0
+">
+    <tr>
+      <td width="256"><img src="18_animated_texture_maps_files/image013.jpg" width="208" height="313"></td>
+      <td width="1070" height="315"><p class=numBltLvl1>0	 Select the "<em>Skybox</em>" checkbox so you can see your cube map faces in the background as they're loaded.</p>
+          <p class=numBltLvl1>1 In the green section on the right, set "<em>Select Cube Face</em>" to +Y (the up direction). Select the "<em>Load CubeMap Face</em>" button. </p>
+        <p class=lvl2>From your set of 6 images, choose the image that's in the up direction.</p>
+        <p class=numBltLvl1>2 Set "<em>Select Cube Face</em>" to -Y (the down direction). Hit the "<em>Load CubeMap Face</em>" button. Select the image that's in the down direction. </p>
+        <p class=numBltLvl1>3 Set "<em>Select Cube Face</em>" to +Z (the forward direction). Hit the "<em>Load CubeMap Face</em>" button. Select the image that's in the forward direction.</p>
+        <p class=numBltLvl1>4 Set "<em>Select Cube Face</em>" to -Z (the back direction). Hit the "<em>Load CubeMap Face</em>" button. Select the image that's in the back direction.</p>
+        <p class=numBltLvl1>5 Set "<em>Select Cube Face</em>" to +X (the right direction). Hit the "<em>Load CubeMap Face</em>" button. Select the image that's in the right direction.</p>
+        <p class=numBltLvl1>6 Set "<em>Select Cube Face</em>" to -X (the left direction). Hit the "<em>Load CubeMap Face</em>" button. Select the image that's in the left direction.</p>
+        <p class=numBltLvl1>7 Now that all six of your panels are loaded, switch the "<em>Display CubeMap</em>" drop-down to "<em>Output</em>".</p>
+        <p class=lvl2>The sphere in the center will turn black because you haven't generated any output yet.</p>
+        <p class=numBltLvl1>8 Hit the "<em>Filter Cubemap</em>" button toward the bottom. </p>
+        <p class=lvl2>CubemapGen will work for a few seconds and then your sphere will display the filtered version 
+          of your cubemap.</p>
+        <p class=numBltLvl1>9	 To save out your cube map, Hit "<em>Save CubeMap (.dds)</em>" toward the top and give your cube map a name.</p></td>
+    </tr>
+  </table>
+  <p class=lvl2><span class="style1">You can now load the resulting <strong>.DDS</strong> file into an FX shader as a cube map in <strong><em>Model Editor</em></strong>.</span></p>
+  <p><img src="18_animated_texture_maps_files/image014.jpg" width="291" height="272"></p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="gui_windows" id="gui_windows">Authoring textures for re sizable GUI windows</a></span></h2>
+<DIV>
+  <p>When creating textures for re sizable GUI windows it's important to follow a few rules so as to decrease the number of draw calls. The two textures below are for the &quot;GUI.Frame2&quot; GUI components (the python code framework for creating GUI in BigWorld).  This Frame2 is a
+  re sizable window frame for GUIs such as tool tips, chat window etc.</p>
+  <p><img src="18_animated_texture_maps_files/image017.jpg" width="57" height="227"></p>
+  <p class="captLvl1">Example texture, used to create re sizable GUI window.</p>
+  <p> 	<img src="18_animated_texture_maps_files/image016.jpg" width="202" height="73"></p>
+  <p class="captLvl1">The resulting GUI window</p>
+<p>Frame2  draws the entire gui component  1 draw call. To do this, the
+  elements of the frame need to be packed into one .tga file in a specific way</p>
+<p>The first texture is a debugging bitmap, which demonstrate how to author
+    the file (frame2_example_source), the second texture is the resulting window
+  (frame2_example.bmp).</p>
+  <p>The coloured dashes indicate 2 things<br>
+    1. Which side of the frame's edges are which (this is especially for the bottom<br>
+    half of the source image) - you can see therefore that the four edges go top,<br>
+    bottom, right, left<br>
+    2. How the tiling occurs. You can see the corners are displayed only once, and<br>
+  the edges are tiled to produce the correct sized frame.</p>
+  <p>The final piece of this puzzle is the background of the frame, this is tiled<br>
+    from a single pixel at uv (0.5, 0.125). Note the white dot at the top of the first image. </p>
+  <p>The original source files in their correct formats can be found in the<strong> Bigworld/doc/tools_tutorial_examples/helper_maps</strong><strong>/example_GUI_textures/</strong><br>
+  </p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>	
+</body>
+<!-------- END OF DOCUMENT -------->	
+</html>

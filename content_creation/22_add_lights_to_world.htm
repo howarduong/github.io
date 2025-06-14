@@ -1,0 +1,593 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>Add Lights to the World</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <style type="text/css">
+<!--
+.style1 {font-style: italic}
+-->
+  </style>
+  </head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - ADD LIGHTS TO THE WORLD -->
+<h1><a name="lessonTitle">Add Lights to the World</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="22_add_lights_to_world.htm#LightingEnvironments">Lighting Environments</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#IndoorLighting">Indoor Lighting</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#OutdoorLighting">Outdoor Lighting</A></LI>
+ </UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="22_add_lights_to_world.htm#LightTypes">Light types</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#True_Lights">True lights</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Image_Lights">Image-based lights (flares)</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Properties">Light properties</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#LightPlacement">Light placement</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Contribution">Visualising lighting contribution</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Placing_Ambient">Placing ambient lights</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Placing">Placing lights</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Adjusting">Adjusting the colour</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Coronas">Adding coronas and streaks</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Spotlights">Adding spotlights</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="22_add_lights_to_world.htm#Create_Flares">Creating and editing flares</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="LightingEnvironments">Lighting Environments</a></h2></span>
+<DIV>
+
+<p>There are two types of lighting environments within the BigWorld engine:</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Indoor lighting</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Outdoor lighting</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="IndoorLighting">Indoor Lighting</a></h3></span>
+<DIV>
+
+<p>Indoor lighting only applies to objects within shells, it is a more highly 
+customisable lighting setup than outdoors lighting.</p>
+
+<p><b>Heavenly portals allow sunlight in:</b> Because heavenly portals allow 
+sunlight into shells, objects within shells that have a heavenly portal will be 
+affected by both indoor and outdoor lighting. To get a completely indoor effect, 
+your shell must not contain a heavenly portal.</p>
+
+<p><b>Vertex-based indoor lighting:</b> Because the BigWorld static lighting is 
+vertex-based, it is important to design your shells to include enough vertices 
+for sufficient shadow and lighting precision. For more details on how to create 
+shells for optimised lighting, please see lessons 
+<a href="06_create_shell.htm#Shell_Lighting">Create an Internal Shell in 3ds 
+Max</a> and <a href="32_best_practices.htm">Best Practices</a>.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="OutdoorLighting">Outdoor Lighting</a></h3></span>
+<DIV>
+
+<p>There are two options for outdoor lighting. You can choose a lighting type from within World Editor. </p>
+<p><strong>Option 1 (Default)  </strong></p>
+<p>Outdoor lighting consists of two lights:</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif">Ambient lighting</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">The sun (directional light)</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif">Four Dynamic and two Specular lights per outdoor chunk </p>
+<p>This option gives you a dynamic time of day. The sun rises and sets, shadows lengthen in the afternoon. The dynamic time of day comes at a trade off, you cannot have static lights in the out </p>
+<p>An example of a fantasy demo space that uses this option is <code>fantasydemo/res/spaces/highlands</code>, and <code>fantasydemo/res/spaces/min_spec</code></p>
+<p>&nbsp;</p>
+<p><strong>Option 2 (Unsupported) </strong></p>
+<p>Removes dynamic time of day lighting and allows you to add static lights to the outdoor world.</p>
+<p>Outdoor lighting consists of two lights:</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif">Ambient lighting</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif">Unlimited Static Lights</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif">Four Dynamic and two Specular lights per outdoor chunk</p>
+<p>It is essentially similar to converting your outdoor environment into one giant indoor space. </p>
+<p>An example of a fantasy demo space that uses this option is <code>fantasydemo/res/spaces/urban.</code></p>
+<p></p>
+<p>Note: indoor (shell) lighting is identical between both options. </p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="LightTypes">Light types</a></h2></span>
+<DIV>
+
+<p>There are five true light types in BigWorld Technology, and two image-based lights types. </p>
+
+   
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="True_Lights">True lights</a></h3></span>
+<DIV>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Ambient</b> &ndash; Each 
+indoor chunk can have a single ambient light. This type of light has no 
+direction, and simulates the background light intensity.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Omni</b> &ndash; Spherical 
+lights with a decreasing area of effect along an outer radius.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Spot</b> &ndash; Conical 
+lights, such as a flashlight.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Directional</b> &ndash;
+Lights whose rays do not diverge. Consequently there is no option to add 
+further directional lights in WorldEditor</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Pulse</b> &ndash; An Omni 
+light whose multiplier and position are animated. It is a true dynamic and 
+specular light source. The light's multiplier animation is defined and editable from within the properties tab.</p>
+<p class="imgBltLvl1">The first number defines a time and the second a multiplier. So in the image below at 1.2 seconds the light is only 41% as bright as its default value.</p>
+<p class="imgBltLvl1"> The light's 
+  positional animation is defined in the animation property. The animation file is of a <a href="08_create_lowpoly_char.htm#HP">Hard Point</a> named &quot;HP_light&quot;, the light will be attached to this hard point and animate accordingly.</p>
+<p class="imgBltLvl1"><img src="22_add_lights_to_world_files/image054.gif" width="346" height="335"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Image_Lights">Image-based lights (flares)</a></h3></span>
+<DIV>
+
+<p>Image-based lights (or flares) do not actually emit light &ndash; they are special effect 
+objects that mimic the effects of lights. There are two types of image-based
+lights:</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Coronas</b> &ndash; 
+Coronas are a spin to face additive texture. Useful for glow effects, such as 
+the tips of candles.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Streak</b> &ndash; Streaks 
+consist of two components: a spin to face streak, and a lens flare. These lights 
+look good when place on extremely bright light sources.</p>
+
+<p><table><tr>
+  <td><p class=imgLvl0><img src="22_add_lights_to_world_files/image038.gif"></p>
+      <p class=captLvl0>A blue corona</p></td>
+  <td><p class=imgLvl0><img src="22_add_lights_to_world_files/image037.gif"></p>
+      <p class=captLvl0>A streak effect</p></td></tr></table></p>
+      <p>You can create your own flares &ndash; for details, see <a href="#Create_Flares">Creating and editing flares</a></p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Properties">Light properties</a></h2></span>
+<DIV>
+
+<p>Each of the true light types can be a combination of the following properties: </p>
+   
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Static lights</b>: Apply 
+to static indoor  scene objects only.</p>
+<p class=lvl2>In particular, they contribute to the 'static lighting' values, 
+and thus only work on indoor shells and their models. Static lights do not light 
+up the character or other dynamic objects (<i>i.e.</i>, entities ).</p>
+<p class=lvl2>Static lighting is vertex-based. You may have any number of static 
+lights, since their contribution is calculated offline.</p>
+<p class=lvl2>Static lighting only occurs within shells, there is no static lighting outdoors. </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Specular lights</b>: Apply 
+to objects that have materials with specular maps &ndash; this includes dynamic 
+objects (like the character), and static ones.</p>
+<p class=lvl2>There can only be two specular lights per shell.</p>
+<p class=lvl2>Note: Spotlights cannot be specular only. </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Dynamic lights</b>: Apply 
+to dynamic objects (like the character) and outdoor objects. </p>
+<p class=lvl2>There can be up to 8 dynamic lights affecting any object &ndash; 
+the engine will choose the closest 8 ones to illuminate it. Therefore, while 
+there is nothing stopping you from having more than 8 lights in a shell, only 8 
+of them will affect each object.</p>
+<p class=lvl2>Note: All objects outdoors are considered dynamic objects. If you use an outdoor light it must be set to dynamic. </p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="LightPlacement" id="LightPlacement">Light placement</a></h2></span>
+<DIV>
+
+<p>When placing more than 8 dynamic lights in a particular area, you should test 
+for <i>pops</i> in the lighting as the engine chooses a different set of lights 
+to illuminate the dynamic object.</p>
+
+<p>To avoid these pops, follow the guidelines below:</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Reduce the number of 
+lights.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Reduce the intensity of 
+individual lights.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Make sure that each light has 
+a falloff, so that by the time the object moves away from it, its contribution 
+to illumination is minimal.</p>
+
+<p>The 8-light limit may be any combination of:</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Up to 4 Omni lights</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Up to 2 Spot lights</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">Up to 2 Directionals</p>
+
+<p>The diagram below illustrates the following:</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">How to illuminate a shell to 
+avoid light 'popping' &ndash; at no point in the shell do more than 8 dynamic 
+lights overlap.</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif">How to ensure that the player 
+avatar will receive specular from within every position of the shell.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image008.png"></p>
+<p class=imgLvl1>&nbsp;</p>
+<p class=imgLvl1>When the light limit is reached the BigWorld engine will take into consideration both proximity and light radius when it removes the influence of a light from an object.</p>
+<p class=imgLvl1>Note: The objects bounding box is used to calculate its distance from a light source. </p>
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image037.jpg" width="300" height="300"></p>
+<p class=imgLvl1>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Contribution" id="Contribution">Visualising lighting contribution</a></span></h2>
+</span>
+<DIV>
+  <p>WorldEditor allows you to visualize which <strong>dynamic </strong>lights are contributing to a models lighting. Select a model then <strong>Right click</strong> - <strong>Visualise dynamic light contribution.</strong></p>
+<p>Yellow lines indicate active lighting contribution.</p>
+  <p>Grey lines indicate lights that are within range but not used for lighting contribution (due to light limit restrictions)</p>
+  <p>&nbsp;</p>
+<p><img src="22_add_lights_to_world_files/image038.jpg" width="413" height="285"></p>
+<p>Lights can be forced to contribute to a scene by changing their <strong>Light Priority</strong> setting in the lights property tab in World editor </p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Placing_Ambient">Placing ambient lights</a></h2>
+</span>
+<DIV>
+
+<p>Ambient lights are used inside shells to illuminate the scene with a minimum 
+uniform intensity. Ambient lighting will modulate a models surface colour, so an ambient light value of 64 will cause a pure white model to be displayed at a value of 64 on screen. (64/256)*256 = 64.</p>
+
+<p>To place an ambient light within a shell, first place a shell in the world
+&ndash; when a shell is initially placed, it has no lighting.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image013.gif"></p>
+
+<p>Choose object placement mode to make placing the light more simple &ndash;
+this is configured in <b>Object</b> panel's <b>Locking Mode</b> group box.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image039.gif"></p>
+
+<p>Move inside the shell, then add the ambient light. To do that, follow the 
+steps below:</p>
+
+<p class=numBltLvl1>1 Select the <b>Asset Browser</b> panel's <b>Lights</b> 
+virtual folder.</p>
+
+<p class=numBltLvl1>2 In the file list, select the desired ambient light.</p>
+
+<p class=numBltLvl1>3 Place the light in the shell.</p>
+<p class=lvl2> This can be done by dragging the file from the <b>Asset 
+Browser</b> panel's file list, or by moving the placement cursor icon in the 
+desired location in the viewport and pressing <code>Enter</code>.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image040.gif"></p>
+
+<p class=lvl2><table><tr>
+  <td><p class=imgLvl0><img src="22_add_lights_to_world_files/image014.gif"></p>
+      <p class=captLvl0>Ambient light placed within shell</p>
+  <td><p class=imgLvl0><img src="22_add_lights_to_world_files/image016.gif"></p>
+      <p class=captLvl0>Shell with computed ambient light</p></td></tr></table></p>
+
+<p class=numBltLvl1>4 The ambient light is represented by a small white diamond, 
+which positions itself in the centre of the shell.</p>
+<p class=lvl2>Because ambient lights have no directionality, you cannot move its
+light source.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image017.gif"></p>
+<p class=captLvl2>Ambient light placed in the shell</p>
+
+<p><p class=numBltLvl1>5 In the <b>Properties</b> panel, select the 
+<b>ChunkAmbientLight item</b> entry's <b>Colour</b> property, and adjust it to 
+the desired value.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image041.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Placing">Placing lights</a></h2></span>
+<DIV>
+
+<p>This section illustrates how to place a light model in the world (in this
+case, the one in the <code>omni_static_and_dynamic.xml</code> file).</p>
+
+<p class=numBltLvl1>1 In the <b>Object</b> panel's <b>Object Grip Snaps</b> 
+group box, select the <b>Enabled</b> check box.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image042.gif"></p>
+
+<p class=numBltLvl1>2 In the <b>Asset Browser</b> panel, select the 
+<b>Lights</b> virtual folder, then in the file list, select the 
+<code>omni_static_and_dynamic.xml</code> asset.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image043.gif"></p>
+
+<p class=numBltLvl1>3 Place the light in the world.</p>
+<p class=lvl2>This can be done by dragging the file from the <b>Asset 
+Browser</b> panel's file list, or by moving the placement cursor icon in the 
+desired location in the viewport and pressing <code>Enter</code>.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image004.jpg"></p>
+<p class=captLvl2>The light model, after being placed</p>
+
+<p class=numBltLvl1>4 Adjust the light's inner radius and outer radius.</p>
+<p class=lvl2>The light has a default inner radius of 1.0, and a default 
+outer radius of 12.0. These properties can be changed in two different ways:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif"><b>Via the <b>Properties</b> 
+panel</b> &ndash; manually change the <b>inner radius</b> and <b>outer radius</b>
+properties.</p>
+
+<p class=imgLvl3><img src="22_add_lights_to_world_files/image044.gif"></p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif"><b>Via the <i>Scale</i> 
+gizmo</b> (activated by the <code>Alt</code> keyboard shortcut) &ndash; drag the green
+circle in the gizmo to change the inner radius, or drag the blue one to change
+the outer radius.</p>
+
+<p class=lvl3><table><tr>
+  <td valign=top><p class=imgLvl0><img src="22_add_lights_to_world_files/image045.gif"></p>
+      <p class=captLvl0>Scale gizmo</p></td>
+  <td><p class=imgLvl0><img src="22_add_lights_to_world_files/image007.jpg"></p>
+      <p class=captlvl0>Light, placed inside shell, being resized</p></td></tr></table></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Adjusting">Adjusting the colour</a></h2></span>
+<DIV>
+
+<p>The light's colour can be changed in the <b>Properties</b> panel's 
+<b>Colour</b> property in 3 different way:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">By typing the RGB+Alpha 
+value.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">By clicking the 
+<img src="22_add_lights_to_world_files/image046.gif"> button then selecting a 
+new value in the <b>Color</b> dialog box.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">By expanding the property 
+(via the <img src="22_add_lights_to_world_files/image047.gif"> button) then 
+changing the value of the <b>Red</b>, <b>Green</b>, or <b>Blue</b> field.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image048.gif"></p>
+<p class=captLvl2>Changing the light colour in the <b>Properties</b> panel</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image011.jpg">
+                 <img src="22_add_lights_to_world_files/image014.jpg"></p>
+<p class=captLvl2>Light with different colour, and its effect in the world</p>
+
+<p class=tipLvl1><img src="images/tip.bmp">You can use copy-and-paste to set
+multiple lights with the same colour.</p>
+
+<p>The light also has the <b>Multiplier</b> field, which sets the intensity 
+(brightness) of the light, without affecting its hue.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image016.jpg"> 
+                 <img src="22_add_lights_to_world_files/image018.jpg"></p>
+<p class=captLvl1>Difference between a <b>Multiplier</b> set at <b>0.5</b> (left) and <b>Multiplier</b> set at <b>2.5</b> (right)</p>
+
+<p class=tipLvl1><img src="images/tip.bmp">If you want to change the 
+<b>Colour</b> or the <b>Multiplier</b> property of multiple lights, then select 
+them and change the property to the desired value.</p>
+
+<p>Omni and spot lights also have the properties <b>Static</b>, <b>Dynamic</b>,
+and <b>Specular</b>, which can be turned on or off. Setting the <b>Static</b>
+property to <b>False</b> changes the light's model to an inverse pyramid.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image022.jpg"></p>
+<p class=captLvl1>Model of a light with the <b>Static</b> property set to <b>False</b></p>
+
+<!-- SECTION -ADDING CORONAS AND STREAKS -->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Coronas">Adding coronas and streaks</a></h2></span>
+<DIV>
+
+<p>Coronas and streaks are used only for representing or simulating sources of 
+light, such as a candle flame or a neon bulb. Or in the case of a streak, a 
+large powerful flood light of some sort. They cast no light themselves and are 
+used purely for effect.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image024.jpg"> 
+                 <img src="22_add_lights_to_world_files/image026.jpg"></p>
+<p class=captLvl1>A before-and-after shot of a light source using a corona</p>
+
+<p>Coronas have a default colour value of <code>#3E50CA</code>, and like normal 
+lights they too can have their colour value changed to match that of the light 
+source they are representing. This is found in the <b>Properties</b> panel.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image028.jpg"> 
+                 <img src="22_add_lights_to_world_files/image030.jpg"></p>
+<p class=captLvl1>A before-and-after shot of a large light source using a streak</p>
+
+<!-- SECTION - ADDING SPOTLIGHTS -->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Spotlights">Adding spotlights</a></h2></span>
+<DIV>
+
+<p>As the name suggests, spotlights only light the spot to which they are 
+pointed. They have no inner or outer radius, only an angle radius which will 
+dictate how large the lights diameter is.</p>
+
+<p>To place a spotlight:</p>
+
+<p class=numBltLvl1>1 Select the <b>Asset Browser</b> panel.</p>
+
+<p class=numBltLvl1>2 Select the <b>Lights</b> virtual folder.</p>
+
+<p class=numBltLvl1>3 In the asset list, select the <code>spot.xml</code> file.</p>
+
+<p class=numBltLvl1>4 Place the light in the world, either by dragging the file 
+from the <b>Asset Browser</b> panel then dropping it in the desired location in 
+the viewport, or by moving the mouse to the desired location in the viewport 
+then pressing <code>Enter</code>.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image032.jpg"></p>
+<p class=captLvl2>The spotlight model</p>
+
+<p class=numBltLvl1>5 Configure the spotlight's area of influence (<i>i.e.</i>,
+its inner radius and outer radius properties &ndash; you can do that in 2 
+different ways:</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">In the <b>Properties</b> panel,
+manually change the <b>inner radius</b> and <b>outer radius</b> properties.</p>
+<p class=lvl3><span class="procedureor">-or-</span></p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Using the Scale gizmo 
+(activated by the <code>Alt</code> keyboard shortcut), use the green circle to 
+adjust the inner radius, and the blue circle to adjust the outer radius.</p>
+
+<p class=imgLvl3><img src="22_add_lights_to_world_files/image049.gif"></p>
+<p class=captLvl3>The spotlight's Scale gizmo (green circle adjust <b>inner radius</b>,<br>blue circle adjust <b>outer radius</b>, yellow circle adjusts <b>cone angle</b></p>
+
+<p class=numBltLvl1>6 Change the cone's angle &ndash; you can do that in 3 
+different ways:</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">In the <b>Properties</b> panel,
+manually change the <b>cone angle</b> property.</p>
+<p class=lvl3><span class="procedureor">-or-</span></p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Using the Scale gizmo 
+(activated by the <code>Alt</code> keyboard shortcut), use the yellow circle to 
+adjust the cone angle.</p>
+<p class=lvl3><span class="procedureor">-or-</span></p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Using the Rotation gizmo 
+(activated by the <code>Shift</code> keyboard shortcut), use the yellow circle 
+to adjust the cone angle.</p>
+
+<p class=imgLvl3><img src="22_add_lights_to_world_files/image004.png"></p>
+<p class=captLvl3>The <b>cone angle</b> can be adjusted via the yellow circle</p>
+
+<p class=numBltLvl1>7 Point the light to the desired location.</p>
+<p class=lvl2>Unlike all other lights, spotlights can be rotated to point in 
+different directions. To rotate a spotlight, use the Rotation gizmo (activated
+by the <code>Shift</code> keyboard shortcut), and drag the axis on which to 
+rotate the light.</p>
+
+<p class=imgLvl2><img src="22_add_lights_to_world_files/image036.jpg"></p>
+<p class=captLvl2>Rotating a spotlight</p>
+
+<p class=noteLvl1><img src="images/note.bmp">Spotlights also have the 
+<b>colour</b> and <b>multiplier</b> properties, which work as described in the
+previous session of this lesson.</p>
+<p class=noteLvl1>&nbsp;</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Create_Flares">Creating and editing flares</a></h2></span>
+<DIV>
+
+<p>Flares are additive images placed in front of light sources, usually used to simulate lens effects or to amplify the intensity of a light. The sun flare used in the fantasy demo can be found in<span class="style1"><code> </code>bigworld\res\system\data</span></p>
+<p>The sun flare (<code>fx_sun.xml</code>) shown below is a multi-stage flare. When the source of the flare  becomes obscured, a different stage flare is used &ndash; this simulates the streaking that occurs as a light source becomes obscured.</p>
+
+<p class=imgLvl1><img src="22_add_lights_to_world_files/image051.gif">
+                 	
+                 <img src="22_add_lights_to_world_files/image053.gif"></p>
+
+<p>When creating your own flare, start by modifying one of the existing flares. You will also require a programmer to add the flare to the world.</p>
+<p>The following is a breakdown of  <code>fx_sun.xml</code> (see notes below):</p>
+
+<pre>&lt;root&gt;
+   &lt;maxDistance&gt; 1000000 &lt;/maxDistance&gt; <span class="ltrBltLvl1_Font">A</span>
+   &lt;area&gt;        75      &lt;/area&gt;        <span class="ltrBltLvl1_Font">B</span>
+   &lt;fadeSpeed&gt;   0.1      &lt;/fadeSpeed&gt;  <span class="ltrBltLvl1_Font">C</span>
+   &lt;Flare&gt;
+      &lt;occlusionLevel&gt; 0.5                        &lt;/occlusionLevel&gt; <span class="ltrBltLvl1_Font">D</span>
+      &lt;type&gt;           materials/fx/sun_flare.mfm &lt;/type&gt;           <span class="ltrBltLvl1_Font">E</span>
+      &lt;size&gt;           1.0                        &lt;/size&gt;           <span class="ltrBltLvl1_Font">F</span>
+      &lt;secondaries&gt; <span class="ltrBltLvl1_Font">G</span>
+         &lt;Flare&gt;
+            &lt;type&gt;    materials/fx/secondary.mfm &lt;/type&gt;
+            &lt;size&gt;    0.1                        &lt;/size&gt;
+            &lt;depth&gt;   0.3                        &lt;/depth&gt; <span class="ltrBltLvl1_Font">H</span>
+            &lt;rgba&gt;    255 128 0 48               &lt;/rgba&gt;  <span class="ltrBltLvl1_Font">I</span>
+         &lt;/Flare&gt;
+         &lt;Flare&gt;
+            &lt;type&gt;    materials/fx/secondary.mfm &lt;/type&gt;
+            &lt;size&gt;    0.2                        &lt;/size&gt;
+            &lt;depth&gt;   0.2                        &lt;/depth&gt;
+            &lt;rgba&gt;    255 0 0 32                 &lt;/rgba&gt;
+         &lt;/Flare&gt;
+         &lt;Flare&gt;
+            &lt;type&gt;    materials/fx/corona.mfm    &lt;/type&gt;
+            &lt;size&gt;    0.1                        &lt;/size&gt;
+            &lt;depth&gt;   -0.1                       &lt;/depth&gt;
+            &lt;rgba&gt;    255 255 0 32               &lt;/rgba&gt;
+         &lt;/Flare&gt;
+         &lt;Flare&gt;
+            &lt;type&gt;    materials/fx/secondary.mfm &lt;/type&gt;
+            &lt;size&gt;    0.05                       &lt;/size&gt;
+            &lt;depth&gt;   -0.4                       &lt;/depth&gt;
+            &lt;rgba&gt;    128 255 0 32               &lt;/rgba&gt;
+         &lt;/Flare&gt;
+      &lt;/secondaries&gt;
+   &lt;/Flare&gt;
+   &lt;Flare&gt; <span class="ltrBltLvl1_Font">J</span>
+      &lt;occlusionLevel&gt; 0.1                        &lt;/occlusionLevel&gt;
+      &lt;type&gt;           materials/fx/sun_split.mfm &lt;/type&gt;
+      &lt;size&gt;           1.0                        &lt;/size&gt;
+      &lt;rgba&gt;           255 255 255 128            &lt;/rgba&gt;
+   &lt;/Flare&gt;
+&lt;/root&gt;</pre>
+
+<p class=ltrBltLvl1>A <code>maxDistance</code> is the distance beyond which the 
+flare will not be seen.</p>
+
+<p class=ltrBltLvl1>B <code>area</code> determines how large the visibility test
+is. This area is used when calculating the flares occlusion, and represents the 
+size of the flare source in number of pixels on screen.</p>
+
+<p class=ltrBltLvl1>C <code>fadeSpeed</code> is a multiplier that effects how 
+slow the flares fade in/out. Larger numbers result in slower fade in/out speeds.
+
+<p class=ltrBltLvl1>D <code>occlusionLevel</code> is the minimum percentage of 
+the flare that needs to visible in order for this stage of the flare to appear 
+in the world &ndash; this sets the percentage of flare visible needed to use the 
+next flare stage.</p>
+
+<p class=ltrBltLvl1>E <code>type</code> is the material file used to describe 
+the flare. Alternatively the effect file and bitmap can be directly defined, 
+eliminating the need for an MFM.</p>
+
+<p class=ltrBltLvl1>F <code>size</code> scales the given material.</p>
+
+<p class=ltrBltLvl1>G <code>secondaries</code> specifies the multiple images 
+that make up a single flare. These images are splayed outward from the initial 
+flare source towards the centre of the camera. This simulates the effect of 
+light passing through a camera lens.<br>
+<img src="22_add_lights_to_world_files/image050.gif">
+
+<p class=ltrBltLvl1>H <code>depth</code> specifies the distance from the 
+primary flare to the secondary flare.</p>
+
+<p class=ltrBltLvl1>I <code>rgba</code> specifies the colour values of the 
+flare.</p>
+
+<p class=ltrBltLvl1>J This is the flare that will be seen through the trees. The
+engine automatically uses a new flare stage when the light source is partially 
+obstructed. If it is fully obstructed, no flare will be shown. The point at 
+which the next flare stage is rendered is controlled by how much of the flare 
+remains visible, as determined by the <code>occlusionLevel</code> setting
+(see note <span class="ltrBltLvl1_Font">D</span>).</p>
+
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-- END OF DOCUMENT -->
+</body>
+</html>

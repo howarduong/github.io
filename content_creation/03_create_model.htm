@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <title>Modify a Model in ModelEditor</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!-------- CHAPTER TITLE -------->
+<h1><a name="lessonTitle">Modify a Model in ModelEditor</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#Importing">Importing an object</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#ManipulatingCamera">Manipulating the camera</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#Loading">Changing a model's shader/material</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#Changing_Textures">Changing a model's texture</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="03_create_model.htm#Saving">Using MFMs</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#CreateMFMSub">Create an MFM</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#ApplyMFMSub">Apply an MFM to a model</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#Expose_Python">Exposing a material parameter to Python</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#Texture_Feed">Enabling a texture feed</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="03_create_model.htm#Changing_Thumb">Changing the model's thumbnail</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>ModelEditor allows artists to: </p>
+ 
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+associate animations with models, </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+create actions, LOD trees and tints, and</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+modify materials and properties.</p>
+
+<p>This section of the content creation manual covers material editing.</p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Importing">Importing an object</a></h2></span>
+<DIV>
+
+<p>To import an object in ModelEditor, follow the steps below:</p>
+<!-- Number-bulleted list -->
+<p class="numbltlvl1">1 Run ModelEditor.</p>
+<!-- Tip -->
+<p class="tiplvl2"><img src="images/tip.bmp">The executable <code>ModelEditor.exe</code> is located under
+folder <code>\bigworld\tools\modeleditor\</code>.</p>
+<p class="numbltlvl1">2 Load the model file that was exported from your 3d package in&nbsp;the previous lesson.</p>
+
+<p class="lvl3">Select menu item <b>File&rarr;Open</b> (<code>Ctrl+O</code>.)<br>
+   <span class="procedureor">-or-</span><br>
+   Use the Asset Browser&rsquo;s dynamic search field to find and select the 
+   object you wish to edit &ndash; from the Asset Browser, choose the 
+   <b>Models</b> virtual folder, then either double-click a model or drag
+   it to the viewport.</p>
+
+<p class="imgLvl3"><img src="03_create_model_files/image014.png"></p>
+<p class="captLvl3">Asset Browser with model filter folder selected displaying available assets named &quot;rock&quot;.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="ManipulatingCamera">Manipulating the camera</a></h2></span>
+<DIV>
+
+<p>There are two camera modes to choose from.</p>
+
+<p><b>1</b>. <b>Orbit Camera</b> toolbar button &ndash; <img src="03_create_model_files/image001.png"> &ndash;, which can be toggled ON and OFF 
+
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+To <span class="highlight">rotate</span> the view (look around), hold the right mouse button and drag. </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+To automatically rotate the camera&nbsp;<span class="highlight">left</span>, press <code>A</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+To automatically rotate the camera <span class="highlight">right</span>, press <code>D</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">
+To move <span class="highlight">in</span>, press <code>W</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">out</span>,
+press <code>S</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">up</span>,
+press <code>Q</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">down</span>,
+press <code>E</code>.</p><p>2. <b>Free camera mode</b></p>
+
+<!-- Image-bulleted list -->
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To <span class="highlight">rotate</span>
+the view (look around), hold the right mouse button and drag. </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">left</span>,
+press <code>A</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">right</span>,
+press <code>D</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">in</span>,
+press <code>W</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">out</span>,
+press <code>S</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">up</span>,
+press <code>Q</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <span class="highlight">down</span>,
+press <code>E</code>.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Loading">Changing a model's shader / material</a></h2></span>
+<DIV>
+
+<p>The first time you load your model in ModelEditor it will be displayed
+with the same texture maps you applied in your 3d application. If
+you did not specify a BigWorld shader from 3ds Max, or if you are a Maya
+user, the exporter will have automatically assigned a BigWorld shader
+to your model.
+<p>To alter the type of shader used by your model, follow the steps below:</p>
+
+<p class="numbltlvl1">1 Click on the tab <b>Materials </b> to display the 
+material list with associated properties.</p>
+
+<p class="imgLvl2"><img src="03_create_model_files/image005.png"></p>
+<p class="captlvl2"><b>Materials</b> tab displaying list of assigned texture maps</p>
+
+<p class="lvl2">At the top of the material tab you will see the list of materials
+applied to your model. These materials derive their names from the material name 
+in your 3d package.</p>
+
+<p class="numbltlvl1">2 Select the material you wish to edit from the material list.</p>
+
+<p class="lvl2">The properties of that material will be displayed in the properties box
+below the material list.</p>
+<p class="lvl2">Different material properties will be displayed depending on the type of BigWorld
+shader assigned to your model. These parameters may include such
+things as:</p>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Collision Flags (Does your object need a collision volume?)</p>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Double Sided (Whether your model is rendered double sided or not)</p>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Diffuse Map (The colour map assigned to your model)</p>
+<p class="lvl2">Further information about material properties can be found in the 
+lesson <a href="34_fx_files_and_materials.htm">BigWorld Shaders and Materials</a>.</p>
+<p class="lvl2">The <b>Effect</b> field allows you to choose the BigWorld shader to be 
+applied to the active material type.</p>
+
+<p class="numbltlvl1">3 The current shader can be changed several ways:</p>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Click the <img src="03_create_model_files/image008.png"> button to display a list of BigWorld shaders.<br>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Drag an effect from the Asset Browser into the above field.</p>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">Assign the object an MFM (explained below).</p>
+
+<p class="imgLvl2"><img src="03_create_model_files/image009.png"></p>
+<p class="captLvl2">Choose a new shader in the dialog box.</p>
+
+<p>A complete list of all BigWorld shaders (and their properties) can be found in the
+  lesson <a href="34_fx_files_and_materials.htm#Choose_Shader">BigWorld Shaders and Materials</a>.</p>
+<p class="imgBltLvl1">.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Changing_Textures">Changing a model's texture</a></h2></span>
+<DIV>
+
+<p>A model's texture is specified in the <b>Materials Settings</b> panel, and can
+be changed in three different ways: via the 
+<img src="03_create_model_files/image015.png"> button, via copy-and-paste 
+(from the <b>Asset Browser</b> panel's <b>Textures</b> virtual folder to the 
+field), or via drag-and-drop. The methods are described below:</p>
+
+<p class="imgBltLvl0"><img src="images/bullet.gif" alt="*"><b>Via the <img src="03_create_model_files/image015.png"> button:</b></p>
+
+<p class="numbltlvl2">1 Select the <b>Materials Settings</b> panel.</p>
+
+<p class="numbltlvl2">2 Click the field whose texture you wish to change. (In the
+example below, we change the <b>Diffuse Map</b> field.)</p>
+
+<p class="numbltlvl2">3 Click the <img src="03_create_model_files/image015.png">
+button &ndash; the <b>Open</b> dialog box will be displayed.</p>
+
+<p class="numbltlvl2">4 In the <b>Open</b> dialog box, select the texture that 
+you want to be applied to the field, then click <b>OK</b>.
+
+<p class="imgLvl3"><img src="03_create_model_files/image017.png">
+<p class="captLvl3">Specifying a texture via the <img src="03_create_model_files/image015.png"> button</p>
+
+<p class="imgBltLvl0"><img src="images/bullet.gif" alt="*"><b>Via copy-and-paste:</b></p>
+
+<p class="numbltlvl2">1 Select the <b>Asset Browser</b> panel.</p>
+
+<p class="numbltlvl2">2 Select the <b>Textures</b> virtual folder.</p>
+
+<p class="numbltlvl2">3 Right-click the texture that you want assigned to the
+field, and in its context menu, select the <b>Copy Path To Clipboard</b> menu item.</p>
+
+<p class="numbltlvl2">4 Select the <b>Materials Settings</b> panel.</p>
+
+<p class="numbltlvl2">5 Right-click the field whose texture you want to change 
+(in the example below, we change the <b>Diffuse Map</b> field), and in its 
+context menu, select the <b>Paste</b> menu item.</p>
+
+<p class="lvl3"><table><tr valign="top">
+ <td><p class="imglvl0"><img src="03_create_model_files/image018.png"></p>
+     <p class="captLvl0"><b>Copy</b> the name of desired texture<br>in the <b>Asset Browser<b> panel</p></td>
+ <td><p class="imglvl0"><img src="03_create_model_files/image019.png"></p>
+     <p class="captLvl0"><b>Paste</b> the name of desired texture<br>in the <b>Material Settings</b> panel</p></td></tr></table>
+
+<p class="imgBltLvl0"><img src="images/bullet.gif" alt="*"><b>Via drag-and-drop:</b></p>
+
+<p class="numbltlvl2">1 Select the <b>Asset Browser</b> panel.</p>
+
+<p class="numBltLvl2">2 Drag the panel's title bar and drop it in a location such
+that you can view both <b>Asset Browser</b> and <b>Material Settings</b> panels
+at the same time.</p>
+
+<p class="numbltlvl2">3 In the <b>Asset Browser</b> panel, select the 
+<b>Textures</b> virtual folder.</p>
+
+<p class="numbltlvl2">4 Drag the desired texture and drop it in the field in the
+<b>Material Settings</b> panel to which you want it assigned.</p>
+
+<p class="imgLvl3"><img src="03_create_model_files/image021.png"></p>
+<p class="captLvl3"><b>Drag</b> the desired texture from the <b>Asset Browser</b> panel, and<br>
+                    <b>drop</b> it in the field in the <b>Material Settings</b> panel.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Saving">Using MFM's</a></h2></span>
+<DIV>
+
+<p>Material files (<code>.mfm</code>) contain BigWorld material information such 
+as shader type, bitmap paths, and property setting.</p>
+<p>When a <code>.mfm</code> file is referenced in ModelEditor, the contents of that
+material file are stored within the model's visual file. You do not need to use 
+MFM files, but they can be a handy way of storing and transferring complex 
+material property settings.</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="CreateMFMSub" id="CreateMFMSub">Create an MFM</a></h3></span>
+<DIV>
+<p>To create an MFM file, follow the steps below:</p>
+
+<p class="numbltlvl1">1 Select the <b>Materials Settings</b> panel.</p>
+
+<p class="numbltlvl1">2 Click the <img src="03_create_model_files/image010.png"> 
+button &ndash; the <b>Save As</b> dialog box will be displayed.</p>
+
+<p class="numbltlvl1">3 In the <b>Save As</b> dialog box, specify the folder and 
+a name for your new MFM file.</p>
+
+<p class="numbltlvl1">4 Click the <b>Save</b> button.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="ApplyMFMSub" id="ApplyMFMSub">Apply an MFM to a model</a></h3></span>
+<DIV>
+
+<p class="numbltlvl1">1 Select the <b>Materials Settings</b> panel.</p>
+
+<p class="numbltlvl1">2 Click the <img src="03_create_model_files/image013.png"> 
+button &ndash; the <b>Open</b> dialog box will be displayed.</p>
+
+<p class="numbltlvl1">3 In the <b>Open</b> dialog box, select the MFM file that 
+you want applied to your model.</p>
+
+<p class="numbltlvl1">4 Click the <b>Open</b> button.</p>
+
+<p class="noteLvl1"><img src="images/note.bmp">The data in the MFM file is 
+written to the model's <code>.visual</code> file &ndash; once the model is 
+saved, any changes made to the MFM will not affect the model's materials.</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Expose_Python">Exposing a material parameter to Python</a></h2></span>
+<DIV>
+
+<p>If you wish to change a material property in-game (for example increasing the self-illumination) then you must expose that property to Python so that the programmers have access to the material property from code. </p>
+<p>Any material parameter that can be represented as a <code>Vector4</code>,
+  and is part of a <a href="17_create_a_new_material.htm">material tint</a> can be exposed to Python scripts for use within 
+  the game.</p>
+<p>This means that any of the examples below can be altered from script within 
+the game providing you expose them to Python.</p>
+
+<table class="alternate" cellspacing=0>
+   <tbody>
+      <tr><th class=FirstCol     style="border-right:none;">Data Type           </th><th>                                                           </th></tr>
+      <tr><td class=oddRow1stCol style="border-right:none;">Floating-point      </td><td class=oddRow><img src="03_create_model_files/image007.gif"></td></tr>
+      <tr><td class=evnRow1stCol style="border-right:none;">Boolean             </td><td class=evnRow><img src="03_create_model_files/image008.gif"></td></tr>
+      <tr><td class=oddRow1stCol style="border-right:none;">Slider              </td><td class=oddRow><img src="03_create_model_files/image009.gif"></td></tr>
+      <tr><td class=evnRow1stCol style="border-right:none;"><code>Vector4</code></td><td class=evnRow><img src="03_create_model_files/image010.gif"></td></tr>
+   </tbody>
+</table>
+<p class=captLvl1>Types of material property exposable to Python</p>
+
+<p>To expose a material parameter to Python, simply right-click it, and in its
+context menu, select the <b> Expose to Python</b> menu item. After that, the 
+game programmer will have access to that material parameter from script. </p>
+
+<p class="imgLvl1"><img src="03_create_model_files/image022.png"></p>
+<p class="captLvl1">Exposing a material property to Python</p>
+
+<p class="noteLvl1"><img src="images/note.bmp">Exposed parameters must be part of a material tint. </p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Texture_Feed">Enabling a texture feed</a></h2></span>
+<DIV>
+
+<p>Textures generated from script in-game, such as a render to texture can be set up within Model Editor to be fed into a particular texture path.  </p>
+<p>For example, the bone TV in the fantasy demo is displaying a texture feed directly from a camera placed in another part of the world. </p>
+<p>This is set up by enabling a texture feed into the TV's diffuse slot. To do
+that, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Right-click the texture field that you wish to texture 
+feed, and in its context menu, select the <b>Enable Texture Feed</b> menu 
+item &ndash; the <b>Texture Feed Name</b> dialog box will be displayed.</p>
+
+<p class=numBltLvl1>2 In the the <b>Texture Feed Name</b> dialog box, type the 
+name of texture feed, then click the <b>OK</b> button.</p>
+
+<p class=numBltLvl1>3 Give this name to the programmer, so that he can match the
+texture to the feed via script.</p>
+
+<p class=imgLvl2><img src="03_create_model_files/image023.png">
+                 <img src="03_create_model_files/image001.jpg"></p>
+<p class=captLvl2>Enabling a texture feed (left), and its final in-game result (right)</p>
+
+<p class="noteLvl1"><img src="images/note.bmp">In the example above I have put 
+the texture feed on a material tint (<code>tv2</code>) of the 
+<code>bone_tv</code> model. But it is not necessary to create a tint for a 
+texture feed &ndash; I only used tints in this case because there are multiple 
+channels that feed into the TV, thus requiring multiple tints.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Changing_Thumb">Changing the model's thumbnail</a></h2></span>
+<DIV>
+
+<p>The thumbnail used in the Asset Browser is automatically created, but you can
+manually change it via the <img src="03_create_model_files/image004.png"> 
+button.</p>
+
+<p>This button replaces the existing thumbnail with a thumbnail version of what 
+appears in ModelEditor's 3d viewport.</p>
+
+</DIV>
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

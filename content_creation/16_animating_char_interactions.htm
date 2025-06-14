@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Animate Character Interactions</TITLE>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</HEAD>
+<BODY>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<H1><a name="lessonTitle">Animate Character Interactions</a></H1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="16_animating_char_interactions.htm#Positioning">Positioning characters for interaction with an entity (IsCoordinated)</A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="16_animating_char_interactions.htm#Animating">Animating the contact point for attachment</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="16_animating_char_interactions.htm#Exporting">Exporting character animation segments </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="16_animating_char_interactions.htm#Exporting2">Exporting the entity object</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="16_animating_char_interactions.htm#Two">Two characters interacting (IsCoordinated and IsImpacting)</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="16_animating_char_interactions.htm#Animating_HardPoints">Animating HardPoints</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Positioning">Positioning characters for interaction with an entity (IsCoordinated)</a></h2>
+</span>
+<DIV>
+<DIV>
+<p>Follow the steps below:</p>
+
+<p class=numBltLvl1>1 Load the <code>Warrior_pull_sword.max</code> file.</p>
+
+<p class=numBltLvl1>2 To construct an interactive sequence between the player 
+character and an entity, you should create the animation with all interactive 
+objects in the same scene.</p>
+<p class=lvl2>This will help you to coordinate the animation and accurately 
+position the character in relation to the objects.</p>
+
+<p class=imgLvl2><img src="16_animating_char_interactions_files/image001.gif"></p>
+<p class=captLvl2>Character and entities for interaction</p>
+<p class=lvl2>In the animation above, the character is about to approach the 
+stone and pull out the sword, then return to the exact same start position when
+finished.</p>
+
+<p class=numBltLvl1>3 With the home grid turned on, you can see the biped is 
+offset from the origin in the default pose (in this case an idle posture).</p>
+
+<p class=lvl2><img src="16_animating_char_interactions_files/image002.gif"></p>
+<p class=captLvl2><i>Idle</i> as the default pose</p>
+
+<p>The idea for this is that during the game, the player will approach the 
+entity and activate the interactive sequence when in a range close enough to 
+trigger the animation. The character will automatically move into the correct 
+position (before the start of this animation), then play the animation all the 
+way through, finally returning to the offset idle position at the end of the 
+sequence. The reason for the offset is to close the remaining distance within 
+the animation itself, so that the player does not need to stand right over the 
+entity in order to interact.</p>
+<p>The action for this animation will use the<strong> Is Coordinated</strong> tag. This tag makes the offset distance available to scrip so the programmer can correctly align the player before triggering the animation. </p>
+<!-- SECTION - TWO CHARACERS INTERACTING -->
+</DIV>
+<span onclick=toggle_heading()>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Animating">Animating the contact point for attachment</a></span></h3>
+</span>
+<DIV>
+  <p class=numBltLvl1>1 Load the <code>Warrior_pull_sword.max</code> file.</p>
+  <p class=numBltLvl1>2 Using the <i>pull sword</i> animation as an example, look 
+    closely at the point of contact where the hand grasps the sword.</p>
+  <p class=lvl2>The two hard points meet in exactly the same position. The 
+    animation for the right hand was deliberately designed this way to conform 
+    exactly to the position of the sword handle, so that the two hard points match 
+    each other at their pivot axis.</p>
+  <p class=imgLvl2><img src="16_animating_char_interactions_files/image007.gif" height=300></p>
+  <p class=captLvl2>Exact position match at the hard points determines the contact point</p>
+  <p class=lvl2>During the game, the <code>HP_sword</code> at the contact point on
+    frame 38 would be linked via script to the <code>HP_right_hand</code> hard 
+    point, thus allowing the sword to be pulled out of the stone and carried by the 
+    player or character.</p>
+  <p class=noteLvl2><img src="images/note.bmp">Note that it is only linked here 
+    in 3ds Max for the purpose of demonstrating the effect. You should not actually 
+    link the entity or item to the character when exporting.</p>
+  <p class=numBltLvl1>3 This method of matching the animation to existing hard 
+    points can be difficult. Another way to approach the problem of getting hard 
+    points in sync is to create the animations first, then add the hard points at 
+    the contact point afterwards. You would then need to re-export the mesh and any 
+    other animations again with the attached hard points.</p>
+  <p class=numBltLvl1>4 Another hard point will also need to be created, so that 
+    the sword can be attached to the stone. The easiest way to do this is to
+    select the existing hard point for the sword and make a cloned copy of it. Name 
+    this copy <code>HP_stone</code>, then link it to the stone object, which will 
+    act as a temporary anchor for the sword until the player pulls it out.</p>
+  <!-- SECTION - EXPORTING CHARACTER ANIMATION SEGMENTS -->
+  <span onclick=toggle_heading()></span></DIV>
+
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="Exporting">Exporting character animation segments </a></h3>
+</span>
+<DIV>
+
+<p>The animation for pulling out the sword will need to broken up into segments 
+  for exporting. There will be two animation segments exported &ndash; an <i>approach</i> segment and a <i>return to idle</i> segment.</p>
+<p class=lvl2>This is done so that the programmers can determine the contact 
+point at which the item (sword) is attached to the character (right hand) using 
+the two hard points.</p>
+
+<p class=numBltLvl1>1 Hide (or delete) the stone entity and the sword item
+along with their  hard points.</p>
+<p class=lvl2>Only the biped and all its attached hard points should be visible 
+in the scene.</p>
+
+<p class=numBltLvl1>2 In the <b>Time Configuration</b> dialog box, change the 
+<b>Start Time</b> field to <b>0</b>, and <b>End Time</b> to <b>38</b> &ndash; 
+this will be the <i>approach</i> segment, with frame 38 being the contact point
+which then lets the game engine know when to attach the sword to the hand.</p>
+
+<p class="lvl2"><table><tr>
+   <td><p class=imglvl0><img src="16_animating_char_interactions_files/image008.gif"></p>
+       <p class=captLvl0><i>Idle</i> position</p></td>
+   <td><p class=imgLvl0><img src="16_animating_char_interactions_files/image009.gif"></p>
+       <p class=captLvl0>Right hand makes contact</td></tr></table></p>
+
+<p class=numBltLvl1>3 Export this segment of animation in the 
+<code>warrior/animations</code> as 
+<code>warrior_pullsword_approach.animation</code>. Choose <b>Export node</b> 
+animation.</p>
+
+<p class=imgLvl2><img src="16_animating_char_interactions_files/image001.gif"></p>
+
+<p class=numBltLvl1>4 For the <i>return to idle</i> segment of animation, change 
+the <b>Start Time</b> field to <b>39</b> and <b>End Time</b> to <b>85</b>, then 
+export this to the same folder as 
+<code>warrior_pullsword_return.animation</code>.
+<p>Inside the game engine several events must be coordinated to create a smooth sequence
+in which the player pulls his sword from a stone. Here is a list of the component events.</p>
+<p>1. The player targets the sword. </p>
+<p>2. The Script recognises the player wants to pull the sword from the stone and uses the 
+offset distance ( <strong>Is Coordinated</strong>) in the <span class="numBltLvl1"> <code>warrior_pullsword_approach.animation</code>.</span>
+to correctly position the character for a <span class="numBltLvl1"> <code>warrior_pullsword_approach.animation</code>.</span></p>
+<p>3. The<span class="numBltLvl1"> <code>warrior_pullsword_approach.animation</code></span> is played. At the end of this animation,
+the player's hand has contacted the sword and the two Hard Points are perfectly matched. </p>
+<p>4. The programmer uses the end of the <span class="numBltLvl1"> <code>warrior_pullsword_approach  </code></span> action 
+to attach the sword <code>HP_right_hand</code> to the player character's <code>HP_right_hand</code>.
+(Remember the programmer can only time an event at the beginning or end of an action.) </p>
+<p>5. Once the hard points are linked the game will play the <code>warrior_pullsword_return.animation</code> 
+with the sword now linked to the player's hand. </p>
+  <!-- SECTION - EXPORTING THE ENTITY OBJECT --> 
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Exporting2">Exporting the entity object</a></h3></span>
+<DIV>
+
+<p class=numBltLvl1>1 Load the <code>Stone_entity.max</code> file.</p>
+
+<p class=numBltLvl1>2 Before exporting, the entity object should be centred at 
+the origin to make placement in WorldEditor easier.</p>
+<p class=lvl2>To centre the stone object, select and move it to the origin with 
+the hard point still linked to follow. Align the pivot point of the stone to the origin. The object mesh 
+should sit naturally on the home-grid as though the grid itself was the terrain 
+level.</p>
+
+<p class=imgLvl2><img src="16_animating_char_interactions_files/image010.gif"></p>
+<p class=captLvl2>Stone and hard point centred</p>
+
+<p class=numBltLvl1>3 Leave the hard point linked to the stone in its relative
+position and save both objects to a separate 3ds Max file.</p>
+
+<p class=numBltLvl1>4 Export this as a <b>Static with nodes</b> object to a new
+<code>stone</code> sub-folder, under the name <code>stone.visual</code>, and 
+reference any texture maps.</p>
+
+<p class=imgLvl2><img src="16_animating_char_interactions_files/image002.gif"></p>
+<p class=captLvl2>Static Visual type</p>
+
+<p class=imgLvl2><img src="16_animating_char_interactions_files/image012.gif"></p>
+<p class=captLvl2><code>Stone</code> entity folder created</p>
+
+</DIV>
+</DIV>
+<p>
+  <!-------- HORIZONTAL RULE -------->
+</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Two">Two characters interacting (IsCoordinated and IsImpacting)</a></span></h2>
+<DIV>
+  <p>In this scenario, two characters are about to interact (fight). Player A character is centered at the origin, and player B (Usually the NPC) 
+    is already offset.</p>
+  <p class=imgLvl2><img src="16_animating_char_interactions_files/image004.gif"></p>
+  <p class=captLvl2>Player at the origin with NPC offset</p>
+  <p class=numBltLvl1>1 Load the <code>Warrior_attack.max</code> file.</p>
+  <p class=lvl2>As the animation plays, the two characters move from their
+    original positions, and both end up offset from the origin at the end of the 
+    sequence.</p>
+  <p class=imgLvl2><img src="16_animating_char_interactions_files/image005.gif"></p>
+  <p class=captLvl2>Player and NPC both offset from the origin</p>
+  <p class=lvl2>The main point illustrated here is that a character (or animated 
+    object) can move off its original position during an interactive sequence and 
+    end up in a new position. Compare this to the previous example above using the 
+    stone and sword, where the player character returned to its original position 
+    at the end of the animation. This distinction will become important after the 
+    animation has been exported and the actions are applied &ndash; see the next 
+    step.</p>
+  <p class=numBltLvl1>2 Because the player has moved in a non-linear motion from 
+    its original position to  the last frame, it must have an action assigned to 
+    it in ModelEditor, with the <b>IsImpacting</b> check box selected. Also because it is coordinated with player B it must use the <strong>IsCoordinated</strong> tag. This option
+    will recognise the offset in the game, and update the entity's position at the
+    completion of the animation. </p>
+  <p class=numBltLvl1>3 In summary player <strong>A</strong> is going to be using both<strong> IsCoorinated</strong> and<strong> IsImpacting</strong>. Whilst player <strong>B</strong> will use the <strong>IsImpacting</strong> tag</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Animating_HardPoints" id="Animating_HardPoints">Animating Hard Points </a></span></h2>
+<DIV>
+  <p>Hard points can be animated. You could use an animated hard point to move a 
+  particle system source, or to animate attachments.
+  <p>Here is how I would create an animation where the character throws a weapon
+  from one hand to the other, spinning it in the air.  
+  All I will do is animate the character's <span class="numBltLvl1">HP_right_hand </span>
+  so that any object attached to it will follow its movement. 
+  <p class=numBltLvl1>1
+      First, import both the character and its item into your 3d Application. 
+  <p class=numBltLvl1>2 Rearrange the sword's hierarchy as shown. Now, if we move 
+  the sword's <code>HP_right_hand</code>, the sword will follow. 
+  <p class=numBltLvl1><img src="16_animating_char_interactions_files/image013.gif" width="628" height="130">
+  <p class=numBltLvl1> 3 <img src="16_animating_char_interactions_files/image015.gif" width="35" height="34"> Align 
+  the sword's <code>HP_right_hand</code> with the character's <code>HP_right_hand</code> 
+  to start the animation. 
+  <p class=numBltLvl1><img src="16_animating_char_interactions_files/image001.jpg" width="105" height="128">
+  
+  <p class=numBltLvl1>4 Animate the sword (using the swords HP_right_hand) flipping through the air and landing in the left hand. 
+  Make sure the last frame of the animation the swords HP_left_hand matches the characters HP_left_hand.
+  <p class=numBltLvl1>5 For every frame that the sword HP_right_hand is in the air, use  align   <img src="16_animating_char_interactions_files/image015.gif" width="35" height="34"> to move the characters HP_right_hand to the swords HP_right_hand and set a keyframe. 
+  <p class=numBltLvl1>6 Alternatively if animating the hard point whilst it is attached to the players hierarchy is too difficult you could use the <a href="09_create_char_anims.htm#ReferenceHierarchy">Use Reference Hierarchy</a> feature to temporarily break the hierarchy to make animation easier. 
+  <p class=numBltLvl1>7  Hide or delete the sword and its HardPoints and export the characters animation. Create an action for the animation, the programmer will use the end of the action swap the swords attachment in code so that in successive animation the sword will be attached to the left hand.
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

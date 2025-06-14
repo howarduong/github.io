@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Add Water to the World</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - ADD WATER TO THE WORLD -->
+<h1><a name="lessonTitle">Add Water to the World</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="41_water.htm#WorldEditor">Adding water in WorldEditor</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="41_water.htm#WaterSurface">Water surface</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="41_water.htm#Multiple_Water">Multiple water surfaces</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="41_water.htm#WaterProperties">Water properties</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="41_water.htm#CustomWater">Custom water surfaces</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="41_water.htm#Custom_water1">Lightonly_uvtransform2_alpha_mask.fx for water surfaces</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="41_water.htm#CustomWater2">water_surface.fx for water surfaces</A></LI>
+</UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<!-- SECTION - ADDING WATER IN WORLDEDITOR -->
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="WorldEditor">Adding water in WorldEditor</a></h2></span>
+<DIV>
+
+<p>All water objects that can be rendered at the same time should be placed at exactly the same Y height. If they are placed at different heights the reflection will update at half the speed resulting in visual artifact. </p>
+<p>To place a body of water in the world using WorldEditor, follow the steps below:</p>
+<p class="numBltLvl1">1 On the <b>Asset Browser</b> panel, select the 
+<b>Misc</b> virtual folder.</p>
+
+<p class="numBltLvl1">2 Select the <code>water.xml</code> asset &ndash; this 
+ffile is located under <code>bigworld/res/helpers/misc</code> folder</p>
+
+<p class="imgLvl2"><img src="41_water_files/image001.gif"></p>
+
+<p class="numBltLvl1">3 Drag the asset to the desired location in the viewport, 
+then drop it.</p>
+
+<p class="imgLvl2"><img src="41_water_files/image003.jpg"></p>
+
+<p>The water can then be resized and tweaked to the desired state as any other object in the world,
+   except for the rotation, which is limited to the Y axis.</p>
+   
+<p class="noteLvl1">&nbsp;</p>
+
+   
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="WaterSurface">Water surface</a></h2></span>
+<DIV>
+
+<p>The water effect is created through an FX shader that combines render 
+  target textures for reflection and refraction using a Fresnel term.</p>
+<p>The ripples on the surface are defined with a normal map in <code>wave texture</code> property,
+   and is animated with two sets of parameters. The default map is 
+   <code>bigworld\res\system\maps\waves2.dds</code>.</p>
+<p>If simulation is enabled (by <code>use simulation</code> property), then the water surface 
+	will combine the output of the simulation in the ripples and lighting.</p>
+<p>An alpha value is generated per vertex (based on height above terrain) to fade out at 
+   the edges. This feature is toggled by the <code>use edge alpha</code> property.</p>
+<h3><span onClick="toggle_heading()"><a name=Multiple_Water id="Multiple_Water">Multiple water surfaces</a></span></h3>
+<DIV>
+  <p>If you put multiple water surfaces into your space and wish to use the real time reflection, they should be positioned at exactly the same height (Y position). 
+  <p>When using real time reflections the engine will update the reflections of multiple water objects sequentially. i.e if they are positioned at different heights. If you have two or more water objects drawn in the same scene the reflection updates will slow down and appear to skip frames.     </DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="WaterProperties">Water properties</a></h2></span>
+<DIV>
+
+<p>The water automatically generates the mesh required, taking into account the terrain shape to 
+   fade the edges of the water. The fading uses an alpha value, which can be switched off via the 
+   <code>use edge alpha</code> property. The texture used is defined by the 
+   <code>wave texture</code> property.</p> 
+    <p class="noteLvl1"><img src="images/note.jpg">It is recommended to choose a surface which 
+	size is as a multiple of the mesh size.</p>
+	
+<p>It is not advisable to have multiple water objects close to one another, unless they maintain 
+   the same Y position.</p>
+<p>Water simulation is automatically turned on, and can be disabled by the 
+   <code>use simulation</code> property.</p>
+<p>Wave animation is defined by animating texture coordinates through the properties in the table below:</p>
+    <table class="alternate" cellspacing=0>
+      <tbody>
+        <tr><th class="FirstCol">    Property                     </th></tr>
+        <tr><td class="oddRow1stCol"><code>wind speed</code>      </td></tr>
+        <tr><td class="evnRow1stCol"><code>wave scale</code>      </td></tr>
+        <tr><td class="oddRow1stCol"><code>scroll speed 1</code>  </td></tr>
+        <tr><td class="evnRow1stCol"><code>scroll speed 2</code>  </td></tr>
+      </tbody>
+    </table>
+
+<p>The table below lists the properties of the water item:</p>
+
+    <table class="alternate" cellspacing=0>
+      <tbody>
+      <tr><th class="FirstCol">Property</th>
+          <th>                 Description</th></tr>
+
+      <tr><td class="oddRow1stCol"><code>consistency</code>                               </td>
+          <td class="oddRow">      The surface simulation propagation decay.<br>
+		                           A value of 1.0 means no decay in the wave movement.    </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>fresnel constant                                 </td>
+          <td class="evnRow">      Fresnel reflection constant.<br>
+		                           Defines the <i>minimum</i> amount of reflection.       </td></tr>
+
+      <tr><td class="oddRow1stCol"><code>fresnel exponent                                 </td>
+          <td class="oddRow">      Fresnel reflection falloff exponent.<br>
+		                           Used to vary the falloff of reflection as the angle 
+								   between the surface and the eye position varies.       </td></tr>
+      
+      <tr><td class="evnRow1stCol"><code>mesh Size                                        </td>
+          <td class="evnRow">      Size of the individual surface triangles.<br>
+		                           Higher values result in a surface with fewer triangles; 
+								   lower values increase the triangle count.<br>
+								   It is recommended to have a mesh which size isa multiple 
+								   of the surface's size. For seeing the effect of this 
+								   property, it is useful to selected the <b>General Options</b>
+								   panel's <b>Show</b> group box's <b>Terrain&rarr;Wireframe</b> 
+                                   check box.                       </td></tr>
+
+      <tr><td class="oddRow1stCol"><code>orientation                                      </td>
+          <td class="oddRow">      Water surface rotation.                                </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>position                                         </td>
+          <td class="evnRow">      Water surface position.                                </td></tr>
+
+      <tr><td class="oddRow1stCol"><code>reflection strength                               </td>
+          <td class="oddRow">      Scale of distortion that the reflections receive 
+		                           from wave animation.                                    </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>reflection tint                                   </td>
+          <td class="evnRow">      Colour of the water reflections.                        </td></tr>
+
+      <tr><td class="oddRow1stCol"><code>refraction Strength                               </td>
+          <td class="oddRow">      Scale of distortion for the refraction.                 </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>refraction tint                                   </td>
+          <td class="evnRow">      Colour of the water refraction.                         </td></tr>
+
+      <tr><td class="oddRow1stCol"><code>scroll speed 1                                    </td>
+          <td class="oddRow">      Texture coordinate animation for the first of the two 
+		                           textures combined to construct the water wave animation.</td></tr>
+
+      <tr><td class="evnRow1stCol"><code>scroll speed 2                                    </td>
+          <td class="evnRow">      Texture coordinate animation for the second of the two 
+		                           textures combined to construct the water wave animation.</td></tr>
+
+      <tr><td class="oddRow1stCol"><code>sim cell size                                     </td>
+          <td class="oddRow">      Size of the simulation cell divisions in the surface.<br>
+		                           Large values make more visible the artifacts in the 
+								   simulation, as the texture will be stretched over a 
+								   larger area; small values increase the detail of the 
+								   simulation (best used only on small areas of water).    </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>size                                              </td>
+          <td class="evnRow">      Water surface scaling.                                  </td></tr>
+
+      <tr><td class="oddRow1stCol"><code>sun Power                                         </td>
+          <td class="oddRow">      <p>Amount of specular highlight on the water surface.<br>
+		                           Higher values result in a smaller, sharper highlight.   </p>
+            </td></tr>
+			
+      <tr><td class="evnRow1stCol"><span class="oddRow1stCol"><code>sun Scale </span></td>
+          <td class="evnRow">Amount of specular highlight on the water surface.<br>
+Higher values result larger wider highlight. </td>
+      </tr>
+	   <tr>
+	     <td class="oddRow1stCol"><code>fade start depth </td>
+          <td class="oddRow">      <p>The point at which the depth fogging starts to occur. </p>
+         </td></tr>
+		 		
+      <tr>
+        <td class="evnRow1stCol"><span class="oddRow1stCol"><code>foam intersection </span></td>
+          <td class="evnRow">The depth at which the foam texture is displayed. Small values cause foam to appear over deep areas, larger values will cause the foam to only appear over shallow areas. </td>
+      </tr>
+	   <tr>
+	     <td class="oddRow1stCol"><code>foam multiplier </td>
+          <td class="oddRow">      <p>A multiplier on the foam texture. Larger values will make the foam texture stronger </p>
+         </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>surface smoothness                                </td>
+          <td class="evnRow">      Influence of the wave animation in the surface.Mbr>
+		                           1.0 means no influence, 0.0 (default) means full 
+								   influence.                                              </td></tr>
+ <tr>
+	     <td class="oddRow1stCol"><code>foam tiling </td>
+          <td class="oddRow">      <p>A UV tiling paramerter for the foam. Larger values will cause the foam texture to till more. </p>
+         </td></tr>
+
+      <tr>
+        <td class="evnRow1stCol"><code>faom texture                                </td>
+          <td class="evnRow">      Path to the texture dfining the foam.                                              </td>
+      </tr>
+
+      <tr><td class="oddRow1stCol"><code>texture Size                                      </td>
+          <td class="oddRow">      Virtual size of the individual surface triangles.<br>
+		                           Similar to <code>mesh Size</code>, except that it is more of a 
+								   virtual triangle size, because it only applies to the 
+								   tessellation of the texture coordinates for the surface.</td>
+      </tr>
+
+      <tr><td class="evnRow1stCol"><code>use edge alpha                                    </td>
+          <td class="evnRow">      Toggles transparency of the water's edge.               </td></tr>
+
+      <tr><td class="oddRow1stCol"><code>use simulation                                    </td>
+          <td class="oddRow">      Toggles the water simulation.                           </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>wave scale                                        </td>
+          <td class="evnRow">      Scale to apply to either
+		                           texture map by wave texture animation (X value for texture map 2, Y value for 
+								   texture map 2).                                         </td>
+      </tr>
+
+      <tr><td class="oddRow1stCol"><code>wave texture                                      </td>
+          <td class="oddRow">      Texture file used to define the surface waves.          </td></tr>
+
+      <tr><td class="evnRow1stCol"><code>wind speed                                        </td>
+          <td class="evnRow">      Scale to apply to the wave animation speed.             </td></tr>
+      </tbody>
+  </table>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="CustomWater" id="CustomWater">Custom water surfaces</a></span></h2>
+<DIV>
+  <h3><span onClick="toggle_heading()"><a name=Custom_water1 id="Multiple_Water2">Lightonly_uvtransform2_alpha_mask.fx for water surfaces</a></span></h3>
+  <DIV>
+    <p><img src="41_water_files/image005.jpg" width="389" height="462"></p>
+    <p>When creating a body of water you do not have to use the water surface &quot;water.xml&quot; object. </p>
+<p>It is possible to create a water surface using existing BigWorld shaders and custom geometry. Though many of the advanced properties of the water surface will not be available, such as the dynamic interactions. </p>
+<p><img src="41_water_files/image004.jpg" width="425" height="158"></p>
+  <p>The above image is of the <code>stream.model</code> in in the fantasy demo. The predominant effect is generated using the <code><a href="34_fx_files_and_materials.htm">lightonly_uvtransform2_alpha_mask.fx</a></code> shader and several tricks with the geometry. </p>
+  <p>Firstly the UV's of the above mesh are warped like so that when the water texture scrolls across its surface it appears to have allot of turbulence.  </p>
+  <p><img src="41_water_files/image002.gif" width="274" height="259"></p>
+  <p>Secondly the surface is not flat. A noise modifier was used to give the surface several morph target shapes which loop in an animation simulating rapids in a fast flowing stream. </p>
+</DIV>
+  <h3><span onClick="toggle_heading()"><a name=CustomWater2 id="Multiple_Water2">water_surface.fx for water surfaces</a></span></h3>
+  <DIV>
+    <p>Another shader that is particularly suited to creating custom water volumes is the <code>water_surface.fx</code> shader</p>
+    <p>This particular shader uses a cube map for water reflections and a normal map for its surface ripples. </p>
+  </DIV>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

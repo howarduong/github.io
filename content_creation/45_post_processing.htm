@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Post Processing</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<H1><a name="lessonTitle">Post Processing</a></H1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><a href="45_post_processing.htm#PostProcessing">Post Processing</a></LI>
+ <LI><IMG SRC="images/leaf.bmp"><a href="45_post_processing.htm#PPChain">Post Processing Chain </a></LI>
+ <LI><IMG SRC="images/leaf.bmp"><a href="45_post_processing.htm#BackBuffer">Render Targets and the Backbuffer </a></LI>
+ <LI><IMG SRC="images/leaf.bmp"><a href="45_post_processing.htm#FilterQuad">Filter Quad Components </a></LI>
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><a href="45_post_processing.htm#PPEffects">Post Processing Effects </a></LI>
+  <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#FXAA">FXAA </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#Hatching">Hatching </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#ColourCorrect">Colour Correct </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#HSVColourCorrect">HSV Colour Correct </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#LensDistortion">Lens Distortion </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#Rainbow">Rainbow </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#ScotopicVision">Scotopic Vision </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#PPEffectsPosteriseEdge">Posterise and Edge</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#DOF">Depth of Field</A></LI> 
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="45_post_processing.htm#FilmGrain">Film Grain </A></LI> 
+ </UL>
+ <LI><IMG SRC="images/leaf.bmp"><a href="45_post_processing.htm#PPSFX">Using Post Processing Effects in special effects</a></LI>
+ </UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>The Post Processing  tab in World Editor allows you to create a wide array of visual effects by controlling how the rendered image is processed before being displayed on the screen. </p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="PostProcessing" id="PostProcessing">Post Processing </a></span></h2>
+<DIV>
+  <p>Post processing is a way of manipulating the rendered image that would normally be drawn on screen. Instead of drawing directly to the screen the video card goes through extra cycles to alter the image. It's similar to applying filter effects on a picture with Photoshop. The Post Processing tab in World Editor allows artists to directly control what post processing is done to the image. </p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="PPChain" id="PPChain">Post Processing Chain</a></span></h2>
+</span>
+<DIV>
+  <p>The Post Processing Chain view shows the sequence of Effects  done to the rendered image from left to right. Each effect in the chain is made of several phases. <br>
+    New Effects can be created by dragging in an &lt;empty effect&gt; from the Asset Browser - Post Processing Effects Tab, or by modifying an existing effect through changing its individual phases.  <br>
+    Each phase has an FX file and set of parameters associated with it. New phases can be created by dragging a &lt;new empty phase&gt; into an effect from the Asset Browser - Post Processing Phases folder.</p>
+  <p><img src="45_post_processing_files/image026.jpg" width="856" height="291"></p>
+  <p>You can preview the effect of each phase step by step by turning on the preview button indicated below. </p>
+  <p><img src="45_post_processing_files/image014.gif" width="187" height="255"></p>
+</DIV>
+<span onclick=toggle_heading()></span>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="BackBuffer" id="BackBuffer">Render targets and the Backbuffer</a></span></h2>
+<DIV>
+  <p>Understanding render targets and  the backbuffer is essential for creating post processing effects. Render targets can be thought of as temporary storage areas where the scene can be stored and transfered between effects. This section will step through the following two effects to illustrate a typical chain of effects. </p>
+  <p><img src="45_post_processing_files/image037.jpg" width="360" height="272"></p>
+  <p>The red line defines the direction of data and processing.</p>
+  <p>The first step of the<strong> Down Sample </strong>effect chain is to copy the back buffer. </p>
+  <p><strong>copy back buffer</strong></p>
+  <p><img src="45_post_processing_files/image016.gif" width="233" height="59"></p>
+  <p>This copies a full sized version of the rendered scene into the render target called &quot;<em>backBufferCopy</em>&quot;</p>
+  <p><strong>multiple down samples</strong></p>
+  <p>The &quot;<em>backBufferCopy</em>&quot; (input Texture) is then down sampled and stored in the render target &quot;<em>downSample1</em>&quot;. The destination blend is set to Zero , because  we are writing over the existing data in the render target <em>downSample1</em>. Since the source blend is set to ONE, the render target does not need to be cleared and can be set to False. </p>
+  <p>The phase is then repeated,  this time the already downsized render target &quot;<em>downSample1</em>&quot; is downsized and copied to render target &quot;<em>downSample2</em>&quot; </p>
+  <p>The phase is then repeated,  this time the already downsized render target &quot;<em>downSample2</em>&quot; is downsized and copied to render target &quot;<em>downSample3</em>&quot; </p>
+  <p>This back and forth downsampling is done to support lower end graphics cards. If only higher spec graphics cards were used the downsample could be done in a single phase with a different shader (FX file). </p>
+  <p><strong><img src="45_post_processing_files/image017.gif" width="233" height="217"></strong> <img src="45_post_processing_files/image018.gif" width="233" height="217"> <img src="45_post_processing_files/image019.gif" width="233" height="217"> <img src="45_post_processing_files/image040.jpg" width="319" height="129"></p>
+  <p>The processing then moves on to the next effect (<strong>Bloom</strong>) the first phase of which is;</p>
+  <p><strong>Colour scale</strong></p>
+  <p><strong><img src="45_post_processing_files/image020.gif" width="233" height="240"></strong> <img src="45_post_processing_files/image039.jpg" width="324" height="133"></p>
+  <p>Colour scale takes the render target &quot;<em>downSampled3</em>&quot; and through the algorithms used in the colour_scale.fx alters the image so that only the brighter parts of the screen remain bright (see image). </p>
+  <p><strong>4-tap blur horizontal, vertical </strong></p>
+  <p>These two phases take the down sampled powered image and blur it even further, both horizontally and vertically. </p>
+  <p><img src="45_post_processing_files/image021.gif" width="233" height="240"> <img src="45_post_processing_files/image022.gif" width="233" height="238"></p>
+  <p><strong>Transfer</strong></p>
+  <p>The final phase overlays the image with the rendered scene, the result is blooming. </p>
+  <p><strong><img src="45_post_processing_files/image023.gif" width="232" height="258"></strong></p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FilterQuad" id="FilterQuad">Filter Quad Components</a></span></h2>
+</span>
+<DIV>
+  <p>The Fade Env (environment) Map Post-Processing Chain is an example of an effect using filter quad components.</p>
+  <p><img src="45_post_processing_files/image053.jpg" width="325" height="394"></p>
+  <p>The geometry used to draw screen-space effects are called filter  quads.&nbsp; Their vertices contain 4 sets of texture coordinates, each  going from (0,0) .. (1,1).&nbsp; These coordinates are slightly offset and  are used by filtering shaders to fetch multiple samples from the input  texture(s).&nbsp; For example, this can be used to down sample an image to a  render target half of the size. Some shaders don't use these uv's at  all, and instead implement larger filter kernels directly in the  shader, for example nine_tap_filter.fx<br>
+    <br>
+    <img src="45_post_processing_files/moz-screenshot-19.jpg" width="800" height="274">    <br>
+    <br>
+    Additionally, each vertex contains a view and world normal.&nbsp; How can a  screen-space quad have world normals?&nbsp; Easy - a line is drawn from the  camera's world space location to the corners of the near plane, the lines extending into the scene represent the world space normals.</p>
+  <p>The </p>
+  <p><br>
+    <br>
+    <img src="45_post_processing_files/moz-screenshot-20.jpg" width="571" height="425">    <br>
+  In the following image, you can see the world and view normals  visualised.&nbsp; +ve X (East) comes out red; +ve Y (Up) comes out green.&nbsp;  And +ve Z (Forward) comes out blue.&nbsp; Note that the black region in the  "Down, NE World normals" is down, which corresponds to -ve Y, or -ve  green and thus can't be visualised directly in colour. The view normals remain constant no matter what direction you look.<br>
+    <br>
+    <img src="45_post_processing_files/moz-screenshot-17.jpg" width="800" height="332">    <br>
+    <br>
+    You can use the world normals to look up a cube map.&nbsp; For example, the  "Fade Env Map" post processing chain demonstrates fading the scene out  to the in-engine environment cube map.&nbsp; This completely hides the far  clipping plane and looks somewhat like fog :<br>
+    <br>
+    <img src="45_post_processing_files/moz-screenshot-21.jpg" width="694" height="924"></p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="PPEffects" id="PPEffects">Post Processing Effects </a></h2>
+</span>
+<DIV>
+
+<p>This chapter explains some of the post processing effects shipped with BigWorld. More information about the specifics of each effect and their phases can be found in the tools reference guide. </p>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FXAA" id="Hatching2">FXAA</a></span></h3>
+<DIV>
+  <p>FXAA stands for &quot;Fast approXimate Anti-Aliasing&quot; is a high performance high quality screen space software approximation to anti aliasing. The technique is based on an Nvidia white paper by Timothy Lottes titled FXAA. </p>
+    <p><img src="45_post_processing_files/image002.png" width="750" height="473"> </p>
+    <p class="captLvl2">Screen shots of no FXAA (left) and FXAA on (right)</p>
+<p>FXAA has no property values to modify so it is relatively simple to use. If you include it in an effects chain it is important to put it into the correct position along the chain. If you put it after a blurring effect such as bloom then its not going to find edges as easily and may cause some strange results. </p>
+<p><img src="45_post_processing_files/image001.png" width="104" height="191"></p>
+<p class="captLvl2">The FXAA effect as seen in WorldEditor's Post Processing panel.</p>
+<p><img src="45_post_processing_files/image003.png" width="578" height="414"></p>
+<p class="captLvl2">Debug screen showing the edge detection used by the FXAA</p>
+<p>&nbsp;</p>
+</DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Hatching" id="Hatching">Hatching</a></span></h3>
+<DIV>
+  <p>The Hatching effect overlays a texture on top of the rendered scene and then animates the position of that texture according to a &quot;punch card&quot; offset texture. In the example below the Hatching effect is used to give the scene a hand drawn illustrated appearance. </p>
+  <p><img src="45_post_processing_files/image034.jpg" width="578" height="242"></p>
+  <p>The offset texture works similar to a punch card, in that each frame the shader reads in a single pixels value Red (X position) and Green (Y value) and then offsets the hatch texture using these values. Each frame the offset texture reads the subsequent pixel (from top to bottom). Only the left most pixel is read from this particular punch card. In the example below the first frame position is defined by a pure red pixel (R=255 G = 0), this translates to the top right hand corner of the screen. </p>
+  <p class=imgLvl2><img src="45_post_processing_files/image046.jpg" width="729" height="231"></p>
+  <p class=captLvl2>Offset texture works similar to a punch card </p>
+  <p class=imgLvl2><img src="45_post_processing_files/image035.jpg" width="204" height="209"></p>
+  <p class=captLvl2>Hatch texture overlayed on scene</p>
+  </DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="ColourCorrect" id="ColourCorrect">Colour Correct</a></span></h3>
+<DIV>
+  <p>Colour correction enables the user to change the colour of each individual pixel on the screen by using a lookup image.</p>
+  <p>Take a look at the following image. </p>
+  <p><img src="45_post_processing_files/image001.bmp"></p>
+  <p>The image is 256 x 4 pixels of RGB 8bit per channel .bmp format. It was created in photoshop using a linear gradient from pure black (0,0,0) to pure white (255,255,255). </p>
+  <p>If we break down the individual channels you will see that each channel is exactly the same. This is the  <code>colour_correct_default.bmp</code> image found in <code>bigworld\doc\tools_tutorial_examples\Tutorials\post_processing_examples\system\maps\post_processing\</code></p>
+  <p> When using colour correction  every pixel drawn by the graphics card is  compared to this look up image. If a pure black pixel is drawn  it will look up at position 1 to find its new colour. In the case below it will be given the exact same colour because this is the Default Colour Map. The same is true for a grey pixel (2), or a white pixel (3), it will come out with the exact same value that went in. </p>
+  <table width="702" height="83" border="1">
+    <tr>
+      <td width="316"><img src="45_post_processing_files/image002.gif" width="316" height="70"></td>
+      <td width="370"><p><img src="45_post_processing_files/image003.jpg" width="256" height="4">red channel </p>
+        <p><img src="45_post_processing_files/image004.jpg" width="256" height="4">green channel</p>
+        <p><img src="45_post_processing_files/image005.jpg" width="256" height="4">blue channel </p></td>
+    </tr>
+  </table>
+  <p>The magic occurs when we replace the default map with something different. In the example below a black pixel (1) will still remain black, but a grey pixel which would usually have the value (128,128,128) gets transformed into a (0, 187, 0) pixel, and a white pixel (3) gets transformed into a (0,255,0) pixel. </p>
+  <table width="705" border="1">
+    <tr>
+      <td width="316"><img src="45_post_processing_files/image003.gif" width="316" height="70"></td>
+      <td width="522"><p><img src="45_post_processing_files/image004.gif" width="256" height="4"> red channel</p>
+        <p><img src="45_post_processing_files/image005.gif" width="256" height="4"> green channel</p>
+        <p><img src="45_post_processing_files/image004.gif" width="256" height="4"> blue channel </p></td>
+    </tr>
+  </table>
+  <p>The result is the entire screen gets tinted green and all other colour values are removed. </p>
+  <p><img src="45_post_processing_files/image007.jpg" width="300" height="192"></p>
+  <p>Here's a few more colour correction lookup maps and their resulting effect</p>
+  <table width="200" border="0">
+    <tr>
+      <td><img src="45_post_processing_files/image003.jpg" width="256" height="4"></td>
+      <td><img src="45_post_processing_files/image013.jpg" width="256" height="4"></td>
+      <td><img src="45_post_processing_files/image014.jpg" width="256" height="4"></td>
+    </tr>
+    <tr>
+      <td><img src="45_post_processing_files/image006.jpg" width="300" height="192"></td>
+      <td><img src="45_post_processing_files/image008.jpg" width="300" height="192"></td>
+      <td><img src="45_post_processing_files/image009.jpg" width="300" height="192"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><img src="45_post_processing_files/image015.jpg" width="256" height="4"></td>
+      <td><img src="45_post_processing_files/image017.jpg" width="256" height="4"></td>
+      <td><img src="45_post_processing_files/image016.jpg" width="256" height="4"></td>
+    </tr>
+    <tr>
+      <td><img src="45_post_processing_files/image010.jpg" width="300" height="192"></td>
+      <td><img src="45_post_processing_files/image011.jpg" width="300" height="192"></td>
+      <td><img src="45_post_processing_files/image012.jpg" width="300" height="192"></td>
+    </tr>
+  </table>
+  <p>It's quite easy to create the effect you want using Photoshop. </p>
+  <p>Firstly take a screen shot of your game and open it in Photoshop </p>
+  <p><img src="45_post_processing_files/image006.jpg" width="300" height="192"></p>
+  <p>Alter the image to the colour you like by using the curves tool <strong>Image - Adjustments - Curves (Ctrl + M) </strong></p>
+  <p><img src="45_post_processing_files/image006.gif" width="339" height="154"> <img src="45_post_processing_files/image007.gif" width="226" height="229"> <img src="45_post_processing_files/image008.jpg" width="300" height="192"></p>
+  <p>In this example we are going to apply what is commonly called an S-Curve (used extensively in photography to add   			contrast to the mid tones at the expense of shadows and highlights). </p>
+  <p>When you obtain the effect you want <strong>Save </strong>the curve as <strong>s_curve</strong><strong>.acv </strong></p>
+  <p>We now need to apply this curve to our default lookup image</p>
+  <p>In Photoshop, <strong>Open</strong> the <strong>default_colour_corrrection.bmp</strong> found in <code>bigworld\doc\tools_tutorial_examples.zip</code> or create one yourself using the gradient tool </p>
+  <p><img src="45_post_processing_files/image003.jpg" width="256" height="4"></p>
+  <p>From the <strong>Curves</strong> tool<strong> Load</strong> the <strong>s_curve.acv</strong> file and press <strong>OK</strong></p>
+  <p><img src="45_post_processing_files/image013.jpg" width="256" height="4"></p>
+  <p>This file can now be used in the <strong>Post Processing Effects - Colour Correction </strong></p>
+  <p><img src="45_post_processing_files/image013.gif" width="401" height="207"></p>
+  <p>&nbsp;</p>
+  <p>The Photoshop curves tool is not the only way to create colour correction maps.</p>
+  <p>In the following example a hand painted colour correction map is used in combination with the HSV colour correction to create a black and white cell shaded image. </p>
+  <p><img src="45_post_processing_files/image008.gif" width="256" height="4"></p>
+  <p><img src="45_post_processing_files/image018.jpg" width="300" height="184"></p>
+  </DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="HSVColourCorrect" id="HSVColourCorrect">HSV Colour Correct </a></span></h3>
+<DIV>
+  <p>This effect allows you to modify the Hue, Saturation and Brightness of the input image through modifying the phase parameters</p>
+  <p><img src="45_post_processing_files/image029.jpg" width="543" height="392"></p>
+  </DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="LensDistortion" id="LensDistortion">Lens Distortion </a></span></h3>
+<DIV>
+  <p>This effect distorts each point of the the input image in the direction of the overlayed normal map distortionTexture</p>
+  <p><img src="45_post_processing_files/image022.jpg" width="89" height="134"> <img src="45_post_processing_files/image024.jpg" width="221" height="200"></p>
+  <p>This example (hexagonal_norms.bmp) can be tiled for an insect eye effect </p>
+  <p><img src="45_post_processing_files/image023.jpg" width="127" height="116"> <img src="45_post_processing_files/image025.jpg" width="264" height="200"></p>
+  <p>This example (fisheye_norms.bmp) creates a fisheye effect by distorting pixels away from the center of the screen. </p>
+</DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Rainbow" id="Rainbow">Rainbow</a></span></h3>
+<DIV>
+  <p>This effect simulates a rainbow through <code>rainbow.fx</code> and the <code>lee_diagram.dds</code></p>
+  <p><img src="45_post_processing_files/image051.jpg" width="357" height="284"> <img src="45_post_processing_files/image052.jpg" width="200" height="200"></p>
+  </DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="ScotopicVision" id="ScotopicVision">Scotopic Vision </a></span></h3>
+<DIV>
+  <p>Scotopic Vision effect adds noise to the areas of the scene which fall below a darkness threshold. This simulates the noise seen by the human eye as light levels decrease. The image below has increasing levels of scotopic vision applied. </p>
+  <p><img src="45_post_processing_files/image032.jpg" width="751" height="204"></p>
+  </DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="PPEffectsPosteriseEdge" id="PPEffectsPosteriseEdge">Posterise and Edge </a></span></h3>
+<DIV>
+  <p>The Posterise effect gives similar results to the posterise filter in photoshop. Put simply the image is blurred and edges are found onto which a black outline is traced. </p>
+  <p><img src="45_post_processing_files/image033.jpg" width="755" height="290"></p>
+  </DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="DOF" id="DOF">Depth of Field</a></span></h3>
+<DIV>
+  <p>For the depth of field effect to work the graphics detail of the client must be set to Very High, likewise in World editor the  Options tab -Advanced Post Processing must be set ON. </p>
+  <p>Note the ability to preview the focal length by turning on the preview button. </p>
+  <p><img src="45_post_processing_files/image054.jpg" width="295" height="238"> <img src="45_post_processing_files/image041.jpg" width="264" height="190"></p>
+</DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FilmGrain" id="FilmGrain">Film Grain </a></span></h3>
+<DIV>
+  <p align="left">The film grain effect uses a number of phases to simulate the old scratched look of rustic film. </p>
+  <p>Firstly the rendered image is <a href="#ColourCorrect">colour corrected</a> to look like old sepia faded film. This is done with a colour correct phase and the following  sepia lookup bitmap </p>
+  <p><img src="45_post_processing_files/image042.jpg" width="256" height="8">	</p>
+  <p>Multiple <em>dust_and_scratches</em> phases overlay textures of dust and scratches in positions defined by a punch card texture </p>
+  <p class=imgLvl2><img src="45_post_processing_files/image047.jpg" width="729" height="231"></p>
+  <p class=captLvl2>The 3rd-6th column of the oldfilm_punchcard texture is used to position various dirt textures at different places on the screen over time,</p>
+  <p class=imgLvl2>&nbsp;</p>
+  <p class=imgLvl2>&nbsp;</p>
+  <p class=imgLvl2><img src="45_post_processing_files/image049.jpg" width="653" height="231"></p>
+  <p class=captLvl2>The 1st -2nd column of the oldfilm_punchcard texture is used to slowly move the scratch texture across the screen</p>
+  <p class=captLvl2><img src="45_post_processing_files/image050.jpg" width="305" height="220"></p>
+   <p class=captLvl2>In the client this effect is topped off by adding a vignette effect that darkens the edge of the screen</p>
+   <p class=captLvl2>&nbsp;</p>
+  </DIV>
+</DIV>
+<h2><span onClick="toggle_heading()"><a name="PPSFX" id="PostProcessing2">Using Post Processing </a></span>Effects in Special Effects</h2>
+<DIV>
+  <p>Post processing Effects can be associated with within special effect files </p>
+  <p>For example: In Fantasy Demo the weather  system DustStorm uses the Post Processing effect &quot;God Rays&quot;</p>
+  <p><img src="45_post_processing_files/image026.gif" width="313" height="430"> <img src="45_post_processing_files/image055.jpg" width="370" height="167"></p>
+  <p>If you take a look at the <strong>dust_storm.xml</strong> file below you can see that when ever the sfx file <strong>dust_storm.xml</strong> is called from the weather system <strong>DustStorm,</strong> the post processing chain <strong>god rays.ppchain</strong> will be used. This system is not unique to weather sfx files. Any sfx file can have a post processing chain associated with it. </p>
+  <pre>&lt;dust_storm&gt;<br>		&lt;Actor&gt;	particles<br>			&lt;ParticleSystem&gt;	particles/dust_storm.xml	&lt;/ParticleSystem&gt;<br>		&lt;/Actor&gt;
+<br>		<strong>&lt;Actor&gt; godrays<br>			&lt;PPChain&gt;	system/post_processing/chains/god rays.ppchain<br>				&lt;Property&gt;	God Rays/god rays/exposure<br>					&lt;Float&gt;	0.00	&lt;/Float&gt;<br>				&lt;/Property&gt;<br>			&lt;/PPChain&gt;<br>		&lt;/Actor&gt;	
+</strong><br>		&lt;Joint&gt;	particles<br>			&lt;Camera/&gt;<br>		&lt;/Joint&gt;
+
+		<strong>&lt;Joint&gt;	godrays<br>			&lt;PPScreen/&gt;<br>		&lt;/Joint&gt;
+</strong>
+		&lt;Event&gt; particles<br>			&lt;ForceParticle/&gt;<br>		&lt;/Event&gt;
+
+		&lt;Event&gt; godrays<br>			&lt;PPAnimateProperty&gt;	God Rays/god rays/exposure<br>				&lt;Key&gt;	0.0	&lt;Float&gt;	0.0 &lt;/Float&gt;	&lt;/Key&gt;<br>				&lt;Key&gt;	5.0	&lt;Float&gt;	0.08 &lt;/Float&gt;	&lt;/Key&gt;<br>			&lt;/PPAnimateProperty&gt;<br>		&lt;/Event&gt;
+
+		<strong>&lt;Event&gt; particles<br>			&lt;RampTimeTriggeredParticles&gt;<br>				&lt;fadeTime&gt;	15.0	&lt;/fadeTime&gt;<br>			&lt;/RampTimeTriggeredParticles&gt;<br>		&lt;/Event&gt;</strong>
+
+&lt;/dust_storm.xml&gt;</pre>
+  <p>&nbsp;</p>
+<p>&nbsp;</p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create Trees And Billboards With Better Lighting</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!--CHAPTER - CREATE TREES WITH BETTER LIGHTING -->
+<h1>Create Trees And Billboards With Better Lighting</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="37_creating_trees_with_better_lighting.htm#mungenormals">Using the mungenormals script</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p><b>This section applies only to customers <u>not</u> using SpeedTree.</b></p>
+
+<p>Trees can be one of the most difficult objects to light correctly, due to the 
+way in which they are made. Most trees are made using a series of billboards 
+that splay outwards in multiple directions from branches. The vertex normals 
+(used for lighting) of these billboards point in many directions, and therefore 
+do not light correctly.</p>
+
+<p>3ds Max 7 has the <b>Edit Normals</b> modifier, that allows users to manually 
+change the normals of each vertex. Manually changing the vertex normal of each 
+billboard would take a long time, so we created a MaxScript that allows the user 
+to edit the direction of multiple vertex normals with a single click.</p> 
+ 
+<p>In the example bellow, you can see that <b>without</b> editing the normals of 
+the billboards, the tree is incorrectly lit within the game &ndash; although the 
+sunlight comes from the left of the picture, some branches on the right are 
+completely lit, while some on the left are in shadow. Note the blue lines in the 
+second picture indicating the direction of the normals.</p>
+
+<p class=imgLvl1><img src="37_creating_trees_with_better_lighting_files/image001.gif">
+                 <img src="37_creating_trees_with_better_lighting_files/image002.gif"></p>
+
+<p>In the following example, we have used the MaxScript 
+<code>mungenormals.ms</code> to edit the normals of the model, so that they 
+point outwards from the inside of the tree (see green lines). This causes the 
+billboards to light correctly as the sun travels overhead. You can see in the 
+first picture that the left side of the tree is completely lit, while the right 
+side is in shadow.</p>
+
+<p class=imgLvl1><img src="37_creating_trees_with_better_lighting_files/image003.gif">
+                 <img src="37_creating_trees_with_better_lighting_files/image004.gif"></p>
+
+<p>The tree below is an example of where <b>no normal editing</b> was required. 
+All billboards face outwards from the main branch, and as a result all normals 
+point towards the sky. This results in the tree lighting correctly as the sun 
+travels overhead.</p>
+
+<p class=imgLvl1><img src="37_creating_trees_with_better_lighting_files/image005.gif">
+                 <img src="37_creating_trees_with_better_lighting_files/image006.gif"></p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="mungenormals">Using the <code>mungenormals</code> script</a></h2></span>
+<DIV>
+
+<p>To use the <code>mungenormals</code> script follow the steps below, or you can use the <a href="46_bigworld_maxscripts.htm#MungeNormals">BigWorld Maxscripts</a> toolbar to execute the script.</p>
+
+<p class=numBltLvl1>1 Copy the <code>mungernormals.ms</code> MaxScript from the 
+<code>bigworld/tools/misc</code> folder to <code>3dsMax/scripts</code> folder.</p>
+
+<p class=lvl2>The <code>mungernormals</code> script works by splaying all the 
+vertex normals away from a selected object. For this reason, we added a dummy in 
+the centre of the tree from which the normals will point away.</p>
+
+<p class=imgLvl2><img src="37_creating_trees_with_better_lighting_files/image007.gif"></p>
+
+<p class=numBltLvl1>2 Apply the <b>Edit Normals</b> modifier to the object on 
+which you want to run the script. The modifier should be the last one in the 
+stack, so if you are animating the tree as we have below, then add the modifier 
+after the <b>Physique/Skin</b> modifier.</p>
+
+<p class=imgLvl2><img src="37_creating_trees_with_better_lighting_files/image008.gif">
+                 <img src="37_creating_trees_with_better_lighting_files/image009.gif"></p>
+
+<p class=numBltLvl1>3 If you cannot see the blue normals as displayed above, 
+then you might need to increase the <b>Parameters</b> rollout's <b>Display 
+Length</b> value in the <b>Edit Normals</b> modifier.</p>
+
+<p class=imgLvl2><img src="37_creating_trees_with_better_lighting_files/image010.gif"></p>
+
+<p class=numBltLvl1>4 In the <b>Edit Normals</b> modifier, select the 
+<b>Normal</b> sub-component, then marquee select all vertex normals that you 
+wish to change with the <code>mungernormals</code> script.</p>
+
+<p class=imgLvl2><img src="37_creating_trees_with_better_lighting_files/image011.gif">
+                 <img src="37_creating_trees_with_better_lighting_files/image012.gif"></p>
+
+<p class=numBltLvl1>5 Select the <b>MaxScript&rarr;Run Script</b> menu item 
+&ndash; the <b>Choose Editor File</b> dialog box will be displayed.</p>
+
+<p class=numBltLvl1>6 In the the <b>Choose Editor File</b> dialog box, select 
+the <code>mungernormals.ms</code> script, then click the <b>OK</b> button 
+&ndash; the pointer within 3ds Max will turn into a selection pointer.</p>
+
+<p class=numBltLvl1>7 Select the dummy placed in the middle of the tree (you 
+might have to zoom in to get a clear shot) &ndash; all vertex normals should 
+splay outwards from the dummy.</p>
+
+<p class=imgLvl2><img src="37_creating_trees_with_better_lighting_files/image015.gif"></p>
+
+<p class=numBltLvl1>8 Hide the dummy and export your model with the <b>Edit 
+Normals</b> modifier selected.</p>
+
+<p>Now your tree should be correctly lit within the game.</p>
+
+<p class=noteLvl1><img src="images/note.bmp">If you are animating your trees, 
+then you will need a custom BSP &ndash; if that is the case, then please read 
+the lesson <a href="35_creating_custom_bsps.htm">Create Custom BSPs</a>.</p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

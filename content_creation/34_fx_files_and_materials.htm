@@ -1,0 +1,752 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>BigWorld Shaders and Materials</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CREATE FX FILES AND MATERIALS -->
+<h1><a name="lessonTitle">BigWorld Shaders and Materials</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Properties">Material properties</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Kinds">Material Kinds</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="34_fx_files_and_materials.htm#BWShaders">BigWorld shaders</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#MultipleUVandVertexColour">Multiple UV's and Vertex Colour </A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Skybox_Shaders">Skybox shaders </A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Choose_Shader">How to choose the correct shader</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#apply_a_shader">How to apply a shader in ModelEditor</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#UV">Creating a rolling UV material</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Creating">Saving a material MFM file</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p>The <code>*.fx</code> files are a way of defining how an object is rendered 
+within the BigWorld engine.</p>
+
+<p>The <code>*.mfm</code>, or material files, are meta-data files that contain 
+artist-editable features, including FX file, shader properties, and texture 
+references. ModelEditor can create new material files that can be assigned to 
+mesh objects.</p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Properties">Material properties</a></h2></span>
+<DIV>
+
+<p>Bitmaps and artist-editable features are assigned and accessed by 
+ModelEditor's <b>Materials Settings</b> panel. The available properties are 
+determined by the type of BigWorld Shader (<code>.fx</code>)  used. </p>
+<p>The table below describes the most common properties shared between several 
+materials:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Property    </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Collision Flags</td>
+       <td class=oddRow      >
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera On Player Off</b> &ndash; Player 
+does not collide with object; camera does. Object casts shadows by default.</p>
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera Off Player Off</b>&ndash; Neither 
+  player nor camera collide with the object. Object does NOT cast shadows.</p>
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera On Player On</b>&ndash; Both player 
+  and camera collide with object. Object casts shadows by default.</p>
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera Off Player On</b>&ndash; Player collides; camera does not. Object casts shadows by default.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Material Kind</td>
+       <td class=evnRow      >
+Used for assigning particular sounds and particle systems to objects.</p>
+<p>A wooden barrel should play a wood sound and emit wooden particles when shot 
+at, for example.</p>
+<p>The default setting (<b>Use Visual's</b>) uses the visual file's material 
+kind.</p>
+<p>material kinds are defined in <em><code> bigworld/res/system/data/material_kinds.xml</code></em></p>
+<p>New material kinds can be created by simply adding a new &lt;kind&gt; tag.</p>
+<pre>&lt;kind&gt;<br>		&lt;id&gt;	9	&lt;/id&gt;<br>		&lt;desc&gt;	Snow	&lt;/desc&gt;<br>		&lt;sound&gt; snow    &lt;/sound&gt;<br>		&lt;help&gt; Hard crunchy snow. &lt;/help&gt;<br>		&lt;sfx&gt;	sets/global/fx/sfx/sfx_pchang_snow.xml &lt;/sfx&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/ice_snow &lt;/terrain&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/ice_snow_pure &lt;/terrain&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/ice_snow_pure02 &lt;/terrain&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/snow_grass &lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/ls2_snow01 &lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/minspec_snow &lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/minspec_mud &lt;/terrain&gt;<br>&lt;/kind&gt;</pre></td></tr>
+
+   <tr><td class=oddRow1stCol>Texture Operation</td>
+       <td class=oddRow      >
+Describes the mathematical functions used to blend textures together.</td></tr>
+
+   <tr><td class=evnRow1stCol>vTransform/uTransform</td>
+       <td class=evnRow      >
+This property is described in lesson <a href="17_create_a_new_material.htm">
+Create a New Material</a>, section <a href="34_fx_files_and_materials.htm#UV"> 
+Creating a rolling UV material</a>.</td></tr>
+
+   <tr><td class=oddRow1stCol>Alpha Reference</td>
+       <td class=oddRow      >
+Value at which an alpha-tested material reads a greyscale image as values of 1 
+or 0. Value range is between <b>0</b> and <b>255</b>.</p>
+<p>A value of <b>200</b> will read all areas of an image with a value greater 
+than 200 as white, and all areas below it as black.</p></td></tr>
+
+   <tr>
+     <td class=evnRow1stCol>Alpha Test</td>
+       <td class=evnRow      >
+Determines whether the alpha map of the material should be used.</td></tr>
+
+   <tr><td class=evnRow1stCol>Double Sided</td>
+       <td class=evnRow      >
+Indicates whether the material can be seen from both sides.</td></tr>
+
+   <tr><td class=oddRow1stCol>Self Illumination</td>
+       <td class=oddRow      >
+Intensity with which the material should be illuminated as if it was a light source.</td></tr>
+
+   <tr><td class=evnRow1stCol>Light Enable</td>
+       <td class=evnRow      >
+Indicates whether the material will receive lighting.</p>
+<p>If set to <b>False</b>, then the texture's original colour will be displayed.</p></td></tr>
+
+   <tr><td class=oddRow1stCol>Diffuse Map</td>
+       <td class=oddRow      >
+Bitmap file containing the object's colour information.</p> 
+<p>The file must be 8-bits-per-channel RGB of format <code>*.bmp</code> or 
+<code>*.tga</code>.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Specular Map</td>
+       <td class=evnRow      >
+Bitmap file containing specular colour and value information.</p>
+<p>White areas represent specular highlights brighter than darker areas.</p></td></tr>
+
+   <tr><td class=oddRow1stCol>Normal Map</td>
+       <td class=oddRow      >
+Used to add fine details to shading, by representing normal 
+              direction &ndash; green = up, red = right, blue = height.
+              <p>File must be 8-bit RGB <code>*.bmp</code>.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Sub Surface Map</td>
+       <td class=evnRow      >
+Bitmap file containing the object's subsurface colour information. Alpha channel 
+controls the amount of subsurface scattering.</p>
+<p>The file must be 8-bits-per-channel RGB of format <code>*.tga</code>.</p></td></tr>
+
+   <tr>
+     <td class=oddRow1stCol>Glow Map</td>
+     <td class=oddRow      >File containing information for self-illumination simulation.
+       </p>
+       <p>The file must be 8-bits-per-channel RGB of format <code>*.bmp</code>.</p></td>
+   </tr>
+   <tr><td class=evnRow1stCol><span class="evnRow1stCol">Reflection Map</span></td>
+       <td class=evnRow      >Bitmap file containing an image to be used as a reflection upon the applied 
+object.
+         </p>
+         <p><code>normalmap_chrome</code> shaders support <code>.dds</code> Cube 
+           Maps as reflection maps.</p>
+         <p><code>lightonly_chrome</code> shaders use <code>.bmp</code> files as 
+      reflection maps.</p>         <p>&nbsp;</p></td></tr>
+
+   <tr>
+     <td class=oddRow1stCol>Mask Map</td>
+       <td class=oddRow      >
+Bitmap file containing an image that masks out the effect of some part of the current shader</td></tr>
+
+</tbody></table>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Kinds" id="Kinds">Material Kinds</a></span></h2>
+</span>
+<DIV>
+  <p>The file bigworld/res/system/data/material_kinds.xml contains the current set of predefined material
+  kinds, and can be edited to customise the available material kinds, which are listed below:</p>
+  <p>&#9642; None (Default)<br>
+    &#9642; Wood<br>
+    &#9642; Stone<br>
+    &#9642; Chain<br>
+    &#9642; Light metal<br>
+    &#9642; Heavy metal<br>
+    &#9642; Glass<br>
+    &#9642; Dirt<br>
+    &#9642; Grass<br>
+  &#9642; Snow</p>
+  <pre>	&lt;kind&gt;<br>		&lt;id&gt;	1	&lt;/id&gt;<br>		&lt;desc&gt;	Wood	&lt;/desc&gt;<br>		&lt;sound&gt; wood    &lt;/sound&gt;<br>		&lt;help&gt; Dull surfaces, not very reactive. &lt;/help&gt;<br>		&lt;sfx&gt;	sets/global/fx/sfx/sfx_pchang_wood.xml &lt;/sfx&gt;<br>	&lt;/kind&gt;</pre>
+  <p>Material Kinds allow you to script different sounds, effects, etc depending on what material is being interacted with. </p>
+  <p>Terrain textures can also be assigned a <a href="20_terrain_texture_maps.htm#TerrainMaterials">Material Kind</a></p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="BWShaders">BigWorld shaders</a></h2>
+</span>
+<DIV>
+
+<p>BigWorld ships with some commonly used shaders, which can be found in the
+<code>bigworld/res/shaders/std_effects</code> folder.</p>
+
+<p>The table below describes all standard shaders (FX files) included with 
+BigWorld, and their common uses. New FX files can be added, provided they use 
+the BigWorld lighting model.</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >File </th>
+       <th                   >Description </th></tr>
+
+   <tr>
+     <td class=evnRow1stCol><code>normalmap</code>.fx</td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal and diffuse maps. Bone deformation animations are 
+performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><span class="evnRow1stCol"><code>normalmap</code><code>_skinned.fx</code></span></td>
+     <td class=oddRow      >Objects with normal and diffuse maps. Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr><td class=evnRow1stCol><code>normalmap_glow.fx</code></td>
+       <td class=evnRow      >
+Objects with normal, diffuse, and glow maps. Bone deformation animations are 
+performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_chrome.fx</code></td>
+     <td class=oddRow      > Objects with normal, diffuse, and cube reflection maps. Bone deformation animations are 
+performed on CPU. Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_chrome_skinned.fx</code></td>
+     <td class=evnRow      >Objects with normal, diffuse, and cube reflection maps.  Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object 
+is affected by pre-calculated static lighting. </td>
+   </tr>
+   <tr><td class=oddRow1stCol><code>normalmap_glow_alpha.fx</code></td>
+       <td class=oddRow      >
+Objects with normal, diffuse (including alpha blend transparency, values of 1 to
+256), and glow maps. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>normalmap_chrome_glow.fx</code></td>
+       <td class=evnRow      >
+Objects with normal, diffuse, glow and cube reflection maps. Bone deformation
+animations are performed on CPU. Object is affected by pre-calculated static 
+lighting. The reflection mask defines areas of reflectivity 
+&ndash; white areas are highly reflective, dark areas are not.</td>
+   </tr>
+
+
+   <tr><td class=oddRow1stCol><code>normalmap_glow_skinned.fx</code></td>
+       <td class=oddRow      >
+Objects with normal, diffuse, and glow maps. Soft-skinned (each vertex may have 
+up to three bones influencing it) animations are performed on GPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>normalmap_specmap.fx</code></td>
+       <td class=evnRow      >
+Objects with normal, diffuse, and specular maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_specmap_alpha.fx</code></td>
+     <td class=oddRow      ><span class="oddRow">Objects with normal, diffuse (including alpha blend transparency, values of 1 to
+256), and specular maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_specmap_chrome.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal, diffuse, specular maps and cube reflection maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_specmap_chrome_skinned.fx</code></td>
+     <td class=oddRow      >Objects with normal, diffuse, specular maps and cube reflection maps. <span class="evnRow"> Soft-skinned (each vertex may have 
+up to three bones influencing it) animations are performed on GPU.</span>  Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_specmap_chrome_glow.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal, diffuse, glow maps and cube reflection maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_specmap_chrome_glow_skinned.fx</code></td>
+     <td class=oddRow      >Objects with normal, diffuse, glow maps and cube reflection maps.<span class="evnRow"> Soft-skinned (each vertex may have 
+up to three bones influencing it) animations are performed on GPU.</span> Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_chrome_glow_skinned.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal, cube reflection and glow maps. Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object 
+is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr><td class=oddRow1stCol><code>normalmap_specmap_skinned.fx</code></td>
+       <td class=oddRow      >
+Objects with normal, diffuse, and specular maps. Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object 
+is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>colourise_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map. Bone deformation animations are performed on CPU. 
+Object is affected by pre-calculated static lighting. A single colour picker 
+affects additively the object's existing colour.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>colourise_normalmap_specmap_skinned.fx</code>
+                           <p><code>colourise_lightonly_skinned.fx</code>
+                           <p><code>colourise_subsurface_skinned.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse, and mask maps. Soft-skinned (each vertex may have up to 
+three bones influencing it) animations are performed on GPU. Object is affected 
+by pre-calculated static lighting. Channels of mask map used to select regions 
+of diffuse map for colourisation.</p>
+<p>This shader is perfect for creating customisable character variations. Each 
+channel of the mask map can define an area to be colourised.</p>
+<p>Because the shader multiplies the customised colour with the existing diffuse 
+colour, it is best to paint those sections to be colourised with almost 0 
+saturation (no colour), then brighten them somewhat, as the shader will only 
+make them darker. (See diffuse image below).</p>
+<p>The <code>colourise_lightonly_skinned.fx</code> version is a very efficient 
+(single-pass) shader that allows the user to customise colours of areas (defined 
+by  channels in a mask texture) of the diffuse texture.</p>
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image050.gif"></p>
+<p class=captLvl1>3 colour variations done with the shader</p>
+<table><tr><td valign=top><p class=imgLvl0> <img src="34_fx_files_and_materials_files/image051.gif"></p>
+               <p class=captLvl0>Diffuse map used with<br>the colourise shader &ndash;<br>note the desaturated<br>and lightened areas to<br>be colour customised</p></td>
+           <td width=5></td>
+           <td valign=top><p class=imgLvl0> <img src="34_fx_files_and_materials_files/image052.gif"></p>
+               <p class=captLvl0>Channels of the mask<br>map define areas to<br>be colourised on the<br>diffuse map</p></td>
+           <td width=5></td>
+           <td valign=top><p class=imgLvl0> <img src="34_fx_files_and_materials_files/image064.gif" width="84" height="84"></p>
+      <p class=captLvl0>Colours to be applied to<br>the colourised areas are<br>chosen ModelEditors's<br><b>Materials Settings</b> panel</p></td></tr></table></td></tr>
+
+   <tr>
+     <td class=evnRow1stCol><code>distort.fx</code></td>
+       <td class=evnRow    >
+         <p>Objects with distortion (normal map), diffuse, and reflection (cube map). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting. The shader contains many editable parameters which can dramatically alter the appearance of the object it is applied to.</p>
+         <p><b>Fresnel falloff</b> and <b>fresnel constant</b> control the way in which reflections fade off as a function of the viewing angle.</p>
+         <p><b>Reflection amount</b> controls the reflectivity of the object, or how much of the cube map is displayed on the object's surface.</p>
+         <p><b>Distortion scale</b> controls how strong the distortion map affects the scene behind the object &ndash; be sure to use a normal map as the distortion map.</p>
+        <p>This shader is great for semi-transparent objects that will distort the scene behind them. The classic example is stained glass or water.</p>
+        <p>Alpha test option will only work when the Use Diffuse Map option is set to True</p></td></tr>
+
+<tr><td class=oddRow1stCol><code>lightonly.fx</code></td>
+       <td class=oddRow      >
+Objects with a diffuse map (including alpha test transparency, values of 1 or 0 
+only). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_alpha.fx</code></td>
+       <td class=evnRow      >
+Objects with a diffuse map (including alpha blend transparency, values of 1 to 
+256). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_chrome.fx</code></td>
+       <td class=oddRow      >
+Objects with a diffuse map and transparency (within alpha blend, values of 1 to
+256). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting. The alpha map of the diffuse channel defines 
+areas of reflectivity &ndash; white areas are highly reflective, dark areas are 
+not.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_chrome_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse and additive reflective map. The combined diffuse and 
+reflection map adds to the background. Used in special effects, explosions, and 
+glass windows. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting. The alpha map of the diffuse channel 
+defines areas of reflectivity &ndash; white areas are highly reflective, dark 
+areas are not.</td></tr>
+
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_chrome_alpha.fx</code></td>
+     <td class=oddRow      > Objects with diffuse (including alpha blend transparency, values of 1 to 256) 
+       and reflection map. Bone deformation animations are performed on CPU. Object is 
+       affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>lightonly_vertexcolour.fx</code></td>
+     <td class=evnRow      ><span class="evnRow">Objects with a diffuse map and vertex colourisation support. Bone deformation animations are performed on
+CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_dual.fx</code></td>
+       <td class=oddRow      ><span class="evnRow">Objects with two diffuse maps. Diffuse map 1 uses UV channel 1, diffuse map 2 uses UV channel 2. Bone deformation animations are performed on
+CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+	<tr>
+     <td class=oddRow1stCol><code>lightonly_dual_multiply.fx</code></td>
+       <td class=oddRow      ><p class="evnRow">Objects with two diffuse maps. Diffuse map 1 uses UV channel 1, diffuse map 2 uses UV channel 2 and is multiplied with difuse map 1.  Bone deformation animations are performed on
+        CPU. Object is affected by pre-calculated static lighting.</p>
+        <p class="evnRow">Commonly used for baked ambient occlusion or baked shadow maps,</p></td>
+   </tr>
+   <tr><td class=evnRow1stCol><code>lightonly_glow.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse and glow map. Bone deformation animations are performed on
+CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_glow_alpha.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and glow map. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+
+   <tr><td class=evnRow1stCol><code>lightonly_normal</code></td>
+       <td class=evnRow      >
+Objects with diffuse map, and an additive texture projected from the camera
+space normals. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code class="oddRow1stCol">lightonly_normal_add.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map, and an additive texture projected from the camera 
+space normals. Blends additively with the background. Bone deformation 
+animations are performed on CPU. Object is affected by pre-calculated static 
+lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_normal_alpha.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture projected from the camera space normals. Bone 
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_projection.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map, and an additive <i>reflection</i> texture mapped
+from world space. World space texture will stay still even as object moves 
+around the world. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_projection_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map, and an additive <i>reflection</i> texture mapped
+from world space. World space texture will stay still even as object moves 
+around the world. Blends additively with background. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_projection_alpha.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture mapped from world space. World space texture will 
+stay still even as object moves around the world. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_skinned.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map. Soft-skinned (each vertex may have up to three bones 
+influencing it) animations are performed on GPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_uvtransform.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map, and an additive texture with rolling UVs. Bone
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_uvtransform_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map, with rolling UVs. Blends 
+additively with the background. Bone deformation animations are performed on 
+CPU. Object is affected by pre-calculated static lighting. </td></tr>
+
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_uvtransform_alpha.fx</code></td>
+     <td class=oddRow      >Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture with rolling UVs. Bone deformation animations are
+performed on CPU. Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>lightonly_uvtransform2.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with diffuse map, and an additive texture with rolling UVs. Primary diffuse map also has rolling UVs. Bone
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_uvtransform2_add.fx</code></td>
+     <td class=oddRow      ><span class="evnRow">Objects with diffuse map, with rolling UVs .Primary diffuse map also has rolling UVs. Blends 
+additively with the background. Bone deformation animations are performed on 
+CPU. Object is affected by pre-calculated static lighting. </span></td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>lightonly_uvtransform2_alpha.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture with rolling UVs. Primary diffuse map also has rolling UVs. Bone
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_uvtransform2_alpha_mask.fx</code></td>
+     <td class=oddRow      ><span class="oddRow">Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture with rolling UVs. Primary diffuse map also has rolling UVs. A mask map controls the transparency of the primary texture. Bone
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting. Commonly used for water effects</span></td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>lightonly_add</code></td>
+      <td class=evnRow      ><span class="oddRow">Objects with diffuse map, and an additive texture. Bone deformation animations are
+performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+
+   <tr><td class=oddRow1stCol><code>parallax_lighting_specmap.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse, normal, specular, and displacement (height) maps. 
+Displaces UV coordinates as a function of the heightmap away from the camera 
+view. Gives the appearance of 3D geometry. Best used on flat/semi-flat objects, 
+such as brick walls. Commonly referred to as <i>parallax</i> or 
+<i>displacement</i> mapping. Bone deformation animations are performed on CPU. 
+Object is affected by pre-calculated static lighting. Note: The displacement map is stored in the alpha channel of the normal map.</td>
+   </tr>
+
+   <tr><td class=evnRow1stCol><code>shimmer.fx</code></td>
+       <td class=evnRow      >
+A transparent heat like shimmer effect, commonly seen above heat sources. Alpha 
+channel defines localised shimmer intensity. The opacity parameter affects the 
+overall intensity. Requires a diffuse map. Bone deformation animations are 
+performed on CPU. Object is <b>not</b> affected by pre-calculated static 
+lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>spintoface_add.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map. Blends additively with the background. Object will 
+spin to face the camera. Bone deformation animations are performed on CPU. 
+Object is <b>not</b> affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>stdinclude.fx</code></td>
+       <td class=evnRow      >
+Utility FX file not used by artists &ndash; it has components referenced by all 
+other FX files.</td></tr>
+
+   <tr>
+     <td class=oddRow1stCol><code>subsurface_skinned.fx</code></td>
+     <td class=oddRow      >Objects with diffuse, specular, and sub surface maps. The <code>skinned</code> version performs soft-skinning on GPU (each vertex may have up to three bones 
+influencing it).
+       <p>This advanced shader uses the angle of light and camera to simulate the
+         sub-surface scattering that occurs when light enters skin.</p>
+       <p>It also simulates rim/bounced lighting, by increasing the luminance of the 
+         side of the model facing away from the primary light source.</p>
+       <p>The amount of the sub-surface scattering is controlled by the alpha channel 
+         of the sub surface map, and its colour is controlled by the RGB channels.</p>
+       <p class=imgLvl1><img src="34_fx_files_and_materials_files/image015.png"></p>
+       <p>As well as simulating sub-surface scattering, these shaders simulate bounced 
+         light on the non-illuminated side of the object.</p>
+       <p>The rim lighting strength and angle is controlled by the <b>Rim Strength</b> and <b>Rim Width</b> settings.</p>
+       <p>When painting a sub surface map for human skin, consider the thickness of the 
+         surface &ndash; thicker parts end up dark red, while membranes and areas next to 
+         bone end up light orange.</p>
+       <p class=imgLvl1><img src="34_fx_files_and_materials_files/image017.png"></p>
+       <p class=captLvl1>Gradient of colour used to define areas &ndash; from thicker areas (left) to thinner membranes (right)</p>
+       <p class=imgLvl1><img src="34_fx_files_and_materials_files/image018.png"></p>
+       <p class=captLvl1>Example sub surface map and its alpha channel</p>
+       <p>Areas of thick skin and flesh are dark red, while areas close to the bone are 
+         light orange.</p>
+       <p>Dark areas of the alpha map (such as the hair and beard) reduce the amount of 
+        sub-surface scattering.</p></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>ambient_skylight_skinned.fx<br></code>
+                           <p></td>
+       <td class=oddRow      >
+  <p>Objects with diffuse, specular, and sub surface and mask maps.  performs soft-skinning on GPU (each vertex may have up to three bones 
+    influencing it).</p>
+  <p>This shader creates two lights (See image, Key and Fill) that illuminate the object in camera space. The effect of these lights on the model is inversely modulated depending on the proximity of dynamic lighting.</p>
+  <p>Therefore if there is no scene lighting your model will be lit using the lighting setup defined in the shader.</p>
+  <p>&nbsp;</p>
+  <p> Channels of mask map used to select regions 
+    of diffuse map for colourisation.
+    </p>
+  </p>
+  <p>This advanced shader uses the angle of light and camera to simulate the
+    sub-surface scattering that occurs when light enters skin. It also simulates rim/bounced lighting, by increasing the luminance of the 
+    side of the model facing away from the primary light source.</p>
+<p>The amount of the sub-surface scattering is controlled by the alpha channel 
+  of the sub surface map, and its colour is controlled by the RGB channels. </p>
+<p class=imgLvl1>&nbsp;</p>
+<p><img src="34_fx_files_and_materials_files/image001.jpg" width="599" height="616"></p></td></tr>
+
+</table>
+
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="MultipleUVandVertexColour" id="MultipleUVandVertexColour">Multiple UV's and Vertex Colour </a></h3>
+<p>BigWorld supports multiple UV's and Vertex colour exported from both 3dsMax and Maya</p>
+<p>The shader  <code>lightonly_dual.fx </code>supports multiple UV's and is intended as an example on top of which more complex multiple UV shaders can be written by your team. Information on how to create dual UV's can be found <a href="02b_create_objects.htm#Multi_UV">here</a> </p>
+<p>The shader <code>lightonly_vertexcolour.fx </code>supports vertex colour information and is intended as an example on top of which more complex vertex colour  shaders can be written by your team.  Information on how to create vertex colour can be found <a href="02b_create_objects.htm#Vert_Colour">here</a></p>
+<h3><img src="images/expanded.bmp"><a name="Skybox_Shaders" id="Skybox_Shaders">Skybox shaders </a></h3>
+<p>Information regarding the use of skybox shaders can be found <a href="21_change_environ_settings.htm#StaticSkyBoxes">here </a></p>
+<h3><img src="images/expanded.bmp"><a name="Choose_Shader">How to choose the correct shader</a></h3>
+</span>
+<DIV>
+
+<p>When choosing a shader there are several questions you should ask yourself:</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>Do I want to use normal-mapped 
+or standard lighting?</b></p>
+
+<p class=lvl2>Shaders with the <code>normalmap</code> inclusion will 
+use normal maps to calculate their lighting; shaders with the 
+<code>lightonly</code> inclusion will use standard lighting.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>Do I want to use Glow, 
+Chrome, Rolling UVs?</b></p>
+
+<p class=lvl2>Shaders with the <code>glow</code> inclusion use a glow map to 
+self-illuminate the object; shaders with the <code>chrome</code> inclusion use 
+a cube reflection map to simulate reflections from the environment; shaders with 
+the <code>uvtransform</code> inclusion contain parameters to allow rolling UV 
+coordinates.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>Do I want to use Alpha Test 
+or Alpha Blend?</b></p>
+
+<p class=lvl2>Shaders with the <code>alpha</code> inclusion use the diffuse 
+map's alpha channel for opacity, enabling blend values from 1 to 256 (8-bit).</p>
+
+<p class=lvl2>Please note that many other non <code>alpha</code> shaders contain 
+alpha test, which will clamp the blend value to either 1 or 0 (2-bit) as defined 
+the by the shader's alpha reference setting. If the alpha reference setting is set to 128, then all values above 128 will be regarded as a blend value of 1 (opaque) and all the values below will be regarded as a blend value of 0 (transparent).</p>
+<p class=lvl2>Does your object have allot of self-intersection? When using alpha blended shaders self-intersection can lead to artifacts in the polygon sorting. </p>
+<p class=lvl2>Alpha blended shaders do not use GPU skinning, so if your alpha blended model is skinned all animations will occur on the CPU (slower). </p>
+<p class=lvl2>When possible use alpha test rather than blend. Alpha blended objects require sorting, excessive use of blended shaders will result in poor game performance. </p>
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>Do I want to use Skinned, 
+ or Static?</b></p>
+
+<p class=lvl2>Shaders with the <code>skinned</code> inclusion perform 
+soft-skinning (each vertex may be influenced by up to three bones) on the GPU. 
+Objects using 3ds Max's <b>Skin</b>, or <b>Physique</b> modifiers, or Maya's 
+<b>Skinning</b> should use a <code>skinned</code> shader.</p>
+
+<p class=lvl2>Please note that it is extremely important that when choosing a 
+shader for a skinned object, that you use a <code>skinned</code> shader. Skinned 
+shaders perform bone translations on the GPU, which is a much faster way than 
+the alternate (CPU). If the CPU is forced to calculate animations, there may be 
+a performance hit.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>Are there going to be 
+performance issues?</b></p>
+
+<p class=lvl2>This is probably the most important, yet least thought of 
+question. The more advanced shaders (those that use normal maps, subsurface and
+parallax mapping) are more costly in performance terms when compared with those 
+that do not. Use these shaders wisely.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>Should I create my own
+shaders?</b></p>
+
+<p class=lvl2>Ultimately, we cannot offer every combination of shader available, 
+because the list is infinite. Most customers will choose to create several of
+their own shaders for special case purposes.</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="apply_a_shader">How to apply a shader in ModelEditor</a></h3>
+</span><span onclick=toggle_heading()></span>
+<DIV>
+
+<p>From ModelEditor's <b>Asset Browser</b> panel, select the <b>Effects</b> 
+virtual folder. This gives you access to all BigWorld shaders.</p>
+
+<p>To apply a shader to a model, simply drag it in the <b>Material Settings</b>
+panel's <b>Effect</b> drop-down list box.</p>
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image054.gif"></p>
+
+<p>BigWorld shaders can also be directly applied to models within 3dsMax (not
+supported for Maya). For information on how to do this, see the 
+<a href="02b_create_objects.htm">Create and Export a Static Object in 3ds Max 
+and Maya</a> lesson's <a href="02b_create_objects.htm#ApplyDX9Materials">Apply 
+BigWorld shaders directly to 3ds Max models</a> section.</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="UV">Creating a rolling UV material</a></h2></span>
+<DIV>
+
+<p>The series of shaders with suffix <code>uvtransform</code>, such as  
+<code>lightonly_uvtransform.fx</code>, allow the artist to create a rolling UV 
+effect. To create this effect on your object simply drag a 
+<code>uvtransform</code> shader from the <b>Asset Browser</b> pane's 
+<b>Effects</b> virtual folder into the <b>Material Settings</b> panel's
+<b>Effects</b> drop-down list box.</p>
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image056.gif"></p>
+
+<p>Choose a texture map that you want to roll across the surface by 
+double-clicking the <b>Transform Map</b> property in the <b>Material Settings</b>
+panel. Alternatively, you can drag one from the <b>Asset Browser</b> panel.</p> 
+
+<p>The vector properties allow you to control the tiling, offset, speed and 
+direction of the rolling UVs.</p>
+
+<p>The UV tiling is determined by the first value in the <b>U Transform</b> 
+property and by the second value in the <b>V Transform</b> property. A value of
+<b>2</b> will cause the texture to be tiled twice over the normal UV range.</p>
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image057.gif"></p>
+
+<p>The rotational offset of the UV coordinates is determined by the second value
+in the <b>U Transform</b> property and by the first value in the <b>V 
+Transform</b> property.</p> 
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image058.gif"></p>
+
+<p>The scroll speed of the moving texture is determined by the third value
+in the <b>U Transform</b> and the <b>V Transform</b> properties.</p> 
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image059.gif"></p>
+
+<p>The initial UV offset of the texture is determined by the fourth value in the 
+<b>U Transform</b> and the <b>V Transform</b> properties.</p> 
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image060.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Saving a material MFM file</a></h2></span>
+<DIV>
+
+<p>An existing model's material settings can be saved as a <code>.mfm</code> 
+file. This allows artists to store complex material setups to be applied on 
+different models.</p>
+
+<p class=numBltLvl1>1 Select the <b>Material Settings</b> panel.</p>
+
+<p class=numBltLvl1>2 Select the material that you wish to save as an MFM.</p>
+
+<p class=imgLvl2><img src="34_fx_files_and_materials_files/image061.gif"></p>
+
+<p class=numBltLvl1>3 click the 
+<img src="34_fx_files_and_materials_files/image062.gif"> button &ndash; this 
+will open the <b>Save As</b> dialog box.</p>
+
+<p class=numBltLvl1>4 In the <b>Save As</b> dialog box, specify the folder and
+the name of the material file that you want to save, then click the <b>Save</b>
+button.</p>
+
+<p>To apply an MFM file to an existing material, click the 
+<img src="34_fx_files_and_materials_files/image063.gif"> button and select the
+desired file.</p>
+
+</DIV>
+
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

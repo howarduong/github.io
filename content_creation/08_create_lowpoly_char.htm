@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Create Low-Polygon Characters</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER -- CREATE LOW-POLYGON CHARACTERS -->
+<h1><a name="lessonTitle">Create Low-Polygon Characters</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#Orientation">Character Orientation</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#BoneLimit">Node/Bone Limit </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#Order">Order of Modifiers and History </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#Trackers">Orientation of nodes for use with the Head Trackers</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#Rigging">Rigging the character with <code>Biped</code></A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="08_create_lowpoly_char.htm#Skinning">Skinning</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#SkinningWithSkin">Skinning the character using the Skin modifier</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#SkinningWithPhysique">Skinning the character using Physiquer</A></LI>
+</UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="08_create_lowpoly_char.htm#HP">Hard Points</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#PlacingHPsOnCharacter">Placing hard points on your character for attaching items</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#PlacingHPsOnItems">Placing hard points on your items</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#Referencing">Referencing the character texture maps</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="08_create_lowpoly_char.htm#Exporting">Exporting the character</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+</DIV>
+
+<p>Before you begin creating your character, make sure you have read the lesson <a href="02b_create_objects.htm">Create and Export a Static Object in 3ds Max and Maya</a></p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Orientation">Character Orientation</a></h2></span>
+<DIV>
+
+<p>Characters and NPC's should be modelled so that they are facing away from the Front Viewport.</p>
+<p>So if you select <b>Views&rarr;Front</b> in 3ds Max, or 
+<b>View&rarr;Predefined bookmarks&rarr;Front</b> in Maya, the model will be 
+facing away from you. This setup will make more sense when the animations are 
+created. Animations will be moving away from the front view, just as they are 
+visualised in the game.</p>
+<p>It is very important that you create your characters like this. It will
+save significant time, and minimise problems when it comes to incorporating 
+animation into the game.</p>
+<p>Although correct setup is highly advisable it is possible to get animations 
+that are moving in the incorrect direction to work within the BigWorld engine. 
+To do so, please see the section on <a href="09_create_char_anims.htm#OppositeFacing">Opposite Facing Direction </a>.</p>
+<p></p>
+<p class=imgLvl1><img src="08_create_lowpoly_char_files/image069.gif">
+                 <img src="08_create_lowpoly_char_files/image068.gif"></p>
+<p class=captLvl1>In Maya and 3ds Max, when looking at your character from the 
+front viewport, the character should be facing away from you.</p>
+
+<p class=tipLvl1><img src="images/tip.bmp">If you are familiar with modelling in 
+the front viewport, and find it difficult adjusting to modelling in the back 
+view, then try re-mapping your shortcut key for front view to load up the back 
+view.</p>
+
+<span onclick=toggle_heading()></span></DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="BoneLimit" id="BoneLimit">Node/Bone Limit</a></span></h2>
+<span onclick=toggle_heading()></span> </span>
+<DIV>
+  <p>The exporters have a bone count limit of 256 bones per skin modifier. Rigs can have more than this number of bones, but a single skin modifier can only use  a maximum of 256 bones.</p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Order" id="Order">Order of Modifiers and History </a></h2>
+</span><span onclick=toggle_heading()></span>
+<DIV>
+
+<p>The order in which modifiers (Max) and history (Maya) are applied is extremely important in getting a correct result. </p>
+<p>Mesh modifiers should be applied first, then morph modifiers and blend shapes and finally skin modifiers.</p>
+<p><strong>1st:</strong> Edit poly, Edit Mesh, Xform, bend, etc. </p>
+<p><strong>2nd:</strong>  Morpher modifier (max) Blend shapes (maya)</p>
+<p><strong>3rd:</strong> Skin, Physique, Skinwrap (Max) softskin (Maya)</p>
+</DIV>
+<span onclick=toggle_heading()><h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Trackers">Orientation of nodes for use with the Head Trackers</a></span></h2>
+<span onclick=toggle_heading()></span> </span>
+<DIV>
+  <p>The Bigworld engine contains a simple IK system for pointing the head bone 
+    towards a certain direction.</p>
+  <p>In order for this to work correctly the bone must be correctly oriented 
+    within the 3d package in a certain orientation. </p>
+  <p>In 3ds Max, the head tracker will point the bone's positive Y (local 
+    coordinates) direction towards the tracker direction. This is the default 
+    orientation of a <code>Biped</code> head. </p>
+  <p class=imgLvl1><img src="08_create_lowpoly_char_files/image070.gif"> <img src="08_create_lowpoly_char_files/image073.gif"></p>
+  <p>In Maya the head tracker will point the bone's <b>negative Z</b> (object 
+    coordinates) axis in the direction of the tracker. This cone will point in the 
+    direction of the object being tracked. </p>
+  <p class=imgLvl1><img src="08_create_lowpoly_char_files/image071.gif"> <img src="08_create_lowpoly_char_files/image072.gif"></p>
+  <p>Trying to rotate a bone's orientation after it has been skinned and animated 
+    is usually problematic. Correct setup is strongly advised.</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Rigging">Rigging the character with <code>Biped</code></a></h2>
+</span>
+<DIV>
+
+<p>In the example below Character Studio's <code>Biped</code> was used as a rig for the
+character. Using Character Studio's <code>Biped</code> is not a requirement; most 
+custom rigs will work with the BigWorld engine.</p>
+<p>For the purposes of this tutorial we will use the <code>warrior_model.max</code> 
+example found in the tutorial files.</p>
+
+<p>In the <b>front</b> viewport create a <code>Biped</code> inside the 
+<code>mesh_warrior</code>. </p>
+<p>Note: In 3ds Max 9.0,<code>Biped</code>s are set to <code>renderable</code> by default. This will cause 
+the <code>Biped</code> to be exported along with your character mesh. To prevent this simply 
+deselect the <code>Biped</code>'s <code>renderable</code> flag (right click - <b>Properties</b>).</p> </p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Skinning" id="Skinning">Skinning</a></h2></span>
+<DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="SkinningWithSkin">Skinning the character using the Skin modifier</a></h3></span>
+<DIV>
+
+<p>The BigWorld engine supports 3ds Max's Skin and Physique Modifier for 
+skinning purposes. The following is a description of how to use the Skin 
+Modifier. We recommend the use of the Skin- rather than the Physique Modifier, due to the 
+more robust skinning tools of the former.</p>
+<p>BigWorld skinned shaders allow each vertex to be affected by a maximum of three bones.
+When you skin a vertex in 3ds Max the skin modifier will default to 20 bones influencing a 
+single vertex. The BigWorld engine will take the top three strongest-weighted bones and 
+normalise them, effectively ignoring the rest. </p>
+<p>If you want to get an accurate view of how your model will look within BigWorld from 
+within the 3ds Max viewport it is important to set the Bone Affect Limit within the 
+Advanced Parameters of the Skin Modifier rollout to <code>3</code>. </p>
+<p><img src="08_create_lowpoly_char_files/image076.gif" width="138" height="129"></p>
+<p>&nbsp;</p>
+<p class=numBltLvl1>1To skin your character, select the mesh you want to skin and apply the 
+<b>Skin Modifier</b> to it.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image059.gif">
+                 <img src="08_create_lowpoly_char_files/image060.gif"></p>
+
+<p class=numBltLvl1>2 Select the <b>Add Bones</b> button to add bones to be used 
+by the skin modifier.</p>
+
+<p class=numBltLvl1>3 In the example below I split the model up into 
+<b>head</b>, <b>torso</b>, and <b>legs</b>. The leg mesh will only require the 
+lower body's bones to be added to the Bone list as we do not need the upper 
+body's bones to affect the leg movement.</p>
+
+<p class=numBltLvl1>4 Select the <b>Edit Envelopes </b>button within the Skin 
+Modifier's parameters rollout. This will display the envelope of the bone 
+selected within the Skin Modifier bone list.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image061.gif"></p>
+
+<p class=numBltLvl1>5 Alter the envelope's field of effect by selecting and 
+moving the dark grey control points of the envelope.</p>
+
+<p class=numBltLvl1>6 Individual vertex weights can be altered by manually 
+selecting vertices.</p>
+
+<p class=numBltLvl1>7 Select the <b>Vertices</b> tick box and select the 
+vertices that you would like to weight, then select the bone for which you want 
+to change the vertex weights.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image062.gif"></p>
+
+<p class=numBltLvl1>8 Change the Abs. Effect to alter the selected vertices'  
+ weighting.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image063.gif"></p>
+
+<p class=numBltLvl1>9 Vertex weights can also be painted onto the model using 
+the <b>Paint Weights</b> button.</p>
+
+<p class=tipLvl2><img src="images/tip.bmp">Vertex weights can be mirrored using 
+the skin modifier. If your model is symmetrical, then it is best to adjust the 
+vertex weights on one side of the model and then use the mirror weights function 
+to weight the other side of the mesh.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="SkinningWithPhysique">Skinning the character using Physique</a></h3></span>
+<DIV>
+
+<p>The BigWorld engine supports 3ds Max's Skin and Physique Modifiers.
+ We recommend the use of the Skin Modifier over the Physique Modifier as the Physique
+ Modifier has had very few updates in the latest revisions of 3ds Max whilst the Skin
+ Modifier is constantly refined and improved. The addition of the Skinwrap Modifier (see 3ds Max help)
+ has made the Skin Modifier even more powerful. The following is a description of 
+ how to use the Physique Modifier.</p>
+<p class=numBltLvl1>1 Select the <code>mesh_warrior</code> again, and apply the 
+<b>Physique Modifier</b> to it.</p>
+
+<p class=numBltLvl1>2 Set the Physique Modifier Skin Update to <b>Deformable</b>.</p>
+<p class=lvl2>The BigWorld engine does not support dynamic blending for skinned 
+meshes, nor joint intersections, bulges, tendons, and skin sliding. This option 
+is only ticked on to allow us to select envelopes in a later part of this 
+tutorial. It will be turned off at the end of skinning.</p>
+
+<p class=numBltLvl1>3 Use the <code>Biped</code>'s <code>Pelvis</code> as the attachment node. 
+Select <b>Deformable</b> and choose the <code>Biped</code> centre node.</p>
+<p class=lvl2>Selecting <b>Deformable</b> for joint intersections, bulges, tendons 
+and skin sliding is only temporary, allowing us to edit the physique envelopes.
+At the completion of skinning, this setting will be changed
+back to <b>Rigid + Link Blending</b>.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image039.gif">
+                 <img src="08_create_lowpoly_char_files/image065.gif"></p>
+
+<p class=numBltLvl1>4 Set the <b>Blending Between Links</b> drop-down list box
+to <b>3 Links</b> &ndash; the BigWorld engine supports only 3 bone weights per 
+vertex.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image040.gif"></p>
+
+<p class=numBltLvl1>5 Enter <b>sub-object mode</b> of Physique, and select all 
+the <b>envelopes</b>, then change them from Dynamic (red) to <b>Rigid</b> (shown
+as green) using the <b>Active Blending</b> checkbox options.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image041.gif"></p>
+<p class=captLvl2>Active Blending section in Physique panel.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image042.gif">
+                 <img src="08_create_lowpoly_char_files/image043.gif"></p>
+<p class=captLvl2>All envelopes made rigid</p>
+
+<p class=numBltLvl1>6 Increase the envelopes' size slightly to make sure any stray 
+vertices are included in the influence areas.</p>
+<p class=lvl2>You can check this by going to <b>Vertex</b> mode and using 
+<b>Select by Link</b> with the <b>Root Vertices</b> option (blue cross) in 
+<b>Vertex Type</b>. Any <b>unassigned vertices</b> will show up as <b>blue</b>
+in the viewport.</p>
+
+<p class="lvl2"><table><tr>
+   <td valign="top"><p class=imglvl0><img src="08_create_lowpoly_char_files/image044.gif"><br>
+                    <p class=captLvl0>Check for stray vertices</p></td>
+   <td valign="top"><p class=imglvl0><img src="08_create_lowpoly_char_files/image045.gif"><br>
+                    <p class=captLvl0>Unassigned vertices displayed in blue</p></td></tr></table></p>
+
+<p class=numBltLvl1>7 Once all envelopes have been scaled to influence their 
+local vertices, you can refine the associations on a per link basis.</p>
+<p class=lvl2>Enter <b>Vertex</b> mode and use <b>Add to Link</b> to include 
+selected vertices or <b>Remove from Link</b> to exclude selected vertices from 
+nearby links as needed. You will need to toggle between <b>Select</b> and 
+<b>Select by Link</b> to accomplish this successfully.</p>
+
+<p class=numBltLvl1>8 Now go to <b>Select</b> mode in the <b>Vertex 
+Operations</b> and highlight all <b>vertices</b> in the viewport; then use 
+<b>Lock Assignments</b> on them to give you access to weight blending.</p>
+
+<p class=numBltLvl1>9 Create a simple test animation or rotate each link to 
+help you see how the vertices stretch and move around the joints.</p>
+<p class=lvl2>Use the <b>Type-In Weights</b> blending feature to refine the 
+influence of the parent and child links in order to get the best deformation.</p>
+
+<p class=noteLvl2><img src="images/note.bmp">Only locked vertices can access 
+the <b>Type-In Weights</b> blending feature in Physique.</p>
+
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image048.gif"></p>
+<p class=captLvl2><b>Type-In Weights</b> dialog box in Physique</p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>10</span> Follow this same 
+process again (steps 3 to 8) for the <code>mesh_arms</code> object.</p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>11</span>When complete, it 
+is important to reset the mesh to <b>Rigid + Links Blending</b>.</p> 
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image067.gif"></p>
+<p class=imgLvl2>&nbsp;</p>
+<p class=imgLvl2>Note: Non-uniform scale of physique skinned bones is not supported by BigWorld. </p>
+<p class=imgLvl2><span onclick=toggle_heading()></span></p>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Skinning_Maya">Skinning the  character in Maya </a></h3></span>
+<DIV>
+  <p>When skinning an object in Maya use the Smooth Bind skin option. 
+  To do this, select your character mesh and shift + add select the character rig, choose Skin - Bind Skin - Smooth Bind.</p>
+  <p> Because BigWorld shaders limit the influence of vertices to a maximum of three bones, you may want to set the Max influence setting
+  to <code>3</code>. This will give you a more accurate representation of the way vertex weights function
+  within BigWorld from the Maya viewport. </p>
+  <p><img src="08_create_lowpoly_char_files/image074.gif" width="198" height="111"> </p>
+  <p><img src="08_create_lowpoly_char_files/image075.gif"></p>
+  <p class=captLvl1>Setting Max influence to <code>3</code> will more accurately represent the way skin weights function within BigWorld</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="HP" id="HP">Hard points</a></h2></span>
+<DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="PlacingHPsOnCharacter">Placing hard points on your character for attaching items</a></h3></span>
+<DIV>
+
+<p><b>Hard points</b> are extra nodes within your skeletal hierarchy which
+are used in the BigWorld engine to attach interactive objects to the skeletal 
+structure so characters can carry items on their body or in their hands.</p>
+<p>Hard points are defined by their naming convention. If a node contains the 
+prefix <code>HP_</code>, it is recognised as a hard point.</p>
+
+<p class=numBltLvl1>1 To create a hard point, simply create an object in your 3d
+package out of geometry, then link it to the object's hierarchy. It is crucial 
+that the Hard Point is geometry-based, as other object types are not supported.</p>
+<p class=lvl2>For hard points, we like to use an object that represents the x, y,
+and z-axes, and is textured in a bright and obvious manner. This makes aligning 
+the object easier in your 3d package. However, the type of object you use and 
+its texture map are unimportant &ndash; the only thing recognised by the 
+exporter is that the node has the prefix <code>HP_</code>.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image049.gif"></p>
+<p class=captLvl2>Hard point with pivot-point aligned</p>
+
+<p class=numBltLvl1>2 Name the first hard point <code>HP_right_hand</code>.</p>
+
+<p class=numBltLvl1>3 Hide <code>Biped</code>, and position the hard point so that it just 
+touches the inside of the <code>Biped R Hand</code> in the location and 
+orientation that would be suitable for attachment of items.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image050.gif"></p>
+<p class=captLvl2>Hard point positioned at right hand</p>
+
+<p class=numBltLvl1>4. Now <b>link</b> the <b>hard point</b> directly to the 
+<b>right hand</b> of <code>Biped</code>.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image001.png"></p>
+<p class=captLvl2>Hard points on characters must be linked to the skeleton</p>
+
+<p class=numBltLvl1>5 For additional hard points, create copies of this 
+hard point and position them around other areas of the body. Rename them 
+accordingly, then link them to their nearest <code>Biped</code> part.<span onclick=toggle_heading()>
+</span></p>
+<p class=numBltLvl1><span class="noteLvl2"><img src="images/note.bmp"></span> Hard points are not counted towards any bone count limitations imposed by the exporter. </p>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="PlacingHPsOnItems">Placing hard points on your items</a></h3></span>
+<DIV>
+
+<p>To link an object, such as a sword, to your character, both the object and 
+the character must share a hard point with the same name. For each attachment 
+point on the character, you will require a unique hard point. So if you wish to 
+attach a sword to your character's right AND left hands, then you will need an 
+ <code>HP_righthand</code> and an <code>HP_lefthand</code> on both the sword, 
+AND on the character.</p>
+<p>The simplest way of creating a perfectly aligned hard point for an object is:</p>
+<p class=numBltLvl1>1 Merge/import the character model with all its hard points into the item's scene. </p>
+<p class=numBltLvl1>2 Position the item so that it sits perfectly in the characters hand/holster etc. </p>
+<p class=numBltLvl1>3 Make a copy of the characters hard point and link it to the item. </p>
+<p class=numBltLvl1>4 Hide, or delete the character.</p>
+<p class=numBltLvl1>5 Move the item (now with its attached HP) to the correct position for export (probably near the origin).</p>
+<p class=numBltLvl1>6 Detach the hard point (break the hierarchy), and export as <strong>Static with Nodes</strong>.</p>
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image012.png"></p>
+<p class=tipLvl2><img src="images/tip.bmp">If during production an item's position when attached does not 
+correctly align, only adjust the position of the HP on the item; do NOT alter the position of hard points on your 
+characters as this will then affect the alignment of all the other items that will be attached to your character.</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Referencing">Referencing the character texture maps</a></h2></span>
+<DIV>
+
+<p>All art assets to be used in the BigWorld engine must reside in the resource 
+folder <code><i>&lt;your_game&gt;</i>/res</code> or one of its subdirectories.
+This includes bitmaps referenced by any models you may create. If your
+character is referencing bitmaps from another location other than the 
+<code>res</code> directory, then you must move those bitmaps into the resource 
+folder (or one of its subfolders).</p>
+<p>As an example we will reassign the bitmaps used on the <code>ranger</code> 
+model to the <code>res/characters/avatars/ranger</code> folder.</p>
+
+<p class="numbltlvl1">1 Open <b>Windows Explorer</b>.</p>
+
+<p class="numbltlvl1">2 Create the following file structure within your game 
+directory  <code>res/characters/avatars/ranger</code>.</p>
+
+<p class="imglvl2"><img src="08_create_lowpoly_char_files/image074.png"></p>
+
+<p class="numbltlvl1">3 Copy the final texture maps from your working drive to 
+the new <code>ranger</code> folder.</p>
+
+<p class="numbltlvl1">4 Open 3ds Max.</p>
+
+<p class="numbltlvl1">5 Using the <b>Bitmap/Photometric Path Editor</b>
+utility, reassign the materials to the folder used in your game.</p>
+
+<p class="imglvl2"><img src="08_create_lowpoly_char_files/image075.png"></p>
+<p class="captlvl2">3ds Max utility for reassigning bitmaps</p>
+
+<p>Now that the bitmaps have been sourced to the <code>res</code> folder or one 
+of its subdirectories, the BigWorld engine can access them.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Exporting">Exporting the character</a></h2></span>
+<DIV>
+
+<p class="numbltlvl1">1 Make sure that <code>Biped</code> is in <b>Figure Mode</b> in the 
+<b>General</b> rollout.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image053.gif"></p>
+<p class=captLvl2><b>Figure Mode</b> on</p>
+
+<p class="numbltlvl1">2 Select and <b>hide</b> all of the <code>Biped</code> structure 
+(including the <code>Biped Footsteps</code>, which may be frozen) and 
+<b>unhide</b> the character mesh object and ALL its linked <b>hard points</b>.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image054.gif"></p>
+<p class=captLvl2>Character with multiple hard points</p>
+
+<p class=noteLvl2><img src="images/note.bmp">Hard points must be unhidden in the 
+3ds Max scene for exporting.</p>
+
+<p class="numbltlvl1">3 Select the <b>File&rarr;Export&hellip;</b> menu item, 
+then select the <code>(*.visual)</code> extension from the drop down list.</p>
+<p> Note: if you have multiple rig controller objects you may want to try 
+selecting your character's mesh and using <b>File&rarr;Export Selected</b> instead.
+This will prevent the controller objects being exported along with your character. </p>
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image055.gif">
+                 <img src="08_create_lowpoly_char_files/image056.gif"></p>
+<p class=captLvl2>BigWorld proprietary 3ds Max plug-in selected</p>
+
+<p class="numbltlvl1">4 Locate the <b>resource</b> subfolder to which you would 
+like to export your character file (in this case use 
+<code>res/sets/characters/avatars/warrior</code>), then type the name 
+<code>warrior</code> in the field and click <b>Save</b> &ndash; this will bring 
+up the <b>Visual exporter</b> dialog box.</p>
+
+<p class=imgLvl2><img src="08_create_lowpoly_char_files/image057.gif"></p>
+<p class=captLvl2><b>Visual Exporter</b> dialog box</p>
+
+<p class="numbltlvl1">5 Make sure the <b>Visual type</b> option is set to 
+<b>Animated</b>, and make sure the checkboxes are cleared.</p>
+
+<p class="numbltlvl1">6 Click the <b>OK</b> button.</p>
+<p class=lvl2>There will now be a <code>warrior.visual</code> file located in 
+the <b>resource</b> structure under the <code>warrior</code> folder.</p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

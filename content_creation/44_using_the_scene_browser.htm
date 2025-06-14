@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Using the Scene Browser</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<H1><a name="lessonTitle">Using the Scene Browser</a></H1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="44_using_the_scene_browser.htm#SceneBrowser">Scene Browser </A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="44_using_the_scene_browser.htm#Common">Common properties </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="44_using_the_scene_browser.htm#Problem">Using the Scene Browser to find problem assets </A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>The Scene Browswer tab in World Editor is a spread sheet view of all the objects loaded in a space</p>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="SceneBrowser" id="SceneBrowser">Scene Browswer </a></h2>
+</span>
+<DIV>
+
+<p>The Scene Brower has many possible applications some of which are listed below. </p>
+
+<p class=imgLvl1><img src="44_using_the_scene_browser_files/image001.gif" width="859" height="258"></p>
+
+<p>&nbsp;</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Finding objects </b> &ndash; The search field will filter objects by name, right clicking on an object allows you to zoom to the objects location.
+</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Selecting multiple objects </b> &ndash; multiple objects can easily be selected and their <a href="#Common">common properties</a> edited at once 
+
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Modifiying multiple objects </b>&ndash;<span class="evnRow">When multiple objects of the same type are slected their common properties can be modified from the <a href="#Common">properties tab</a></p>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Monitoring Triangle count per assets </b>&ndash; <span class="evnRow">The column <strong>Tris</strong> </span>can be used to sort assets by the number of triangles, very useful when looking for polygon heavy assets. </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Monitoring Primitive groups  per assets </b>&ndash; <span class="evnRow">The column <strong>Primitives</strong> gives an indication of how many parts each asset is broken up into. This is usually due to </span><a href="02b_create_objects.htm#Max_Material_Channels">multiple material kinds</a> or high bone counts. <span class="evnRow"> Large primitive group numbers will impact performance, it is best to investigate assets at the top range to see if their primitive group count can be reduced. </span> It's rare that objects should need greater than 10 primitive groups. </p>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><strong>Hide / Show assets </strong>&ndash; <span class="evnRow"><img src="44_using_the_scene_browser_files/image002.jpg" width="52" height="29"> The scene browser can be used to hide assets to enable easier world building. Hidden assets are only hidden in World Editor, they will be drawn as usual in the client engine</span>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif"><strong>Freeze / Thaw assets </strong>&ndash; <span class="evnRow"><img src="44_using_the_scene_browser_files/image001.jpg" width="47" height="29"></span><span class="evnRow"> The scene browser can be used to freeze and thaw assets to enable easier world building. Frozen assets will appear grey and be unselectable from the 3d window. If you need to unfreeze an asset, select it  from the scene browser and click the thaw button. </span></p>
+<p class="imgBltLvl1">&nbsp;</p>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="Common" id="Common">Common properties </a></h3>
+</span>
+<DIV>
+
+<p>If multiple objects of the same type are selected together their common properties will be shown in the properties tab. </p>
+<p>This allows users to change the properties of hundresd of objects in a single click. </p>
+
+
+<p><img src="44_using_the_scene_browser_files/image002.gif" width="246" height="260"> </p>
+<p class="captLvl2"><b>229 flare objects selected at once </b></p>
+<p class="captLvl2">&nbsp;</p>
+</DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Problem" id="Common2">Using the Scene Browser to find problem assets</a></span></h3>
+<DIV>
+  <p>You can use the Scene Browser to locate problem assets by sorting the columns by Primitives or Triangles. </p>
+<p><img src="44_using_the_scene_browser_files/image003.gif" width="777" height="250"></p>
+</DIV>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

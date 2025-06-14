@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create and Apply Terrain Texture Maps</title>
+<LINK  href="style.css" type=text/css rel=stylesheet>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2963" name=GENERATOR>
+</hEAD>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - CREATE AND APPLY TERRAIN TEXTURE MAPS -->
+<h1><a name="lessonTitle">Create and Apply Terrain Texture Maps</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#Applying">Painting the terrain</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="20_terrain_texture_maps.htm#Using_Masks">Using masks to texture the terrain</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#ImportedMasks">Using imported masks to rapidly texture terrain</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#Management">Terrain texture management </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#Projection">Terrain texture projection</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#Tiling">Terrain texture tiling</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="20_terrain_texture_maps.htm#Specular">Specular lighting on terrain</A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#AdjustSpecular">Adjusting terrain specular properties via watchers
+</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#MaterialType">Terrain texture material type</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#Cloud">Cloud shadows</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="20_terrain_texture_maps.htm#CreatingTerrainTextures">Creating terrain textures</A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#RemovingSmall">Removing small frequency tiling</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="20_terrain_texture_maps.htm#RemovingLarge">Removing large frequency tiling</A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>Depending on the style and look of the area you would like to create in your 
+world, you should consider the types of terrain textures that you would like, 
+and how they might best work together. For example, if you are creating a 
+grass-covered plane, you might like to have two types of grass, and something to 
+offset this grass into paths &ndash; dirt, for example, which might clear away 
+into rocks, etc.</p>
+
+<p class=imgLvl1><img src="20_terrain_texture_maps_files/image055.jpg" width="700" height="288"></p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Applying">Painting the terrain</a></h2></span><span onclick=toggle_heading()></span>
+<DIV>
+
+<p>To paint the terrain, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Open WorldEditor.</p>
+
+<p class=numBltLvl1>2 Click the <b>Terrain Texture Tool</b> toolbar button (<img src="20_terrain_texture_maps_files/image051.jpg">) or use the shortcut key <strong>2 </strong>.</p>
+
+<p class=numBltLvl1>3 Select the <b>Asset Browser</b> panel.</p>
+
+<p class=numBltLvl1>4 Select the <b>Textures</b> virtual folder.</p>
+
+<p class=numBltLvl1>5 In the file list, double click  the desired texture &ndash; it
+will be automatically displayed in the <b>Terrain Texturing</b> panel's
+<b>Active Texture</b> group box. <br>
+You can also drag the texture onto the active texture slot from the Asset Browser. </p>
+<p class=numBltLvl1>&nbsp;</p>
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image046.gif" width="486" height="397"></p>
+
+<p class=numBltLvl1>6 Adjust the brush settings before painting the terrain.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">The <b>Size</b> field determines 
+the diameter of the terrain paint brush. It can be changed by typing a new value,
+by moving the slider with the mouse, or via the <code>[</code> (left square bracket) and <code>]</code> (right square 
+bracket) shortcuts (which decrease and increase the value, respectively).
+
+<p class=imgBltLvl2><img src="images/bullet.gif">The <b>Strength</b> field defines 
+the &quot;flow of ink&quot; onto the terrain. A high setting will cause the terrain 
+to quickly adopt the texture you are painting. The strength can 
+also be changed by typing or by using the slider, but has a different keyboard
+shortcut: <code>Shift+[</code> (left square bracket) and <code>Shift+]</code> 
+(right square bracket) to decrease and increase the value, respectively.</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">The <b>Opacity  </b>sets a maximum percentage
+at which the current texture will be applied to the terrain. This field can
+also be changed by typing or by using the slider. </p>
+<p class=numBltLvl1>7 Drag the mouse over the terrain to paint it with the 
+active texture.</p>
+<p class=lvl2>The <b>Sample Texture</b> feature (indicated by the 
+<img src="20_terrain_texture_maps_files/image045.gif"> icon) is activated by the 
+<code>Alt</code> keyboard shortcut, and chooses the strongest texture under 
+the cursor, making it the active one (automatically updating the 
+<b>Active Texture</b> group box's panel).</p>
+<p class=lvl2>Alternatively you can right click on the terrain whilst in
+terrain-painting mode, and choose <strong>Select Texture for Painting</strong>. This will give you access to all the textures underneath the cursor.</p>
+<p class=lvl2><img src="20_terrain_texture_maps_files/image057.gif" width="342" height="143"></p>
+<p class=lvl2>There is also an option to <strong>Select Texture and Opacity for Painting</strong></p>
+<p class=lvl2><img src="20_terrain_texture_maps_files/image058.gif" width="376" height="143"></p>
+<p class=lvl2>Alternatively, you can  right click the <strong>Chunk Textures</strong> panel to select a texture for painting.</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Using_Masks">Using masks to texture the terrain</a></h2></span>
+<DIV>
+  <p>Just as with masks in Photoshop, you can use a number of masks to select or deselect areas of the terrain you wish to paint. When using multiple masks they multiply together to mask out the terrain. </p>
+  <p><span class="imgLvl1"><img src="20_terrain_texture_maps_files/image059.gif" width="275" height="484"></span></p>
+  <p>All masks can be previewed actively on the terrain whilst painting by ticking the <strong>Show Overlay</strong> tick box. The mask will be displayed as a red area (masked off). In the example below a height mask was used to enable editing between the heights 250m and 300m. </p>
+  <p><img src="20_terrain_texture_maps_files/image056.jpg" width="350" height="363"></p>
+  <p>Masks can be saved as brushes to be used at a later date</p>
+  <p><img src="20_terrain_texture_maps_files/image064.jpg" width="307" height="202"></p>
+  <p> Once saved they will appear in the Asset Browser under the Brushes filter folder </p>
+  <p><img src="20_terrain_texture_maps_files/image065.jpg" width="299" height="326"></p>
+  <p>&nbsp;</p>
+  <p>The available masks include:</p>
+  <p><strong>Height</strong>: selects a minimum and maximum height for which terrain painting is allowed.
+  (Fuz adds a blur around the borders of this selection.) </p>
+  <p><strong>Slope</strong>: selects a minimum and maximum slope for which terrain painting is allowed. 
+  (Fuz adds a blur around the borders of this selection.) </p>
+  <p><strong>Texture</strong>: selects a texture currently on the terrain to be used as a mask.
+  This selection is handy for replacing one texture with another. You can also use the <strong>invert texture mask</strong> to invert the selection. </p>
+  <p>The <strong>Include Projection</strong> setting will exclusively mask areas with both the same texture and projection.
+  Both of these settings can be chosen by right clicking on the terrain. </p>
+  <p><img src="20_terrain_texture_maps_files/image060.gif" width="342" height="143">  <img src="20_terrain_texture_maps_files/image061.gif" width="345" height="160"></p>
+  <p>Alternatively, you can  right click the <strong>Chunk Textures</strong> panel to select a texture for use  as a mask. </p>
+  <p><strong>Noise</strong>: generates a perlin noise used as a mask on the terrain. The <img src="20_terrain_texture_maps_files/image063.gif" width="114" height="21"> button accesses a noise generation window which allows the user to alter the noise parameters. </p>
+  <p><img src="20_terrain_texture_maps_files/image062.gif" width="492" height="536"></p>
+  <p>&nbsp;</p>
+  <p><strong>Imported</strong>: allows the user to import a greyscale texture to be used as a mask over the terrain. </p>
+  <p>Third party tools like World Machine can create terrain texturing masks which, when used 
+  in combination with imported <a href="42_heightmaps.htm">height masks</a> give rapid and realistic results. </p>
+  <p>There are several example masks in <em>fantasydemo\example_terrain_textures</em>.
+  The <a href="ImportedMasks">following section</a>  uses them to demonstrate the power of using imported height masks. </p>
+  <p>The <img src="20_terrain_texture_maps_files/image064.gif" width="73" height="21"> button will bring up a top down view of the entire space and allow the user to adjust the position of the imported mask. The interface acts similarly to the <a href="42_heightmaps.htm">terrain height map interface</a>. Supported formats include .r16, *.raw, *.bmp, terragen *.ter, DTED2 *.dt2.</p>
+  <p>An entire space can be flooded by using the <img src="20_terrain_texture_maps_files/image065.gif" width="207" height="21">. Be warned, this can take a significantly long time to do for extremely large spaces and will sometimes have to flush the undo buffer (you will be warned by a confirm prompt in such situations). </p>
+  <p class=captlvl1></p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="ImportedMasks" id="ImportedMasks">Using imported masks to rapidly texture terrain </a></span></h3>
+  <p>Firstly a <a href="01_setup_new_project.htm#Creating">new space</a> is created with a default grass texture map. </p>
+  <p><img src="20_terrain_texture_maps_files/image058.jpg" width="245" height="486"> <img src="20_terrain_texture_maps_files/image060.jpg" width="385" height="308"></p>
+  <p>A <a href="42_heightmaps.htm">heightmap</a> is imported, creating mountains in minutes. </p>
+  <p><img src="20_terrain_texture_maps_files/image062.jpg" width="384" height="288"></p>
+  <p>A texture mask is imported which describes all the cliff face areas and a rock texture is placed in those areas.</p>
+  <p><img src="20_terrain_texture_maps_files/image061.jpg" width="385" height="308"></p>
+  <p>A texture mask is imported which describes all the areas that have eroded and a dirt texture is placed in those areas.
+  The height and slope mask settings are used to map the parts of the terrain where fallen snow would rest, and a snow texture is placed on the mountains. </p>  <p><img src="20_terrain_texture_maps_files/image063.jpg" width="385" height="308"></p>
+  <p>This whole process took only minutes. The masks were generated from World Machine in under an hour. </p>
+  <p>&nbsp;</p>
+  <p>To edit .R16 files in photoshop ( photoshop CS2 &amp; above will be required ):</p>
+  <blockquote>
+    <p> - Choose<strong> File Menu</strong> - <strong>Open As</strong></p>
+    <p><img src="20_terrain_texture_maps_files/image071.gif" width="251" height="130"></p>
+    <p>- Select .RAW format</p>
+    <p> <img src="20_terrain_texture_maps_files/image072.gif" width="422" height="339"></p>
+    <p>- Follow the settings below, then click <strong>OK</strong>. Now you can edit the file in photoshop!</p>
+    <p><img src="20_terrain_texture_maps_files/image073.gif" width="301" height="412"></p>
+  </blockquote>
+  </DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Management">Terrain texture  management </a></h2></span>
+<DIV>
+
+<p>The BigWorld terrain engine allows the artist to paint an unlimited number of 
+textures on the ground in any area. However, users should show some restraint &ndash; the more textures painted, 
+the more memory used and the more draw calls performed. Therefore, it is crucial that all terrain texturing is 
+done with an informed understanding of the texture management tools.</p>
+
+<p>The first thing that must be understood is the concept of <i>chunks</i>. The 
+terrain is divided into 100 x 100m segments called chunks.
+
+<p class=noteLvl1><img src="images/note.bmp">Chunks can be visualised in 
+WorldEditor by pressing the <b>Chunk Visualisation</b> toolbar buttons.</p>
+
+<p class=imgLvl3><img src="20_terrain_texture_maps_files/image052.gif"></p>
+
+<p>Each chunk can support an unlimited number of different textures and projections. 
+However, the number of draw calls performed to draw the terrain is a function of the number
+of texture layers divided by four. So if you have 1,2,3, or 4 textures on a single chunk
+the graphics card will be able to draw that chunk in a single draw call, but as soon as 
+you add one more texture, you are adding another draw call. </p>
+<table width="200" border="1">
+  <tr>
+    <td>Number of textures per chunk </td>
+    <td>Number of draw calls </td>
+  </tr>
+  <tr>
+    <td>1,2,3,4</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>5,6,7,8</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>9, 10, 11, 12 </td>
+    <td>3</td>
+  </tr>
+</table>
+<p>It is therefore useful to browse around the space with the <strong>Chunk Texture</strong> 
+panel open and the track cursor option selected. <img src="20_terrain_texture_maps_files/image069.gif" width="58" height="21"></p>
+<p>When you come across a chunk that is using 5, 9, or 13 textures, removing a single 
+texture from that chunk will decrease the number of draw calls by one. </p>
+<p>To manage the number of textures per chunk, follow the steps below:</p>
+<p class=numBltLvl1>1 Open WorldEditor.</p>
+
+<p class=numBltLvl1>2 Click the <b>Terrain Texture Tool</b> toolbar button
+(<img src="20_terrain_texture_maps_files/image054.jpg">).</p>
+
+<p class=numBltLvl1>3 Activate the <b>Chunk Textures</b> panel &ndash; on the 
+viewport, right-click the terrain, and in the context menu, select the <b>Manage 
+Textures</b> menu item.</p>
+<p class=noteLvl2><img src="images/note.bmp">The <b>Chunk Textures</b> panel
+can also be activated by selecting the <b>View&rarr;Show Chunk Textures Panel</b>
+menu item.</p>
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image053.gif"></p>
+<p class=lvl2>The texture management tool allows you to view those chunks that 
+exceed a given number of textures (specified in the <b>Maximum Textures Per 
+Chunk Warning</b> field.) If the <img src="20_terrain_texture_maps_files/image055.gif"> 
+button next to the field is pressed, then a red border will be placed around those
+chunks that contain more than the specified number of textures, and the text <b>Too many 
+textures</b> will be printed on the problem chunks.</p>
+
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image026.jpg"></p>
+
+<p class=numBltLvl1>4 To reduce the number of textures in a chunk, right-click 
+the texture that you wish to remove, and in the context menu, select the
+<b>Remove Texture</b> menu item.</p>
+
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image056.gif" width="294" height="447"></p>
+<p class=imgLvl2>&nbsp;</p>
+<p class=imgLvl2>You can also merge multiple textures. To do this, hold down the
+control key and consecutively select multiple textures from the Chunk Texture panel. 
+The last texture you choose should be the texture and projection you want to merge to.
+In the case below, the grass (1) and leaf (2) texture will be collapsed to the dark 
+rock texture (3). Note the harder red boundary around texture 3: this indicates the last 
+selected texture. Now right click on the last selected texture and choose Merge Textures. </p>
+
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image068.gif" width="274" height="355"></p>
+<p class=imgLvl2>&nbsp;</p>
+<p class=lvl2>Alternatively, you can paint over the texture that you want 
+removed with other existing textures &ndash; the automatic texture management 
+system will remove a texture if its contribution to the chunk falls below a 
+certain point. To do this, select the strongest texture under the cursor, using 
+the <b>Sample Texture</b> feature (activated by the <code>Alt</code> keyboard 
+shortcut and indicated by the 
+<img src="20_terrain_texture_maps_files/image045.gif"> icon). Paint over the 
+problem texture until it is no longer visible. If you have sufficiently covered 
+the problem texture, then it should automatically disappear from the <b>Chunk 
+Textures</b> panel.</p>
+<p class=lvl2>You can replace one texture with another by dragging a texture from the
+<b>Asset Browser</b> onto one of the textures in the <b>Chunk Textures</b> panel.</p>
+<p class=lvl2>Another way of limiting the number of textures per chunk is to use the 
+<strong>Automatic Layer Limit</strong> function. </p>
+<p class=lvl2><img src="20_terrain_texture_maps_files/image070.gif" width="304" height="149"></p>
+<p class=lvl2>With this option ON, the texture tools will never paint more than 
+the specified number of textures per chunk. Once the chunk limit is reached, adding
+a new  texture will automatically replace the least contributing texture in that chunk. 
+This option defaults to a maximum of 4 textures per chunk when using BigWorld's simple terrain.</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Projection">Terrain texture projection</a></h2></span>
+<DIV>
+
+<p>It is possible to project textures from any angle, just as you would a planar 
+projection in 3dsMax or Maya. In the example below, the rock texture has been 
+projected from two different angles: on the left it was projected from above, 
+resulting in a stretched texture, whereas in the image on the right it was projected 
+sideways onto the side of the hill, thus removing any texture stretching.</p>
+
+<p class=imgLvl1><img src="20_terrain_texture_maps_files/image028.jpg"></p>
+
+<p>There are two ways to alter the projection of a terrain texture  that has not yet been applied to the terrain. </p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Alter <b>Terrain Texturing, Active Texture </b>panel's projection  <b>Yaw</b>, <b>Pitch</b>,  
+<b>Roll </b>and <strong>UV </strong>fields.</p>
+
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image067.gif" width="275" height="452"></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Use the <strong>Alt + Shift </strong><strong>+ Left Click </strong>key combination to select a projection from the terrain normal. </p>
+<p class=imgBltLvl1>If the texture whose projection you wish to alter is already applied to the terrain,
+you must use the edit projection button <img src="20_terrain_texture_maps_files/image066.gif" width="28" height="23">. </p>
+<p class=imgBltLvl1>This will bring up a gizmo on the terrain which will allow you to alter the projection and scaling of the current texture. Alternatively, you can use the projection and scale sliders in the active texture panel. </p>
+<p class=imgBltLvl1><img src="20_terrain_texture_maps_files/image057.jpg" width="246" height="207"></p>
+<p class=imgBltLvl1>&nbsp;</p>
+<p><span style="color:red; font-weight:bold;">Warning:</span> Each 
+newly projected angle creates a new texture layer. Too many terrain layers will impair the engine's 
+performance. Try to limit the use of different projections to instances where it is really necessary.</p>
+
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image027.jpg"></p>
+
+<p class=lvl2>The example chunk above is using the same <code>grass.tga</code> 
+texture, projected at five different angles &ndash; the result is five texture 
+layers being used. Each new texture layer is another draw call, which results in 
+increased memory usage (due to the mask information).</p>
+<p class=lvl2>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Tiling">Terrain texture tiling</a></h2></span>
+<DIV>
+
+<p>In the example below, the same <code>path.tga</code> texture has been applied 
+to the terrain with five different texture scales.</p>
+
+<p class=imgLvl1><img src="20_terrain_texture_maps_files/image029.jpg"></p>
+
+<p>There are two ways to alter the terrain texture scale:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Alter <b>Terrain Texturing</b>
+panel's <b>Active Texture</b> group box's <b>U</b> and <b>V</b> fields.</p>
+
+<p class=imgLvl2><img src="20_terrain_texture_maps_files/image047.gif"></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Use the <b>Terrain 
+Projection</b> gizmo (activated by the <code>Shift</code> keyboard shortcut).</p>
+
+<p><span style="color:red; font-weight:bold;">Warning:</span> Each 
+newly resized texture adds another texture layer, even if the same texture is 
+resized multiple times per chunk. Therefore, be careful when painting texture
+to only change texture scale when absolutely necessary.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Specular">Specular lighting on terrain</a></span></h2>
+</span>
+<DIV>
+  <p>The terrain exhibits specular lighting. The colour of this specular light is 
+    a combination of the terrain diffuse colour and the colour of the sunlight.</p>
+  <p>The contribution of each can be adjusted using the terrain watcher <code>specular diffuse amount</code> (see below). </p>
+  <p>The terrain texture has to be a <code>.tga</code> file &ndash; this is 
+    because the specular strength is determined by the alpha map, which cannot be 
+    specified in <code>.bmp</code> files.</p>
+  <p>White areas in the alpha map generate bright specular highlight, while black 
+    areas generate none.</p>
+  <p>The terrain texture in the example below has specular highlights on the 
+    smooth surfaces of the cracked mud, but none within the cracks.</p>
+  <p class=lvl1>
+  <table>
+    <tr>
+      <td><p class=imglvl0><img src="20_terrain_texture_maps_files/image039.gif"></p>
+          <p class=captlvl0>Colour information</p></td>
+      <td></td>
+      <td><p class=imglvl0><img src="20_terrain_texture_maps_files/image040.gif"></p>
+          <p class=captlvl0>Alpha information</p></td>
+    </tr>
+  </table>
+  </p>
+  <p class=imglvl1><img src="20_terrain_texture_maps_files/image038.gif"> </p>
+  <p class=captlvl1>Specular lighting applied to texture</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="AdjustSpecular">Adjusting terrain specular properties via watchers</a></span></h3>
+  <DIV>
+    <p>In World Editor you can access controls or &quot;watchers&quot; that describe 
+      the terrain specularity, via the <b>Debug (Watcher)</b> console (for details on
+      this and other tools consoles, see the document <a onClick="parser('content_tools_reference_guide.pdf')"><span class="linkToFile"> Content Tools Reference Guide</span></a>, chapter <b>Tools Consoles</b>).</p>
+    <p>To change the value of a watcher, follow the steps below:</p>
+    <p class=numBltLvl1>1 Open WorldEditor.</p>
+    <p class=numBltLvl1>2 Press <code>control + F7</code> to open the <b>Debug (Watcher)</b> console.</p>
+    <p class=imglvl2><img src="20_terrain_texture_maps_files/image022.jpg"></p>
+    <p class=numBltLvl1>3 Navigate to the <code>[Render]</code> item (either by
+      using the <code>Page Up</code> and <code>Page Down</code> keyboard shortcuts,
+      or by typing its list number &ndash; in this case, <code>4</code>), then press <code>Enter</code> &ndash; this will navigate one level down in the watcher 
+      tree.</p>
+    <p class=imglvl2><img src="20_terrain_texture_maps_files/image049.jpg"></p>
+    <p class=numBltLvl1>3 Navigate to the <code>[Terrain2]</code> item, then press <code>Enter</code>.</p>
+    <p class=imglvl2><img src="20_terrain_texture_maps_files/image050.jpg"> </p>
+    <p class=numBltLvl1>4 Navigate to the desired watcher, then press <code>Enter</code>
+    to enter <i>Edit</i> mode, where you can change its value. The watcher's specular 
+    fresnel constant, specular fresnel falloff, specular multiplier and specular power
+    will affect the terrain's specular appearance. </p>
+    <p class=imgLvl2><img src="20_terrain_texture_maps_files/image023.jpg"> <img src="20_terrain_texture_maps_files/image024.jpg"></p>
+    <p class=captLvl2>Some of the different effects you can get using the terrain specular watchers.</p>
+    <p class=noteLvl1><img src="images/note.bmp">These effects are not permanently 
+      applied to the terrain &ndash; they are only preview features. If you want them 
+      to be permanently applied to the terrain, then the code needs to be updated with 
+      the values that gave you the best result in this exercise.</p>
+  </DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="MaterialType" id="MaterialType">Terrain texture material type</a></span></h2>
+</span>
+<DIV>
+  <p>Each object in BigWorld has a <a href="34_fx_files_and_materials.htm#Properties">material kind</a>. Material kinds can also be assigned to each terrain texture. This allows you to script different sounds, effects, etc depending on what terrain texture is being interacted with. </p>
+<p>Terrain texture material kinds are defined in <em>bigworld/res/system/data/material_kinds.xml</em></p>
+  <pre>&lt;kind&gt;<br>		&lt;id&gt;	9	&lt;/id&gt;<br>		&lt;desc&gt;	Snow	&lt;/desc&gt;<br>		&lt;sound&gt; snow    &lt;/sound&gt;<br>		&lt;help&gt; Hard crunchy snow. &lt;/help&gt;<br>		&lt;sfx&gt;	sets/global/fx/sfx/sfx_pchang_snow.xml &lt;/sfx&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/ice_snow &lt;/terrain&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/ice_snow_pure &lt;/terrain&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/ice_snow_pure02 &lt;/terrain&gt;<br>		&lt;terrain&gt; sets/t_ice/maps/terrain/snow_grass &lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/ls2_snow01 &lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/minspec_snow &lt;/terrain&gt;<br>		&lt;terrain&gt; maps/landscape/minspec_mud &lt;/terrain&gt;<br>&lt;/kind&gt;</pre></DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Cloud">Cloud shadows</a></h2>
+</span>
+<DIV>
+
+<p>Clouds dynamically cast shadow on the terrain and outdoor objects. This is 
+done automatically, and is calculated from the actual clouds in the world.</p>
+
+<p class=imglvl1><img src="20_terrain_texture_maps_files/image025.jpg"></p>
+<p class=captlvl1>World shadowed by clouds</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="CreatingTerrainTextures" id="CreatingTerrainTextures">Creating terrain textures</a></h2>
+<DIV>
+<h3><img src="images/expanded.bmp"><a name="RemovingSmall">Removing small frequency tiling</a></h3>
+<DIV>
+  <p>A good terrain texture must tile in all directions. If it is to be used 
+    over large areas, be careful that it does not look visibly and unnaturally repetitive.</p>
+  <p class=imgLvl1><img src="20_terrain_texture_maps_files/image004.gif"></p>
+  <p>Depending on your preference, you can either paint 
+    it by hand in Photoshop, or use photo reference. In this tutorial, we will use a 
+    digital photo to create a rock terrain texture.</p>
+  <p class=imgLvl1><img src="20_terrain_texture_maps_files/image006.gif"></p>
+  <p>Next, we will make this photo in a tileable texture. In Photoshop, resize 
+    the image to something square in dimension (<i>e.g.</i>, 512x512).</p>
+  <p>Use Photoshop's <b>Offset</b> filter to create a tileable texture. Set <b>Horizontal</b> and <b>Vertical</b> fields to <b>256</b> (exactly half of the 
+    original texture size), and select <b>Undefined Areas</b> group box's <b>Wrap
+      Around</b> option button.</p>
+  <p class=imgLvl1><img src="20_terrain_texture_maps_files/image003.gif"></p>
+  <p>To create a texture that is tileable in all directions, use the <b>Clone</b> tool to hide the edge transitions.</p>
+  <p class=imgLvl1><img src="20_terrain_texture_maps_files/image010.gif"></p>
+  <p>Below is the finished texture. After using the <b>Clone</b> tool, it looks 
+    seamless, and is ready to be placed on your terrain.</p>
+  <p>Save your texture into folder <code>res/maps/landscape</code>, then create 
+    other terrain textures for this landscape, such as grass, dirt etc.</p>
+  <p class=imgLvl1><img src="20_terrain_texture_maps_files/image012.gif"></p>
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="RemovingLarge">Removing large frequency tiling</a></h3>
+</span>
+<DIV>
+  <p>Sometimes larger differences in the texture can be seen when the texture is 
+    tiled and viewed from a distance. To remove these larger frequency repetitions, 
+    try using Photoshop's <b>High Pass</b> filter, or follow these instructions to 
+    mimic the effects of a high pass filter.</p>
+  <p>The <b>Offset</b> filter is used to remove small scale repetition, as 
+    outlined above.</p>
+    <table>
+    <tr>
+      <td><p class=imgLvl0><img src="20_terrain_texture_maps_files/image001.jpg"></p>
+          <p class=captLvl0>Original texture</p></td>
+      <td><p class=imgLvl0><img src="20_terrain_texture_maps_files/image002.jpg"></p>
+          <p class=captLvl0><b>Offset</b> filter applied</p></td>
+      <td><p class=imgLvl0><img src="20_terrain_texture_maps_files/image003.jpg"></p>
+          <p class=captLvl0><b>Clone</b> tool and brushes cover up edges</p></td>
+    </tr>
+  </table>
+  <p>A preview render (3ds Max) of the reworked texture tiled and viewed from a 
+    distance shows the large scale frequency visible in the texture.</p>
+  <p class=imgLvl1><img src="20_terrain_texture_maps_files/image004.jpg"></p>
+  <p class=captLvl1>Preview of texture tiled 8x8. Note the repetitive frequency</p>
+  <p>To remove this visible repetition, you can simulate the effects of a <b>High Pass</b> filter:</p>
+  <p class=numBltLvl1>1 Create a backup save of your de-seamed texture.</p>
+  <p class=numBltLvl1>2 Create a duplicate of the texture on a new layer.</p>
+  <p class=imgLvl2><img src="20_terrain_texture_maps_files/image007.jpg"></p>
+  <p class=numBltLvl1>3 Invert the top layer by selecting the <b>Image&rarr;Adjustments&rarr;Invert</b> menu item.</p>
+  <p class=imgLvl2><img src="20_terrain_texture_maps_files/image006.jpg"></p>
+  <p class=numBltLvl1>4 Use Gaussian blur to blur the inverted layer by selecting 
+    the <b>Filter&rarr;Blur&rarr;Gaussian blur</b> menu item.</p>
+  <p class=lvl2>Try to match the amount of blur to the large scale frequency that 
+    you are trying to remove.</p>
+  <p class=lvl2>The amount of blur is the most important part of this process. As 
+    you adjust it, watch the preview window. Common blur radii range from 10 to 60 
+    pixels. </p>
+  <p class=imgLvl2><img src="20_terrain_texture_maps_files/image008.jpg"></p>
+  <p class=numBltLvl1>5 Use the <i>overlay layer</i> method to blend the inverted 
+    layer with the original one.</p>
+  <p class=lvl2>If the effect is too strong, then reduce the opacity of the 
+    inverted/blurred layer.</p>
+  <p class=imgLvl2><img src="20_terrain_texture_maps_files/image010.jpg" align=top> <img src="20_terrain_texture_maps_files/image009.jpg" align=top> <img src="20_terrain_texture_maps_files/image011.jpg" align=top></p>
+  <p>This overlay method has now removed most of the large scale frequency 
+    repetition. You can see the results in the tiled preview rendered in 3ds Max.</p>
+  <p>Unfortunately one side-effect of this method is that it pushes all colours 
+    to mid-grey (<code>R=128</code>,<code>G=128</code>,<code>B=128</code>). To 
+    compensate for this de-saturation, you should increase the saturation and play 
+    with the colour balance. The final tiled product is free of most of its 
+    large-scale tiling.</p>
+  <p class=imgLvl1><img src="20_terrain_texture_maps_files/image012.jpg" align=top> <img src="20_terrain_texture_maps_files/image013.jpg" align=top> <img src="20_terrain_texture_maps_files/image014.jpg" align=top></p>
+</DIV>
+</DIV>
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

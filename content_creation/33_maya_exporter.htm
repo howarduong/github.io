@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Use Maya Visual Exporter</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+  location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; 
+}
+</script>
+
+<!-- CHAPTER - USE MAYA VISUAL EXPORTER -->
+<h1>Use Maya Visual Exporter</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="33_maya_exporter.htm#UsingExporter">Using the exporter</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="33_maya_exporter.htm#Shelf">Defining portals using BigWorld shelf</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="33_maya_exporter.htm#HardPoints">Creating hard points within Maya</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>This document describes how to use Maya to define portals and create hard 
+points. It is not meant as a substitute to the lessons 
+<a href="08_create_lowpoly_char.htm">Create Low-Polygon Characters</a> and 
+<a href="06_create_shell.htm">Create an Internal Shell</a> &ndash; those 
+documents are essential reading.</p>
+
+<p class="notelvl0"><img src="images/note.bmp">This lesson assumes that the 
+BigWorld Maya Exporter and the BigWorld shelf have already been installed on 
+your machine. For details on how to install them, see 
+<a onClick="parser('content_tools_reference_guide.pdf')">
+<span class="linkToFile">Content Tools Reference Guide</span></a>, chapter 
+<span class="reference">3ds Max and Maya Exporter</span>, section
+<span class="reference">Maya</span> &rarr;
+<span class="reference">Installing the 3ds Max Exporters</span>.</p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="UsingExporter">Using the exporter</a></h2></span>
+<DIV>
+
+<p class=numBltLvl1>1 Start the export process.</p> 
+ 
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the 
+<b>File&rarr;Export All</b> menu item to export all objects in the scene &ndash; 
+this will export all objects, even the hidden ones.</p> 
+ 
+<p class=lvl3><span class=procedureOr>&ndash;or&ndash;</p> 
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the 
+<b>File&rarr;Export Selection</b> menu item &ndash; this will export only 
+currently selected object.</p>
+
+<p class=lvl2>The <b>Export</b> dialog box will be displayed.</p>
+
+<p class=imgLvl2><img src="33_maya_exporter_files/image018.gif"></p>
+
+<p class=numBltLvl1>3 In the <b>Export</b> dialog box:</p>
+
+<p class=ltrBltLvl2>A In the <b>Look In</b> drop-down list box, specify the 
+folder where the asset should be saved.</p>
+
+<p class=ltrBltLvl2>B In the <b>File Name</b> drop-down list box, specify the
+name of your asset.</p>
+
+<p class=ltrBltLvl2>C In the <b>Files Of Type</b> drop-down list box, select the
+<b>BigWorld Asset</b> item.</p>
+
+<p class=ltrBltLvl2>D Click the <b>Options</b> button &ndash; depending on the 
+menu item previously selected, the <b>Export All Options</b> or the <b>Export 
+Selection Options</b> dialog box will be displayed.</p>
+
+<p class=imgBltLvl3><img src="images/bullet.gif">In the dialog box's <b>General 
+Options</b> group box, set the <b>File Type</b> drop-down list box to 
+<b>BigWorld Asset</b>.</p>
+
+<p class=imgBltLvl3><img src="images/bullet.gif">Click the <b>Export All</b> or
+<b>Export Selection</b> button (the button displayed depends on the menu item
+previously selected) &ndash; this will close the current dialog box and return
+to the <b>Export</b> dialog box.</p>
+
+<p class=imgLvl4><img src="33_maya_exporter_files/image017.gif"></p>
+
+<p class=ltrBltLvl2>E Click the <b>Export</b> button &ndash; the <b>Visual 
+Exporter</b> dialog box will be displayed.</p>
+
+<p class=imgLvl3><img src="33_maya_exporter_files/image019.gif"></p>
+ 
+<p class=imgBltLvl3><img src="images/bullet.gif">In the <b>Visual Exporter</b> 
+dialog box, click the <b>OK</b> button &ndash; the asset will be exported to
+the specified folder.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Shelf">Defining portals using BigWorld shelf</a></h2></span>
+<DIV>
+
+<p>The BigWorld Maya shelf allows users to define objects as portals. It 
+contains 3 icons, which allow you to define objects as <i>Portal</i>, 
+<i>Exit</i>, or <i>Heaven</i> portal types.</p>
+
+<p class=imgLvl1><img src="33_maya_exporter_files/image020.gif"></p>
+
+<p>The shelf contains the following buttons:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">
+<img src="33_maya_exporter_files/image021.gif"> &ndash;
+<b>Add <i>Portal</i> flag</b></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">
+<img src="33_maya_exporter_files/image022.gif"> &ndash;
+<b>Add <i>Exit</i> flag</b></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">
+<img src="33_maya_exporter_files/image023.gif"> &ndash;
+<b>Add <i>Heaven</i> flag</b></p>
+
+<p>To assign a mesh object as a portal type, first select it, then click the 
+portal type from that you wish to assign it. You can check your assignment 
+by viewing the attribute editor.</p>
+
+<p class=imgLvl1><img src="33_maya_exporter_files/image011.gif"></p>
+
+<p>The <b>Extra Attributes</b> rollout contains the <b>Portal</b> check box 
+&ndash; it will contain a <b>Heaven</b> check box for <i>Heaven</i> portals, and 
+an <b>Exit</b> check box for <i>Exit</i> portals.
+
+<p>After the portals have been assigned the shell is ready for export.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="HardPoints">Creating hard points within Maya</a></h2></span>
+<DIV>
+
+<p>This document is not meant as a substitute to the lesson
+<a href="08_create_lowpoly_char.htm">Create Low-Polygon Characters</a>,
+section <a href="08_create_lowpoly_char.htm#PlacingHPsOnCharacter">Placing hard 
+points on your character for attaching items</a> &ndash; please read that 
+section before continuing.</p> 
+ 
+<p>Hard points should be created as a polygon object, and represent the 
+directions X, Y, Z of the object's node. This makes it easy to position the hard 
+points in the appropriate place.</p>
+
+<p>The shape, texture and geometry are only visual cues for the artist. The 
+BigWorld engine requires only for the hard point to use the <code>HP_</code> 
+naming convention, and for it to be a node of the object that it is attached 
+to.</p>
+
+<p class=imgLvl1><img src="33_maya_exporter_files/image013.gif"></p>
+
+<p>For the purposes of this tutorial, we will be creating a hard point that will 
+be positioned in the right hand of a character avatar.</p>
+
+<p class=numBltLvl1>1 Create and position a a suitable piece of geometry.</p>
+
+<p class=numBltLvl1>2 Select the <b>Window &rarr; Hypergraph</b> menu item 
+&ndash; the <b>Hypergraph</b> window will be displayed.</p>
+
+<p class=numBltLvl1>3 Right-click the node, then select the <b>Rename</b> 
+option.</p>
+
+<p class=numBltLvl1>4 Rename the node <code>HP_RightHand</code>.</p>
+
+<p class=imgLvl2><img src="33_maya_exporter_files/image015.gif"></p>
+
+<p class=numBltLvl1>5 Middle-click the <code>HP_RightHand</code> node, then drag 
+it onto the parent <code>RightHand</code> node.</p>
+
+<p class=imgLvl2><img src="33_maya_exporter_files/image016.gif"></p>
+
+<p class=numBltLvl1>6 The hard point is now attached and ready to use.</p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

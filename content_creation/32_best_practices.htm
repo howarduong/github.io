@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Best Practices</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+  location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; 
+}
+</script>
+
+<!-- CHAPTER - BEST PRACTICES -->
+<h1><a name="lessonTitle">Best Practices</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Realtime_Profiling">Realtime Profiling Console</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Client_Watchers">Using the Client Watchers to identify problem assets</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Portal_Culling">Testing Portal Culling</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Animation">Animation tree - Using LOD models to share animations</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Batch_Rendering">Batch rendering</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="32_best_practices.htm#DPVS_Umbra">DPVS and Umbra </A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#DPVS">DPVS</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Umbra">Umbra</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#AssetsUmbra">Creating assets for DPVS and Umbra</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#CAT">Using the Client Access Tool (CAT) </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Textures">Using the complete range of textures and lighting</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="32_best_practices.htm#SpeedTree">Using SpeedTree</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#SpeedTreeBillboards">Billboards</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#SpeedTreeOptimisations">Optimisations</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#Lock_Daemon">Lock Server; Working simultaneously on one space</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="32_best_practices.htm#ReloadAssets">Reloading client assets on the fly</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p>This lesson describes ways of minimising the the impact of artwork on game performance.</p>
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Realtime_Profiling" id="Realtime_Profiling">Using the Realtime Profiling Console to test game performance </a></h2>
+</span><DIV>
+<p><span onClick="toggle_heading()">If you press <strong>~(tilde) + F5 </strong>when in the client you will be presented with the Realtime Profiling Console </span></p>
+<p><img src="32_best_practices_files/image001.jpg" width="467" height="168"></p>
+<p>This will give you a overview of your game performance. </p>
+<p>Fps: Frames per second</p>
+<p>DrawCalls: The number of draw calls used to render the scene.   </p>
+<p>Primitives: The number of primitives rendered to the scene.   </p>
+<p>Primitives/DrawCall: The average numberof primitives rendered per drawcall.   </p>
+<p>Texture (Total): The total size of textures currently loaded (Textures around the player) </p>
+<p>Texture (Frame): The total size of textures used to render the last frame. </p>
+<p>Heap Memory/Allocations (Current): The amount of memory currently allocated by the application/the number of allocations</p>
+<p>Heap Memory/Allocations (Peak): The maximum amount of memory allocated by the application in this run/the number of allocations</p>
+<p>&nbsp;</p>
+<p><img src="32_best_practices_files/image002.jpg" width="244" height="343"></p>
+<p>The Realtime Profiling Console can be expanded by pressing <strong>Enter </strong>to give an  even further breakdown of how long the engine is spending on each part of the scene. </p>
+<p>Each part can be graphed by pressing <strong>G</strong></p>
+<p>&nbsp;</p>
+</DIV>
+<span onClick="toggle_heading()"></span><span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Client_Watchers" id="Client_Watchers">Using the Client Watchers to identify problem assets </a></h2>
+</span><DIV>
+<p><span onClick="toggle_heading()">The Client Watchers can be accessed by a <strong>~(tilde) +F7 </strong> </span></p>
+<p><span onClick="toggle_heading()">Use the PageUp and PageDown keys to navigate through the lists and enter to change a parameter or expand a folder. </span></p>
+<p><span onClick="toggle_heading()">One of the more useful client watchers is the<strong> Debug Sorted Triangles </strong>watcher. When set to true (1) this watcher will draw everything dark except for alpha blended objects. </span></p>
+<p>Alpha blended objects require sorting and when used excessively can cause the game performance to drop. You should use this watcher to find objects in the game that are unnecessarily using alpha blend. For example a rock should not be using alpha blend. </p>
+<p>Note: The flora uses alpha blending, this is OK. </p>
+<p><span onClick="toggle_heading()"><img src="32_best_practices_files/image003.jpg" width="218" height="431"> <img src="32_best_practices_files/image004.jpg" width="363" height="196"> <img src="32_best_practices_files/image005.jpg" width="350" height="388"></span></p>
+<p>&nbsp;</p>
+</DIV>
+<span onClick="toggle_heading()"></span><span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Portal_Culling" id="Portal_Culling">Testing portal culling</a></h2>
+</span><DIV> 
+  <p><span onClick="toggle_heading()">You can test the effectiveness of portal culling using a combination of watchers and draw wireframe.</span></p>
+  <p><span onClick="toggle_heading()">Use <strong>~(tilde) + F7</strong> to access the <strong>Render </strong>options and set <strong>draw portals </strong> to <strong>true (1). </strong></span></p>
+  <p>This will draw a red line around the perimeter of each portal allowing you to better identify their position.  </p>
+  <p><span onClick="toggle_heading()"><img src="32_best_practices_files/image003.jpg" width="218" height="431"> <img src="32_best_practices_files/image006.jpg" width="328" height="159"> </span></p>
+  <p><span onClick="toggle_heading()">Press <strong>~(tilde) + F8  </strong></span>three times to make everything draw in wireframe mode. This will  allow you to see through objects and visualise what is actually being drawn/culled. </p>
+  <p>In the scene below I can see that the deeper areas of the dungeon network, and the outside world are being culled. </p>
+  <p><img src="32_best_practices_files/image007.jpg" width="410" height="154"></p>
+  <p>&nbsp;</p>
+</DIV>
+<span onClick="toggle_heading()"></span><span onclick=toggle_heading()><p>&nbsp;</p>
+<h2><img src="images/expanded.bmp"><a name="Animation">Animation tree - Using  LOD models to share animations</a></h2>
+</span>
+<DIV>
+
+<p>BigWorld allows characters to share animations, as long as the bones used to 
+rig each character share the same name structure &ndash; animations are shared 
+by using a common LOD model.</p>
+ 
+<p class=noteLvl1><img src="images/note.bmp">It is recommended that animations 
+only be shared between characters using <b>exactly</b> the same skeletal rig. 
+Sharing animations between models of different size or shape will result in the 
+models vertice's being transformed to fit the new rig.</p>
+
+<p>It performs the steps described below (assuming the LOD configuration 
+depicted in the screenshot below:</p>
+
+<p class=numBltLvl1>1 Action Matcher calls an animation to be played in the 
+game.</p>
+
+<p class=numBltLvl1>2 The currently rendered LOD model is queried, to check if 
+it has the appropriate animation. If it does not, then Action Matcher looks down 
+the LOD tree (LODs called further away), checking them for the animation.</p>
+
+<p class=lvl2>In the example below, if <code>ranger.model</code> is being 
+rendered and the <code>walk</code> animation is called, then the
+<code>ranger.model</code> will play the generic male <code>walk</code> animation 
+assigned to <code>base.model</code>. That is so because 
+<code>ranger.model</code> and <code>rangerlod.model</code> do not have 
+specialised <code>walk</code> animations of their own.</p>
+
+<p class=lvl2>Action Matcher does not look up a tree, so in the example below, 
+if <code>loddy.model</code> is being rendered, and the <code>ranger.model</code> 
+specific animation <code>firegun_ranger</code> is called, then no animation will 
+be played. This is usually not a problem, as <code>loddy.model</code> is 
+rendered at such great distances that the animation would be invisible. This 
+means that animations that would otherwise be invisible at such great 
+distances are not played, increasing game performance.</p>
+
+<p class=imgLvl2><img src="32_best_practices_files/image018.gif"></p>
+
+<p>The table below described the LOD models used in this example:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >LOD Model</th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol><code>loddy.model</code></td>
+       <td class=oddRow      >
+This is a single-piece mesh 50-polygon character, viewed at such distances that 
+it is unnecessary to utilise all skeletal bones to deform its mesh.</p>
+<p>Although it was rigged using the exact same skeleton as 
+<code>ranger.model</code>, the only bones set to influence the mesh were:</p>
+<p class=imgBlt><img src="images/bullet.gif"><code>Right_upperarm</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>Left_uppperarm</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>Left_thigh</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>Right_thigh</code></p>
+<p class=imgBlt><img src="images/bullet.gif">The centre node pelvis.</p>
+<p>Although the animation contains detailed information about the other joints, 
+it is unnecessary to use it, as the model is rendered so far away that these 
+movements would never be seen. This decreases the number of transforms the vertex 
+shader needs to perform and increases performance.</p>
+<p>Only the most common animations are assigned to <code>loddy</code>, such as 
+<code>walk</code> and <code>jump</code>. For details on how to reduce node 
+influence in LOD models, see the lesson 
+<a href="14_create_character_lods.htm">Create Level-of-Detail Mesh for
+Characters</a>,<a href="14_create_character_lods.htm#Node_Theory">Node LOD 
+Theory</a>.</p>
+
+</td></tr>
+
+   <tr><td class=evnRow1stCol><code>base.model</code></td>
+       <td class=evnRow      >
+<p>This is a low-poly (300-polygon) single-mesh generic male character.</p>
+<p>Even though the animations used to deform <code>base.model</code> contain 
+more than 17 bones, the <code>base.model</code> mesh is deformed by less than 17 
+bones.</p>
+<p>When <code>base.model</code> was rigged, the hands were linked to the forearm, 
+instead of each individual finger being influenced by separate bones. Hand and 
+finger animations are not visible at large distances, so there is little need to 
+show them.</p>
+<p>This model has all male specific animations assigned to it. All male 
+bipedal characters should use <code>base.model</code> as a LOD so they can share 
+these generic animations.</p>
+<p>For example, animations assigned to the base model may include male 
+variations of:</p>
+<p class=imgBlt><img src="images/bullet.gif"><code>walk</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>run</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>turn</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>jump</code></p>
+
+</td></tr>
+
+   <tr><td class=oddRow1stCol><code>rangerlod.model</code></td>
+       <td class=oddRow      >
+This is a lower poly version (1,700-poly) of <code>ranger.model</code>.</p>
+<p>Although the mesh is broken up in segments, the smaller detail animations 
+are not used. For example, the fingers are not individually animated.</p>
+<p>All specific <code>ranger</code> animations are assigned to this model, such
+as:</p>
+<p class=imgBlt><img src="images/bullet.gif"><code>ranger_attack</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>ranger_sneek</code></p>
+<p class=imgBlt><img src="images/bullet.gif"><code>ranger_fight</code></p>
+
+</td></tr>
+
+   <tr><td class=evnRow1stCol><code>ranger.model</code></td>
+       <td class=evnRow      >
+This is the final high-poly version (2,500-poly) of the model.</p>
+<p>The model is now rendered close up, so each individual bone is used &ndash;
+fingers, ponytails, and clothing must animate independently.</p>
+<p>The complexity of your animation tree depends on the number of characters 
+sharing skeletal rig structure and animations. If each character animation 
+is to be unique down to the finest detail, then there is little need to share 
+animations between them.</p>
+<p>In the example below, <code>base_male.model</code> is used to share 
+animations between two models that both use the same skeletal rig: 
+<code>ranger</code> and <code>scout</code>.</p>
+<p>Note that in the example below the animation to be shared from 
+<code>base_male.model</code> to its two higher LODs must contain all nodes that 
+you wish to use for those higher LODs. So make sure that you add all skeleton's 
+nodes to the skin modifier, even if <code>base_male.model</code> does not use 
+every node. </p>
+
+<p class=lvl2><img src="32_best_practices_files/image012.gif"></p>
+
+</td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Batch_Rendering">Batch rendering</a></h2></span>
+<DIV>
+
+<p>If you have an object that is featured more than approximately 3 times within 
+a single view, then batch rendering that object should improve the game performance.</p>
+
+<p>Batching can be performed on both animated and non-animated objects, and is 
+set in ModelEditor's <b>Object Properties</b> panel.</p>
+<p><img src="32_best_practices_files/image001.gif" width="221" height="196"></p>
+<p class=noteLvl1><img src="images/note.bmp">Batch rendering cannot be performed 
+on models with a material tint or alpha blended objects </p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="DPVS_Umbra" id="DPVS_Umbra">DPVS and Umbra</a></h2>
+</span>
+<DIV>
+  <p>dPVS and Umbra are third party occlusion culling solutions that can be used to improve the performance of the game by avoiding processing of 3d content which is hidden from view. </p>
+  <span onclick=toggle_heading()>
+  <h3><img src="images/expanded.bmp"><a name="DPVS" id="DPVS">DPVS</a></h3>
+  </span>
+  <DIV>
+    <p>Occlusion culling is performed on the CPU, there is some overhead in calculating when an object is being used as an occluder. For this reason it's important to only flag those objects which are naturally good occluders. e.g. larger objects like walls, and houses. If smaller objects are used as occluders they can decrease game performance. </p>
+    <p>To flag an object as an occluder</p>
+    <p><img src="32_best_practices_files/image021.gif" width="224" height="198"></p>
+  <span onclick=toggle_heading()></span></DIV>
+  <span onclick=toggle_heading()>
+  <h3><img src="images/expanded.bmp"><a name="Umbra" id="Umbra">Umbra</a></h3>
+  </span>
+  <DIV>
+    <p>Occlusion culling is performed on the graphics card and as a result there is no overhead in testing an object as an occluder. Umbra requires no artist assistance.</p>
+    <p>Umbra understands BigWorlds portal system and as a result can improve portal culling by using game geometry such as shells and their contents to occlude portals. </p>
+    <p>&nbsp;</p>
+  </DIV>  
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="AssetsUmbra" id="AssetsUmbra">Creating assets for DPVS and Umbra</a></span></h3>
+  <DIV>
+    <p>Umbra basically uses line of  sight to  determine if an object should be drawn or not. Consequently, it's extremely important to ensure that models which should block the line of sight of other models (walls, shells, and buildings)  need to have good modelling integrity. Good modelling integrity means no holes, un welded vertices, or broken edges. If models contain holes they will not be able to cull geometry correctly resulting in decreased game performance. You can check for culling problems by turning on wire frame mode whilst in the client or WorldEditor. If objects are being drawn behind walls and buildings then there may be a problem. </p>
+    <p>Wire frame mode is enabled by pressing <strong>~</strong>(tilde) +  <strong>F8</strong> in the client, or in the options menu of WorldEditor</p>
+    <p><img src="32_best_practices_files/image028.gif" width="286" height="156"></p>
+    <p>&nbsp;</p>
+    <p>3dsMax's <strong>STL Check</strong> Modifier can identify problems like holes and un welded verts with a model. </p>
+    <p><img src="32_best_practices_files/image026.gif" width="183" height="171"></p>
+    <p>Maya contains a similar function called polygon cleanup  <strong>Mesh - Cleanup</strong>.</p>
+    <p><img src="32_best_practices_files/image027.gif" width="256" height="147"></p>
+    <p>Model Editors <strong>Check For Sparkles</strong> can be used to identify holes in a mesh. It colours models black and the background white, this makes it easier to see tiny holes and cracks. </p>
+    <p><img src="32_best_practices_files/image025.gif" width="234" height="167"> <img src="32_best_practices_files/image024.gif" width="153" height="120"></p>
+  </DIV>
+  <p>&nbsp;</p>
+</DIV>
+
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="CAT" id="CAT">Using the Client Access Tool (CAT) </a></span></h2>
+<DIV>
+  <p>The Client Access Tool (CAT) allows you to execute Python scripts from an easy-to-use GUI. </p>
+  <p>Although CAT ships with some basic commands it's mostly a framework of a tool available for customisation. If you need artists to execute python commands during development then CAT is the perfect tool. </p>
+  <p><img src="11_create_actions_files/image001.png" width="282" height="241"></p>
+  <p>CAT  can be   found in bigworld/tools/cat/cat.bat. Simply run this program after   running the client (game).</p>
+  <p>For CAT to function you will need to install the latest<strong> <a href="http://www.python.org/download/">Python</a></strong> and <strong><a href="http://www.wxpython.org/download.php">wxPython</a></strong>, both can be found via an internet search. </p>
+  <span onclick=toggle_heading()></span></DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Textures">Using the complete range of textures and lighting</a></h2></span>
+<DIV>
+
+<p>Many games tend to adopt the <i>dark is cool</i> approach, resulting in a
+world that is overall dark in appearance, and only use half the available colour 
+range. To tackle this issue, we have incorporated a realtime histogram into 
+WorldEditor and into the BigWorld client, allowing you to check the range of 
+colours and luminance used by your game assets.</p>
+
+<p>The histogram can be viewed in WorldEditor in the <b>Histogram</b> panel, or
+via the <b>Histogram Console</b>, which can be activated by pressing 
+<code>F11</code> in WorldEditor, or by pressing <code>F4</code> in the Client 
+Engine.</p>
+
+<p><table><tr>
+  <td valign=top><p class=imgLvl0><img src="32_best_practices_files/image020.gif"></p>
+      <p class=captLvl0>WorldEditor's <b>Histogram</b> panel</p></td>
+  <td valign=top><p class=imgLvl0><img src="32_best_practices_files/image019.gif"></p>
+      <p class=captLvl0>WorldEditor's <b>Histogram</b> console</p></td></tr></table>
+
+<p>The keyboard shortcuts available in the <b>Histogram Console</b> are 
+described in the table below (please note that the alphanumeric must be used):</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Key</th>
+       <th                   >Action</th></tr>
+   <tr><td class=oddRow1stCol><code>0</code></td>
+       <td class=oddRow      >
+Toggles the graphing of luminance.</td></tr>
+   <tr><td class=evnRow1stCol><code>1</code></td>
+       <td class=evnRow      >
+Toggles the graphing of the red component in the RGB histogram.</td></tr>
+   <tr><td class=oddRow1stCol><code>2</code></td>
+       <td class=oddRow      >
+Toggles the graphing of the green component in the RGB histogram.</td></tr>
+   <tr><td class=evnRow1stCol><code>3</code></td>
+       <td class=evnRow      >
+Toggles the graphing of the blue component in the RGB histogram.</td></tr>
+   <tr><td class=oddRow1stCol><code>4</code></td>
+       <td class=oddRow      >
+Toggles the rendering of the scene background on the histogram.</td>
+   </tr>
+   <tr><td class=evnRow1stCol><code>5</code></td>
+       <td class=evnRow      >
+Decreases the vertical range ratio of the Luminance and RGB histograms.</td></tr>
+   <tr><td class=oddRow1stCol><code>6</code></td>
+       <td class=oddRow      >
+Increases the vertical range ratio of the Luminance and RGB histograms.</td></tr></table>
+
+ 
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="SpeedTree">Using SpeedTree</a></h2></span>
+<DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="SpeedTreeBillboards">Billboards</a></h3></span>
+<DIV>
+
+<p>For better visual results and runtime performance, BigWorld's 3D engine 
+renders trees' billboards as crossed quads, without spin to face.</p>
+
+<p>For each tree, BigWorld's 3D engine will render as many 360&deg; billboards 
+as have been exported into the composite texture map, although three billboards
+should yield the best visual results. If available on the exported map, one 
+horizontal billboard will also be rendered.</p>
+
+<p class="tiplvl1"><img src="images/tip.bmp">When exporting a tree, SpeedTreeCAD 
+pre-renders billboards into the composite texture map. Due to that, a billboard 
+will exactly match a tree only when it uses the same seed number as the one used 
+when exporting the <code>.spt</code> file.<br>
+To make sure that BigWorld uses the same seed number used when exporting the 
+tree, set it to <code>1</code> in WorldEditor.</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="SpeedTreeOptimisations" id="SpeedTreeOptimisations">Optimisations</a></h3></span>
+<DIV>
+
+<p>To improve memory and runtime performance, BigWorld's 3D engine uses the
+following techniques:</p>
+ 
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Instancing</b> &ndash; A 
+single copy of a tree is kept in memory for all its instances.</p> 
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Batching</b> &ndash; When 
+rendering trees, BigWorld's 3D engine sorts the primitives in order to reduce 
+the number of state changes required to render all trees.</p> 
+<p class="imgBltLvl1"><img src="images/bullet.gif"><b>Compounding</b> &ndash; 
+Trees are compiled together into few vertex buffers, to be rendered with fewer 
+draw calls.</p>
+
+<p>The higher the ratio of trees-to-tree-types, the better these techniques will 
+work. Thus, in order to maximise time and memory savings, world builders must 
+try to minimise the number of distinct trees placed in the world.</p>
+
+<p class="notelvl1"><img src="images/note.bmp">Distinct trees are the ones with 
+different source <code>.spt</code> files or seed numbers.</p>
+
+<p>The Compounding technique is applied only to billboards, due to the higher 
+memory and processing requirements of compounding higher detail trees.</p>
+
+<p>In order to be able to render billboards with a single draw call, a texture 
+atlas containing the billboards for all tree types, at all viewing angles, 
+must be built. This is automatically taken care by the engine, but world 
+builders might need to tweak the size of the texture atlas to hold all 
+billboards required.</p>
+
+<p>If the texture atlas is not large enough to hold all billboards, a warning 
+will be issued into the debug output, and the billboards will start to 
+overlap themselves in the atlas, resulting in wrong texture mapping.</p>
+
+<p>For details on how to tweak the texture atlas, see SpeedTree's XML 
+configuration file, section <code>billboardOptimizer</code>. The name of 
+SpeedTree's configuration file is specified in <code>resources.xml</code>, 
+located in the game's resource folder, as illustrated below:</p>
+
+<p class="imgLvl2"><img src="32_best_practices_files/image017.png"></p>
+
+<p class="tiplvl1"><img src="images/tip.bmp">A good amount of variety without 
+performance impact can be achieved by scaling and rotating instances of a 
+single tree.<br>
+Interleaving instances with distinct trees also helps disguising repetition.<br>
+Beware, though, that some care must be taken when rotating trees if the they 
+are expected to animate correctly under strong winds. For details, see 
+<a onClick="parser('content_tools_reference_guide.pdf')">
+<span class="linkToFile">Content Tools Reference Guide</span></a>, chapter
+<span class="reference">WorldEditor</span>, section 
+<span class="reference">SpeedTree</span> &rarr; 
+   <span class="reference">Wind Animation</span></p>
+</DIV>
+</DIV>
+
+<p>
+  <!-------- HORIZONTAL RULE -------->
+</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Lock_Daemon" id="Lock_Daemon"> Lock Server; Working simultaneously on one space</a></span></h2>
+<DIV>
+  <p>The Lock Server (bwlockd) server allows world builders to work simultaneously within the same space without overwriting each others changes. It works by allowing users to lock regions of a space so that only they have editing access to it. </p>
+  <p>The Lock Server must be run on a machine that all world builders can connect to. The <code>bwlockd.py</code>  python script is found here <code>bigworld/tools</code><code>/bwlockd</code>.  </p>
+  <p>To connect to a bwlockd server each user must configure their WorldEditor <code>options.xml</code> file to connect to the Lock Server. </p>
+  <pre>	&lt;bwlockd&gt;<br>		&lt;use&gt;	true	&lt;/use&gt;<br>		&lt;host&gt;	&lt;/host&gt;<br>		&lt;username&gt;	&lt;/username&gt;<br>	&lt;/bwlockd&gt;</pre>
+  <p>When a user first connects the entire space will be shaded red to indicate that the user cannot alter any of the assets.</p>
+  <p><img src="32_best_practices_files/image008.jpg" width="400" height="237"></p>
+  <p>To lock off a region for editing select the project view button. <img src="32_best_practices_files/image022.gif" width="24" height="24"> This will give you an overhead representation of the space. </p>
+  <p>Marquee select the region you want to lock for editing. </p>
+<p><strong><img src="32_best_practices_files/image009.jpg" width="308" height="176"></strong></p>
+  <p>Enter a commit message in the message box</p>
+  <p>Press <strong>Lock Selected Chunks</strong>, the Lock Server will consult the source control software you are using and ensure you have the latest version of the chunks before allowing you to edit them. </p>
+  <p><img src="32_best_practices_files/image023.gif" width="283" height="223"></p>
+  <p>Once the chunks are locked they will appear the normal colour in the 3d viewport. You may now edit the space </p>
+  <p>Once you have finished editing you can either  <strong>Discard Changes</strong> or <strong>Save and Commit</strong>  your changes. Each button has the option to <strong>Keep Locks</strong> after the function, this will retain the lock on the area previously selected. </p>
+  <p>Remember that even if you exit WorldEditor the space remains locked so that only you can access it. Always unlock a region if others need to work there.</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="ReloadAssets" id="Lock_Daemon2"> Reloading client assets on the fly</a></span></h2>
+  <DIV>
+    <p>Changes made to textures and models of non entity objects can be reloaded without restarting the client executable by executing the following python console command.</p>
+    <p><strong>Ctrl </strong>+ <strong>P</strong> (to access the python console)</p>
+    <p><strong>$B.reloadChunks()</strong></p>
+    <p>Or, if the shortcuts are not loaded</p>
+    <p><strong>BigWorld.reloadChunks()</strong></p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

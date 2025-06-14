@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>Modify Animations with Actions</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">Modify Animations with Actions</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#Creating">Creating actions</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="11_create_actions.htm#TagsAndTracks">Actions' tags and tracks</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#AnimationTracks">Animation tracks</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#Blending">Blending actions</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#Movement">Player movement</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#SpeedTriggerValues">Speed Trigger Values</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#Order_LODs">Action order and LODs</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#Flying">Using Actions with flying entities</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="11_create_actions.htm#ViewingDebugging">Viewing and Debugging actions</A></LI>
+ <UL STYLE="display:none">
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#DebugFromPython">From Python console</A></LI>
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#AMDebugger">Using Action Matcher debugger</A></LI>
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#DebugFromCAT">Debug actions from CAT</A></LI>
+   <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="11_create_actions.htm#DebugFromModelEditor">Debug actions from within ModelEditor</A></LI>
+    <UL STYLE="display:none">
+     <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#HowToPreviewBlending">How to preview blending in ModelEditor</A></LI>
+    </UL>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p>An action contains an animation file and a set of data describing when and 
+how that animation should be played within the BigWorld engine. The engine's <strong>Action Matcher</strong> uses 
+the actions' descriptions to decide which animation should be played on the 
+model.</p>
+<p>Animation data does not drive player movement. The player entity (representation of the player's
+position in code) will move and the action matcher will choose an animation that
+most likely describes that movement. </p>
+<p>For example, a  <i>run</i> action will contain a <code>run.animation</code> 
+file and information related to what speed the model needs to be travelling at in 
+order to use the <i>run</i> animation. When originally exported from the 3d application the
+<code>run.animation</code> may have covered 10 m per second. If the action matcher was 
+set up to match this animation when the character is running 5 m per second, the 
+animation would play back at half the speed to avoid foot sliding. </p>
+<p><span onclick=toggle_heading()></span></p>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Creating actions</a></h2></span>
+<DIV>
+
+<p>To create an action, click the <b>Actions</b> panel's <b>Create Action</b> 
+button (<img src="11_create_actions_files/image001.gif">).</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image003.gif"></p>
+
+<p>The <b>Create Action</b> dialog box is displayed, prompting for an action 
+name.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image004.gif"></p>
+
+<p>Pressing <b>OK</b> will add your new action to the action list.</p>
+
+<p>Modifications can be made to existing actions simply by altering any of
+the action fields.</p>
+<p>If you need to remove an action, then select it from the
+list and click the <b>Delete Action</b> 
+(<img src="11_create_actions_files/image006.gif">) button.</p>
+
+<p>The order in which actions appear in the action list is important 
+(<a href="11_create_actions.htm#Order_LODs">see below</a>), and can be altered 
+via the <img src="11_create_actions_files/image017.gif"> and 
+<img src="11_create_actions_files/image020.gif"> buttons.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="TagsAndTracks">Actions' tags and tracks</a></h2></span>
+<DIV>
+
+<p>Actions include information that help the Action Matcher
+select the appropriate animation to play. You need to select the appropriate
+settings using the check boxes in the panel. These are toggled according to the 
+type of animation currently selected in the list.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image001.jpg"></p>
+
+<p>The table below describes the fields illustrated above:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field         </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Looped        </td>
+       <td class=oddRow      >
+Required for any <b>non-movement</b> looping  animations, such as an idle 
+sequence. It will cause  the animation to jump back to the start and repeat 
+the sequence again continuously, until interrupted by another sequence.</td></tr>
+      <tr><td class=evnRow1stCol>Is Movement   </td>
+          <td class=evnRow>
+<p>Used for animations that move off the world origin in your 3d application, and 
+  are linked to the <b>Action Matcher</b> for camera translation. These include 
+  the basic movement animations (such as <i>walk</i>, <i>run</i>, 
+  <i>side-stepping</i>) that the player will control in the game.</p>
+<p>In order to move an avatar using this setting, the change in transform of the 
+root node from the beginning to end of the animation is recorded. The distance moved by the root node will be used to scale the speed of the animation as it is played back in order to prevent foot sliding. </p>
+<p><img src="11_create_actions_files/image026.gif" width="128" height="128"></p>
+<p>&nbsp;</p>
+<p>This check box should be selected for linear animations with regular linear movement.
+For irregular movements, select the <b>Is Impacting</b> check box instead.</p>
+</td></tr>
+      <tr><td class=oddRow1stCol>Is Impacting  </td>
+          <td class=oddRow>
+            <p>            Used when animation data should impact (change) the entity position and yaw. When a non IsMovement animation ends in the 3d application in a position or orientation that is different from the start (usually the world origin) and does not loop, the IsImpacting tag should be used.</p>
+            <p>Animation data is not stored or used by the BigWorld server, thus non linear entity movement needs to be sent to the server each frame.</p>
+            <p>The image below describes such an event where a character starting at position (1) takes a complicated path to eventually arrive at point (3). Because the path taken by the model is so complicated its necessary to send the position of the entity to the server each frame.</p>
+            <p>Note: The direction cursor (looking direction) by default, is not effected by this motion and thus a change in yaw at position 3 will probably trigger a turn animation, you may need to take control of the direction cursor to prevent this from happening. </p>
+            <p><img src="11_create_actions_files/image025.gif" width="128" height="128"></p>
+        <p>Examples of animations that may require the <strong>Is Impacting</strong> tag: jumping over objects, turn animations, complex game object interactions, combat or knockdowns.</p></td></tr>
+      <tr><td class=evnRow1stCol>Is Coordinated</td>
+           <td class=evnRow>
+Used for animations that do not start at the world origin in 3ds Max 
+(<i>e.g.</i>, interactions) and are exported from this offset position.
+<p>This is used for animations that involve a non-player character (NPC), which 
+needs to be positioned relative to the player's character for the purpose of 
+matching contact points. For example, take a look at the &quot;handshake&quot; set of animation on the Ranger model. The animations allow a player and an NPC to shake hands. The player (PA) was exported from the origin of the 3d Application whilst the NPC was exported offset from this position. </p>
+<p>All of player B's actions will use the Is Coordinated tag, allowing the engine to use the offset position to correctly position the player character for a perfectly matched handshake. </p>
+<p><img src="11_create_actions_files/image003.jpg" width="128" height="128"></p>
+<p>The offset position is available to script so that models can be
+perfectly positioned and have their animations played back exactly as they were
+exported.</p>
+</td></tr>
+      <tr><td class=oddRow1stCol>Track No.      </td> 
+          <td class=oddRow>
+Animations play on <i>tracks</i>. Only one animation can play on a track at a 
+time, therefore animations will override previous animations that play on the 
+same track. Animations playing on different tracks will blend with each other 
+using their <a href ="10_add_anims_to_chars.htm#Node_Blending"> per-node</a> blending values 
+defined in the animations 
+tab.
+<p>If you want an animation to always have a unique track, then select the Own Track checkbox.</p></td>
+      </tr>
+      <tr>
+        <td class=evnRow1stCol>Own Track </td> 
+          <td class=evnRow><p>Causes the given action to always have its own track.</p>
+<p>An animation always on its own track always blends with other 
+  animations playing at the same time. <p>For more details, see 
+<a href="#AnimationTracks">Animation Tracks</a>.</p></td></tr>
+</tbody></table>
+<p class=captLvl1><b>Action Panel</b>'s fields</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="AnimationTracks">Animation tracks</a></h3></span>
+<DIV>
+
+<p>Tracks can be thought of as regions of the body. For example, the lower body
+might be defined as <code>Track 1</code>, and the upper body as <code>Track 
+2</code>. Animations involving mostly the lower body, such as 
+<code>walk.animation</code> and <code>run.animation</code> will therefore not 
+play at the same time. An animation involving the upper body, such as a 
+<code>wave.animation</code> will play at the same time as a 
+<code>walk.animation</code>.</p>
+
+<p>For example, consider the diagram below:</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image015.gif"></p>
+
+<p>The diagram above implies the following:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">A <i>walk</i> animation playing on 
+<b>Track 1 </b>is cancelled when a <i>run</i> animation that also plays on 
+<b>Track 1 </b>is called (the two animations cannot play at the same time).  
+However, there will be blending out of the <i>walk</i> animation and blending in 
+of the <i>run</i> animation.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">A <code>walk</code> animation playing 
+on <b>Track 1</b> will continue to play and blend with a <i>wave</i> animation 
+playing on <b>Track 2</b> so that the final animation will be a combination of a 
+<i>walk</i> and <i>shoot</i> animation.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">The <i>recoil</i> animation is set to <strong>Always on own track </strong>which ensures it exists on its own unique track. This animation will 
+blend with any other animations, and it will not be cancelled by another 
+animation, allowing it to play in its entirety.</p>
+ 
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Blending">Blending actions</a></h2></span>
+<DIV>
+
+<p>When two animations have the same track number, the most recently played 
+animation will cancel the previous one. The <b>Blend In</b> and <b>Blend Out</b> 
+fields determine how many cross-over frames are used between blending from one 
+animation to the next.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image007.gif"></p>
+
+<p>Values around <b>0.3</b> are usually ideal for most animation blends.</p>
+<p>When blending two actions with different blend times, the blend values are normalised.</p>
+<p>Note: <a href="10_add_anims_to_chars.htm#Node_Blending">Per node blending</a> values can  effect the weight of each node as it blends in and out. </p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Movement">Player movement</a></h2></span>
+<DIV>
+
+<p>The player character's movement is controlled by a system
+  called the <b>Action Matcher</b>, which receives information about the model's 
+world position, rotation and translation and automatically selects the most 
+appropriate animation to play.</p>
+<p>The translation is based on the root or centre node of the skeletal 
+structure.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image002.jpg"></p>
+<p class=captLvl1><b>Action Panel</b>'s fields for a Walk Backward Action </p>
+<p>The table below describes the fields illustrated above:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Trigger     </td>
+       <td class=oddRow      >
+Defines the entity movements that trigger a particular action to play.</td></tr>
+   <tr><td class=evnRow1stCol>Cancel      </td>
+       <td class=evnRow      >
+Defines the entity movements that stop a particular action.</td></tr>
+   <tr><td class=oddRow1stCol>Speed    </td>
+       <td class=oddRow      >
+Each animation for movement will have a <b>Minimum</b> and <b>Maximum</b> speed 
+range assigned to it in the model file &ndash; this means that the translated 
+distance of the centre node must fall within this range for the animation to be 
+used.
+<p>For example, a <i>walk</i> cycle with a <b>Minimum</b> value of <b>1.0</b> 
+and a <b>Maximum</b> value of <b>2.0</b> units means that the centre node will need
+to cover a distance anywhere between these two values for the walk to be used
+by the <b>Action Matcher</b> (<i>e.g.</i>, 1.6 units).</p></td></tr>
+   <tr><td class=evnRow1stCol>Turn      </td>
+       <td class=evnRow      >
+<img src="11_create_actions_files/action.gif" style="float:right">
+Defines the entity's head position in relation to the direction of the body.
+<p>Because the head follows the mouse cursor and has a certain range of freedom 
+before the body starts to turn after it, this setting is mainly used to trigger 
+turning animations.</p>
+<p>For example, a <i>turn right</i> animation might be triggered when the head 
+reaches a angle between <b>-180</b> and <b>-80</b> (see the green line in the 
+diagram below). The <i>turn right</i> animation is then cancelled when the head 
+position reaches <b>+45</b> degrees (red line) relative to the direction of the 
+body.</p></td></tr>
+   <tr><td class=oddRow1stCol>Model Is Falling</td>
+       <td class=oddRow      >
+When selected, the <b>Trigger</b> and <b>Cancel</b> group boxes' <b>Speed</b>, 
+<b>Turn</b> and <b>Direction</b> values will only match if the model is also 
+falling.</p></td></tr>
+   <tr><td class=evnRow1stCol>Direction</td>
+       <td class=evnRow      >
+         <p>Triggers actions dependent on the translation relative to the entity's facing 
+           direction.</p>
+         <p>A <i>walk forwards </i> action would require values between - <b>90</b> and  <b>+90</b> in order to trigger the <i>walk forward</i> action. </p>
+         <p>A <i>walk backwards</i> action would require values between <b>94</b> and 
+<b>266</b> in order to trigger the <i>walk backwards</i> action.</p></td></tr>
+   <tr><td class=oddRow1stCol>Caps On</td>
+       <td class=oddRow rowspan=2>
+         <p><i>Capabilities</i> can be used to trigger a different set of animations during 
+           different conditions. For instance, a completely different set of animations 
+           could be used when under water or flying.</p>
+         <p>Take a look at the Ranger's staff actions. When holding the staff we wanted
+         the Ranger to walk/run differently so we created a unique set of actions using 
+         the CAPs system. Now when the Ranger is in the HoldingStaff state it will use
+         the CAPs ON HoldingStaff set of animations. </p>
+        <p>CAPs ON are not exclusive, which is why a CAPs off tag is required. Without
+        CAPs OFF the action matcher would match a hold_staff_walk action to a character
+        not holding a staff but walking. </p>
+        <p>Capabilities are defined in <code>mf/fantasydemo/res/scripts/common/capabilities.xml</code>.
+        It is possible to customise this list. </p>        </td></tr>
+   <tr><td class=oddRow1stCol>Caps Off</td></tr>
+   <tr><td class=evnRow1stCol>One Shot</td>
+       <td class=evnRow      >
+Determines whether the animation should be played only once.</p> For example a turn left animation need only play once, otherwise the player will continue to turn on the spot. </td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><a name="ScalePlayBack" id="ScalePlayBack"></a>Scale Playback Speed</td>
+       <td class=oddRow      >
+         <p>Used in conjunction with the IsMovement tag, Scale Playback Speed determines whether the animation playback speed should be scaled as a function of the
+           entity's speed.         </p>
+         <p>For example, a <i>walk</i> animation in your 3d application may translate at 
+2 metres per second. If this field is checked, and the entity is moving at 1 
+metre per second, then the animation will be played at half the speed.</p>
+         <p>When an action set to IsMovment  blends into another IsMovement action the BigWorld engine will <a href="09_create_char_anims.htm#Synchronising">synchronise the blend times</a>. </p>
+      <tr><td class=evnRow1stCol>Feet Follow Direction</td>
+       <td class=evnRow      >
+Determines whether the model should turn to face the direction of the entity.</p></td></tr>
+
+</tbody></table>
+<p class=captLvl1><b>Action Panel</b>'s fields</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="SpeedTriggerValues" id="SpeedTriggerValues">Speed Trigger Values</a></span></h2>
+</span>
+<DIV>
+  <p>When deciding upon speed trigger values for your actions. it's best to have a detailed understanding of the common speeds used by your avatar or NPC.  </p>
+  <p>Be on the lookout for  transition jitter caused by the action matcher swapping between different actions whilst the avatar moves around the world. This will most likely occur when traveling over undulating terrain. </p>
+  <p>The following image illustrates such situation, as the avatar moves down hill the avatar speed increases. As a consequence the action matcher will match the  &quot;Run&quot; action. When the avatar starts climbing a hill the action matcher will match for Jog. </p>
+  <p>This swapping and changing between actions can cause some transition jitter. Testing for this is quite easy, simply use the <a href="#DebugFromPython">DebugAQ</a></p>
+  <p><img src="11_create_actions_files/image008.jpg" width="533" height="66"></p>
+  <p class=captLvl1><b>A typical speed trigger value for a run action</b></p>
+  <p>&nbsp;</p>
+  <p><img src="11_create_actions_files/image006.jpg" width="583" height="289"></p>
+  <p class=captLvl1><b>This avatars will transition from jog to run every time it goes down hill.</b></p>
+  <p class=captLvl1>&nbsp;</p>
+  
+  <p><img src="11_create_actions_files/image007.jpg" width="515" height="208"></p>
+  <p class=captLvl1><b>Avatar with action matcher set incorrectly so as to cause transition jitter</b>. DebugAQ used to view actions being played.</p>
+  <p>Of coarse, all this assumes you are using some kind of physics like the one implemented in FantasyDemo that alters the avatar speed with terrain gradient. If your avatar always moves at a fixed speed regardless of terrain such considerations are probably irrelevant.</p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Order_LODs">Action order and LODs</a></h2>
+</span>
+<DIV>
+
+<p>Actions are tested for validity from top to bottom within the action list on 
+the currently rendered LOD model.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image018.gif"></p>
+
+<p>In the example above, if a match was found for both <code>ranger_walk</code> 
+and <code>WalkForward</code>, then the action called would depend on the 
+currently rendered model. If the <code>ranger_body</code> was rendered, then the 
+<code>ranger_walk</code> action would be triggered. If <code>base</code> was 
+rendered, then <code>WalkForward</code> would be triggered.</p>
+<p>If the <code>ranger_body</code> is currently rendered and an action is called 
+that has no match within the <code>ranger_body</code> action list 
+(<code>TurnRight</code>, for example), then the Action Matcher will look for a 
+matching action in the Ranger's LOD list from top to bottom.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image019.gif"></p>
+<p>If multiple actions are found to match, then the Action Matcher will choose 
+the topmost one. For example, considering the action list above, if both 
+<code>WalkForward</code> and <code>WalkForward2</code> were found to match, then
+<code>WalkForward</code> would be used. </p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Flying" id="Flying">Using Actions with flying entities </a></span></h2>
+</span>
+<DIV>
+  <p>There are a few key differences between creating an action set for flying entities and their ground based cousins. </p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FlyingIdleToMovement" id="FlyingIdleToMovement">Flying Idle to Movement transitions</a></span></h3>
+  <DIV>
+    <p>In the case of ground based entities, idle animations are typically not tagged as <a href="#TagsAndTracks">IsMovement</a>. In such  cases transitions from <strong>Idle</strong> to <strong>Walk</strong> are not <a href="09_create_char_anims.htm#Synchronising">synchronised.</a> This is acceptable because it doesn't matter what stage of the idle animation the model is in as it transitions into the first frame of the walk animation. The case is different when we consider flying entities. A flying entity's idle animation has an inherent cycle (flapping wings). If you were to pick a random point in this idle animation and transition into a flyforward animation it is quite likely the wing cycle will not match. Solving this problem is as simple as giving the Idle action the  IsMovement tag. </p>
+    <p><img src="11_create_actions_files/image027.gif" width="312" height="615"></p>
+    <p class=captLvl1><b>Idle action setting for flying entity</b>'s fields</p>
+    <p>&nbsp;</p>
+  </DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FlyingScalePlaybackSpeed" id="FlyingScalePlaybackSpeed">Scale playback speed </a></span></h3>
+  <DIV>
+    <p>Scaling the playback speed on a walk animation makes sense for a ground  based entities as it prevents foot sliding.  However, for a flying entities scaling playback speed only makes sense in one direction, as  you fly faster you want to flap your wings more, but if you slow  down past a certain point your wing flap animation will stop which of course looks incorrect. A simple solution to this problem is to ensure that the idle action is matched at low speeds. Note in the above diagram that the idle animation actually matches speeds ranging from 0.0 to 3.5. Also, the action is <strong>not </strong>tagged as Scale Playback Speed. </p>
+    <p>I do not have turning actions for this particular flying entity so Feet Follow Direction has been tagged, If turning actions were required it would be essential to turn this tag off. </p>
+    </DIV>
+  </DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="ViewingDebugging" id="ViewingDebugging">Viewing and Debugging actions</a></h2>
+</span>
+
+<span onclick=toggle_heading()>
+</span>
+<DIV>
+
+<p>The results of the currently selected action can be previewed, by clicking
+the <b>Play</b> button at the top of the panel.</p>
+<p>If player animations are not working as expected, then they can be debugged 
+  within the game, either through the Python console or through the Client Access 
+  Tool (CAT).</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="DebugFromPython">From Python console</a></h3></span>
+<DIV>
+
+<p>To access the Python console when in-game, bring up the console via the 
+<code>~(tilde) + P</code> keyboard shortcut.</p>
+<p>&nbsp;</p>
+
+<p>To debug the player model, type <code>BigWorld.debugAQ(BigWorld.player().model)</code>
+<p>To debug a model targetted (looked at) by the player model type <code>BigWorld.debugAQ(BigWorld.target().model)</code>
+<p class=imgLvl1><img src="11_create_actions_files/image016.gif">
+
+<p>This useful debugging GUI lets you see which animations are
+playing at a particular time, allowing you to identify the incorrect animation
+within the game.</p>
+
+<p>In the above picture the <code>Idle</code> animation blends into the
+<code>Turn Left</code> animation, then back to the <code>Idle</code> one. In a 
+more detailed way, the following takes place:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">At position <b>A</b>, 100% of 
+the <code>Idle</code> animation is playing.</p>
+<p class=imgBltLvl1><img src="images/bullet.gif">At position <b>B</b>, 50% of 
+the <code>Idle</code> animation is playing, and 50% of the <code>TurnLeft</code> 
+animation is playing.</p>
+<p class=imgBltLvl1><img src="images/bullet.gif">At position <b>C</b>, 100% of 
+the <code>TurnLeft</code> animation is playing.</p>
+  
+</DIV>
+<p></p>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="AMDebugger" id="AMDebugger">Using Action Matcher debugger</a></span></h3>
+<DIV>
+  <p>There is an Action Matcher debugger module that can be imported to help debug actions</p>
+  <p>To access the Python console when in-game, bring up the console via the <code>~(tilde) + P</code> keyboard shortcut.</p>
+  <p> type  
+  <p> <code>from Tests import ActionMatcher</code>
+  <p>type
+  <p><code>ActionMatcher.test()</code>
+  <p><img src="11_create_actions_files/image004.jpg" width="266" height="301">    <img src="11_create_actions_files/image005.jpg" width="216" height="301">
+  <p>This debugger shows you some useful informaiton. </p>
+  <p>1. The current action</p>
+  <p>2. The model direction (red arrow)</p>
+  <p>3. The direction cursor direction (orange arrow)</p>
+  <p>4. Cancel and Trigger volumes (green and red circles in right picture)</p>
+  <p>5. Entity speed (Yellow arrow) and currently matched IsMovement speed extents (green block)</p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="DebugFromCAT">Debug actions from CAT</a></h3>
+</span>
+<DIV>
+
+<p>Alternatively, you can use the Client Access Tool (CAT).</p>
+<p>CAT allows you to execute Python scripts from an easy-to-use GUI. It can be 
+found in <code>bigworld/tools/cat/cat.bat</code>. Simply run this program after 
+running the client (game).</p>
+<p>In the script tree, select the <b>Control Menu&rarr;Debug&rarr;Animation 
+Blend Graph</b> &ndash; this will give you access to action debugging tools for 
+the current player, and whatever the player is targeting.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image001.png"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="DebugFromModelEditor">Debug actions from within ModelEditor</a></h3></span>
+<DIV>
+
+<p>The <b>Actions</b> tab in ModelEditor can be used to directly debug actions within the tool.</p>
+
+<p>It is a good idea to turn on the <img src="11_create_actions_files/image003.png"> button to show which combinations of actions are currently playing on your model. </p>
+
+<p>In the picture below, the <code>WalkForward</code> action has just blended 
+out to the <code>WalkBackward</code> action. Meanwhile, the 
+<code>HoldUpright</code> action has blended with both.</p>
+
+<p class=imgLvl1><img src="11_create_actions_files/image004.png"></p>
+
+<p>There are several rules governing how the actions are played on the model. These rules simulate what occurs within the game environment, allowing you to debug the action settings. The rules are described here, with examples from FantasyDemo's <b>Ranger</b> character. </p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">If an action does not contain any <b>trigger</b> condition, then it will play only once, unless set to looping.</p>
+<p class=lvl2><b>Example</b>: The <code>Recoil</code> action, which is called by script within the game environment.</p>
+<p class=imgLvl5><img src="11_create_actions_files/image025.png"></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">If an action contains <b>cancel</b> conditions, then it will play only once.</p>
+<p class=lvl2><b>Example</b>: The <code>TurnRight</code> action, which is called by the Action Matcher and then cancelled once the <b>cancel</b> conditions are met.</p>
+<p class=imgLvl5><img src="11_create_actions_files/image026.png"></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">If the <b>One Shot</b> check box is selected, then the action will play only once.</p>
+<p class=lvl2><b>Example</b>: The <code>TurnRight</code> action.
+<p class=imgLvl5><img src="11_create_actions_files/image027.png"></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">If the current action has the same <b>Track No.</b> value as the newly triggered action, then it will blend out to the new action using the values in the <b>Blend In</b> and <b>Blend Out</b> fields.</p>
+<p class=lvl2><b>Example</b>: The <code>RunFoward</code> and <code>WalkBackward</code> actions.</p>
+<p class=imgLvl5><img src="11_create_actions_files/image028.png">
+                 <img src="11_create_actions_files/image029.png"></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">If the current action has a 
+<b>Track No.</b> value different from the newly triggered action, or has the
+<b>Own Track</b> check box selected, then both actions will be played together, 
+using the animations' per-node blending to weigh each animation.</p>
+<p class=lvl2><b>Example</b>: The <code>WalkFoward</code> and <code>HoldUpright</code> actions.</p>
+<p class=imgLvl5><img src="11_create_actions_files/image030.png">
+                 <img src="11_create_actions_files/image031.png"></p>
+
+<span onclick=toggle_heading()><h4><img src="images/expanded.bmp"><a name="HowToPreviewBlending">How to preview blending in ModelEditor</a></h4></span>
+<DIV>
+
+<p>Follow the steps below:</p>
+
+<p class=numBltLvl1>1 Select the <b>Actions</b> tab.</p>
+
+<p class=numBltLvl1>2 Select an action in the <b>Actions</b> list box &ndash; the action is immediately applied to the model.</p>
+<p class=lvl2>For example, select the <code>WalkForward</code> entry.</p>
+<p class=imgLvl2><img src="11_create_actions_files/image032.png"></p>
+
+<p class=numBltLvl1>3 Select another action in the <b>Actions</b> list box &ndash; the rules defined above will determine how that action is applied to the character.</p>
+<p class=lvl2>For example, select the <code>RunForward</code> entry &ndash; this causes the character to blend out of the <code>WalkForward</code> and blend into the <code>RunFoward</code> action.</p>
+<p class=imgLvl2><img src="11_create_actions_files/image033.png"></p>
+
+<p>To play an action twice, either select it again in the <b>Actions</b> list box or click the <img src="11_create_actions_files/image034.png"> button.</p>
+
+<p>To remove all actions currently playing on the model, click the <img src="11_create_actions_files/image035.png"> button. </p>
+
+</DIV>
+</DIV>
+</DIV>
+
+<!-- HORIZONTAL RULE -->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>
+

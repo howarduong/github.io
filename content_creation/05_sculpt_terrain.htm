@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Sculpt Terrain</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!-------- CHAPTER TITLE -------->
+<h1><a name="lessonTitle">Sculpt Terrain</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Changing">Changing the surface height</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Average">Average brush </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Adding">Adding refinement filters</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Removing">Removing terrain</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<!-------- SECTION - CHANGING THE SURFACE HEIGHT -------->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Changing">Changing the surface height</a></h2></span>
+<DIV>
+
+<p>To change the height of a surface, follow the steps below:</p>
+
+<p class="numbltlvl1">1 WorldEditor uses a 3D brush  to sculpt the terrain.</p> 
+
+<p class="lvl2">To access it, click the 
+<img src="05_sculpt_terrain_files/image002.png"> toolbar button &ndash; this
+activates the <b>Terrain Height</b> panel. The <b>Size</b> and <b>Strength</b> 
+fields in the panel determine the magnitude and speed of the change.
+
+<p class="imgLvl2"><img src="05_sculpt_terrain_files/image001.gif" width="304" height="270"></p>
+<p class="captLvl2"><b>Terrain Height</b> panel</p>
+
+<p class="tiplvl2"><img src="images/tip.bmp">The limits of each slider can be 
+set by pressing the <img src="05_sculpt_terrain_files/image005.png"> button 
+next to it (this will invoke the <b>Set The Slider Limits</b> dialog box.</p>
+<p class="imgLvl4"><img src="05_sculpt_terrain_files/image004.png"></p>
+<p class="captLvl4">Dialog box used to set the limits of a slider</p>
+
+<p class="numbltlvl1">2 The brush will be displayed in the viewport as a 3d 
+dashed ring that defines the area of influence.</p>
+
+<p class="imgLvl2"><img src="05_sculpt_terrain_files/05_sur_hei_02.png"></p> 
+<p class="captlvl2">Brush cursor in the viewport</p>
+
+<p class="numbltlvl1">3 Drag the <b>Size</b> slider, or use the shortcut keys 
+<code>[</code> (left square bracket) and <code>]</code> (right square bracket) 
+to alter the brush diameter, thereby changing the influence area.</p> 
+
+<p class="noteLvl2"><img src="images/note.bmp">The <b>Strength</b> field can be 
+increased or decreased via keyboard shortcuts <code>ALT</code>+<code>[</code> 
+and <code>Alt</code>+<code>]</code> respectively. It will not cause any visual 
+changes to the brush icon, only to the speed at which it affects the underlying
+terrain.</p>
+
+<p class="numbltlvl1">4 To apply the brush, simply hold down the left mouse 
+button and drag over the desired area.</p> 
+
+<p class="lvl2">The terrain will rise up in the center of the cursor. If you 
+do not notice any changes in the height of the terrain, then increase the value 
+of the <b>Strength</b> field.</p>
+
+<p class="lvl2">The <b>Brush Falloff</b> group box determines the shape of the 
+terrain around the outer edge of the brush, with three options provided 
+&ndash; <b>Linear</b>, <b>Curve</b>, <b>Flat </b>and <strong><a href="#Average">Average</a></strong>.</p>
+
+<p class="imglvl2"><img src="05_sculpt_terrain_files/image001.jpg" width="445" height="138"></p>
+<p class="captlvl2">Terrain raised using the three options <span class="lvl2"> <b>Linear</b>, <b>Curve</b>, and <b>Flat</b></span> brush</p>
+
+<p class="tiplvl2"><img src="images/tip.bmp">You can undo the brush operation 
+at any time, via the <img src="05_sculpt_terrain_files/image006.png"> toolbar 
+button or the <code>Ctrl+Z</code> keyboard shortcut, both of which can be 
+applied multiple times.<br>
+Note that one <i>undo</i> operation is based on a single mouse click. This means 
+that if you apply a brush operation by holding down the mouse button, and then 
+undo it, the result of the entire change will be removed.<br>
+To avoid losing too much progress, it is recommended to <i>paint</i> in shorter 
+dabs, instead of using longer brush stroke periods.</p> 
+
+<p class="numbltlvl1">5 To lower the terrain, drag over the desired area with
+the middle mouse button.</p>
+<p class="imglvl2"><img src="05_sculpt_terrain_files/05_sur_hei_06.png"></p>
+<p class="captlvl2">Terrain lowered under brush cursor</p> 
+
+<p class="numbltlvl1">6 The Left Shift key can be used to toggle between <strong><a href="#Adding">Filter</a></strong> and <strong> height </strong> mode.</p>
+
+<p class="numbltlvl1">7 Using the <b>Explicit Height</b> field, you can snap 
+the terrain to a specified height in metres.</p> 
+
+<p class="lvl2">To set an explicit height for a particular area of the terrain, 
+follow the steps below:</p>
+
+<p class="ltrbltlvl2">A Set the value of <b>Explicit Height</b> field to the
+desired value (in metres) &ndash; the terrain height can be sampled using the 
+<code>Alt</code> key.</p> 
+
+<p class="ltrbltlvl2">B While pressing <code>Ctrl</code>, drag over the desired 
+area &ndash; the terrain under the brush cursor jumps to the specified height.</p>
+
+<p class="lvl3"><table><tr>
+   <td valign="top"><p class="imglvl0"><img src="05_sculpt_terrain_files/image007.png"></p>       
+                    <p class="captlvl0"><b>Explicit Height</b> field</p></td>
+   <td valign="top"><p class="imglvl0"><img src="05_sculpt_terrain_files/05_sur_hei_08.png"></p>
+	                  <p class="captlvl0">Terrain height raised to explicit value</p></td></tr></table></p>
+
+<p class="tiplvl3"><img src="images/tip.bmp">You must click and drag the 
+cursor over the desired area to change its height &ndash; just clicking while 
+holding <code>Ctrl</code> only changes the height of the point clicked.</p>
+
+<p class="notelvl3"><img src="images/note.bmp">The <b>Explicit Height</b> value 
+can be added in two ways: <b>Absolute</b> (where terrain height is set to the 
+value of <b>Explicit Height</b>) and <b>Relative</b> (where value of <b>Explicit 
+Height</b> is added to the height of terrain).</p>
+
+<p class="numbltlvl1">8 There are three ways to visualise the terrain mesh:</p>
+
+<p class="ltrbltlvl2">A by selecting <b>General Options</b> panel's <b>Show</b>
+list box's <b>Terrain&rarr;Wireframe</b> entry;</p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/image008.png"></p>
+<p class="captlvl3"><b>Terrain&rarr;Wireframe</b> option in <b>General Options</b> panel</p> 
+
+<p class="ltrbltlvl2">B by clicking one of the <b>Chunk Visualisation</b> 
+toolbar buttons: 
+<img src="05_sculpt_terrain_files/image009.png"> (<b>Normal</b> mode), 
+<img src="05_sculpt_terrain_files/image010.png"> (<b>Chunk borders</b> mode), 
+<img src="05_sculpt_terrain_files/image011.png"> (<b>Pole markers</b> mode), or
+<img src="05_sculpt_terrain_files/image012.png"> (<b>Wireframe</b> mode); or</p>
+
+<p class="ltrbltlvl2">C by pressing <code>F6</code> keyboard shortcut to cycle through the <i>Chunk 
+Visualisation</i> modes (in the order in which they appear in the toolbar).
+
+<!-------- SECTION - ADDING REFINEMENT FILTERS -------->
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Average" id="Average">Average brush  </a></span></h2>
+</span>
+<DIV>
+  <p>The Average brush is great for creating quick paths and roads. It works by taking a sample of all the height positions under the cursor and then averages them.</p>
+  <p>To use the average brush;</p>
+  <p class="imglvl2">A click the <img src="05_sculpt_terrain_files/image002.png"> toolbar button to activate the <b>Terrain Height</b> panel;</p>
+  <p class="ltrbltlvl2">B Select the Average Radio button </p>
+  <p class="ltrbltlvl2">C Adjust the <b>Size</b> and <b>Strength</b></p>
+  <p class="ltrbltlvl2"><img src="05_sculpt_terrain_files/image002.jpg" width="244" height="112"></p>
+  <p class="ltrbltlvl2"><img src="05_sculpt_terrain_files/image003.jpg" width="311" height="277"></p>
+  <p class="captLvl2"><b><span class="imglvl2">Here you can see an  examples of what the average brush can achieve. </span></b></p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Adding">Adding refinement filters</a></h2>
+</span>
+<DIV>
+
+<p>To refine the terrain using filters, click the 
+<img src="05_sculpt_terrain_files/image013.png"> toolbar button or use the shortcut key &quot;<strong>4</strong>&quot; &ndash; this 
+activates the <b>Terrain Filtering </b> panel.</p>
+
+<p class="numbltlvl1">1 Filters apply an algorithm to the area you paint. That algorithm 
+can smooth, sharpen or add noise to the terrain.</p>
+
+<p class="imglvl2"><img src="05_sculpt_terrain_files/image014.png"></p>
+<p class="captlvl2"><b>Terrain Filtering</b> panel</p>
+
+<p class="tiplvl2"><img src="images/tip.bmp"><i>Smooth</i> filters are ideal for 
+ironing out any imperfections caused by manually  brushing with the height tool.<br>
+<i>Sharpen</i> filters are ideal for increasing small differences in the terrain.<br>
+Noise filters can break up flat areas and give the terrain a more natural appearance. <br>
+</p>
+<p class="imglvl4"><img src="05_sculpt_terrain_files/image015.png"></p>
+
+<p class="numbltlvl1">2 Apply the desired filter.</p>
+
+<p class="lvl2">To use filters on the terrain, follow the steps below:</p>
+
+<p class="ltrbltlvl2">A click the <img src="05_sculpt_terrain_files/image002.png">
+toolbar button to activate the <b>Terrain Height</b> panel;</p>
+ 
+<p class="ltrbltlvl2">B adjust the <b>Size</b>, <b>Strength</b>, and <b>Explicit 
+Height</b> fields to the desired values;</p>
+
+<p class="ltrbltlvl2">C select the desired <b>Brush Falloff</b>;</p>
+
+<p class="ltrbltlvl2">D click the <img src="05_sculpt_terrain_files/image013.png">
+toolbar button to activate the <b>Terrain Filtering</b> panel;</p>
+ 
+<p class="ltrbltlvl2">E select the desired filter in the <b>Filters</b> list 
+box;</p>
+
+<p class="ltrbltlvl2">F apply the selected filter in the viewport, using the 
+click-and-drag method.</p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/05_ref_flt_05.png"></p>
+<p class="captlvl3">Filter effects</p>
+
+<!-------- SECTION - REMOVING TERRAIN -------->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Removing">Removing terrain</a></h2></span>
+<DIV>
+
+<p>The <img src="05_sculpt_terrain_files/image016.png"> toolbar button activates 
+the <b>Terrain Mesh Cut/Repair</b> panel, which gives you access to the cut and 
+repair actions, allowing you to remove or replace entire sections of terrain.</p>
+
+<p class="imglvl2"><img src="05_sculpt_terrain_files/image017.png"></p>
+<p class="captlvl2"><b>Terrain Mesh Cut/Repair</b> panel</p>
+
+<p>To remove the terrain, follow the steps below:</p> 
+
+<p class="numbltlvl1">1 select the <b>Cut</b> option button;</p>
+
+<p class="numbltlvl1">2 set the <b>Size</b> field to the desired value &ndash; 
+this will set the size of the brush, which is represented as a green square;</p>
+
+<p class="numbltlvl1">3 navigate the camera to an overhead view, in any of the 
+following ways:
+
+<p class="imgbltLvl2"><img src="images/bullet.gif">use the movement keyboard 
+shortcuts <code>Q</code>, <code>W</code>, <code>E</code>, <code>A</code>, 
+<code>S</code>, and <code>D</code>.</p>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif">drag the mouse to change the 
+camera angle;</b>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif">click the 
+<img src="05_sculpt_terrain_files/image018.png"> toolbar button to turn 
+<b>Orthographic View</b> on.</p>
+
+<p class="numbltlvl1">4 Cut the terrain:</p>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif">click the mouse to cut 
+terrain of the specified size; or</p>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif" alt="*">click and drag the 
+mouse over the desired area to cut it &ndash; the terrain will be cut as you 
+move the mouse over it.</p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/05_rem_ter_02.png"></p>
+<p class="captlvl3">Terrain removed with <b>Cut</b> action</p>
+
+<p class="numbltlvl1">5 The <B>Repair</b> action replaces the terrain that has 
+been removed, based on the size specified for the brush. The <strong>Left Shift</strong> key will toggle between cut and repair mode</p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/05_rem_ter_03.png"></p>
+<p class="captlvl3">Terrain replaced with <b>Repair</b> action</p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

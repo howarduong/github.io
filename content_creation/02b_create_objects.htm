@@ -1,0 +1,860 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<hTML>
+	<hEAD>
+	<TITLE>Create and Export a Static Object in 3ds Max and Maya</TITLE>
+	<LINK  href="style.css" type=text/css rel=stylesheet>
+	<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<META content="MSHTML 6.00.2900.2963" name=GENERATOR>
+</hEAD>
+
+<BODY>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<h1><a name="lessonTitle">Create and Export a Static Object in 3ds Max and Maya</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Export_Dir">3ds Max and Maya export paths</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Max_Units">3ds Max Unit Setup</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Maya_Units">Maya Unit and World Coordinate Setup</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Size_Restrictions">Object size restrictions </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Z_Fighting">Avoiding Z fighting </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Sorting_Problems">Avoiding sorting problems </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Scaling_Objects">Problems with Scaling objects </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Orientation">Object pivot points</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="02b_create_objects.htm#ApplyDX9Materials">Applying BigWorld shaders directly to 3ds Max models</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#3dsmax_DirectX">Setting up 3ds Max to use DirectX</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#DirectXShader">Assigning BigWorld Shaders directly to models in 3dsMax</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#PreviewUvScrolling">Previewing BigWorld UV-scrolling shaders</A></LI>
+</UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="02b_create_objects.htm#FastAssignment">Fast material assignment</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="02b_create_objects.htm#FastAssignment_CreatingLib">Create a BigWorld 3ds Max material library</A></LI>
+  <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#FastAssignment_UseMaterialLib">Using the BigWorld 3ds Max material library</A></LI>
+  </UL>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Referencing">Referencing the object texture maps</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Texturing">Texturing outside UV coordinates to avoid compression artifacts</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="02b_create_objects.htm#Multiple_Materials">Multiple material types</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Multiple_Materials_Max">Multiple material types within 3ds Max</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Multiple_Materials_Maya">Multiple material types within Maya</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Max_Material_Channels">High cost of multiple material types</A></LI>
+</UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Multi_UV">Exporting multiple UV coordiantes </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Vert_Colour">Exporting vertex colour </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#Edit_Normals">Using the Edit Normals Modifier</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="02b_create_objects.htm#Exporting">Exporting static objects from your 3D application</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="02b_create_objects.htm#Collada">BigWorld and Collada</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#3dsExport">Using the BigWorld 3ds Max exporter to export static objects</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="02b_create_objects.htm#MayaExport">Using the BigWorld Maya exporter to export static objects.</A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>Although this section primarily deals with getting 
+static (non animated) models from your 3d package into the BigWorld engine, much 
+of the information also applies to creating animated non-static objects such as 
+characters and NPC's. Specific information regarding non-static models can be 
+found in the section Create Low-Polygon Characters.</p>
+<p>&nbsp;</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name=Export_Dir id="Export_Dir">3ds Max and Maya Export Paths</a></span></h2>
+<DIV>
+  <p>Taking the time to set up  export paths for your 3d package will minimise unnecessary directory browsing every time you come to export a Model or Animation.
+  You will almost exclusively be exporting Models and Animations to a subdirectory of <strong><em>your_game</em><code>/res</code></strong>, so point your 3d package to this location. </p>
+  <p><strong>In 3ds Max</strong> go to <b>Customise&rarr Configure User Paths</b>. Now set the Export Path to the <code>/res</code> directory of your game. </p>
+  <p><img src="02b_create_objects_files/image038.gif" width="198" height="282"> <img src="02b_create_objects_files/image039.gif" width="402" height="306"></p>
+  <p>&nbsp;</p>
+  <p>In <strong>Maya</strong> you can set up a BigWorld Project and  point the exporter directly to the path you wish to export to.</p>
+  <p>File - Project - New </p>
+  <p>Set the Project name to BigWorld and the BigWorldAsset line to the <code>/res</code> path of your game. </p>
+  <p><img src="02b_create_objects_files/image040.gif" width="230" height="309"> <img src="02b_create_objects_files/image041.gif" width="357" height="182"></p>
+<p><b>Note</b>: The exporters must be installed before either the above setups can be performed. Please see the Content Tools Reference guide for exporter installation.</p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name=Max_Units>3ds Max Unit Setup</a></h2></span>
+<DIV>
+<p>The BigWorld 3ds Max exporter recognises settings defined within 3ds Max's System Unit Setup.</p>
+<p>If you have used BigWorld exporters before and want to use the previous BigWorld 
+   standards of  10 Generic Units = 1 Metre, then simply set the System Unit Setup to 1 Unit = 10 centimeters.</p>
+<p>The unit setup can be used to scale models that were created at the incorrect size. </p>
+<table><tr valign="top">
+ <td><p class="imglvl0"><img src="02b_create_objects_files/image003.gif"></p>
+     <p class="captLvl0">3ds Max <b>Customize</b> menu</p></td>
+ <td><p class="imglvl0"><img src="02b_create_objects_files/image004.gif"></p>
+     <p class="captLvl0">3ds Max <b>Units Setup</b> dialog box</p></td></tr></table>
+
+<p>For internal development we set 1 Unit = 10 Centimetres.</p>
+
+<p class="imglvl1"><img src="02b_create_objects_files/image005.gif"></p> 
+<p class="captLvl1">3ds Max <b>System Unit Setup</b> dialog box</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name=Maya_Units>Maya Unit and World Coordinate Setup</a></h2>
+</span>
+<DIV>
+
+<p>The BigWorld Maya exporter recognises the <b>Working Units</b> type set in the 
+   <b>Preferences</b> dialog (invoked by the <b>Window&rarr;Settings/Preferences</b> menu item).</p>
+<p>A model 1m tall in Maya will be 1m tall in BigWorld. </p>
+<p>Because Maya has no way of changing the size of its generic units there is no way of scaling (on export)
+models made within Maya. It is therefore extremely important when setting up models that are going to be
+rigged and animated that they are modelled to the correct size. Scaling a model after it has been rigged is usually
+problematic: correct setup is highly advised. </p>
+<p>If you have used BigWorld exporters before and want to use the previous 
+   BigWorld standards of  10 Generic Units = 1 Metre, then simply set <b> Ignore maya units</b>: preference to true within the advanced preferences of the Maya exporter. </p>
+
+<p class="imglvl1"><img src="02b_create_objects_files/image002.png"></p>
+<p class="captLvl1">Maya <b>Preferences</b> dialog box</p>
+<p>The BigWorld exporters use World Coordinate System Up axis Y. In Maya set to Y axis up, an object facing the front  view port will also face the front view port in Model Editor.</p>
+<p>We do not support Z axis Up. Models exported in this manner will be facing the wrong direction.  </p>
+<p class="imglvl1"><img src="02b_create_objects_files/image036.gif" width="349" height="293"></p>
+<p class="captLvl1">&nbsp;</p>
+</DIV>
+<span onClick="toggle_heading()">
+<h2><img src="images/expanded.bmp"><a name=Size_Restrictions id="Size_Restrictions">Object size restrictions </a></h2>
+<DIV>
+  <p>Objects cannot exceed (BigWorld Coordinates) X =100m, Y = 200m,  Z = 100m (100m wide and 200m tall). </p>
+  <p>If an object exceeds this size it becomes difficult for the engine to correctly cull the object as it will inhabit many chunks at once. This can result in the object disappearing whilst it is still in view of the camera. </p>
+  <p>The exporter will prevent the exportation of objects that exceed this size. </p>
+  <p><img src="02_create_objects_files/image029.gif" width="185" height="202"></p>
+  <p>&nbsp;</p>
+</DIV>
+<h2><img src="images/expanded.bmp"><a name=Z_Fighting id="Z_Fighting">Avoiding Z fighting </a></h2>
+</span>
+<DIV>
+  <p>Z fighting occurs when  two triangles (surfaces) lie within close proximity of each other. The result is that the two surfaces flicker back and forth especially as the camera position moves. </p>
+  <p>When modelling it is always best to leave a gap between surfaces to prevent this problem from occurring. </p>
+  <p>This problem typically appears on character models' hair and clothing. </p>
+  <p><img src="02b_create_objects_files/image001.jpg" width="200" height="188"> </p>
+  <p class="captLvl1">Z fighting in Action. </p>
+  <p>&nbsp;</p>
+</DIV>
+<span onClick="toggle_heading()">
+<h2><img src="images/expanded.bmp"><a name=Sorting_Problems id="Sorting_Problems">Avoiding sorting problems </a></h2>
+</span>
+<DIV>
+  <p>Objects using alpha blend can only sort reliably if they are part of the same material. Therefore if you are going to use alpha blend on multiple parts of an object, ensure that those parts share the same material name. </p>
+  <p> Alpha-blended polygons are sorted before being drawn each frame. If two transparent objects are
+    entwined but do not share a material then they will not sort relative to each other.</p>
+  <p>Some handy tips to avoid sorting problems: </p>
+  <p>1. Avoid large alpha blended objects.  </p>
+  <p>2.  Try to minimise self-intersection of objects using alpha blend as this can lead to artifacts<br>
+in the polygon sorting.</p>
+  <p>3. Consolidate a single objects alpha blended sections into a single material. </p>
+  <p>4. Be aware that alpha blended skinned models will not take 
+advantage of GPU skinning. All transformations will be performed by the CPU.</p>
+  <p>&nbsp; </p>
+</DIV>
+<span onClick="toggle_heading()">
+<h2><img src="images/expanded.bmp"><a name=Scaling_Objects>Problems with scaling objects </a></h2>
+</span>
+<DIV>
+  <p>Before you begin creating objects for BigWorld you should be aware of the problems which scaling can cause. </p>
+  <p>Scaling an object usually results in the object's &quot;node&quot; retaining the scale information. Any mathematical
+  operations performed on that object in the BigWorld engine will then inherit the scale information, resulting in unwanted visual artifacts. </p>
+  <p>For  example, if an artist creates a <a href="08_create_lowpoly_char.htm#PlacingHPsOnCharacter" target="_blank">hard point</a>  that has 
+  been scaled during its creation, any object linked to that hard point would inherit the scale information of that hard point.
+  This could result in the character pulling out his sword, only to find that it has shrunk to half its size.</p>
+  <p>There are several things you can do to avoid such problems. </p>
+  <p><strong>Limit Scale to sub components</strong></p>
+  <p>In 3ds Max, scale the object whilst in sub object mode.</p>
+  <p><img src="02b_create_objects_files/image032.gif" width="148" height="148"></p>
+  <p>In Maya, choose one of the objects sub components and scale from there.  </p>
+  <p><img src="02b_create_objects_files/image035.gif" width="191" height="102"></p>
+  <p>Although most scale problems can be fixed using the reset/freeze transform technique described next,
+  it is good to get into the habit of scaling whilst in sub object mode.</p>
+  <p></p>
+  <p><strong>Reset/Freeze the objects Xform/Transform</strong></p>
+  <p>Once modelling is complete, and previous to rigging, you should always reset the object's transforms. This will remove any scale that has been placed on the object's node. </p>
+  <p>To reset an object's transforms in 3dsMax use the Reset Xform option. </p>
+  <p><img src="02b_create_objects_files/image034.gif" width="148" height="320"></p>
+  <p>To reset an object's transforms in Maya use the Freeze Transform operation.</p>
+  <p><img src="02b_create_objects_files/image033.gif" width="171" height="70"></p>
+  <p>&nbsp;</p>
+  <p><strong>Scaling a Rigged/Animated object </strong></p>
+  <p>Do not scale a rigged/skinned model. This will undoubtedly result in problems further 
+  down the art pipeline. Animated characters that have been scaled within a 3d Application 
+  may look correct within their 3d App, but once brought into BigWorld problems can arise.
+  For example, scale hidden within nodes can suddenly appear when a sword is attached to 
+  the player's hand. The sword inherits the node's scale resulting in a character wielding 
+  a disproportionately enormous sword. </p>
+  <p>If you must change the scale of an object imported into BigWorld do it by altering the 
+  <strong><a href="#Max_Units">Unit Setup</a></strong> within 3ds Max. Unfortunately Maya 
+  only offers quantised changes to its unit setup. Correct setup is strongly advisable. 
+  This will prevent problems where multiple interacting files have different unit sizes. It
+  is always prudent to import the model into BigWorld before rigging just to check that the size is correct. </p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name=Orientation>Object pivot point</a></h2></span>
+<DIV>
+<p> The world origin coordinates (0,0,0) of your 3D application are used as an 
+  object's pivot point when exported to the BigWorld engine.</p>
+<p class=numBltLvl1>1 Objects should be positioned so that  the pivot point will lie within the object's bounding box. Because the engine uses the pivot point of the object to identify its position, placing the pivot point a sizable distance away may cause problems with chunk lending (the process of sharing objects between two chunks) or culling. </p>
+<p class=numBltLvl1>2 BigWorld World Editor uses the pivot point of objects 
+   to place them via snap-to-terrain and snap-to-object modes. It is 
+  therefore important to consider the origin position when exporting an object.</p>
+<p>This consideration can make the work of world builders much easier. For 
+   example, in the tree below, the bottom row of vertices at its base is lower than 
+   the world origin (0,0,0). This will ensure that the base of the tree is below 
+  the terrain when the tree is placed using WorldEditor's terrain snap feature.</p> 
+<p><img src="02b_create_objects_files/image013.png"></p>
+<p class="captLvl1">World origin is used as object pivot point</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name=ApplyDX9Materials>Applying BigWorld shaders directly to 3ds Max models</a></h2></span>
+<DIV>
+
+<p> In 3ds Max you can apply BigWorld shaders directly to your model. 
+This allows you to bypass the creation of materials within Model Editor (a 
+process to be covered in later chapters), and gives you from within the 3ds Max 
+viewport an accurate representation of what the model will look like in-game.</p>
+
+<p class=notelvl1><img height=17 alt=* src="images/note.bmp" width=40> DirectX 9 
+materials are only supported in 3ds Max 7.0 and above. If DirectX 9.0 viewport 
+support is required, then we recommend using 3ds Max 7.1 or above. </p>
+<p> For optimal performance, we suggest using the latest DirectX end-user runtimes. They 
+can be downloaded from Microsoft's web site. </p>
+<p>Unfortunately, at the time of writing this guide there was no way to 
+directly assign BigWorld DirectX 9 shaders to objects within Maya. It is 
+therefore advised that you use the technique described in lesson 
+<a href="03_create_model.htm">Modify a model in Model Editor</a> to assign 
+BigWorld shaders to your model. </p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name=3dsmax_DirectX>Setting up 3ds Max to use DirectX</a></h3></span>
+<DIV>
+
+<p>Before you get started, you should ensure that 3ds Max is using DirectX. Please follow the steps 
+below:<BR>
+<p class=numBltLvl1>1 Open 3ds Max.</p>
+<p class=numBltLvl1>2 Select menu item <b>Customise&#8594;Preferences</b>.</p>
+<p class=lvl2>The <b>Preference Settings</b> dialog box will be displayed.</p>
+<p class=imgLvl2><img src="02b_create_objects_files/image039.png"></p>
+<p class=captLvl2>3ds Max <b>Preference Settings</b> dialog box</b>
+<p class=lvl2>In the <b>Preference Settings</b> dialog:</p>
+<p class=numBltLvl2>A Select the <b>Viewports</b> tab. </p>
+<p class=numBltLvl2>B Click the <b>Choose Driver...</b> button. </p>
+<p class=lvl3>The <b>Direct3D Driver Setup</b> dialog will open.</p>
+<p class=imgLvl3><img src="02b_create_objects_files/image040.png"></p>
+<p class=captLvl3><b>Direct3D Driver Setup</b> dialog </p>
+<p class=lvl3>In the <b>Direct3D Driver Setup</b> dialog:</p>
+<p class=numBltLvl3>* In the <b>Direct3D Version</b> group box, select the 
+<b>DirectX 9.0</b> option button.</p>
+<p class=numBltLvl3>* Click the <b>OK</b> button.</p>
+<p class=notelvl3><img height=17 alt=* src="images/note.bmp" width=40> If your 
+drivers are not set up to use DirectX, then the Material Editor will not display 
+the material.</p>
+<p class=numBltLvl2>C Click the <b>OK</b> button.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="DirectXShader" id="DirectXShader">Assigning BigWorld Shaders directly to models in 3ds Max</a></h3>
+</span>
+<DIV>
+
+<p>To assign BigWorld shaders directly to models within 3ds Max:</p>
+<p class=numBltLvl1>1 Select menu item <b>Rendering&#8594;Material Editor</b>.</p>
+<p class=lvl2>The <b>Material Editor</b> dialog will open.</p>
+<p class=imgLvl2><img src="02b_create_objects_files/image038.png"></p>
+<p class=captLvl2>3ds Max <b>Material Editor</b> dialog box</p>
+<p class=lvl2>In the <b>Material Editor</b> dialog: </p>
+<p class=numBltLvl2>A Click the <b>Get Material</b> - <img src="02b_create_objects_files/image033.png"> -button. </p>
+<p class=lvl3>The <b>Material/Map Browser</b> dialog will open.</p>
+<p class=imgLvl3><img src="02b_create_objects_files/image041.png"></p>
+<p class=captLvl3>3ds Max <b>Material/Map Browser</b> dialog box</p>
+<p class=lvl3>In the <b>Material/Map Browser</b> dialog:</p>
+<p class=numBltLvl3>* In the Shaders list, select <b>DirectX 9</b> shader.</p>
+<p class=numBltLvl3>* Click the <b>OK</b> button.</p>
+<p class=lvl4>The <b>Replace Material</b> dialog box will open.</p>
+<p class=imgLvl4><img src="02b_create_objects_files/image035.png"></p>
+<p class=captLvl4>3ds Max <b>Replace Material</b> dialog box</p>
+<p class=lvl4>In the <b>Replace Material</b> dialog box:</p>
+<p class=numBltLvl4>+ Select the <b>Discard Old Material?</b> option button.</p>
+<p class=numBltLvl4>+ Click the <b>OK</b> button.</p>
+<p class=numBltLvl2>B Material Editor will display the rollouts <b>DirectX 9 
+Shader</b>, <b>Default .fx parameters</b>, <b>Technique</b>, and <b>Software 
+Render Style</b>. </p>
+<p class=imgLvl3><img src="02b_create_objects_files/image037.png"></p>
+<p class=captLvl3>3ds Max <b>Material Editor</b> dialog box, after selecting DirectX9 shader 
+</p>
+<p class=numBltLvl2>C In the <b>DirectX 9 Shader</b> rollout, press the 
+<b>Shader</b> button (in this case, labelled 
+<code>C:\3dsmax8\maps\fx\Default.fx</code>).</p>
+<p class=lvl3>The <b>Choose an FX File</b> dialog will open.</p>
+<p class=imgLvl3><img src="02b_create_objects_files/image042.png"></p>
+<p class=captLvl3>3ds Max <b>Choose an FX File</b> dialog box</p>
+<p class=lvl3>In the <b>Choose an FX File</b> dialog:</p>
+<p class=numBltLvl3>* Browse to the BigWorld shader directory located in <b>\bigworld\res\shaders\std_effects\</b></p>
+<p class=numBltLvl3>* Click the <b>Open</b> button.</p>
+<p class=numBltLvl2>D Material Editor will display rollout with parameters for 
+the selected shader/FX file.</p>
+<p class=imgLvl3><img src="02b_create_objects_files/image044.png"></p>
+<p class=captLvl3>3ds Max <b>Material Editor</b> dialog box displaying parameters for the selected shader</p>
+<p class=noteLvl3><img src="images/note.bmp">For a detailed list of available BigWorld shaders 
+   and their properties see the <a  href="34_fx_files_and_materials.htm#Choose_Shader">BigWorld shader and 
+Materials</a> section.</p>
+<p class=numBltLvl2>E Close Material Editor.</p>
+<p class=numBltLvl1>4 The viewport should now display the shader applied to the 
+object.</p>
+<p class=imgLvl2><img src="02b_create_objects_files/image014.png"></p>
+<p class=captLvl2>3ds Max Viewport with BigWorld shaders applied to object </p>
+<p>When you export the object and open it in Model Editor, the BigWorld DirectX 
+9 Material will be already assigned to it.</p>
+<p><span class="noteLvl3"><img src="images/note.bmp" alt="note"></span>To see the interaction of a light source with the shader, place a single directional light into the scene. </p>
+<p>&nbsp;</p>
+</DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="PreviewUvScrolling">Previewing BigWorld UV-scrolling shaders </a></h3></span>
+<DIV>
+
+<p>When previewing the effect of a BigWorld shader using scrolling UV's within the 3dsMax viewport you must turn off incremental scene updates within 3dsMax.</p>
+<p>To do this go to Customize - Preferences - Configure Direct3d - Use Incremental Scene Updates and turn the option OFF. </p>
+<p><img src="02b_create_objects_files/image029.gif" width="197" height="261"> <img src="02b_create_objects_files/image030.gif" width="214" height="435">  <img src="02b_create_objects_files/image031.gif" width="257" height="232"></p>
+<p>Because the scrolling UV effect occurs over time, the effect can only be viewed when the Play Animation button has been pressed.</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name=FastAssignment>Fast material assignment</a></h2></span>
+<DIV>
+
+<p>Repeating the above process for every object that requires a material can be 
+tiresome and inefficient. You can speed up the process by creating a material 
+library within 3ds Max.</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name=FastAssignment_CreatingLib>Creating a BigWorld 3ds Max material library</a></h3></span>
+<DIV>
+
+<p>This process requires a <b>single</b> artist to set up a template scene 
+containing each of the BigWorld materials. This scene is then shared between 
+artists and used as a material library, allowing artists to quickly apply 
+BigWorld materials directly to objects within 3ds Max. </p>
+<p class=numBltLvl1>1 Open 3ds Max. </p>
+<p class=numBltLvl1>2 Create a new scene. </p>
+<p class=numBltLvl1>3 Create several sphere objects, one for each BigWorld 
+shader type. </p>
+<p class=numBltLvl1>4 Using the technique described in this lesson's topic <a  href="34_fx_files_and_materials.htm#ApplyDX9Materials">Applying BigWorld shaders 
+directly to 3ds Max models</a>, apply a different BigWorld shader to each of the 
+objects in the scene.</p>
+<p class=numBltLvl1>5 Be sure to correctly name the 3ds Max material - a good 
+rule is to use the name of the FX file.</p>
+<p class=imgLvl2><img src="02b_create_objects_files/image043.png"></p>
+<p class=captLvl2>3ds Max <b>Material Editor</b> dialog box &ndash; Naming the material</p>
+<p class=numBltLvl1>6 Save the scene as 
+<code>BigWorldMaterialLibrary.max</code>.</p>
+<p>This file can now be distributed to your art team to be used as a BigWorld 
+material library.</p>
+<p>Note: <code>BigWorldMaterialLibrary.max</code> can also be found at \mf\bigworld\doc\tools_tutorial_examples.zip</p>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name=FastAssignment_UseMaterialLib id="FastAssignment_UseMaterialLib">Using the BigWorld 3ds Max material library</a></span></h3>
+<DIV>
+
+<p>To use this BigWorld material library simply: </p>
+<p class=numBltLvl1>1 Open 3ds Max.</p>
+<p class=numBltLvl1>2 Select menu item <b>Rendering&#8594;Material Editor</b>.</p>
+<p class=lvl2>The <b>Material Editor</b> dialog will open.</p>
+<p class=imgLvl2><img src="02b_create_objects_files/image029.png"></p>
+<p class=captLvl2>3ds Max <b>Material Editor</b> dialog box</p>
+<p class=numBltLvl1>3 Click the <b>Standard</b> button. </p>
+<p class=lvl2>The <b>Material/Map Browser</b> dialog will open.</p>
+<p class=imgLvl2><img src="02b_create_objects_files/image030.png"></p>
+<p class=captLvl2>3ds Max <b>Material/Map Browser</b> dialog box</p>
+<p class=lvl2>In the <b>Material/Map Browser</b> dialog:</p>
+<p class=numBltLvl2>A In the <b>Browse From</b> group box, select the <b>Mtl 
+Library</b> option button.</p>
+<p class=numBltLvl2>B In the <b>File</b> group box, click the <b>Open</b> 
+button.</p>
+<p class=lvl3>The <b>Open Material Library</b> dialog will open.</p>
+<p class=imgLvl3><img src="02b_create_objects_files/image031.png"></p>
+<p class=captLvl3>3ds Max <b>Open Material Library</b> dialog box</p>
+<p class=lvl3>In the <b>Open Material Library</b> dialog:</p>
+<p class=numBltLvl3>* In the <b>Files of Type</b> combo box, select <code>3ds 
+max (*.max)</code>.</p>
+<p class=numBltLvl3>* In the file list, select 
+<code>BigWorldMaterialLibrary.max</code>.</p>
+<p class=numBltLvl3>* Click the <b>Open</b> button.</p>
+<p class=numBltLvl2>C A list of BigWorld shaders will be displayed in the 
+dialog.</p>
+<p class=imgLvl3><img src="02b_create_objects_files/image032.png"> </p>
+<p class=captLvl3>3ds Max <b>Material/Map Browser</b> dialog box displaying BigWorld shaders</p>
+<p>Now you have the entire list of BigWorld shaders easily accessible via 
+3ds Max's material editor.</p>
+</DIV>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name=Referencing>Referencing the object texture maps</a></h2></span>
+<DIV>
+
+<p>All art assets to be used in the BigWorld engine must reside in the resource folder  <strong><em>your_game</em><code>/res</code></strong> or one of its subdirectories. This includes 
+bitmaps referenced by any models you may create. If your 3d model is referencing 
+bitmaps from another location other than the <code>/res</code> directory, you must move those bitmaps 
+into the resource folder (or one of its subfolders).</p>
+<p>As an example we will reassign the bitmaps used on the ranger model in 3ds Max to the 
+<code>\res\characters\avatars\ranger\</code> folder.</p>
+
+<p class=numbltlvl1>1 Open <b>Windows Explorer</b>.</p>
+<p class=numbltlvl1>2 Create the following file structure within your game 
+directory.</p>
+<p class=lvl2>Our example is <code>\res\characters\avatars\ranger\</code></p>
+<p class=imglvl3><img src="02b_create_objects_files/02_rfrnc_texture_map_01.png"></p>
+<p class=numbltlvl1>3Copy the final texture maps from your working drive to the 
+new<code> /ranger</code> folder.</p>
+<p class=numbltlvl1>4 Open 3ds Max.</p>
+<p class=numbltlvl1>5 Using the <b>Bitmap/Photometric Path 
+Editor</b> utility, or the<strong> Asset Tracking</strong> Dialog, reassign the materials to the folder used in your game.</p>
+<p class=imglvl2><img src="02b_create_objects_files/02_rfrnc_texture_map_04.png"></p>
+<p class=captlvl2>3ds Max <b>Bitmap/Photometric Path Editor</b> dialog box.  A utility for reassigning bitmaps</p>
+<p class=lvl2>Now that the bitmaps have been sourced to the <code>/res</code> folder or 
+one of its subdirectories, the BigWorld engine can access them. </p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name=Texturing>Texturing outside UV coordinates avoids compression artifacts</a></h2></span>
+<DIV>
+
+<p>The BigWorld engine automatically compresses textures and uses a process called mipmapping. 
+Mipmapping creates a series of smaller resolution textures from the original 
+texture. This helps keep texture memory use to a minimum and thus improves 
+performance. For more information on automatic texture compression see the section <a href="18_animated_texture_maps.htm#Texformat">Defining texture compression settings</a> </p>
+
+<p class=imgLvl1><img src="02b_create_objects_files/image028.gif"></p>
+<p class=captLvl1>Example mipmap</p>
+
+<p>When a bitmap is resized via mipmapping it samples pixels from the 
+surrounding area to create the new pixel. If the neighbouring pixel is black 
+then the newly created pixel will be darker than it should be. This results in 
+the compression artifact seen on the right side of the image below.</p>
+
+<p class="lvl0"><table><tr valign="top">
+ <td><p class="imglvl0"><img src="02b_create_objects_files/image027.gif"></p>
+     <p class="captLvl0">When viewed from afar (right), the model is rendered<br>
+                         with a line in the middle</p></td>
+ <td><p class="imglvl0"><img src="02b_create_objects_files/image025.png"></p>
+     <p class="captLvl0">To avoid mipmapping compression artifacts, extend the 
+                         painted area outside the UV coordinates by several pixels</p></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name=Multiple_Materials>Multiple material types</a></h2></span>
+<DIV>
+
+<p>Not all objects are made of a uniform material. For instance the character in this picture is 
+made of several different material types yet remains a single mesh.</p>
+
+<p class=imgLvl1><img src="02b_create_objects_files/image004.png"></p>
+<p class=captLvl1>BigWorld character displaying multiple material types</p>
+
+<p>The table below describes the meaning of each colour:</p>
+
+<table class="alternate" cellspacing=0>
+   <tbody>
+      <tr><th class=FirstCol>    Colour </th><th>             Material type </th></tr>
+      <tr><td class=oddRow1stCol>Pink   </td><td class=oddRow>Skin          </td></tr>
+      <tr><td class=evnRow1stCol>Yellow </td><td class=evnRow>Hair          </td></tr>
+      <tr><td class=oddRow1stCol>Blue   </td><td class=oddRow>Eyes          </td></tr>
+      <tr><td class=evnRow1stCol>Red    </td><td class=evnRow>Fabric type 1 </td></tr>
+      <tr><td class=oddRow1stCol>Maroon </td><td class=oddRow>Fabric type 2 </td></tr>
+      <tr><td class=evnRow1stCol>Grey   </td><td class=evnRow>Metal         </td></tr>
+   </tbody>
+</table>
+<p class=captLvl1>Material type per colour</p>
+
+<p>This material heterogeneity can be replicated within the BigWorld 
+engine by assigning different shaders to parts of a single object. For example, 
+a chrome shader with reflection maps could be used on the metal sections, while 
+a sub surface shader would be better assigned to skin areas.</p>
+
+<p>For the BigWorld exporters to recognise multiple material types it is important that you 
+set up your character correctly within your 3d 
+application.</p>
+
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name=Multiple_Materials_Max>Multiple material types within 3ds Max</a></h3></span>
+<DIV>
+
+<p>To assign a single object multiple materials from <b>3ds Max</b>:</p>
+
+<p class=numBltLvl1>1 Go to sub object <b>Polygon</b> selection mode.</p>
+<p class=numBltLvl1>2 Select the parts of the model that consist of a 
+   particular material type. In this example, I have chosen the steel plates on the 
+    character's glove armour.</p>
+
+<p class="lvl2"><table>
+   <tr valign="top">
+      <td><p class="imglvl0"><img src="02b_create_objects_files/image005.png"></p></td>
+      <td><p class="imglvl0"><img src="02b_create_objects_files/image006.png"></p></td>
+   </tr>
+   <tr>
+     <td colspan=2><p class="captLvl0">Select the polygons to which you wish to give a specific material</p></td>
+   </tr>
+</table>
+
+<p class=numBltLvl1>3 Assign it material with a unique name from the 
+   Material Editor &ndash; essentially this is the same as using a 
+   multi/sub-object material on your object.</p>
+
+<p class=imgLvl2><img src="02b_create_objects_files/image012.png">
+                 <img src="02b_create_objects_files/image011.png"></p>
+<p class=captLvl2>Apply the materials either separately or as part of a Multi/Sub-Object.</p>
+
+<p class=numBltLvl1>4 When the character is exported and brought into 
+   ModelEditor, it will have the same material types and names as assigned in 
+   3ds Max.</p>
+
+<p class=imgLvl2><img src="02b_create_objects_files/image010.png"></p>
+<p class=captLvl2>ModelEditor's <b>Materials Settings</b> dialog box</p>
+
+<p>The image above shows how materials are displayed in ModelEditor.  Note 
+that the suffix <code>_skinned</code> has been automatically added to the 
+material names.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name=Multiple_Materials_Maya>Multiple material types within Maya</a></h3></span>
+<DIV>
+
+<p>To assign multiple materials to a single object from Maya:</p>
+
+<p class=numBltLvl1>1 Select the region of your model to which you will assign a material. I'll do this by going to Face mode. Right click - 
+   Face.</p>
+
+<p class=imgLvl2><img src="02b_create_objects_files/image016.png">
+                 <img src="02b_create_objects_files/image015.png"></p>
+<p class=captLvl2>Select the regions to which you wish to assign a specific material.</p>
+
+<p class=numBltLvl1>2 Select the faces of the model that consist of the material 
+  you wish to add. Here, again, I have chosen the steel plates on the character's glove 
+   armour.</p>
+<p class=numBltLvl1>3 Assign this area a unique shader. This can be done 
+   multiple ways; I prefer to use Maya's Render tab as it is 
+   fast and easily accessible.</p>
+
+<p class=imgLvl2><img src="02b_create_objects_files/image017.png"></p>
+<p class=captLvl2>Maya's <b>Rendering</b> tab</p>
+
+<p class=numBltLvl1>4 You should re-name the default materials with a 
+  sensible name. These names will be used in the BigWorld engine to define the 
+  models material groups, and programmers might not be happy if you have called 
+  something Blinn04.</p>
+<p class=numBltLvl1>5 One of the best ways to manage your materials in Maya is 
+  to use the Hypershade editor. From here you 
+   can see materials, rename materials, and select areas on your model that use a 
+   specific material.</p>
+
+<p class=imgLvl2><img src="02b_create_objects_files/image018.png"></p>
+<p class=captLvl2>Maya's <b>Hypershade</b> editor</p>
+
+<p class=noteLvl2><img src="images/note.bmp">The only information exported from Maya's materials 
+   is the diffuse texture. Unlike 3ds Max, Maya does not support direct 
+   assignment of .fx files. For Maya users, shader assignment must be done in Model 
+   Editor.</p>
+</DIV>
+
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name=Max_Material_Channels>High cost of multiple material types</a>	</h3></span>
+<DIV>
+
+<p>The more material types you have on an object the more draw calls have to be 
+ performed by the graphics card. This will slow down your game's performance, so 
+ it is best to limit the number of objects that have multiple material types.</p>
+<p>There are several things you can do to improve game 
+ performance.</p>
+
+<p class=numBltLvl1>1 <b>Minimise the use of multiple material types</b>.</p>
+
+<p class=lvl2>If an object is made of a single material 
+type, then only use a single material. Take for example the cargo crate, 
+centrepiece of all game designer's dreams. The crate is made of a single uniform 
+material. The worst possible thing you could do is give each side of the crate a 
+different material type. Leave separate materials for important things like 
+player characters, and if you must use multiple materials, LOD them away to a 
+single material type.</p>
+
+<p class=numBltLvl1>2 <b>LOD away material types</b>.</p>
+
+<p class=lvl2>At further distances, effects of numerous complex shaders become negligible, 
+and only serve to weigh down the performance of the engine. It is therefore 
+advisable to apply a reduced set of simple shaders to distant LOD models.</p>
+<p class=lvl2>For example, the first LOD model of a character, displayed closest to the 
+camera, may have 3 separate material types: <code>metal</code>, 
+<code>skin</code> and <code>hair</code>, each using a different shader and 
+referencing several texture maps (Diffuse map, Normal map, Reflection map). At 
+LOD3, because the character will only be represented by a few hundred pixels on 
+screen, the character may only require a single simplified shader that 
+references the diffuse texture only, therefore reducing the load on the graphics 
+card.</p>
+
+<p class=numBltLvl1>3 <b>Single Texture sheet</b>.</p>
+
+<p class=lvl2>If parts of an object use different shaders they do not have to use different texture sheets. It is best if an object uses a single texture sheet. This will save on texture memory D3D state change costs. In the example below the same texture sheet is applied to all parts of the model regardless of its material type. Note that every mesh part that uses a unique FX shader will require a separate draw call. </p>
+
+<p class=imgLvl2><img src="02b_create_objects_files/image009.png"></p>
+<p class=captLvl2>A single texture sheet can be accessed by multiple materials.</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name=Multi_UV id="Multi_UV">Exporting multiple UV coordinates </a></span></h2>
+</span>
+<DIV>
+  <p>BigWorld supports multiple UV coordinates exported from both 3dsMax and Maya</p>
+  
+  <p><img src="02b_create_objects_files/image042.gif" width="385" height="182"></p>
+  <p class=captLvl2>To create a second uv channel inside 3dsMax simply add another UVW Mapping modifier and set the map channel to a different number</p>
+  <p><img src="02b_create_objects_files/image043.gif" width="504" height="268"></p>
+  <p class=captLvl2>To create a second uv channel inside Maya simply Create a second UV Set</p>
+  <p>Multiple UV's will only work with a shader that supports a second UV channel, see shader &quot;<a href="34_fx_files_and_materials.htm">lightonly_dual.fx</a>&quot; for shaders compatible with multiple UV's</p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name=Vert_Colour id="Vert_Colour">Exporting vertex colour </a></span></h2>
+</span>
+<DIV>
+  <p>BigWorld supports vertex colour  exported from both 3dsMax and Maya</p>
+  <p><img src="02b_create_objects_files/image044.gif" width="180" height="160"></p>
+  <p class=captLvl2>To create vertex colour in 3dsMax simply add a VertexPaint modifier to the stack and paint each vertex</p>
+  <p><img src="02b_create_objects_files/image045.gif" width="664" height="343"></p>
+  <p class=captLvl2>To create vertex colour in Maya select Colour - Paint Vertex Colour Tool</p>
+  <p>Vertex colour will only work with a shader that supports vertex colour, see shader &quot;<a href="34_fx_files_and_materials.htm">lightonly_vertexcolour.fx</a>&quot; for shaders compatible with vertex colour. </p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name=Edit_Normals id="Vert_Colour2">Using the Edit Normals Modifier</a></span></h2>
+</span>
+<DIV>
+  <p>BigWorld supports changes made to the vertex normals via 3dsMax's Edit Normals modifier</p>
+  <p><img src="02b_create_objects_files/image046.gif" width="141" height="199">	</p>
+  <p class=captLvl2>The Edit Normals mofier is selected on export</p>
+  <p>Importantly, the Edit Normals mofifier must be selected on export for the normals modification to be valid in game. </p>
+  <p>If multiple objects require exporting, each with edited normals then a single edit normals modifier should be used. </p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name=Exporting>Exporting static objects from your 3D application</a></h2>
+</span>
+<DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name=3dsExport id="3dsExport">Using the BigWorld 3ds Max exporter to export static objects</a></h3></span>
+<DIV>
+
+<p>To export a static object as a <SPAN class=interface>Visual</SPAN> file, 
+follow the steps below:</p>
+<p>Firstly, ensure that the exporter plug-in for your 3d application is 
+installed. Instructions for installing the exporter plug-ins can be found in the 
+<a onClick="parser('content_tools_reference_guide.pdf')"><span class="linkToFile">Tools Reference Guide</span></a>,
+chapter <b>3ds Max and Maya Exporters</b>.</p>
+
+<p class=numbltlvl1>1 Open 3ds Max.</p>
+<p class=numbltlvl1>2 Select menu item <b>File&#8594;Export</b>.</p>
+
+<p class=imglvl2>3 In the dialog <b>Select File to Export</b>, drop-down 
+list box <b>Save In</b>, locate the resources sub-folder where you would like 
+to store the file.<br>
+   In this case use <code>res\sets\trees</code>:</p>
+<p class=imglvl2><img src="02b_create_objects_files/02_exprt_obj_04.png"></p>
+<p class=captlvl2>Resource sub-folder</p>
+
+<p class=numbltlvl1>4 In the field <b>File Name</b>, type <code>oak_tree</code>.</p>
+<p class=numbltlvl1>5 In the drop-down list box <b>Save As 
+Type</b>, select <b>Visual Exporter (*.VISUAL)</b>.</p>
+
+<p class=imglvl2><img src="02b_create_objects_files/02_exprt_obj_03.png"></p>
+<p class=captlvl2>Save As Type options</p>
+
+<p class=numbltlvl1>6 Click button <b>Save</b>.</p>
+<p class=numbltlvl1>7 In the dialog <b>Visual Exporter</b>:</p>
+   <p class=imgbltlvl2><img src="images/bullet.gif">Set <b>Visual type</b> to <code>Static</code>.</p>
+      <p class=lvl3>Static objects are non-skinned (no bones), non-animating objects. For a 
+      description of how to get an animating character or NPC into the 
+      BigWorld engine, see the lesson <a href="08_create_lowpoly_char.htm">Create 
+      Low-Polygon Characters.</a></p>
+   <p class=imgbltlvl2><img alt=* src="images/bullet.gif">Clear the <b>Allow scale</b> check box.</p>
+      <p class=lvl3>This option only applies to the export of animated objects. 
+      When you are exporting an object with scale animation, check this option. 
+      Otherwise clear it.</p>
+   <p class=imgbltlvl2><img alt=* src="images/bullet.gif">Select the <b>Normal mapped</b> check box.</p>
+      <p class=lvl3>This option should be checked if you are using a normal map 
+      on your object.</p>
+      <p class=imgbltlvl2><img alt=* src="images/bullet.gif">Select the  <b>Keep existing materials</b> check box.</p>
+      <p class=lvl3>This option prevents the exporter overwriting any changes that were made to the material properties  post export. For example, if you exported a crate with a wooden texture then later change its texture to a metal texture in Model Editor, re-exporting this crate would  result in the loss of the metal texture (the box reverting back to the assigned wooden texture). If you tick <strong>Keep existing materials</strong> then you will avoid this problem. </p>
+      <p class=imglvl3><img src="02b_create_objects_files/image037.gif" width="302" height="235"></p>
+<p class=captlvl3><b>Visual Exporter</b> dialog box</p>
+
+<p class=imgbltlvl2><img alt=* src="images/bullet.gif">Click <b>OK</b>.</p>
+
+<p class=numbltlvl1>8 Located in the folder you selected, there will now be the 
+following files:</p>
+<p class=imgBltLvl2><img alt=* src="images/bullet.gif"><code><I>name</I>.model</code></p>
+<p class=imgBltLvl2><img alt=* src="images/bullet.gif"><code><I>name</I>.primitives</code></p>
+<p class=imgBltLvl2><img alt=* src="images/bullet.gif"><code><I>name</I>.visual</code></p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name=MayaExport id="MayaExport">Using the BigWorld Maya exporter to export static objects.</a></h3></span>
+<DIV>
+
+<p>To export a static object as a <b>Visual</b> file, follow the steps below: 
+<p>Firstly, ensure that the exporter plug-in for your 3d application is 
+installed. Instructions for installing the exporter plug-ins can be found in the 
+<a onClick="parser('content_tools_reference_guide.pdf')"><span class="linkToFile">Tools Reference Guide</span></a>,
+chapter <b>3ds Max and Maya Exporters</b>.</p>
+
+<p class=numbltlvl1>1 Open Maya. </p>
+<p class=numbltlvl1>2 Select menu item <b>File&#8594;Export 
+All&#8594;<img src="02b_create_objects_files/image021.png"></b></p>
+
+<p class=imglvl2><img src="02b_create_objects_files/image022.png"></p>
+<p class=captlvl2>Maya's <b>File</b> menu</p>
+
+<p class=numbltlvl1>3 In the <b>Export All Options</b> dialog box:</p>
+   <p class=imgBltLvl2><img alt=* src="images/bullet.gif">Select <b>Export 
+   Type</b> group box's <b>Visual</b> radio button.</p>
+   <p class=imgBltLvl2><img alt=* src="images/bullet.gif">Select <b>Visual 
+   Type</b> group box's <b>Static</b> radio button.</p>
+      <p class=lvl3>Static objects are non-skinned (no bones), non-animating objects. For a 
+      description of how to get an animating character or NPC into the 
+      BigWorld engine, see the lesson <a href="08_create_lowpoly_char.htm">Create 
+      Low-Polygon Characters.</a></p>
+   <p class=imgbltlvl2><img alt=* src="images/bullet.gif">Clear the <b>Allow scale</b> check box.</p>
+      <p class=lvl3>This option only applies to the export of animated objects. 
+      When you are exporting an object with scale animation, check this option. 
+      Otherwise clear it.</p>
+   <p class=imgbltlvl2><img alt=* src="images/bullet.gif">Select the <b>Bumpmapped</b> check box.</p>
+      <p class=lvl3>This option should be checked if you are using a normal map 
+      on your object.</p>
+
+<p class=imglvl2><img src="02b_create_objects_files/image023.png"></p>
+<p class=captlvl2>Maya's <b>Export All Options</b> dialog box.</p>
+
+<p class=numbltlvl1>4 The <b>Export</b> dialog box will be displayed.</p>
+
+<p class=lvl2>In the <b>File Name</b> field, type the name of the object that 
+you are exporting. </p>
+
+<p class=imglvl2><img src="02b_create_objects_files/image024.png"></p>
+<p class=captlvl2>Maya's <b>Export</b> dialog box</p>
+
+<p class=numbltlvl1>5 Click the <b>Export</b> button.</p>
+<p class=numbltlvl1>6 Located in the folder you selected, there will now be the 
+following files:</p>
+<p class=imgBltLvl2><img alt=* src="images/bullet.gif"><code><i>name</code>.mode</p>
+<p class=imgBltLvl2><img alt=* src="images/bullet.gif"><code><i>name</code>.primitive</p>
+<p class=imgBltLvl2><img alt=* src="images/bullet.gif"><code><i>name</code>.visual</p>
+<p class=imgBltLvl2>&nbsp;</p>
+
+</DIV>
+</DIV>
+
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name=Collada id="Collada">BigWorld and Collada</a></h2>
+</span>
+<DIV> <span onclick=toggle_heading()>
+  <h3><img src="images/expanded.bmp"><a name=ColladaToBigWorld id="3dsExport2">Exporting Collada .dae files to BigWorld</a></h3>
+  </span>
+  <DIV>
+    <p><br>
+    The Collada to Bigworld converter located in <code>bigworld\tools\collada_converter\dae2bigworld.exe</code> allows users to convert collada (.dae) files into BigWorld .model files. </p>
+    <p>The converter can be run from the command prompt. </p>
+<p><img src="02b_create_objects_files/image002.jpg" width="410" height="283"></p>
+    <p>The syntax for the converters use is as follows. </p>
+    <p>      <code> dae2bigworld.exe infile.dae [-o outfile.model] [-a] [-n] [--res respath;otherrespath] </code></p>
+<p>      Only <code> infile.dae</code> is required when you run the converter, this will convert your .dae file to infile.model, as a static model. This requires your .dae file to be in the bigworld res tree..</p>
+    <p> It requires the resource paths to be set up, the easiest way of setting this up is to add a paths.xml file to the folder where you keep dae2bigworld.exe, that way you don't have to add the paths to the command line.<br>
+      <br>
+    The options are:
+    <p> <span class="imglvl2"><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-o</strong> outfile - specify the output file, if this is not specified the output filename will be the same as the input filename with .dae extension</span>
+    <p><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-a</strong> to create an animated model
+<p> <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-n</strong> to force the nodes to be included in the model .visual file (for static models with nodes, if -a is specified, the nodes are already included)
+<p><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>--res</strong> to specify the res path to use.</p>
+    <p><span class="imglvl2"><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-static</strong> - output a static model, all parts of the model will be combined to<br>
+    one model.</span></p>
+    <p><span class="imglvl2"><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-animated</strong> - output an animated model that can have an animation applied.</span></p>
+    <p><span class="imglvl2"><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-shell</strong> - output a shell model, similar to a static model but with portals and hulls.</span></p>
+    <p><span class="imglvl2"> <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-static_with_nodes</strong> - output a static model with the node hierarchy in tact.</span></p>
+    <p>
+      <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-animation</strong> - output a .animation file.</p>
+    <p> <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-bone_limit ##</strong> - number of bones allowed per mesh piece (default is 17).</p>
+    <p> <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-no_bump</strong> - do not generate bump mapping information, by default tangents and binormals are generated.</p>
+    <p> <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>-ignore_materials</strong> - clear the existing materials from the model and visual.</p>
+    <p><strong>
+      <span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>--res respath;otherrespath</strong> - override the res path used by the model</span><br>
+      <br>
+      The converter is built using the opencollada framework (<a href="http://www.opencollada.org/">http://www.opencollada.org</a>)<br>
+      It is not fully compatible with the fbx collada exporters for 3ds max (and possible the maya one) as they do not adhere to the collada spec. It should work as long as you don't have any materials assigned to your objects though.<br>
+      If using 3ds max or maya it is probably better to use the free exporters available from <a href="http://www.opencollada.org">opencollada.org</a>.<br>
+      <br>
+      Materials are not converted (only material names are included), so you will need to apply them in ModelEditor after conversion.
+      <br>
+      Bsp tree for collisions will be generated for static models.
+      <br>
+      Vertex data that is supported at the moment: positions, normals, uvs, skinning information.<br>
+      <br>
+      The converter requires the february 2010 directx runtimes or later, these can be installed from:<br>
+    <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=2da43d38-db71-4c1b-bc6a-9b6652cd92a3&displaylang=en">http://www.microsoft.com/downloads/en/d ... laylang=en</a></p>
+<p>An easy  way to use the exporter is to create create 5 shortcuts of the dea2bigworld.exe file and named them as follows
+  <strong>Animated</strong></p>
+<p><strong>
+      <span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>Animation<br>
+      <span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>Shell<br>
+      <span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>Static<br>
+    <span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span>Static With Nodes</strong></p>
+<p>
+      I then modified the properties (right click - properties) of each file to add the following arguments to the Target:&nbsp;<br>
+      <br>
+      <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Animated ---- "<strong>F:\mf_20\bigworld\tools\collada_converter\dae2bigworld.exe -animated</strong>"<br>
+      <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Animation ---- "<strong>F:\mf_20\bigworld\tools\collada_converter\dae2bigworld.exe -animation</strong>"<br>
+      <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Shell ---- "<strong>F:\mf_20\bigworld\tools\collada_converter\dae2bigworld.exe -shell</strong>"<br>
+      <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Static ---- "<strong>F:\mf_20\bigworld\tools\collada_converter\dae2bigworld.exe</strong>"<br>
+      <strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Static With Nodes ---- "<strong>F:\mf_20\bigworld\tools\collada_converter\dae2bigworld.exe -static_with_nodes</strong>"<br>
+      <br>
+      These shortcuts can now be placed anywhere you wish (I have them on my desktop).<br>
+      <br>
+  From Maya/Max/3dTool export or save a .dae collada file to the location you want the final BigWorld file (within your res path). To convert the .dae collada file into a BigWorld file all you need to do is drag the .dae file from the res path location on top of the appropriate exporter shortcut.&nbsp;</p>
+  </DIV>
+  <h3><span onClick="toggle_heading()"><a name=BigWorldToCollada id="3dsExport3">Using the BigWorld (Visual) to Collada converter</a></span></h3>
+  <DIV>
+    <p>If an original art asset is lost it  can sometimes be necessary to convert BigWorld assets back into 3d models so that further changes can be made within your modelling package of choice. </p>
+    <p>The VisualToCollada.py script located in <code>\bigworld_pssm\tools\misc\visual_to_collada\VisualToCollada.py </code>can convert static BigWorld .model files into .dae collada files. </p>
+    <p>&nbsp;</p>
+    <p><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>To use the VisualToCollada.py script you will need <a href="http://python.org/download/">python 2.6</a> installed.</p>
+<p><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Then from the command prompt, navigate to the location of the VisualToColladay.py script</p>
+<p><img src="02b_create_objects_files/image002.jpg" alt="" width="410" height="283"> <img src="02b_create_objects_files/image047.gif" width="615" height="277"></p>
+<p><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Include the relative path of the .visual asset you wish to convert.</p>
+<p><strong><span class="imgBltLvl2"><img alt=* src="images/bullet.gif"></span></strong>Once executed the .dae file will be located in the same location as the .visual file. </p>
+<p>Note: This tools is in its extreme infancy. It will only convert static models, it does not retain material information. </p>
+  </DIV>
+</DIV>
+
+
+<!-------- HORIZONTAL RULE -------->
+<HR align=center width="100%" SIZE=2>
+
+<p class=copyrightInfo>Copyright 1999-2011 BigWorld Pty. Ltd. All rights 
+reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</BODY></HTML>
+

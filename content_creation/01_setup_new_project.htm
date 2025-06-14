@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>    
+    <title>Setup a New Project</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <style type="text/css">
+<!--
+.style1 {color: #000000}
+.style2 {color: #00CC33}
+.style5 {color: #0066CC}
+-->
+  </style>
+  </head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+  function parser(targetFile) {
+  location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<h1>Setup a New Project</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Res_Path">Resource paths </A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="01_setup_new_project.htm#Creating">Creating a new space</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Terrain_Settings">Terrain Creation Settings</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Terrain_Types">Terrain Types</A></LI>
+</UL>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Changing">Changing Space</A></LI>
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="01_setup_new_project.htm#Terrain_LOD">Terrain LOD Settings</A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Geomorphing">Geomorphing</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Geomipmapping">Geomipmapping</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Space_settings">Space.settings file</A></LI>
+</UL>  
+  </UL>
+</DIV> 
+<!-- END TopOfPageTOC -->
+<!-------- SECTION - Resource Paths -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Res_Path" id="Res_Path">Resource paths</a></h2>
+</span>
+<DIV>
+  <p>As of BigWorld Technology 1.8, the use of <code>BW_RES_PATH</code> environment variable 
+  to specify the resources path is deprecated.</p>
+  <p>Instead, the use of command-line arguments and/or <code>paths.xml</code> configuration files local to each tool is recommended. For details, see the
+    document <a onClick="parser('content_tools_reference_guide.pdf')"><span class="linkToFile"> Content Tools Reference Guide</span></a>, chapter <b>Starting the Tools</b>.</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Creating">Creating a new space</a></h2></span>
+<DIV>
+
+<!-- Procedure -->
+<p>&nbsp;</p>
+<p>A new space can be created as described below:</p>
+<!-- Number-bulleted list --> 
+   <p class="numbltlvl1">1 Open WorldEditor.</p> 
+      <p class="FYILvl2 style1">The executable <code>worldeditor.exe</code> is located in folder <code>bigworld/tools/worldeditor</code>.</p> 
+
+   <p class="numbltlvl1">2 Select the <span class="interface">File &rarr; New Space</span> menu item.</p>
+      <!-- Image -->
+      <p class="imglvl2"><img src="01_setup_new_project_files/image001.png"></p>
+      <p class="captlvl2">WorldEditor's <span class="interface">File</span> menu</p> 
+
+   <p class="numbltlvl1">3 The <span class="interface">New Space</span> dialog box will be displayed.</p> 
+      <!-- Image -->
+      <p class="imglvl2"><img src="01_setup_new_project_files/image002.png" alt="" width="254" height="504"></p>
+      <p class="captlvl2">WorldEditor's <span class="interface">New Space</span> dialog box</p>  
+
+   <p class="numbltlvl1">4 To create a new space:,</p>
+   <p class="lvl3">&bull; Specify a new space in a <code>spaces</code> folder.</p>
+      <p class="lvl3">&bull; Specify the width and height in chunks of your new space (a typical chunk is 100 metres by 100 metres).</p>
+      <p class="lvl3">&bull; Choose the appropriate Terrain Creation Settings for your space (see below for a description of each field)</p>
+<p class="lvl3">&bull; Click the <span class="interface">Create</span> button.</p>
+      <p class="lvl3">Clicking on <strong>use simple terrain</strong> determines whether or not to use terrain advanced features in the creation of the new space. </p>
+      <p class="numbltlvl1">5 WorldEditor will automatically open with the new space. </p>
+      <p class="numbltlvl1">&nbsp;</p>
+      <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Terrain_Settings" id="Terrain_Types2">Terrain Creation Settings</a></span></h3>
+      <DIV>
+<p class="numbltlvl1"><strong>Height map res</strong><br>
+  Defines the number of height pols on one axis of a   chunk. So a setting of 256 will result in the chunk having at least   65536 verts. That's allot of verts.<br>
+I would recommend using <strong>128</strong> or less for spaces over a few kilometers. Using 256 with large spaces   will reduce performance.<br>
+  <br>
+  <strong>Normal Map res</strong><br>
+  This is the   resolution of the normal map used to disguise the lower resolution mesh   used by the terrain in the <a href="#Geomorphing">distance</a>. <br>
+  In order to retain the more   visually complex information held in the higher resolution chunks we   apply a normal map of this information to the lower resolution chunks in   the distance. <br>
+  A setting of <strong>128</strong> adequately hides the lower resolution mesh for most spaces. <br>
+  <br>
+  <strong> Hole map Res</strong><br>
+  This   is the resolution of the Cut Terrain tool (scissors). If set   to a low setting you will only be able to cut large holes in the   terrain, set it to a high setting and you will be able to cut smaller   holes in the terrain. If your not going to cut the terrain very often   then I would suggest setting this to a low setting.<br>
+  <br>
+  <strong>Shadow Map   Res</strong><br>
+  Defines the  resolution of the terrain shadow map. 
+  If you   have a large space (anything over a kilometer) I would recommend using <strong>64</strong>.   Using 128 or 256 with large spaces will reduce performance.<br>
+  <br>
+  <strong>Texture blend map res</strong><br>
+  This is the resolution of the map that blends   between two different terrain textures. Put simply if you paint texture A   and texture B beside each other, the texture blend map resolution   determines the distance it takes for texture A to blend into texture B.<br>
+  <br>
+  The   best thing you can do is create several quick prototype spaces of the   same proportions as your intended space and play with various settings.   The lower you can get the settings without causing serious visual   degradation the better your performance will be. <br>
+  <br>
+  These are the   settings for highlands which is a demo space built to run on high end   machines. Highlands is a 10km x 10km (100x100 chunks) space. <br>
+  &lt;heightMapSize&gt;  	128	&lt;/heightMapSize&gt;<br>
+  &lt;normalMapSize&gt;	128	  &lt;/normalMapSize&gt;<br>
+  &lt;holeMapSize&gt;	64	&lt;/holeMapSize&gt;<br>
+  &lt;shadowMapSize&gt;  	64	&lt;/shadowMapSize&gt;<br>
+  &lt;blendMapSize&gt;	256	  &lt;/blendMapSize&gt;</p>
+  </DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Terrain_Types" id="Terrain_Types">Terrain Types </a></span></h3>
+<DIV>
+      <p>There are two terrain types available in BigWorld, Simple and Advanced terrain. </p>
+      <table class="alternate" cellspacing=0>
+        <tbody>
+          <tr>
+            <th class=FirstCol    >Property </th>
+            <th                   >Description </th>
+          </tr>
+          <tr>
+            <td class=oddRow1stCol>Simple terrain </td>
+            <td class=oddRow      ><p class=imgBlt><img src="images/bullet.gif">Requires fixed function cards or higher </p>
+              <p class=imgBlt><img src="images/bullet.gif">Height poles fixed at every 4 meters</p>
+              <p class=imgBlt><img src="images/bullet.gif">Limit of 4 textures per chunk (100m) </p>
+              <p class=imgBlt><img src="images/bullet.gif">Texture blend resolution fixed at 4 meters </p>
+              <p class=imgBlt><img src="images/bullet.gif">Can be converted into Advanced terrain </p>
+              <p class=imgBlt><img src="images/bullet.gif">Only receives lighting from a single directional light (sun) </p>
+              <p class=imgBlt>&nbsp;</p></td>
+          </tr>
+          <tr>
+            <td class=evnRow1stCol>Advanced terrain </td>
+            <td class=evnRow      ><p class=imgBlt><img src="images/bullet.gif">Requires minimum shader model 2.0 cards </p>
+              <p class=imgBlt><img src="images/bullet.gif">Configurable height pol resolution</p>
+              <p class=imgBlt><img src="images/bullet.gif">Unlimited texture layers per chunk </p>
+              <p class=imgBlt><img src="images/bullet.gif">Configurable texture blend map resolution </p>
+              <p class=imgBlt><img src="images/bullet.gif">Configurable shadow map resolution</p>
+              <p class=imgBlt><img src="images/bullet.gif">Each texture layer has independent UV projection </p>
+              <p class=imgBlt><img src="images/bullet.gif">Receives lighting from multiple lights sources</p>
+              <p class=imgBlt><img src="images/bullet.gif">Geomorphing</p>
+              <p class=imgBlt><img src="images/bullet.gif">Geomipmapping</p>
+              <p class=imgBlt><img src="images/bullet.gif">Can NOT be converted to simple terrain</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <p>World editor can convert simple to advanced terrain from the <span class="numbltlvl1"> <span class="interface">File &rarr; Convert To Advanced Terrain </span></span>menu. Just remember to back up your simple terrain first as advanced terrain cannot be converted back into simple terrain. </p>
+      <p><img src="01_setup_new_project_files/image003.jpg" width="216" height="154"></p>
+      <p class="numbltlvl1">&nbsp;</p>
+      </DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Changing">Changing Space</a></h2></span>
+<DIV>
+
+<p>To change from one space to another:
+
+</p><p class="numbltlvl1">1 Open WorldEditor.</p>
+
+<p class="numbltlvl1">2 Select the <span class="interface">File&rarr;Open Space</span> menu item.</p>
+   <!-- Image -->
+   <p class="imgLvl2"><img src="01_setup_new_project_files/image003.png"></p>
+   <p class="captlvl2">WorldEditor's <span class="interface">File</span> menu</p> 
+
+<p class="numbltlvl1">3 The <span class="interface">Browse For Folder</span> dialog box will be displayed.</p>
+   <!-- Image -->
+   <p class="imgLvl2"><img src="01_setup_new_project_files/image004.png"></p>
+   <p class="captlvl2">WorldEditor's <span class="interface">Browse For Folder</span> dialog box</p> 
+
+<p class="numbltlvl1">4 Select the folder space that you wish to change to. </p>
+
+<p class="numbltlvl1">5 Click the <span class="interface">Open Space</span> button.</p>
+
+</DIV>
+
+<p>
+  <!-------- HORIZONTAL RULE -------->
+</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Terrain_LOD" id="Terrain_LOD">Terrain LOD settings </a></span></h2>
+<DIV>
+  <p>There are two terrain types available in BigWorld. Simple and Advanced terrain. This section explains how the complex terrain LODs and how those LOD settings  can be adjusted to optimise performance. </p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Geomorphing" id="Geomorphing">Geomorphing</a></span></h3>
+  <p>As you move away from the player, chunks of higher resolution terrain mesh are  replaced by lower mesh resolution chunks. This reduces the number of polygons that need to be drawn by the game engine. To avoid a  visual pop between chunks  we first swap to a higher resolution chunk that mimics the shape of the lower resolution chunk, then slowly morph in the higher resolution details.</p>
+  <p>In order to retain the more visually complex information held in the higher resolution chunks we apply a normal map of this information to the lower resolution chunks in the distance. </p>
+  <p>&nbsp;</p>
+  <table width="465" border="0">
+    <tr>
+      <td width="141"><img src="01_setup_new_project_files/image001.jpg" width="136" height="489"></td>
+      <td width="306"><p>&nbsp;</p>
+          <p>At the bottom of this image you can see that the chunks closest to the player camera are high resolution (high poly count). As you move away to the top of the image, these higher resolution chunks have been swapped for increasingly lower resolution chunks. </p></td>
+    </tr>
+  </table>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Geomipmapping" id="Geomipmapping">Geomipmapping </a></span></h3>
+  <p>Directly underneath the player  the Adanced terrain allows an &quot;unlimited&quot; number of texture<strong> blends</strong> per chunk. There are of course <a href="20_terrain_texture_maps.htm#Management">performance implications</a>. As you move away from the player these <strong>blends</strong> are slowly replaced by a simpler overhead projection photograph of the blends. During this transition  both the terrain <strong>blends</strong> and <strong>terrain photographs</strong> are drawn. </p>
+  <img src="01_setup_new_project_files/image002.jpg" width="334" height="253">
+<p>&nbsp;</p>
+</DIV>
+<DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Space_settings">Space.settings file </a></span></h3>
+  <p>The LOD settings for each space's terrain are described in the <em>space.settings</em> file located in the relevant space folder<br>
+  </p>
+  <pre>&lt;space.settings&gt;<br>	&lt;timeOfDay&gt;	system/data/sky.xml	&lt;/timeOfDay&gt;<br>	&lt;skyGradientDome&gt;	system/data/sky.xml	&lt;/skyGradientDome&gt;<br>	&lt;bounds&gt;<br>		&lt;minX&gt;	-48	&lt;/minX&gt;<br>		&lt;maxX&gt;	47	&lt;/maxX&gt;<br>		&lt;minY&gt;	-48	&lt;/minY&gt;<br>		&lt;maxY&gt;	47	&lt;/maxY&gt;<br>	&lt;/bounds&gt;<br>	&lt;terrain&gt;<br>		&lt;version&gt;	200	&lt;/version&gt;<br>		&lt;heightMapSize&gt;	128	&lt;/heightMapSize&gt;<br>		&lt;normalMapSize&gt;	128	&lt;/normalMapSize&gt;<br>		&lt;holeMapSize&gt;	64	&lt;/holeMapSize&gt;<br>		&lt;shadowMapSize&gt;	64	&lt;/shadowMapSize&gt;<br>		&lt;blendMapSize&gt;	256	&lt;/blendMapSize&gt;<br>		&lt;lodInfo&gt;<br>			&lt;startBias&gt;	0.800000	&lt;/startBias&gt;<br>			&lt;endBias&gt;	0.990000	&lt;/endBias&gt;<br>			<span class="style2">&lt;lodTextureStart&gt;	150.000000	&lt;/lodTextureStart&gt;<br>			&lt;lodTextureDistance&gt;	80.000000	&lt;/lodTextureDistance&gt;<br>			&lt;blendPreloadDistance&gt;	100.000000	&lt;/blendPreloadDistance&gt;<br>			<span class="style1">&lt;lodNormalStart&gt;	300.000000	&lt;/lodNormalStart&gt;<br>			&lt;lodNormalDistance&gt;	100.000000	&lt;/lodNormalDistance&gt;<br>			&lt;normalPreloadDistance&gt;	100.000000	&lt;/normalPreloadDistance&gt;<br>			&lt;defaultHeightMapLod&gt;	2	&lt;/defaultHeightMapLod&gt;<br>			&lt;detailHeightMapDistance&gt;	500.000000	&lt;/detailHeightMapDistance&gt;</span></span><br>			<span class="style5">&lt;lodDistances&gt;<br>				&lt;distance0&gt;	25.000000	&lt;/distance0&gt;<br>				&lt;distance1&gt;	120.000000	&lt;/distance1&gt;<br>				&lt;distance2&gt;	250.000000	&lt;/distance2&gt;<br>				&lt;distance3&gt;	700.000000	&lt;/distance3&gt;<br>				&lt;distance4&gt;	1100.000000	&lt;/distance4&gt;<br>				&lt;distance5&gt;	1700.000000	&lt;/distance5&gt;<br>			&lt;/lodDistances&gt;</span><br>			&lt;server&gt;<br>				&lt;heightMapLod&gt;	2	&lt;/heightMapLod&gt;<br>			&lt;/server&gt;<br>		&lt;/lodInfo&gt;<br>	&lt;/terrain&gt;<br>	&lt;farPlane&gt;	1500.000000	&lt;/farPlane&gt;<br>	&lt;startPosition&gt;	607.810730 211.184265 -206.891937	&lt;/startPosition&gt;<br>	&lt;startDirection&gt;	0.000000 0.010000 0.009964	&lt;/startDirection&gt;<br>	&lt;oldClouds&gt;	false	&lt;/oldClouds&gt;<br>	&lt;minimap&gt;<br>		&lt;mapName&gt;	spaces/highlands/space.outdoors.dds	&lt;/mapName&gt;<br>		&lt;worldMapWidth&gt;	3200.0	&lt;/worldMapWidth&gt;<br>		&lt;worldMapHeight&gt;	-3200.0	&lt;/worldMapHeight&gt;<br>		&lt;worldMapAnchor&gt;	00.0 00.0	&lt;/worldMapAnchor&gt;<br>	&lt;/minimap&gt;<br>	&lt;skyDome&gt;	system/models/clear_overhead.visual	&lt;/skyDome&gt;<br>	&lt;skyDome&gt;	system/models/horizon_ring_cloud.visual	&lt;/skyDome&gt;<br>&lt;/space.settings&gt;
+  </pre>
+  <p>The <span class="style2">green section</span> of the <em>space.settings</em> file deals primarily with GeoMipMapping. This particular <em>space.settings</em> file defines that 100% <strong>blends</strong> should be drawn  up to a distance of 150 Meters. The <strong>blends</strong> then fade out over a distance of 100M whilst the <strong>terrain photograph </strong> is blended in. After  250M (	<span class="style2">&lt;lodTextureStart&gt; +	&lt;blendPreloadDistance&gt; = 250<span class="style1">) only the <strong>terrain photograph </strong>is drawn.</span></span></p>
+  <p>These Terrain Texture LOD Distances can be modified from within World Editors Environment Tab </p>
+  <p><img src="01_setup_new_project_files/image001.gif" width="263" height="109"></p>
+  <p>The key thing to note here is that the <strong>blends</strong> are drawn up to 250M away from the player. Because <strong>blends</strong> require more resources to draw its a good idea to try to limit the distance that blends are drawn whilst maintaining visual appeal. </p>
+  <p>The <span class="style5">blue section</span> section of the <em>space.settings</em> file describes GeoMorphing. There are four distinct LOD distances, each distance defines when a higher/lower resolution chunk should be used. </p>
+  <p>&nbsp;</p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

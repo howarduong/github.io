@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Create Level-of-Detail Mesh for Characters</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<h1>Create Level-of-Detail Mesh for Characters</h1> 
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="14_create_character_lods.htm#Mesh_Theory">Mesh LOD Theory</A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="14_create_character_lods.htm#Optimising">Optimising the object density</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="14_create_character_lods.htm#Material_Theory">Material LOD Theory</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="14_create_character_lods.htm#Node_Theory">Node LOD Theory</A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="14_create_character_lods.htm#Skinning">Skinning with reduced links</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="14_create_character_lods.htm#Exporting">Exporting the LOD components</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="14_create_character_lods.htm#Implementing">Implementing the LOD</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p>Level of Detail (LOD) can be used on models in BigWorld to increase game 
+performance.</p>
+<p>The biggest improvement in performance can be achieved by decreasing the number of draw calls
+performed by the engine. That means replacing a model that has multiple materials with a simplified 
+single material model as it moves away from the camera. If your highest LOD model is already using 
+a single material, then it is probably not worth adding a LOD unless its polycount is extremely high (&gt;3500).</p>
+<p>The LOD process involves directly swapping more complex models with simplified 
+   versions, and is handled automatically by the game engine based on the 
+model's distance from the camera. SuperModel, the part of the engine responsible for drawing complex models, <a href="32_best_practices.htm#Animation">preserves animations and tints down the LOD chain</a>. </p>
+<p>The BigWorld engine can benefit from  <b>material</b>, <strong>mesh </strong>and 
+   <b>node</b> LOD:</p>
+<p class=imgBltLvl1><img src="images/bullet.gif">
+  <a href="#Material_Theory"><b>Material</b> LOD</a> &ndash; requires the artists 
+to reduce the number of different shaders applied to the lower LOD level models. (This is the most important LOD.) </p>
+<p class=imgBltLvl1><img src="images/bullet.gif"> <a href="#Mesh_Theory"><b>Mesh</b> LOD</a> &ndash; 
+involves the artist creating a simplified version of the model by reducing the 
+polygon count. This should only be performed when polycount is extremely high or Material LOD is performed. </p>
+<p class=imgBltLvl1><img src="images/bullet.gif">
+<a href="#Node_Theory"><b>Node</b> LOD</a> &ndash; achieved by  removing the 
+influence of chosen nodes from the further LOD model. This should only be performed when polycount is extremely high or Material LOD is performed. </p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Mesh_Theory">Mesh LOD Theory</a></h2></span>
+<DIV>
+
+<p>A good guideline is to halve the number of polygons on each LOD level, until 
+   you reach less than a thousand  polygons. Any further reductions can actually harm game performance. </p>
+<p>This will not work for all models, but is a good place to start.</p>
+
+<p>For example:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >LOD                    </th>
+       <th class=MidCol      >Polygon<br>count       </th>
+       <th                   >Distance<br>(in metres)</th></tr>
+   <tr><td class=oddRow1stCol>0                      </td>
+       <td class=oddRow      >7,000                  </td>
+       <td class=oddRow      >0 - 20                 </td></tr>
+   <tr><td class=evnRow1stCol>1                      </td>
+       <td class=evnRow      >3,500                  </td>
+       <td class=evnRow      >20 - 60                </td></tr>
+   <tr><td class=oddRow1stCol>2                      </td>
+       <td class=oddRow      >1,500                  </td>
+       <td class=oddRow      >60 - 140               </td></tr>
+   <tr><td class=evnRow1stCol>3                      </td>
+       <td class=evnRow      >750                    </td>
+       <td class=evnRow      >140 - 300              </td></tr>
+</tbody></table>
+<p class=captLvl1>Example LOD settings</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Optimising">Optimising the object density</a></h3></span> 
+<DIV>
+
+<p>To optimise object density, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Load the <code>Warrior_LOD.max</code> example file.</p>
+
+<p class=numBltLvl1>2 Unhide and select the <code>mesh_torso</code> component 
+from the previous lesson, then in the <b>Modifier List</b>, clear the 
+<b>Physique modifier.</b></p> 
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image001.gif"></p>
+<p class=captLvl2>Physique deactivated</p>
+ 
+<p class=numBltLvl1>3 Make a clone copy of it, called <code>mesh_torso_LOD</code>, 
+then select the original <code>mesh_torso</code> again and activate its <b>Physique 
+      modifier</b>. Keep the copy in the scene and hide the original mesh.</p> 
+ 
+<p class=noteLvl2><img src="images/note.bmp">The reason for turning off Physique 
+first is that copying a mesh while this modifier is activated will cause parts 
+of the mesh to collapse.</p> 
+ 
+<p class=numBltLvl1>4 Delete the <b>Physique modifier</b> completely from the 
+copied mesh, using the <b>Remove Modifier From The Stack</b> 
+(<img src="14_create_character_lods_files/image003.gif">) button.</p> 
+ 
+<p class=numBltLvl1>5 Enter <b>Sub-object mode</b> and begin reducing the mesh 
+detail of the copy until about one-third the polygon count of the original mesh 
+remains.</p>
+<p class=lvl2>You can do this by using the polygon editing tools in either 
+<b>editablepoly</b> or <b>editablemesh</b> modes &ndash; by welding and 
+collapsing vertices together, thereby simplifying the mesh detail.</p>
+<p class=lvl2>You can also use the <b>multires</b> modifier if you are using 
+3ds Max 4 or later.</p> 
+
+<p class=imgLvl2><img src="14_create_character_lods_files/image005.gif"></p>
+<p class=captLvl2>Reduced density in torso for LOD</p> 
+ 
+<p class=noteLvl2><img src="images/note.bmp">As you reduce vertices, the texture 
+mapping coordinates will adopt the new mesh form, and may look wrong when viewed 
+up close. This is OK as long as it is not too obvious in the size at which the 
+LOD is intended to be viewed. Otherwise you may have to readjust the mapping to 
+fit the new shape.</p> 
+ 
+<p class=lvl2>Zoom the viewport out periodically as you work, to assess whether 
+the mesh detail is obvious or not. The idea is to keep the overall shape of the 
+object intact, especially the silhouette or profile. Remove any minor detail 
+areas that are not noticeable when viewed from a distance.</p> 
+ 
+<p class=numBltLvl1>6 Unhide the <code>mesh_legs</code>, and again make a copy,
+with the <b>Physique modifier</b> deactivated, and name the new copy 
+<code>mesh_legs_LOD</code>.</p> 
+ 
+<p class=numBltLvl1>7 Remove the <b>Physique modifier</b> from the copy, and in 
+<b>Sub-object mode</b>, reduce the density to about one-third the original 
+polygon count.</p> 
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image006.gif"></p>
+<p class=captLvl2>Reduced density in legs for LOD</p> 
+ 
+<p class=numBltLvl1>8 Repeat this process again for the <b>arms</b> and 
+<b>head</b> components, naming the copies <code>mesh_arms_LOD</code> and 
+<code>mesh_head_LOD</code>, respectively.</p> 
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image007.gif"></p>
+<p class=captLvl2>Reduced density in arms for LOD</p> 
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image008.gif"></p>
+<p class=captLvl2>Reduced density in head for LOD</p> 
+ 
+<p class=numBltLvl1>9 Depending on your requirements, you may wish to repeat the 
+process for a number of different LOD distances. Ideally, LODs should reduce the 
+number of polygons by half. So, a 3,000-polygon character should have 1,500-, 
+750-, and 300-polygon LOD versions.<p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Material_Theory">Material LOD Theory</a></h2></span>
+<DIV>
+
+<p>At further distances, effects of numerous complex shaders become
+negligible, and only serve to weigh down the performance of the engine.</p>
+<p>It is therefore advisable to apply a reduced set of simple shaders to
+   distant LOD models.</p>
+<p>For example, the base LOD (<code>LOD0</code>) of a typical character may have 
+three separate material types, say <code>metal</code>, <code>skin</code> and 
+<code>hair</code>, with each using a different shader and referencing several 
+texture maps (Diffuse map, Normal map, Reflection map).</p>
+<p>At <code>LOD3</code>, the character may only require a single simplified 
+shader that only references the diffuse texture, therefore increasing engine 
+performance.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Node_Theory">Node LOD Theory</a></h2></span>
+<DIV>
+<DIV>
+<p>When removing the influence of bones from your lower-polygon LOD models, 
+   it is best to remove those bones that will not be providing any visible 
+   benefit at a distance.</p>
+<p>For example, the vertices within the fingers, which at higher LODs would be 
+   controlled by several finger nodes, can be reduced to a single hand node when 
+   viewed from a distance.</p>
+<p>This provides a performance boost for the engine, because it no longer has to 
+   transform all those vertices when the fingers animate.</p>
+
+<p class="notelvl1"><img src="images/note.bmp">
+   Although the lower-polygon model still uses the same animations as the parent
+   LOD, it still provides a boost to the engine. That is because the vertices of 
+   the fingers in the child LOD are not being influenced by finger bones.</p>
+
+<p>Node LOD can be taken to extremes: the furthest LOD model of a character may 
+   only be represented as ten or so pixels on the screen - at this distance, the 
+   model needs as few as three bones to convincingly reproduce the leg movement 
+   action when walking.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Skinning">Skinning with reduced links</a></h3></span> 
+<DIV>
+
+<p>Follow the steps below:</p>
+ 
+<p class=numBltLvl1>1 Unhide all LOD meshes that you created, and save them to 
+separate 3ds Max files along with the biped structure.</p> 
+ 
+<p class=lvl2>For the purpose of this lesson, it is possible to rig the 
+character only using certain bones. In not assigning any vertices to a bone, the 
+engine will ignore it &ndash; this is useful in conserving memory when LODing 
+out a character.</p> 
+ 
+<p class="lvl2"><table><tr>
+   <td valign=top><p class=imglvl0><img src="14_create_character_lods_files/image009.gif"><br>
+                  <p class=captLvl0>Biped at highest LOD</p></td>
+   <td valign=top><p class=imglvl0><img src="14_create_character_lods_files/image010.gif"><br>
+                  <p class=captLvl0>Reduced links in the Biped structure for<br>LOD &ndash; unused bones are shown in grey</p></td></tr></table>
+
+<p class=tipLvl2><img src="images/tip.bmp">You may also wish to attach some of 
+the segmented parts as one piece at the furthest LOD. Since you are using fewer 
+bones to rig the mesh, more of the mesh can be incorporated into the 17-bone 
+limit.</p> 
+ 
+<p class=numBltLvl1>2 </p> 
+ 
+<p class=noteLvl2><img src="images/note.bmp">At this level of detail, you should 
+not need to bother using the <b>vertex weights</b> feature for blending.</p> 
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Exporting">Exporting the LOD components</a></h2></span> 
+ <DIV>
+
+<p>Follow the steps below:</p>
+
+<p class=numBltLvl1>1 Make sure the <b>hard points</b> are attached to the 
+appropriate links on the reduced biped structure.</p> 
+ 
+<p class=numBltLvl1>2 Export the model to somewhere appropriate &ndash; in this
+example we have chosen <code>res/characters/avatars/torsos</code>.</p>
+<p class=lvl2>Export each component separately (with its own hard points) to the 
+correct folders, using the prefix name <code>lod_</code>.</p> 
+ 
+<p class=tipLvl2><img src="images/tip.bmp">For example, name the exported 
+<code>mesh_torso_LOD</code> component as <code>lod_torso</code> in the 
+<code>torso</code> folder.</p> 
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image012.gif"></p>
+<p class=captLvl2>LOD components and hard points exported</p> 
+ 
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Implementing">Implementing the LOD</a></h2></span> 
+<DIV>
+
+<p>Follow the steps below (make sure you have exported all the LOD versions that 
+are going to make up your LOD tree):</p>
+
+<p class=numBltLvl1>1 Open ModelEditor.</p>
+
+<p class=numBltLvl1>2 Use the Asset Browser to load your  <code>LOD0</code> 
+model (the model to be used at closest camera distance). For demonstration 
+purposes, we will use the <code>torso.model</code> made in the previous 
+lesson.</p>
+
+<p class=numBltLvl1>3 In the <b>LOD</b> panel, select <code>torso.model</code>
+in the <b>Model</b> list.</p> 
+
+<p class=imgLvl2><img src="14_create_character_lods_files/image001.jpg"></p>
+ 
+<p class=numBltLvl1>4 Click the <b>Add New LOD</b> 
+(<img src="14_create_character_lods_files/image002.jpg">) button &ndash; the
+<b>Open</b> dialog box will be displayed.</p>
+
+<p class=numBltLvl1>5 In the <b>Open</b> dialog box, select the 
+<code>lod_torso.model</code> file, then click the <b>Open</b> button.</p>
+
+<p class=imgLvl2><img src="14_create_character_lods_files/image018.gif"></p>
+ 
+<p class=lvl2>The new LOD <code>lod_torso.model</code> will then appear in the 
+model list, and an initial <b>Extent</b> value of <b>10</b> will be applied to 
+the <code>torso.model</code>.</p>
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image004.jpg"></p>
+ 
+<p class=numBltLvl1>6 If you <b>drag</b> the <b>Camera/LOD</b> slider back and 
+forth, the camera distance changes, and the model swaps from 
+<code>torso.model</code> to <code>lod_torso.model</code>.</p> 
+ 
+<p class=lvl2>The <b>LOD Dist</b> field represents the distance between the 
+model and the game camera. The model will remain in use until the value for that 
+model is reached, then the next LOD model is loaded. If the model is closer to 
+the camera, a more detailed model is loaded. Similarly, if the model moves away 
+then a less detailed model is loaded.</p> 
+ 
+<p class=numBltLvl1>7 Select the <code>torso.model</code> entry in the Model 
+list, then zoom the viewport out until the model is about half the size, and
+finally click the <b>Use the current camera distance</b> 
+(<img src="14_create_character_lods_files/image021.gif">) button to set the value.</p>
+<p class=lvl2>Readjust the value to <b>50</b> using either the slider or the
+<b>LOD Dist</b> field.</p>
+<p class=lvl2>There are many ways to adjust the minimum and maximum values of 
+LOD models. We indicate a number of them below.</p> 
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image022.gif"></p>
+
+<p class=numBltLvl1>8 Now do the same for the <code>lod_torso.model</code>, with a 
+value of <b>100</b>.</p> 
+ 
+<p class=numBltLvl1>9 In the viewport, zoom in and out. You should see the model 
+swap from the highly-detailed version to the low LOD version.</p> 
+ 
+<p class=imgLvl2><img src="14_create_character_lods_files/image023.gif" height=200></p>
+<p class=captLvl2>Model swapping to less detail</p> 
+ 
+<p class=lvl2>When the viewport is zoomed out past the 
+<code>lod_torso.model</code>'s distance of <b>100</b> metres, the model 
+disappears &ndash; this is because there are no <b>child</b> models below it 
+in the model list. Because <code>torso.model</code> is above 
+<code>lod_torso.model</code> in the model list, it is considered to be the 
+<i>parent</i> LOD model. If you do not want <code>lod_torso</code> to disappear 
+at 100 metres, then set the maximum distance to a higher value.</p> 
+ 
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>10</span> Save the model 
+file for the torso, to add the LOD torso using the current distance extents.</p> 
+ 
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>11</span> Repeat this 
+process for the legs, arms and head LOD models, starting with the high-detail 
+versions as the parent models.</p> 
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

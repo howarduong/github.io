@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>   
+  <title>Add Models to the World</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+  function parser(targetFile) {
+  location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+<!-------- CHAPTER TITLE -------->
+<h1><a name="lessonTitle">Add Models to the World</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="04_place_models.htm#Locating">Locating models in the Asset Browser</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="04_place_models.htm#Navigating">Navigating the WorldEditor viewport</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="04_place_models.htm#Placing">Placing models on the terrain</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="04_place_models.htm#Manipulating">Manipulating the models</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="04_place_models.htm#Using">Using the clone feature</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="04_place_models.htm#Invisible">Creating invisible barriers </A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="04_place_models.htm#Missing">Finding missing Assets</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<!-------- SECTION - LOCATING MODELS IN THE FILE BROWSER -------->
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Locating">Locating models in the Asset Browser</a></h2></span>
+<DIV>
+
+<p>To locate a model in the Asset Browser, follow the steps below:</p>
+
+<p class="numbltlvl1">1 Run WorldEditor with an existing world, such as the 
+world space created in the lesson <a href="01_setup_new_project.htm">Setup a New 
+Project</a>.</p>
+<p class="tiplvl2"><img src="images/tip.bmp">The executable 
+<code>worldeditor.exe</code> is located in folder 
+<code>bigworld/tools/worldeditor</code>.</p>
+
+<p class="numbltlvl1">2 Select the Asset Browser.</p>
+
+<p class="numbltlvl1">3 Select the appropriate search filter folder &ndash; in 
+this case we want to place a model, so choose the <b>Models</b> virtual folder.</p> 
+
+<p class="numbltlvl1">4 In the Asset Browser&rsquo;s 
+<img src="04_place_models_files/image003.png"> field, type the name of the model 
+you wish to place &ndash; the Asset Browser will search the entire 
+<code>/res</code> folder to find any assets that match the file name.
+
+<p class="imgLvl2"><img src="04_place_models_files/image001.png"></p>
+<p class="captLvl2">Specifying search of models with the string <code>rock</code> on their names</p>
+
+<p class="numBltlvl1">5 The thumbnails of matching model files will be displayed 
+on the file browser. (If you cannot see the thumbnails, then right-click
+on any of the model files, and in the context menu choose the <b>List view 
+styles&rarr;Big icons</b> menu item.)</p>
+<p class="tiplvl2"><img src="images/tip.bmp">When placing organic objects like 
+trees and rocks,make sure that <b>Object Panel</b>&rsquo;s <b>Placement 
+Control</b> group box&rsquo;s <b>Setting</b> drop-down list box is set to 
+<b>Yaw+Scale</b>.</p>
+   <p class="imgLvl4"><img src="04_place_models_files/image002.png"></p>
+   <p class="captLvl4">Specifying random rotation and size for items placed in WorldEditor</p>
+   <p class="lvl4">This adds random yaw (rotation) and scale (size) to the objects 
+you place in WorldEditor.</p> 
+<p class="lvl4">There are several preset random placement types, and you can also
+create your own. For more details, see the document 
+<a onClick="parser('content_tools_reference_guide.pdf')"><span class="linkToFile">
+Content Tools Reference Guide</span>, chapter <b>WorldEditor</b>, section
+<b>Panel Summary</b>, sub-section <b>Object Panel</b>.</a></p>
+
+<!-- SECTION - NAVIGATING THE WORLDEDITOR VIEWPORT -->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Navigating">Navigating the WorldEditor viewport</a></h2></span>
+<DIV>
+
+<p>To navigate the WorldEditor viewport, use the viewport keyboard controls, or 
+click-and-drag with the right mouse button:</p>
+
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To <b>rotate</b> the 
+view (look around), drag with the mouse right button.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <b>left</b>, 
+press <code>A</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <b>right</b>, 
+press <code>D</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <b>forward</b>, 
+press <code>W</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <b>backwards</b>, 
+press <code>S</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <b>up</b>, 
+press <code>Q</code>.</p>
+<p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">To move <b>down</b>, 
+press <code>E</code>.</p>
+
+<p class="tiplvl1"><img src="images/tip.bmp">To speed up the movement of the 
+viewport camera, you can turn on <span class="code">Caps Lock</span>, or 
+change the camera speed &ndash; either via the toolbar buttons 
+<img src="04_place_models_files/image004.png">,
+<img src="04_place_models_files/image005.png">,
+<img src="04_place_models_files/image006.png">,
+<img src="04_place_models_files/image007.png"> or via their respective keyboard 
+shortcuts (cntrl + <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>).</p>
+
+<!-- SECTION - PLACING MODELS ON THE TERRAIN -->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Placing">Placing models on the terrain</a></h2></span>
+<DIV>
+
+<p>To place a model on the terrain, follow the steps below:</p>
+
+<p class="numbltlvl1">1 From the Asset Browser, select the thumbnail of the 
+file you wish to add.</p>
+
+<p class="imglvl2"><img src="04_place_models_files/04_loc_mdl_05.png"></p>
+<p class="captlvl2">Selected tree model</p>
+
+<p class="numbltlvl1">2 Move the mouse over the viewport and press 
+<code>Enter</code>, or drag the object from the Asset Browser and drop it in the
+viewport.</p>
+
+<p class="numbltlvl1">3 For a more precise control over model placement, make sure
+to select <b>Object Panel</b>&rsquo;s <b>Locking Mode</b> group box&rsquo;s 
+<b>Terrain</b> option button.</p>
+<p class="imgLvl2"><img src="04_place_models_files/image008.png"></p>       
+<p class="captLvl2">Specifying that new placed items will be locked to terrain</p>
+
+<p class="numbltlvl1">4 Position the mouse pointer over the viewport.</p>
+
+<p class="numbltlvl1">5 The cursor pointer changes to a yellow placement icon, 
+indicating where the model will be placed.</p>
+
+<p class="imglvl2"><img src="04_place_models_files/04_plc_mdl_03.png"></p>
+<p class="captlvl2">Yellow placement cursor</p>
+
+<p class="numbltlvl1">6 The cursor will follow the terrain contours, and snap 
+to an invisible grid, the dimensions of which are specified in <b>Object 
+Panel</b>&rsquo;s <b>Object Grid Snaps</b> group box.</p> 
+
+<p class="imglvl2"><img src="04_place_models_files/image009.png"></p>       
+<p class="captlvl2">Snap settings</p>
+
+<p class="numbltlvl1">7 Press <code>Enter</code>.</p>
+
+<p class="numbltlvl1">8 The tree model and its bounding box will appear on the 
+terrain landscape.</p>
+
+<p class="imglvl2"><img src="04_place_models_files/04_plc_mdl_06.png"></p>
+<p class="captlvl2">Model with bounding box in the viewport</p>
+
+<!------ SECTION - MANIPULATING THE MODELS -------->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Manipulating">Manipulating the models</a></h2></span>
+<DIV>
+
+<p>To manipulate a model, follow the steps bellow:</p>
+
+<p class="numbltlvl1">1 <b>Object Panel</b>&rsquo;s <b>Selection Filter</b> 
+isolates the various scene contents, allowing for easier selection of models in 
+cluttered worlds.</p>
+
+<p class="imglvl3"><img src="04_place_models_files/image010.png"></p>
+<p class="captlvl3"><b>Selection Filter</b> drop-down list box</p>
+
+<p class="numbltlvl1">2 Set the value to either <b>All</b> or <b>Models</b> for 
+the remainder of this lesson.</p>
+
+<p class="numbltlvl1">3 Just like in 3ds Max, the viewport manipulator allows 
+for control of the movement, rotation and scaling of the model using alternate 
+keyboard commands.</p>
+
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">To display the 
+<b>Movement</b> gizmo <img src="images/arrow.bmp"> Select the model.</p>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">To display the 
+<b>Rotation</b> gizmo <img src="images/arrow.bmp">Select the model, then hold 
+<code>Shift</code>.</p>
+<p class="imgBltLvl2"><img src="images/bullet.gif" alt="*">To display the 
+<b>Scale</b> gizmo <img src="images/arrow.bmp"> Select the model, then hold 
+<code>Alt</code>.</p>
+<p class="lvl3"><table><tr>
+ <td><p class="imglvl0"><img src="04_place_models_files/image011.png"></p>
+     <p class="captLvl0"><b>Movement</b> gizmo</p></td>
+ <td><p class="imglvl0"><img src="04_place_models_files/image012.png"></p>
+     <p class="captLvl0"><b>Rotation</b> gizmo (<code>Shift</code>)</p></td>
+ <td><p class="imglvl0"><img src="04_place_models_files/image013.png"></p>
+     <p class="captLvl0"><b>Scale</b> gizmo (<code>Alt</code>)</p></td></tr></table>
+
+<p class="tipLvl2"><img src="images/tip.bmp">Each gizmo type has three coloured 
+handles that can be used individually, by simply clicking them.<br>
+You can also select two handles at once, for both the <b>Movement</b> and 
+<b>Scale</b> gizmos, by using the outer tags shown as cyan, magenta, and
+yellow.</p> 
+
+<p class="noteLvl2"><img src="images/note.bmp">The blue axis (up, down) handle 
+is disabled when <b>Object Panel</b>&rsquo;s <b>Locking Mode</b> group 
+box&rsquo;s <b>Terrain</b> option button is selected.</p>
+<p class="lvl4"><table><tr>
+ <td><p class="imglvl0"><img src="04_place_models_files/image014.png"></p>
+     <p class="captLvl0">When <b>Locking Mode</b> is set to<br>
+		 <b>Free</b> or <b>Obstacle</b>, the <b>Movement</b><br>
+		 gizmo&rsquo;s blue axis is enabled</td>
+ <td><p class="imglvl0"><img src="04_place_models_files/image015.png"></p>
+     <p class="captLvl0">When <b>Locking Mode</b> is set to<br>
+		 <b>Terrain</b>, the <b>Movement</b> gizmo&rsquo;s<br>
+		 blue axis is disabled</tr></table>
+
+<!-------- SECTION - USING THE CLONE FEATURE ---->
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Using">Using the clone feature</a></h2></span>
+<DIV>
+
+<p>To make a copy of a model in the world, follow the steps below:</p>
+
+<p class="numbltlvl1">1 Select the model.</p>
+
+<p class="numbltlvl1">2 Move the mouse cursor to the position where you would 
+like the new model to appear, then press <code>C</code>.</p>
+
+<p class="numbltlvl1">3 The message "<b>Cloned Selection</b>" will be 
+displayed at the bottom of the viewport, to indicate successful cloning.</p>
+
+<p class="imglvl2"><img src="04_place_models_files/04_cln_mdl_01.png"></p>
+<p class="captLvl2">Tree model cloned once</p>
+
+<p class="numbltlvl1">4 Click and drag an area in the viewport, selecting both 
+tree models.</p>
+
+<p class="imglvl2"><img src="04_place_models_files/04_cln_mdl_02.png"></p>
+<p class="captLvl2">Both trees selected</p>
+
+<p class="numbltlvl1">5 Clone the selection again by pressing <code>C</code> to 
+create two more trees.</p>
+
+<p class="imglvl2"><img src="04_place_models_files/04_cln_mdl_03.png"></p>
+<p class="captLvl2">Four tree models cloned</p>
+
+<p class="lvl2">This method provides a very quick way of populating the world with scenery.</p>
+
+</DIV>
+
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Invisible" id="Invisible">Creating invisible barriers </a></span></h2>
+</span>
+<DIV>
+  <p>Most game environments require invisible barriers that prevent the player from navigating through certain zones. </p>
+  <p>To create an invisible collision object:</p>
+  <p>1. Export the collision volume from your 3d application, I'm using a cube, but it could be any shape you like. </p>
+  <p class="imgLvl2"><img src="04_place_models_files/image003.jpg" width="248" height="189"></p>
+ <p class="captLvl2">Using a cube as an invisible barrier</p>
+ <p class="captLvl2">&nbsp;</p>
+ <p>2. The invisible barrier model is given a <strong>Do Not Render</strong> material and its <a href="file:///C:/mf_20/bigworld/doc/content_creation/34_fx_files_and_materials.htm#Properties">Collision Flags</a> are set to <strong>Camera Off Player On</strong> </p>
+ <p class="imgLvl2"><img src="04_place_models_files/image004.jpg" width="291" height="660"></p>
+ <p class="captLvl2">Give the invisible barrier an empty material and set its collision to Camera Off Player On</p>
+ <p>3. Because, the object is going to be set to invisible we also need a proxy model to  visualise the barrier in World Editor. It is best that our proxy model is exactly the same size and shape as our invisible wall, so in this case I export the same object twice. One to be used as a barrier and then as a proxy. In the diagram below I have assigned the proxy model to the invisible barrier. </p>
+ <p class="imgLvl2"><img src="04_place_models_files/image005.jpg" width="291" height="332"></p>
+  <p class="captLvl2">Define the proxy object from the Object Properties tab in Model Editor</p>
+  <p>4. The proxy model is given a material that clearly indicates its use as a barrier. </p>
+   <p class="imgLvl2"><img src="04_place_models_files/image006.jpg" width="256" height="238"></p>
+   <p class="imgLvl2">&nbsp;</p>
+  <p>5. When placing your invisible barrier in the world you will need to use <strong>Editor Proxies </strong>in  World Editor's Options tab. Also ensure the barrier is not casting terrain shadows,</p>
+  <p>set its <strong>cast shadow property to False</strong>.</p>
+  <p><img src="04_place_models_files/image007.jpg" width="734" height="316"></p>
+  <p>Note: There is already a default collision object available in <strong>bw/res/helpers/models/invisible_wall.model</strong>. It can be scaled to suite your needs </p>
+  </DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Missing" id="Missing">Finding missing Assets</a></h2>
+</span>
+<DIV>
+  <p>If an asset is removed from the resource directory without first being removed from the space you will receive a missing resource error in world editor. </p>
+  <p><img src="04_place_models_files/image002.jpg" width="162" height="31"></p>
+  <p>To locate the position of the missing resource open the Message tab and double click on the missing asset </p>
+  <p><img src="04_place_models_files/image001.gif" width="224" height="136"></p>
+  <p>This will take the camera to the location of the missing asset, which will be replaced by a red cube &quot;standin.model&quot;.</p>
+  <p>Simply delete the cube if you wish to remove the missing asset reference. </p>
+  <p><img src="04_place_models_files/image001.jpg" width="384" height="288"></p>
+</DIV>
+
+
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

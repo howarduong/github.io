@@ -1,0 +1,1406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Particles and Special Effects</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - GENERATE PARTICLES FOR SPECIAL EFFECTS -->
+<h1><a name="lessonTitle">Particles and Special Effects</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#SpecialFX">Special effects - A combination of mesh and particles</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Creating">Creating your particle system</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Source">Creating a particle source</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Sink">Adding a Sink component to remove particles</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Force">Adding a force like gravity or wind</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Adding">Adding a new particle sub-system</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Colouring">Colouring your particles</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Changing">Changing the number of spawned particles</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="30_particles.htm#SubSystem">Sub-system components</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#SystemProperties">System Properties sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#RendererProperties">Renderer Properties sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Source2">Source sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Sink2">Sink sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Barrier">Barrier sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Force2">Force sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Stream">Stream sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Jitter">Jitter sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Scaler">Scaler sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#TintShader">Tint Shader sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#NodeClamp">Node Clamp sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Orbitor">Orbitor sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Flare">Flare sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Collide">Collide sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#MatrixSwarm">Matrix Swarm sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Magnet">Magnet sub-panel</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Splat">Splat sub-panel</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Limitations">Limitations</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="30_particles.htm#Using_Python">Using Python</A></LI>
+<UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Python_Macros">Python Macros</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Attach_Weapon">Attaching a weapon to the player character</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#PlayAction">Playing an action on a model </A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Attach_Particle">Attaching a particle system to a hardpoint </A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="30_particles.htm#Swap_Model">Swapping Player Models </A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="SpecialFX" id="SpecialFX">Special effects - A combination of mesh and particles</a></h2></span>
+<DIV>
+
+<p>Not all special effects should rely on a particle systems alone. Most of the 
+time, complex special effects require multiple particle systems, meshes, and animations, all perfectly timed. </p> 
+
+<p>For example, the effect seen in the first two frames below (used for the
+player re-spawn) was made using an animated mesh, NOT a particle system. Only 
+the last frame contains a particle system.</p>
+
+<p class=lvl1><table><tr>
+  <td><p class=imgLvl0><img src="30_particles_files/image046.gif"></p>
+      <p class=captLvl0>Animated mesh special effect</p></td>
+  <td><p class=imgLvl0><img src="30_particles_files/image047.gif"></p>
+      <p class=captLvl0>Animated mesh special effect</p></td>
+  <td><p class=imgLvl0><img src="30_particles_files/image048.gif"></p>
+      <p class=captLvl0>Particle system special effect</p></td></tr></table>
+<p>Special effects are coordinated via SFX files. SFX files are created by programmers and bring together the various components (particles, models, animation) for the final effect. It is very important to work alongside a programmer when creating complex visual effects. </p>
+<p>The directory <strong><em> mf/fantasydemo/res/sfx </em></strong>contains all the special effects for the fantasy demo. </p>
+<p>Let's take a look at the <strong><em>staff_idle.xml </em></strong>effect on the Ranger's magic staff by opening the file in Notepad.</p>
+<p>This SFX file actually contains two separate effects named <em><strong>staff_particle </strong></em><span class="ltrBltLvl1_Font">1A</span> and <em><strong>staff_light </strong></em><span class="ltrBltLvl1_Font">2A</span>. These names are used to indicate which tags belong to which effect system.</p>
+<p> The first thing to occur is the creation of the Actors, these are the objects that make up the special effect. </p>
+<p><strong>1a:</strong> The particle system <em>staff_idle.xml</em> </p>
+<p><strong>2a:</strong> A light with set radius and colour are created</p>
+<p><strong>1b</strong><strong>: </strong> The particle is attached to HP_Snake_Neck</p>
+<p><strong>2b:</strong> The Light is attached to HP_Top</p>
+<p><strong>1c:</strong> The particle system is played</p>
+<p><strong>2c:</strong> The light is set to flicker</p>
+<p>&nbsp;</p>
+<pre>&lt;SFXFile&gt;
+	&lt;Actor&gt; staff_particle <span class="ltrBltLvl1_Font">1A</span>
+  		&lt;ParticleSystem>  particle/staff_idle.xml     &lt;/ParticleSystem&gt;&lt;/
+	&lt;/Actor&gt;
+
+ 	&lt;Actor&gt; staff_light <span class="ltrBltLvl1_Font">2A</span>
+  		&lt;Light&gt;
+			&lt;innerRadius&gt;    2       &lt;/innerRadius&gt;
+			&lt;outerRadius&gt;    8       &lt;/outerRadius&gt;
+			&lt;colour&gt;    128 192 255 2558       &lt;/colour&gt;
+		&lt;/Light&gt;
+	&lt;/Actor&gt; 
+
+	&lt;Joint&gt; staff_particle <span class="ltrBltLvl1_Font">1B</span>
+    		&lt;Node&gt; HP_Snake_Neck &lt;/Node&gt;
+	&lt;/Joint&gt; 
+
+	&lt;Joint&gt; staff_light <span class="ltrBltLvl1_Font">2B</span>
+    		&lt;LightSource&gt; HP_Top &lt;/LightSource&gt;
+	&lt;/Joint&gt; 
+
+	&lt;Event> staff_particles <span class="ltrBltLvl1_Font">1C</span>
+    		&lt;ForceParticle/&gt; 
+	&lt;/Event&gt; 
+
+	&lt;Event&gt; staff_light <span class="ltrBltLvl1_Font">2C</span>
+    		&lt;Flicker&gt;
+				&lt;amplitude&gt;    0.1       &lt;/amplitude&gt;
+				&lt;speed&gt;    0.5       &lt;/speed&gt;
+	    	&lt;/Flicker&gt;
+	&lt;/Event&gt; 
+&lt;/SFXFile&gt;</pre>
+<p><img src="30_particles_files/image001.jpg" width="207" height="391"> <img src="30_particles_files/image002.jpg" width="443" height="141"></p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Creating your particle system</a></h2></span>
+<DIV>
+
+<p>For the purposes of this tutorial, we will create a particle system called 
+<code>pollen</code>, which will be placed near plants and flowers to give them 
+drifting pollen.</p>
+
+<p>This particle system will consist of two particle sub-systems: 
+<code>glows</code> and <code>colouredglows</code>.</p> 
+ 
+<p class=numBltLvl1>1 Open ParticleEditor.</p>
+
+<p class=numBltLvl1>2 In the <b>Systems</b> panel, click the 
+<img src="30_particles_files/image050.gif"> to create a new particle system
+&ndash; a new entry will be added at the bottom of the <b>Particle List</b>,
+where the insertion point will be moved.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image049.gif"></p>
+
+<p class=numBltLvl1>3 Name the new particle system <code>pollen</code>.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image051.gif"></p>
+
+<p class=numBltLvl1>4 New particle systems have a new sub-system 
+automatically added, named <code>component</code> &ndash; press 
+<code>F2</code> and rename it <code>glows</code>.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image052.gif"></p>
+
+<p class=numBltLvl1>5 Expand the <code>glows</code> sub-system &ndash; the 
+<b>System Properties</b> and <b>Render Properties</b> sub-system components
+(created by default on new sub-system components) will be displayed.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image053.gif"></p>
+
+<p class=numBltLvl1>6 Select the <b>System Properties</b> sub-system component
+&ndash; the <b>System Properties</b> sub-panel will be activated.</p>
+
+<p class=numBltLvl1>7 In the <b>System Properties</b> sub-panel, set the
+<b>Capacity</b> field to <b>30</b>.</p>
+<p class=lvl2>This field controls the number of particles that your particle 
+sub-system will spawn.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image054.gif"></p>
+
+<p class=lvl2>Please note the following:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">This example particle system 
+will be sprite-based, so you should now create your texture for the particle 
+sub-system, and save it in a folder appropriate for its use.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">This example has a 
+<code>pollen</code> texture without an alpha channel, because we will set its 
+properties to <b>Additive</b>. We have made the surrounding base texture pure 
+black, as this will then be rendered transparent. We have then placed an 
+almost-white shape for the pollen in the centre of this image.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Leaving the pollen-shaped 
+section of the image almost colourless means that we can later <i>tint</i> the 
+colour of the texture with more effect via the <b>Tint Shader</b> sub-panel.</p> 
+ 
+<p class=numBltLvl1>8 Select the <b>Renderer Properties</b> sub-system component
+&ndash; the <b>Renderer Properties</b> sub-panel will be activated.</p>
+ 
+<p class=numBltLvl1>9 In the <b>Renderer Properties</b> sub-panel:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the <b>Sprite</b> option
+button.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Specify the pollen texture 
+(first make sure that your current folder is correctly set, using the 
+<img src="30_particles_files/image057.gif"> button).</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Blend Mode</b> 
+drop-down list box to <b>Additive</b>.</p>
+
+<p class=imgLvl3><img src="30_particles_files/image056.gif"></p>
+
+<p class=noteLvl2><img src="images/note.bmp">Using textures set to 
+<b>Additive</b> is generally less intensive for rendering, and therefore more 
+particle effects can be used in a single scene without increasing rendering 
+costs. However, the look of <b>Additive</b> settings may not always suit your 
+purposes.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Source">Creating a particle source</a></h2></span>
+<DIV>
+
+<p>The <b>Source</b> component of a particle sub-system is 
+responsible for generating its initial position and velocity, among other 
+settings.</p>
+
+<p class=numBltLvl1>1 In the <b>Systems</b> panel's <b>Component</b> list box,
+select the <b>Source</b> item, then click the 
+<img src="30_particles_files/image059.gif"> button &ndash; this will add a 
+<b>Source</b> sub-system component to the particle's sub-system, and will
+also activate the <b>Source</b> sub-panel.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image058.gif"></p>
+
+<p class=numBltLvl1>2 Specify the particle sub-system's initial position and
+velocity.</p>
+
+<p class=lvl2>You can do this by manipulating the 3D gizmo, or by changing the 
+value of the <b>x</b>, <b>y</b>, and <b>z</b> fields.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image067.gif"></p>
+<p class=captLvl2><b>x</b>, <b>y</b>, <b>z</b> fields and 3D gizmos for <i>Point</i> <b>Initial Position Generator</b> and <b>Initial Velocity Generator</b></p>
+
+<p class=imgLvl2><img src="30_particles_files/image068.gif"></p>
+<p class=captLvl2><b>x</b>, <b>y</b>, <b>z</b> fields and 3D gizmos for <i>Cylinder</i> <b>Initial Position Generator</b> and <b>Initial Velocity Generator</b></p>
+
+<p class=numBltLvl1>3 Click the <img src="30_particles_files/image069.gif"> 
+toolbar button to see your particle spawning in the direction you have chosen 
+in the <b>Initial Velocity Generator</b> fields.</p>
+
+<p class=numBltLvl1>3 If you would like to see the particles spawning without 
+having to click the <img src="30_particles_files/image069.gif"> toolbar button, 
+then select the <b>Triggers/Grounded</b> group box's <b>Time Trigger</b> check 
+box, then set the <b>Emitter Rate</b> field to the number of particles that 
+should be generated per second (for this lesson, set it to <b>3.0</b>).</p>
+
+<p class=imgLvl2><img src="30_particles_files/image070.gif"></p>
+
+<p><p class=lvl2>You should see something like this.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image008.gif"></p>
+
+<p>Eventually, the particles will stop appearing. That is because there is a 
+maximum number of particles that can exist (256), and none of our particles is 
+being removed yet. We have to remove the particles by adding a <b>Sink</b> 
+component.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Sink">Adding a Sink component to remove particles</a></h2></span>
+<DIV>
+
+<p>The <b>Sink</b> component of a particle sub-system is responsible for 
+removing particles from the engine.</p>
+
+<p class=numBltLvl1>1 In the <b>Systems</b> panel's <b>Component</b> list box,
+select the <b>Sink</b> item, then click the 
+<img src="30_particles_files/image059.gif"> button &ndash; this will add a 
+<b>Sink</b> sub-system component to the particle's sub-system, and will
+also activate the <b>Sink</b> sub-panel.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image071.gif" width="331" height="158"></p>
+
+<p class=numBltLvl1>2 Set the <b>Maximum Age</b> field to <b>2.0</b>, this will determine that the pollen sprites will remain visible for around 2 
+seconds.</p>
+
+<p class=lvl2>The continual cycle of sprites will now be created and then 
+removed after 2 seconds. If you would like your sprites to be visible for an 
+unlimited period of time, then set the <b>Maximum Age</b> field to <b>-1</b>. 
+This will ensure that sprites always remain <i>alive</i>, or rendered.</p>
+
+<p class=noteLvl2><img src="images/note.bmp">Be very careful using an unlimited 
+period of time for your particles' age, as it can use up a lot of resources if 
+not used properly.</p>
+
+<p>Sometimes your particles will emit in short bursts, disappear, then burst 
+again &ndash; this is because you are reaching the maximum number of particles 
+(256) that can be rendered per sub-system. If this happens you should either:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Decrease the <b>Source</b> 
+sub-panel's <b>Emitter Rate</b> field.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Decrease the <b>Sink</b> 
+sub-panel's <b>Maximum Age</b> field.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Decrease the <b>System 
+Properties</b> sub-panel's <b>Capacity</b> field.</p>
+<p>Outside only will cause particles to stop rendering if they move into a <a href="06_create_shell.htm">shell</a>. This is commonly used for <a href="21_change_environ_settings.htm#DynamicSkyBoxes">weather</a> particle systems. </p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Force">Adding a force like gravity or wind</a></h2></span>
+<DIV>
+
+<p>We would now like our particle system moving in a more natural and 
+chaotic pattern, as compared to the straight and direct line that it is 
+currently traveling.</p>
+
+<p>The first step towards achieving this is to add the <b>Force</b> component to 
+the particle's sub-system.</p>
+
+<p class=numBltLvl1>1 In the <b>Systems</b> panel's <b>Component</b> list box,
+select the <b>Force</b> item, then click the 
+<img src="30_particles_files/image059.gif"> button.</p>
+
+<p class=numBltLvl1>2 Specify the direction of the force. You can do that in
+2 different ways:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">In the <b>Force</b> sub-panel,
+set the <b>x</b> field to <b>0.0</b>, <b>y</b> to <b>1.0</b>, and <b>z</b> to 
+<b>2.0</b>.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">In the viewport, use the 3D 
+gizmo.</p>
+
+<p class=lvl2>After this change, you will see an immediate change in the 
+direction in which the particles move.</p>
+
+<p class=lvl2>You will notice that the farther from the point of origin 
+(specified in the <b>Source</b> sub-panel's <b>Position</b> fields) that you 
+move the tool, the more the speed of the particles increases.</p>
+
+<p class=lvl2>You should now see something like this.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image011.gif">
+
+<p class=numBltLvl1>3 Change the particles' origin to a less focused area.</p> 
+ 
+<p class=lvl2>To do this, change the <b>Source</b> sub-panel's <b>Position</b>
+and <b>Velocity</b> fields.</p>
+
+<p class=lvl2>Set the <b>Position</b> group box's <b>Initial Position 
+Generator</b> drop-down list box to <b>Sphere</b>, then do the same with the
+<b>Velocity</b> group box's <b>Initial Velocity Generator</b> drop-down list
+box.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image072.gif"></p>
+
+<p class=noteLvl2><img src="images/note.bmp">The sub-system's components are an 
+integral part of ParticleEditor and its workflow. You should get used to 
+editing and returning to these items in order to experiment with your settings, 
+as one setting change can always have a <i>flow on</i> effect to the next. 
+Through this system, you can achieve impressive results.</p> 
+
+<p class=numBltLvl1>4 Notice that the 3D gizmos for <b>Initial Position 
+Generator</b> and <b>Initial Velocity Generator</b> are now represented by a 
+sphere each. You will have to enlarge these spheres in order to gain some effect 
+from your new source.</p>
+
+<p class=numBltLvl1>5 Change the <b>Initial Position Generator</b>'s sphere's 
+<b>Min Radius</b> and <b>Max Radius</b>.</p>
+
+<p class=ltrBltLvl2>A Use the <b>Scale</b> gizmo (activated by the 
+<code>Alt</code> keyboard shortcut) to set the <b>Max Radius</b> (represented by 
+the red circle) to roughly <b>4.0</b> metres.</p> 
+
+<p class=ltrBltLvl2>B Use the <b>Scale</b> gizmo to set the <b>Min Radius</b> 
+(represented by the green circle) to roughly <b>1.7</b> metres.</p> 
+
+<p class=numBltLvl1>6 Repeat this process to set the <b>Initial Velocity
+Generator</b>'s <b>Min Radius</b> and <b>Max Radius</b>.
+
+<p class=imgLvl2><img src="30_particles_files/image013.gif"></p>
+
+<p class=lvl2>The result of these changes is that your particles will appear 
+from a less focused area within this source sphere, and will also appear (or 
+<i>spawn</i> at differing velocities.</p>
+
+<p class=lvl2>You can vary the appearance of the system by adjusting the 
+difference between the <b>Min Radius</b> and <b>Max Radius</b> of the source 
+spheres.</p> 
+ 
+<p class=noteLvl2><img src="images/note.bmp">To toggle the display of a 
+background world area, click the <img src="30_particles_files/image073.gif"> 
+toolbar button.</p>
+
+<p>At this stage, our particles simply blink out of existence after the 2.0 
+seconds of their lifetime. This can be avoided by adding the <b>Scaler</b> 
+component to the particle's sub-system.</p>
+
+<p class=numBltLvl1>7 In the <b>Systems</b> panel's <b>Component</b> list box, 
+select the <b>Scaler</b> item, then click the 
+<img src="30_particles_files/image059.gif"> button.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image074.gif"></p>
+
+<p class=numBltLvl1>8 In the <b>Scaler</b> sub-panel:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Final Particle
+Size</b> field to <b>0.01</b>.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Rate</b> field to
+<b>0.02</b>.</p>
+
+<p class=lvl2>You might want to experiment with different settings and observe 
+the effects. The basic premise of this step it to cause the particle to scale 
+itself down to a barely visible object before it is no longer rendered, giving a 
+smoother transition into extinction. The rate of change will determine the speed 
+at which your particle grows smaller or larger.</p>
+
+<p class=lvl2>After this step, the particles will decrease in size before 
+disappearing.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Adding">Adding a new particle sub-system</a></h2></span>
+<DIV>
+
+<p>Now that the first particle's sub-system is established, we can very 
+quickly add a new one.</p>
+
+<p class=numBltLvl1>1 In the <b>Systems</b> panel, click the 
+<img src="30_particles_files/image076.gif"> button &ndash; this will create a
+copy of the item selected in the particle list box.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image075.gif"></p>
+
+<p class=numBltLvl1>2 Rename the new particle's sub-system <b>tinted</b>.</p>
+
+<p>This will provide us with a good template for quickly adding to the look of 
+our system by simply changing some values for each sub-system's component.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Colouring">Colouring your particles</a></h2></span>
+<DIV>
+
+<p>The first thing we are going to change about this new particle's sub-system
+is the colour.</p>
+
+<p>For this example we will have the particles cycle from yellow to blue, then 
+to green.</p>
+
+<p class=numBltLvl1>1 In the <b>Systems</b> panel's particle list, select the
+<b>tinted</b> particle's sub-system.</p>
+
+<p class=numBltLvl1>2 In the <b>Systems</b> panel's <b>Component</b> list box,
+select the <b>TintShader</b> item, then click the 
+<img src="30_particles_files/image059.gif"> button
+
+<p class=imgLvl2><img src="30_particles_files/image079.gif"></p>
+
+<p class=lvl2>The illustration below describes the <b>Tint Timeline</b> and the
+<b>Selected Tint</b> portions of the <b>TintShader</b> sub-panel.</p>
+
+<p class=imgLvl2><img src="30_particles_files/image080.gif"></p>
+
+<p>The <b>TintShader</b> sub-panel contains a colour selection swatch (the 
+<b>Selected Tint</b> portion). Clicking the small squares changes the colour of 
+your particle's sub-system. By <i>tinting</i> it, you can also cause this tint to cycle through various colours 
+during the life span of the particle.</p>
+
+<p class=numBltLvl1>3 Add a new tint to the <b>Tint Timeline</b>, by clicking 
+the <b>Add New Tint</b> button, then clicking anywhere in the <b>Tint 
+Timeline</b>'s coloured bar.
+
+<p class=numBltLvl1>4 Set the tint cycle to last 2 seconds, by setting the 
+<b>Tint Cycle Time</b> field to <b>2.0</b>.</p>
+
+<p class=numBltLvl1>5 Make the tint cycle loop continuously, by selecting the
+<b>Loop Tint Cycle</b> check box.</p>
+
+<p class=numBltLvl1>6 Configure the overall opacity of your particles per point
+in the tint cycle, by setting the <b>Alpha</b> field for each of them.</p>
+
+<p>Experiment with changing these settings and add new point to the tint cycle 
+to add even more colour possibilities to the cycle.</p>
+
+<p class=noteLvl1><img src="images/note.bmp">The <b>TintShader</b> component can 
+also be used to colourise and change the opacity of mesh-based particle systems.
+If you want mesh objects to change opacity, then the <b>Renderer Properties</b>
+sub-panel's <b>Mesh</b>'s <b>Blend Mode </b> drop-down list box must be set to 
+<b>Blended</b>.</p>
+
+<p class=lvl3><img src="30_particles_files/image081.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Changing">Changing the number of spawned particles</a></h2></span>
+<DIV>
+ 
+<p class=numBltLvl1>1 In the <b>System Properties</b> sub-panel, set the 
+<b>Capacity</b> field to <b>200</b>.</p>
+
+<p class=numBltLvl1>2 In the <b>Source</b> sub-panel, set the 
+<b>Triggers/Rounded</b> group box's <b>Emitter Rate</b> field to <b>60</b>.</p>
+
+<p class=lvl2>The result is immediate, and should look like the screen shot below.</p> 
+ 
+<p class=imgLvl2><img src="30_particles_files/image044.gif"></p>
+
+<p>Save your work, either by pressing the 
+<img src="30_particles_files/image082.gif"> button, or by selecting the 
+<b>File&rarr;Save Particle System</b> menu item.</p> 
+
+<p>Your new particle system is now ready to be placed in the world.</p>
+ 
+<p class=tipLvl1><img src="images/tip.bmp">You are now ready to experiment with 
+all settings. Here are some suggestions:<br>
+<img src="images/bullet.gif">Try changing the values in the
+<b>Force</b> sub-panel, combined with the ones in the <b>Source</b> sub-panel,
+in order to make your new particle's sub-system act in many different ways.<br>
+<img src="images/bullet.gif">Change the texture of your 
+system in the <b>Renderer Properties</b> sub-panel .<br>
+<img src="images/bullet.gif">Experiment with the packaged particle systems 
+&ndash; they might use settings in a way you never though of.<br>
+<img src="images/bullet.gif">Add new components, such as a <b>Magnet</b> and 
+<b>Orbitor</b>, and study the results. Try setting the <b>Magnet</b> sub-panel's 
+<b>Magnet Strength</b> to <b>60</b>, and <b>Minimum Distance For Force 
+Calculations</b> to <b>4</b>, for example.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="SubSystem">Sub-system components</a></h2></span>
+<DIV>
+
+<p>What follows is a brief explanation of each of the sub-system's 
+component, and their fields.</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="SystemProperties">System Properties sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>System Properties</b> sub-panel is shown below:</p>
+
+<p class=imgLvl1><img src="30_particles_files/image083.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Capacity    </td>
+       <td class=oddRow      >
+Caps the number of particles displayed on screen by that particular 
+sub-system.</td></tr>
+   <tr><td class=evnRow1stCol>Wind Factor</td>
+       <td class=evnRow      >
+Amount of effect that the wind will have on the particle system's velocity.</p>
+<p>Value ranges from <b>0.0</b> (wind velocity will not be added to particles' 
+velocity, <i>i.e.</i>, particles will not be affected by wind) to <b>1.0</b> 
+(wind velocity will be fully added to particles' velocity).</p> 
+<p>The effect of wind in the particle systems can be tested via the <b>Debug
+(Watcher) Console</b>. To do that, follow the steps below:</p>
+<p class=imgBltLvl><img src="images/bullet.gif">Press <code>F7</code> to 
+activate the <b>Debug (Watcher) Console</b>.</p>
+<p class=imgBltLvl><img src="images/bullet.gif">Select the <code>Client Settings
+</code> item &ndash; you can either type its number, or navigate to it via the 
+<code>Page Up</code> and <code>Page Down</code> keyboard shortcuts, then press
+<code>Enter</code>.</p>
+<p class=imgBltLvl><img src="images/bullet.gif">Select the <code>Weather</code>
+item.</p>
+<p class=imgBltLvl><img src="images/bullet.gif">Edit the <code>windVelX</code>
+and <code>windVelY</code> items &ndash; navigate to it via the 
+<code>Page Up</code> and <code>Page Down</code> keyboard shortcuts, then press
+<code>Enter</code>.</p>
+<p class=imgBltLvl><img src="images/bullet.gif">Press <code>Esc</code> to exit
+the console and see the effect of the new wind settings.</p></td></tr>
+   <tr><td class=oddRow1stCol>Max Lod </td>
+       <td class=oddRow      >
+Furthest distance from camera for which the particle system will still be 
+drawn.</p>
+<p>Good for improving system performance.</p></td></tr>
+</table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="RendererProperties">Renderer Properties sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Renderer Properties</b> sub-panel is shown below:</p>
+
+<p class=imgLvl1><img src="30_particles_files/image084.gif" width="274" height="458"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr>
+     <td class=oddRow1stCol><p>World Dependent </p>
+       </td>
+     <td class=oddRow      >Sets the particle system to use the world coordinates. If the particle was emitted  whilst the system was attached to a moving object, the particle would stay in the spot created whilst the object moves away. </td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol>Local Dependent </td>
+     <td class=evnRow      ><span class="oddRow">Sets the particle system to use the particles systems own local coordinates. If a particle was emitted whilst the system was attached to a moving object, the particle would follow the object due to its particle systems local coordinates being attached to the object.</span></td>
+   </tr>
+   <tr><td class=oddRow1stCol>View Dependent    </td>
+       <td class=oddRow      >
+Sets the particle system to use the camera view matrix, 
+So if the camera moves the particles will move with 
+it.  </p></td>
+   </tr> 
+   <tr><td class=evnRow1stCol>Sprite</td>
+       <td class=evnRow      >
+A sprite is a bitmap that turns to face the camera perspective.</p>
+<p>The <b>Sprite</b> portion of this sub-panel contains the fields below:</p>
+
+<table height="470" cellspacing=0 class="alternate"> 
+  <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Blend Mode    </td>
+       <td class=oddRow      >
+List of available modes to blend the particle. The options are described 
+in the table below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Option       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Additive </td>
+       <td class=oddRow      >
+         <p>Adds particle colour to the background. This is an efficient way of creating a 
+           pseudo alpha channel for your particle system. Completely black areas 
+           (RGB (0,0,0)) of the bitmap will be rendered transparent, removing the need for 
+           an alpha channel, although an alpha channel can still be used.</p>
+         <p>Will appear to glow at night.</p></td></tr>
+   <tr><td class=evnRow1stCol>Additive Alpha</td>
+       <td class=evnRow      >
+         <p>Uses alpha mask to determine the intensity of the additive blending between 
+           particles.</p>
+         <p>A mix between blended and additive. Areas with white alpha will be drawn solid, areas with black alpha will be added to the background</p></td></tr>
+   <tr><td class=oddRow1stCol>Blended</td>
+       <td class=oddRow      >
+Blends particles using the full 256 values of the alpha channel.</td></tr>
+   <tr><td class=evnRow1stCol>Blended Colour </td>
+       <td class=evnRow      >
+Uses colour values to blend particles. Multiplies the source colour by itself and the background by the inverse source colour. </td></tr>
+   <tr><td class=oddRow1stCol>Blended Inverse Colour</td>
+       <td class=oddRow      >
+Uses  colour value to blend particles. Multiplies the source colour by itself and the background by the inverse source colour. </td></tr>
+   <tr><td class=evnRow1stCol>Solid</td>
+       <td class=evnRow      >
+Renders particles as solid sprites, with no blending performed.</td></tr>
+   <tr><td class=oddRow1stCol>Shimmer</td>
+       <td class=oddRow      >
+Shimmers the background using the alpha channel to mask the shimmer.</td></tr>
+   <tr>
+       <td class=evnRow1stCol>Alpha Test</td>
+       <td class=evnRow      >
+Uses the sprite's alpha channel as a mask where alpha values less than 128 are 
+transparent.</td></tr></table>
+   <tr><td class=oddRow1stCol>Frame Count</td>
+       <td class=oddRow      >
+<p>The <b>Frame Count</b> and <b>Frame Rate</b> fields provide an efficient way for creating animated textures  using quantised UV scrolling. The alternative  method uses an animated texture &ndash;
+  <code>.texanim</code> &ndash; file. For details on this type of file, see the
+  lesson <a href="18_animated_texture_maps.htm">Texture Maps</a>, section 
+  <a href="18_animated_texture_maps.htm#Animated_Textures">Animated Texture 
+    Maps</a>.</p>
+<p>&nbsp;</p>
+<p>Quantised UV scrolling uses a single texture map like the example below. The engine then samples a section of the texture map determined by the  Frame Count and the Frame Rate fields.</p>
+<p>Frame Count: Should be set to the number of frames in your texture (15 in the example below).</p>
+<p><img src="30_particles_files/uv_quantisation.gif" width="961" height="64"></p>
+<p>Please take a look at the bradford_pear_flowers.xml particle in the Fantasydemo as an example of a particle system using quantised UV scrolling.</p>
+<p>&nbsp;</p>
+<p class=imgBltLvl><img src="images/bullet.gif">Using a <code>.texanim</code> animated texture results 
+  in synchronization of the animation independent of particle age. i.e. Multiple particles will all synchronise their animation</p>
+<p class=imgBltLvl><img src="images/bullet.gif">Using quantised UV scrolling reduces the number of bitmaps that need to be accessed by 
+  the graphics card, and synchronises the animation to individual particle age.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Frame Rate</td>
+       <td class=evnRow      >
+Number of frames to render per second.</p>
+       <tr><td class=oddRow1stCol>Point Sprite</td>
+       <td class=oddRow      >
+Indicates that the sprite is smaller than 64x64 pixels and has no animation, 
+which reduces the amount of necessary memory, thus increasing the rendering 
+performance.</p>
+
+<p>Point sprites are an extremely efficient way of rendering sprites, but beware
+of the following limitations.</p> 
+
+<p class=imgBltLvl><img src="images/bullet.gif">Point sprites cannot use rolling 
+UV coordinates. That means that the <b>Frame Rate</b> field will be ignored.</p>
+<p class=imgBltLvl><img src="images/bullet.gif">On some graphics cards, there 
+can be a limitation to the sprite's size.</p>
+<p class=imgBltLvl><img src="images/bullet.gif">You cannot rotate or spin point 
+sprites</p>
+
+<p>Normal sprite-based particle systems require a quad to be sent from the 
+graphics engine to the graphics card. When point sprites are used, only a single 
+point needs to be sent to the card &ndash; the graphics card then creates the 
+quad in hardware, which is a much faster way of rendering a sprite.</p></td></tr>
+   <tr>
+     <td class=evnRow1stCol>Enable Explicit Orientation </td>
+     <td class=evnRow      ><p>Turning this option ON will force the sprite to face a specific direction as defined by the XYZ entry. </p>
+       <p>When turned OFF, the sprite will automatically spin to face the camera. </p></td>
+   </tr>
+  </table>
+
+<p>&nbsp;</p>
+</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol>Mesh</td>
+       <td class=oddRow      >
+The mesh particle renderer is capable of rendering two types of visual files:</p>
+
+<p class=imgBltLvl><img src="images/bullet.gif"><b>Standard visual</b> &ndash;
+Uses any mesh <code>.visual</code> file as a particle. The 
+<code>standin.visual</code> file can be changed for any other mesh. Currently, 
+there is no support for using animated meshs as a particle.</p>
+
+<p class=imgBltLvl><img src="images/bullet.gif"><b>Mesh particle's visual</b>
+&ndash; The <b>Mesh Particles</b> option in the BigWorld's Visual Exporter 
+allows the BigWorld engine to (very efficiently) render multiple objects with a 
+single draw call. Up to fifteen separate objects can be exported as one object 
+by the BigWorld's Visual Exporter. Simply place your (less than or equal to 15) 
+objects within the scene, then export them as a single object by selecting the 
+<b>Mesh Particles</b> option button in the Visual Exporter.</p>
+
+<p class=lvl3><img src="30_particles_files/image085.gif"></p>
+
+<p>The picture below shows multiple particle meshes rendered with a single draw 
+call.</p>
+
+<p class=lvl2><img src="30_particles_files/image086.gif"></p>
+
+<p>Please note that all objects that make up a mesh particle system <b>must use 
+the same material type, and a single texture</b>.</p>
+
+<p>A good example of how to utilise mesh particle systems is the 
+<code>falling_leaves</code> particle system. In this system, several 3ds Max 
+leaf models share a single texture, but are rendered by the engine for the cost 
+of a single object.</p>
+
+<p>The <b>Mesh</b> portion of this sub-panel contains the fields below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Blend Mode    </td>
+       <td class=oddRow      >
+Please refer to the description of the <b>Blend Mode</b> drop-down list box in
+the <b>Sprite</b> group of fields.</td></tr>
+   <tr><td class=evnRow1stCol>Sorting  </td>
+       <td class=evnRow      >
+Determines the quality of the alpha-blending sorting, and makes a trade-off 
+between quality and speed. The options are described in the table below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Option      </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>None        </td>
+       <td class=oddRow      >
+The particle system as a whole will be rendered in order with respect to other 
+sorted objects, and the triangles contained within will be sorted back to 
+front. The particles themselves, however, will be rendered out of order.</p>
+<p>Choose this method if speed is paramount and the visual artifacts introduced 
+are not noticeable.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Quick </td>
+       <td class=evnRow      >
+Sorting will be done in a way that allows the renderer to still draw in groups 
+of 15.</p>
+<p>This introduces some sorting inaccuracies, but maintains most of the speed of 
+unsorted mesh particles.</p>
+<p>This method is highly recommended if the sorting inaccuracies are not 
+noticeable.</p></td></tr>
+
+   <tr><td class=oddRow1stCol>Accurate      </td>
+       <td class=oddRow      >
+Sorting of individual objects and triangles is performed.</p>
+<p>This provides the most accurate sorting, but breaks the ability of the 
+renderer to perform fast 15-at-a-time rendering, thus decreasing rendering 
+performance.</p>
+<p>If you choose this sorting method, then make sure to double-check the 
+performance hit induced.</p></td></tr></table></td></tr></table></td></tr>
+
+   <tr><td class=evnRow1stCol>Visual  </td>
+       <td class=evnRow      >
+Allows a regular mesh to be drawn as a particle system.</p>
+<p>It does not support tint shaders, unless they have a specially written 
+shader, nor does it support blend modes like Mesh renderers.</p></td></tr>
+
+   <tr><td class=oddRow1stCol>Amp </td>
+       <td class=oddRow      >
+
+<p>The <b>Amp</b> portion of this sub-panel contains the fields below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Width </td>
+       <td class=oddRow      >
+Thickness in which to draw the image in the source file.</td></tr>
+   <tr><td class=evnRow1stCol>Steps </td>
+       <td class=evnRow      >
+Number of kinks in each line.</td></tr>
+   <tr><td class=oddRow1stCol>Length</td>
+       <td class=oddRow      >
+How compressed or elongated the original texture will be when rendering the 
+particle &ndash; the particle is composed of continuous segments of the 
+specified texture.</p>
+
+<p class=lvl2><img src="30_particles_files/image087.gif"></p>
+   <tr><td class=evnRow1stCol>Variation </td>
+       <td class=evnRow      >
+Distance that each arc jumps away from the line, back to the origin.</td></tr>
+
+   <tr><td class=oddRow1stCol>Circular </td>
+       <td class=oddRow      >
+Indicates that the sprites should be drawn connecting each particle to the next, 
+instead of connecting each particle to the point of origin.</td></tr></table></td></tr>
+
+   <tr><td class=evnRow1stCol>Trail</td>
+       <td class=evnRow      >
+Draws a trail of particles behind each particle. Trail remembers the 
+particle's previous position, allowing you to use centrifugal forces like the
+<b>Orbitor</b> component on the particle.</p>
+
+<p>The <b>Trail</b> portion of this sub-panel contains the fields below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Width </td>
+       <td class=oddRow      >
+Thickness in which to draw the image in the source file.</p>
+<p>Try using small width values, as larger ones make the billboard 
+cross-visible.</td></tr>
+   <tr><td class=evnRow1stCol>Steps </td>
+       <td class=evnRow      >
+Number of times that the sprite will be drawn behind each particle, thus 
+actually altering the length of the trail.</td></tr></table></td></tr>
+
+   <tr><td class=oddRow1stCol>Blur</td>
+       <td class=oddRow      >
+Blur creates a trail of particles behind each particle.</p> 
+
+<p>The <b>Blur</b> portion of this sub-panel contains the fields below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Width </td>
+       <td class=oddRow      >
+Thickness in which to draw the image in the source file.</td></tr>
+ 
+   <tr><td class=evnRow1stCol>Time </td>
+       <td class=evnRow      >
+How long to extend the particle back along its current velocity vector.</td></tr></table>
+
+<p><b>Blur</b> does not remember the particle's previous position. Instead, it 
+works by drawing multiple particles along one vector. So if you are going to 
+use <b>Blur</b>, it may not work as intended if you have centrifugal forces 
+controlling your particle. Instead, try <b>Trail</b>.</p> 
+ 
+<p>The figure below illustrates the key difference between <b>Blur</b> and 
+<b>Trail</b>.</p>
+
+<p class=lvl2><table><tr>
+  <td><img src="30_particles_files/image088.gif">
+      <p class=captLvl0>Blur</p></td>
+  <td><img src="30_particles_files/image089.gif">
+    <p class=captLvl0>Trail</p></tr></table></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Meshparticles" id="Meshparticles">Using Mesh Particles to add small objects to the world. </a></span></h3>
+</span>
+<DIV>
+  <p>Mesh particles are a type of visual that allow the user to render multiple objects in a single draw call. The <a href="#RendererProperties">above</a> section describes how to create them.</p>
+  <p>Below are some of the examples of how mesh particles have been used to add clutter to the fantasy demo worlds. </p>
+  <p><img src="30_particles_files/image007.jpg" width="400" height="230"> <img src="30_particles_files/image008.jpg" width="400" height="230"> <img src="30_particles_files/image009.jpg" width="225" height="230"></p>
+  <p>Examples of particle systems street_grim.xml, leaf_litter, and falling_leaves used in the fantasydemo.</p>
+  <p>In order to a mesh particle system to draw multiple objects in a single draw call, each of the objects must share a common texture map. The map below is used by all three leaf type sin the leaf_litter.xml particle system. </p>
+  <p><img src="30_particles_files/image010.jpg" width="200" height="200"> <img src="30_particles_files/image011.jpg" width="200" height="200"></p>
+  <p class=imgLvl1>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="Source2">Source sub-panel</a></h3>
+</span>
+<DIV>
+
+<p>The <b>Source</b> sub-panel is shown below:</p>
+
+<p class=imgLvl1><img src="30_particles_files/image090.gif"></p>
+
+<p>The table below describes some of the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Position</td>
+       <td class=oddRow      >
+Group of fields defining a space within which to create the particle.</td></tr>
+   <tr><td class=evnRow1stCol>Velocity</td>
+       <td class=evnRow      >
+Defines a set of velocities applied in local space that will be given to the particles on their 
+creation.</td></tr>
+   <tr><td class=oddRow1stCol>Triggers/<br>Grounded</td>
+       <td class=oddRow      >
+Group of fields for time-triggered particle sub-systems.</p>
+It contains the fields described in the table below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Time Trigger</td>
+       <td class=oddRow      >
+Indicates that the particle sub-systems will periodically generate particles.</td></tr>
+   <tr><td class=evnRow1stCol>Motion Trigger</td>
+       <td class=evnRow      >
+         <p>Causes particles to be emitted per distance traveled. This is useful for 
+           creating a smoke trail behind a rocket, for example.</p>
+         <p> Select the System Properties and drag the system to preview the effect</p></td></tr>
+   <tr><td class=oddRow1stCol>Grounded</td>
+       <td class=oddRow      >
+ Makes all particles spawn from the ground plane, provided they are within 
+<b>Drop Distance</b> of the it.</td></tr></table>
+
+   <tr><td class=evnRow1stCol>Particle Size</td>
+       <td class=evnRow      >
+Group of fields defining the limits for randomising the size of the particles.</td></tr>
+
+   <tr><td class=oddRow1stCol>Sprite Only</td>
+       <td class=oddRow      >
+Group of fields defining initial orientation and spin rate for sprite-based 
+particles.</td></tr>
+
+   <tr><td class=evnRow1stCol>Mesh Only</td>
+       <td class=evnRow      >
+Group of fields defining initial orientation and spin rate for mesh-based 
+particles.</td></tr>
+
+   <tr><td class=oddRow1stCol>Miscellaneous</td>
+       <td class=oddRow      >
+Assorted settings for the particle system.</p>
+It contains the fields described in the table below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Number Of Particles<br>To Spawn On Demand</td>
+       <td class=oddRow      >
+Number of particles to create, for non-continuous emitters.</p>
+<p>This field is mandatory for non-continuous emitters, which are designed to be 
+dynamically created by the game (and not via WorldEditor). For these particle 
+systems, a game event must force the creation of particles.</p></td></tr>
+   <tr><td class=evnRow1stCol>Allowed Time<br>To Create Particles</td>
+       <td class=evnRow      >
+Limits the time allowed to calculate particles &ndash; if particles are not 
+created within this time, then they are not spawned.</p>
+<p>This is most useful for grounded particles, where system performance can be 
+affected by spawning too many particles.</p></td></tr>
+<tr>
+  <td class=oddRow1stCol>The maximum speed</td>
+       <td class=oddRow      > Prevents the particle system from generating new particles if the system goes above the maximum speed setting. Select the System Properties and drag the system to preview the effect</td></tr>
+
+</table>
+
+</td></tr>
+
+
+</table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Sink2">Sink sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Sink</b> component removes particles from the world due to their age 
+or speed, and is shown below.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image091.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Maximum<br>Age</td>
+       <td class=oddRow      >
+Maximum number of seconds that the particles are allowed to exist.</p>
+<p>A particle might be removed before its lifetime expires, if it reaches 
+<b>Minimum Speed</b>.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Minimum<br>Speed</td>
+       <td class=evnRow      >
+Minimum speed that the particles may have before being removed.</p>
+<p>A particle might be removed without reaching <b>Minimum Speed</b> if its 
+lifetime expires.</p></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Barrier">Barrier sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Barrier</b> component creates a barrier of selectable shapes, which 
+depending on the selected barrier effect, will bounce, remove, wrap or allow particles 
+to pass through.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image092.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Barrier Shape</td>
+       <td class=oddRow      >
+Shape of the Barrier.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Barrier Effect</td>
+       <td class=evnRow      >
+How the particles should interact with the barrier.</p></td></tr></table>
+
+<p>The wrap barrier moves a particle from one side of the barrier to the other when it collides with the barrier edge. It is particularly useful for creating dens particle effects around the player like those used in <a href="21_change_environ_settings.htm#Weather">weather systems</a>.</p>
+<p><img src="30_particles_files/image103.gif" width="197" height="176"></p>
+<p>A particle created at position 1. will hit the barrier at position 2 where it is teleported to position 3. This ensures that the density of particles remains high around the player. </p>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Force2">Force sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Force</b> component applies a second force (separate to the initial velocity generator) to be applied to all particles in the sub-system. Force is applied in world space,  so rotating the particle in WorldEditor will not rotate the direction that the force is applied. </p>
+<p class=imgLvl1><img src="30_particles_files/image093.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol        >Field       </th>
+       <th                       >Description </th></tr>
+   <tr><td class=oddRow1stCol    >x           </td>
+       <td class=oddRow rowspan=3>
+Direction/magnitude of the force to be applied to the particles in the 
+sub-system.</td></tr>
+
+   <tr><td class=evnRow1stCol    >y           </td></tr>
+
+   <tr><td class=oddRow1stCol    >z           </td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Stream">Stream sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Stream</b> component is similar to the <b>Force</b> component, although it 
+allows control over how much force is imparted to each particle per time (via
+the <b>Half-Life</b> field). Stream is applied in world space,  so rotating the particle in WorldEditor will not rotate the direction that the stream is applied. </p>
+
+<p class=imgLvl1><img src="30_particles_files/image094.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Stream Direction</td>
+       <td class=oddRow      >
+Direction/magnitude of the force to be applied.</td></tr>
+
+   <tr><td class=evnRow1stCol>Half-Life</td>
+       <td class=evnRow      >
+Number of seconds that the particle's velocity will take to move halfway towards 
+the stream's velocity.</p>
+<p>A large value will impart force slowly, while a short one will impart force 
+rapidly.</p>
+<p>A negative number means infinite half-life, <i>i.e.</i>, the particles will 
+not be affected by the stream.</p></td></tr></table>
+
+<p>Drag can be simulated by setting the stream direction to (0,0,0), and the half life to &lt;1.0 </p>
+<p>&nbsp; </p>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Jitter">Jitter sub-panel</a></h3></span>
+<DIV>
+
+<p>Allows the user to create a jittering/wobbling effect on both particle 
+position and/or velocity.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image095.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol              >Field       </th>
+       <th colspan=2                   >Description </th></tr>
+   <tr><td class=oddRow1stCol rowspan=2>Affect Position</td>
+       <td class=oddRow                >Check box </td>
+       <td class=oddRow                >
+Indicates that the jitter effect should be applied to the particles' positions.</td></tr>
+       <td class=oddRow                >Drop-down<br>list box</td>
+       <td class=oddRow                >
+Shape within which the effect positions are created.</p>
+<p>Larger objects result in larger differences in particle position, resulting 
+in a stronger jitter effect.</p></td></tr>
+
+   <tr><td class=evnRow1stCol rowspan=2>Affect Velocity</td>
+       <td class=evnRow                >Check box </td>
+       <td class=evnRow                >
+Indicates that the jitter effect should be applied to the particles' velocities.</td></tr>
+       <td class=evnRow                >Drop-down<br>list box</td>
+       <td class=evnRow                >
+Shape within which the velocity vectors are created.</p>
+<p>Larger objects result in larger effect vectors, resulting in a stronger 
+jitter effect.</p></td></tr></table>
+<p>Position jitter actually teleports the particle to a new position defined by the distance of the jitter volume. This has implications for barriers and collisions. In the image below you can see that particles given a position jitter may escape a barrier volume because they can teleport through the barriers surface.</p>
+<p><img src="30_particles_files/image104.gif" width="700" height="406"></p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Scaler">Scaler sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Scaler</b> component allows the user to scale the size of a particle 
+over time.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image096.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Final Particle Size</td>
+       <td class=oddRow      >
+Final size of the particle (in metres).</p>
+<p>Might be smaller than particle's original size.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Rate</td>
+       <td class=evnRow      >
+Number of metres per second by which to increase or decrease the particle.</td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="TintShader">Tint Shader sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Tint Shader</b> component is explained in the 
+<a href="#Colouring">Colouring Your Particles</a> section of this lesson.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="NodeClamp">Node Clamp sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Node Clamp</b> component is used to determine that the generated 
+particles should be clamped to the origin of the particle sub-system.</p>
+
+<p>There are no settings for this component.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Orbitor">Orbitor sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Orbitor</b> sub-panel causes particles to orbit around a vertical line 
+along the y-axis.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image097.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Orbit Y-Axis</td>
+       <td class=oddRow      >
+Coordinates of the point around which the particles will orbit along the 
+y-axis.</p>
+<p>To have the particle orbit around a different axis while placed in the word, 
+simply rotate the particle sub-system in WorldEditor.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Angular Velocity</td>
+       <td class=evnRow      >
+Angular velocity of the orbit (in degrees per second).</td></tr>
+
+   <tr><td class=oddRow1stCol>Affect Velocity</td>
+       <td class=oddRow      >
+Indicates that the velocity should also be rotated with the particle.</p>
+<p>If this if not selected, then the velocity will always be in the same 
+direction.</p></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Flare">Flare sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Flare</b> component allows the user to specify that a certain number 
+of the particles should be spawned with a flare effect.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image098.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Flare Name</td>
+       <td class=oddRow      >
+Texture used to apply the flare effect to the particles.</td></tr>
+
+   <tr><td class=evnRow1stCol>Flare Step</td>
+       <td class=evnRow      >
+Frequency in which to apply the flare effect to the particles.</p>
+<p>0 means that the last spawned particle will have the flare.</p>
+<p>1 means all particles have flares.</p>
+<p>2..n means every <i>n</i>th particle will have the flare effect.</p></td></tr>
+
+   <tr><td class=oddRow1stCol>Colourise</td>
+       <td class=oddRow      >
+Determines whether to use the settings specified for the <b>Tint Shader</b> 
+component (if any) to colour the particles.</td></tr>
+
+   <tr><td class=evnRow1stCol>Use Particle Size</td>
+       <td class=evnRow      >
+Determines whether the particle should be sized as per its source file, instead 
+of using the size of the chosen texture for the flare.</td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Collide">Collide sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Collide</b> component is similar to the <b>Barrier</b>, except that it
+uses the ground and other objects BSPs to calculate collisions.</p>
+
+<p>Using this component can be expensive, so it is best to mix it in combination 
+with sub-systems that do not use it. This way, half the particles will pass 
+through the ground, but the effect will still be convincing, as the other half 
+will bounce.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image099.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Elasticity</td>
+       <td class=oddRow      >
+Amount of bounce to apply to the particle when hitting the ground or other 
+objects (in which case their BSP trees are used for the calculation).</p>
+<p>The elasticity is applied as a factor to which the incoming velocity should 
+be multiplied to determine the outgoing velocity.</p>
+<p>For example, if <b>Elasticity</b> is set to <b>0.75</b> and a particle hits 
+the ground at a downward velocity of 1.0 m/s, then it will bounce upwards at a 
+velocity of 0.75 m/s.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Enable Sound</td>
+       <td class=evnRow      >
+Determines whether a sound should be played when particles hit the ground or 
+other objects.</td></tr>
+
+   <tr><td class=oddRow1stCol>Sound Tag</td>
+       <td class=oddRow      >
+Source file containing the sound to be played upon particle collision.</td></tr>
+
+   <tr>
+     <td class=evnRow1stCol>Source Src Idx</td>
+       <td class=evnRow      >
+Index (within the source file) of the sound to be played upon collision.</td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="MatrixSwarm">Matrix Swarm sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Matrix Swarm</b> component allows particles to be attached to a node 
+or a list of nodes. This involves writing Python scripts in the game, in order 
+to attach this sub-system correctly.</p>
+
+<p>Adding a <b>Matrix Swarm</b> component in ParticleEditor exposes the 
+functionality in the game script.</p>
+<p>When the particle system is given a set of node matrices (by a programmer), 
+this option allows the particles to be attached to those nodes.</p>
+<p>For example: There is an effect in the Fantasy demo <strong>Online</strong> mode when a guard is attacked with a fireball: The result is that lighting strobes all over his body. This effect was achieved using the Matrix Swarm feature. </p>
+<p>&nbsp;</p>
+<p><img src="30_particles_files/image005.jpg" width="164" height="190"></p>
+<p>&nbsp;</p>
+<p>To understand how this effect is achieved take a look at the SFX <strong><em>person_explosion.xml</em></strong> in <em><strong>mf\fantasydemo\res\sfx</strong>. </em>This file written by a programmer, contains a list of &quot;<strong>SwarmTargets</strong>&quot; that the programmer has defined for the particle system<strong><em> staff_implosion</em></strong> to spawn particles from. </p>
+<p>The SFX file is simple to follow, it  takes the <strong><em>staff_implosion</em></strong> particle system and plays (<strong>ForceParticle</strong>) the particle system on the models root node (<strong>ModelRoot</strong>). A single particle will spawn at each node sequentially from the top of the list downward and then repeat.</p>
+<p><img src="30_particles_files/image101.gif" width="468" height="552">
+
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Magnet">Magnet sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Magnet</b> component panel allows the user to specify a magnet effect 
+to the particle's point of origin.</p>
+
+<p class=imgLvl1><img src="30_particles_files/image100.gif"></p>
+
+<p>The table below describes the fields in this sub-panel:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Field       </th>
+       <th                   >Description </th></tr>
+   <tr><td class=oddRow1stCol>Magnet Strength</td>
+       <td class=oddRow      >
+Strength of the magnet.</p>
+<p>Determines how strongly the particles are attracted to it, and how fast they 
+move in its direction.</p></td></tr>
+
+   <tr><td class=evnRow1stCol>Minimum Distance</td>
+       <td class=evnRow      >
+Area around the magnet in which it will not exert force.</td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Splat">Splat sub-panel</a></h3></span>
+<DIV>
+
+<p>The <b>Splat</b> component is similar to the <b>Collide</b> one, except that 
+objects disappear when they hit the terrain or the world collision space.</p>
+<p>Splat also notes the position the particle collides with the ground. This can then be used by the programmer to do things like add decals or spawn other effects</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Limitations">Limitations</a></h2></span>
+<DIV>
+
+<p>Particle systems need to be used with care, as they can easily have an 
+adverse effect on the game's performance. Consider the following:</p>
+
+<p class=imgBltlLvl1><img src="images/bullet.gif">Large particles using blending 
+may hinder performance (due to fill rate issues).</p>
+
+<p class=imgBltlLvl1><img src="images/bullet.gif">Each particle consumes memory 
+even if not being used (memory usage is shown in the status bar).</p>
+
+<p class=imgBltlLvl1><img src="images/bullet.gif">In the <b>System Properties</b>
+sub-panel, set the <b>Capacity</b> field to be just enough to contain the number 
+of particles being used (see status bar).</p>
+
+<p class=imgBltlLvl1><img src="images/bullet.gif">The Amp and Trail particle
+sub-systems (set in the <b>Renderer Properties</b> sub-panel) need to cache each 
+particle's history, and therefore consume considerably more memory.</p>
+<p class=imgBltlLvl1>&nbsp;</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Using_Python" id="Using_Python">Using python</a></span></h2>
+<DIV>
+  <p>For the purpose of previewing complex special effects and testing the alignment of hardpoints it can be useful to know a little Python.  </p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Python_Macros" id="Attach_Weapon2">Python Macros</a></span></h3>
+  <p>Note: The FantasyDemo scripts use shortcut macros. If these macros are not configured within your scripts then the following shortcuts need to be replaced with their full notation. </p>
+  <p>&nbsp;</p>
+  <p><em>$B = BigWorld</em></p>
+  <p><em>$p = BigWorld.player( )</em></p>
+  <p><em>$t =BigWorld.target( )</em></p>
+  <p>&nbsp;</p>
+  <p>So that a command such as </p>
+  <p><span class="numBltLvl1"><em><strong>$B</strong>.debugAQ(<strong>$p</strong>.model)</em></span></p>
+  <p>becomes</p>
+  <p><span class="numBltLvl1"><em><strong>BigWorld</strong>.debugAQ(<strong>BigWorld.player()</strong>.model)</em></span></p>
+  <span onclick=toggle_heading()>
+  <h3><img src="images/expanded.bmp"><a name="Attach_Weapon" id="Attach_Weapon">Attaching a weapon to the player character</a></h3>
+  </span>
+  
+  <p>We can use Python to preview what a newly created weapon would look like in the player models hands. </p>
+  <p>Ensure that both your weapon model and player character share the same Hard Point. Open the client. </p>
+  <p class=numBltLvl1>1 Enter the Python console by typing pressing <strong>~(tilde) </strong>+ <strong>P </strong>and type:</p>
+  <p class=numBltLvl1>2 <em>m =  $B.Model(&quot;sets/town/props/axe.model&quot;) </em></p>
+  <p class=numBltLvl1>3 <em>$p.model.right_hand = m</em></p>
+  <p class=numBltLvl1>4 press <strong>~(tilde) + P </strong>to exit the Python console </p>
+  <p><img src="30_particles_files/image003.jpg" width="151" height="140">
+  <p>In summary we imported the BigWorld Model &quot;sets/town/props/axe.model&quot; and called it &quot;m&quot; (you would replace that path with the model you wanted to attach). We then attached &quot;m&quot; to the player models right hand. </p>
+  <p>&nbsp;</p>
+  <h3><img src="images/expanded.bmp"><a name="PlayAction" id="PlayAction">Playing an action on a model </a></h3>
+  <p></p>
+  <p>We can use Python to play an action on a model. For example if we wanted to preview the Ranger swinging the axe that we just attached we could do the following. </p>
+  <p>&nbsp;</p>
+  <p class=numBltLvl1>1 Enter the Python console by typing pressing <strong>~(tilde) </strong>+ <strong>P </strong>and type:</p>
+  <p class=numBltLvl1>2 <em>$p.model.SwingSword()</em></p>
+ <p>If we wanted the Ranger to swing the sword whilst running we could type: </p>
+  <p class=numBltLvl1>2 <em>$p.model.SwingSword()</em>; <em>$p.model.RunForward()</em></p>
+  <p class=numBltLvl1>4 press <strong>~(tilde) + P </strong>to exit the Python console </p>
+  <h3><img src="images/expanded.bmp"><a name="Attach_Particle" id="Attach_Particle">Attaching a particle system to a hardpoint </a></h3>
+  
+  <p>We can use Python to test the alignment of a particle system to a model </p>
+  <p>I will use the alignment of staff_idle.xml to the staff model as an example. </p>
+  <p>&nbsp;</p>
+  <p class=numBltLvl1>1 Enter the Python console by typing pressing <strong>~(tilde) </strong>+ <strong>P </strong>and type:</p>
+  <p class=numBltLvl1>2 m = $B.Model(&quot;sets/items/staff.model&quot;)</p>
+  <p class=numBltLvl1>3 $p.model = m</p>
+  <p class=numBltLvl1>4 import Pixie</p>
+  <p class=numBltLvl1>5 p = Pixie.create(&quot;particles/staff_idle.xml&quot;)</p>
+  <p class=numBltLvl1>6 m.node(&quot;HP_Spell&quot;).attach(p)</p>
+  <p><img src="30_particles_files/image004.jpg" width="304" height="98"></p>
+  <p>In summary we imported the BigWorld Model &quot;sets/town/props/staff.model&quot; and called it &quot;m&quot;. We then swapped the player model for &quot;m&quot;. We imported Pixie (particle module) so that we could add the particle system &quot;staff_idle.xml&quot; to the world. The staff_idle.xml particle system was then attached to the HP_Spell node of m. </p>
+  <h3><img src="images/expanded.bmp"><a name="Swap_Model" id="Swap_Model">Swapping Player Models </a></h3>
+  <p>&nbsp;</p>
+  <p>There are times when you might want to test current actions on a new character model asset that has been created. You can swap the player character models in the client via the Python console.</p>
+  <p>To do this follow this example command: </p>
+  <p>Open the Python console (<strong> ~(tilde) + P</strong>) and type:</p>
+  <p>p = $B.Model (&quot;characters/npc/spider/spider.model&quot;) </p>
+  <p>$p.model = p</p>
+  <p>&nbsp;</p>
+  <p>This basically tells the client that you are assigning the value &quot; p &quot; to a Bigworld model, then swap the current player character model to this new &quot; p &quot; model.</p>
+  <p>&nbsp;</p>
+  <p><img src="30_particles_files/image006.jpg" width="415" height="168"> </p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

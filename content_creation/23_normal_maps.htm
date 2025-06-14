@@ -1,0 +1,821 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Build and Use Normal Maps</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - BUILD AND USE NORMAL MAPS -->
+<h1><a name="lessonTitle">Build and Use Normal Maps</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="23_normal_maps.htm#Technical">Normal maps in the BigWorld engine</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Channel_Direction">Channel direction</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#UV_Lowpolygon">BigWorld uses Tangent space normals. </A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Naming">Naming conventions</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="23_normal_maps.htm#HintsnTips">Normal mapping hints and tips</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Visualising">Visualising the normal map contribution</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#FlatBlue">&quot;Flat Blue&quot;</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Which_App">Which application to use </A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="23_normal_maps.htm#NormalMapCreationMethods">Normal map creation methods</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Zbrush">Zbrush-generated normal maps</A></LI>
+ <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="23_normal_maps.htm#3ds_Max_Maya">3ds Max/Maya-generated normal maps</A></LI>
+  <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#HighPolygon">Building the high-polygon model</A></LI>
+  <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="23_normal_maps.htm#LowPolygon">Building the low-polygon model</A></LI>
+   <UL STYLE="display:none">
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#UV">UV-unwrapping the low-polygon mesh</A></LI>
+   </UL>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Generating3dsMax">Generating normal maps within 3ds Max</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#GeneratingMAYA">Generating normal maps with Maya 8.0</A></LI>
+ </UL>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#GeneratingATI">ATI Normal Mapper-generated normal maps</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Texture">Texture-generated normal maps</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Combining">Combining mesh- and texture-generated normal maps</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="23_normal_maps.htm#Renormalising">Renormalising a normal map</A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Technical">Normal maps in the BigWorld engine</a></h2></span>
+<DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Channel_Direction">Channel direction</a></h3></span>
+<DIV>
+
+<p>Normal maps are a 2-dimensional representation of a 3-dimensional model. 
+Different engines handle normal maps in different ways. The BigWorld engine 
+represents normals using the following rules.</p>
+
+<p>The normal map below represents a cube coming out of a plane &ndash; the 
+internal blue square is sticking out of the page towards you; the green side is 
+pointing up, and the red side is pointing to the right.</p>
+
+<p class=lvl1><table><tr>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image060.gif"></p>
+      <p class=captLvl0>Complete colours</p></td>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image061.gif"></p>
+      <p class=captLvl0>Red channel X</p></td>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image062.gif"></p>
+      <p class=captLvl0>Green channel Y</p></td>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image063.gif"></p>
+      <p class=captLvl0>Blue channel Z</p></td></tr></table></p>
+
+<p>Different normal-mapping applications may have these channels inverted. It is 
+recommended that you test the application that you plan to use, and adjust your 
+normal maps appropriately.</p>
+
+<p>We have tested a number of applications and found the following:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">The <b>ATI NormalMapper</b>
+tool produces normal maps as displayed above, and can therefore be used 
+directly in the BigWorld engine without alteration.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">The <b>NVIDIA nvTools
+Photoshop plug-in</b> produces normal maps with the Y (green) component inverted 
+(see below for instructions on how to use these maps).</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><b>Zbrush</b> produces normal 
+maps with the Y (green) component inverted. You can invert the green channel 
+before exporting, by selecting the <b>Preferences&rarr;Import/export&rarr;Normal 
+map flip Y (Green)</b> menu item.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">If you are using the 
+<b>Zbrush plug-in Zmapper</b>, then use the  
+<code>ATI_TangentSpace_BestQuality.zmp</code> within the configuration menu.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><b>Maya</b>'s <b>Surface 
+Sample</b> produces normal maps as displayed above, and can therefore be used 
+directly in the BigWorld engine without alteration.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">We still recommend testing the 
+normal maps that you create using any of the above methods, as different 
+versions may have different results.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="UV_Lowpolygon">BigWorld uses Tangent space normals. </a></h3></span>
+<DIV>
+
+<p>The BigWorld engine uses Tangent space normal maps &ndash; it does <b>NOT</b>
+use World Space's.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image075.gif"></p>
+
+<p>Tangent space normal maps are on average a flat blue colour with values
+R=128, G=128, B=255</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image003.jpg""></p>
+
+<p>World Space normal maps are easily identified by their rainbow colour, and 
+are <b>not</b> used in the BigWorld Engine.</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Naming">Naming conventions</a></h2></span>
+<DIV>
+
+<p>The BigWorld engine automatically converts all textures into compressed 
+<code>.dds</code> format. When normal maps are compressed, they produce visible 
+artifacts, and for this reason they are compressed differently from other 
+textures.</p>
+
+<p>The BigWorld engine recognises a texture as a normal map if it is named with 
+the suffix <code>_norms</code> or <code>_normals</code> (for example, 
+<code>dungeon_wall_norms.bmp</code>). Such textures remain free of compression 
+artifact.</p>
+
+<p><span style="color:red; font-weight:bold;">Warning:</span> If you do not use 
+the suffix <code>_norms</code> or <code>_normals</code>, then the normal maps 
+will be over-compressed, resulting in visual artifact</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image069.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="HintsnTips">Normal mapping hints and tips</a></h2></span>
+<DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Visualising">Visualising the normal map contribution</a></h3></span>
+<DIV>
+
+<p>Sometimes, a normal map will add very little to the visual contribution of an 
+object. It is always best to visualise the contribution of a normal map on an 
+object without the interference of other maps. This will help you identify 
+problems with the map, and decide if a normal map is really required.</p>
+
+<p>To preview the effect of a normal map alone, simply apply a mid-grey diffuse 
+map to your model within ModelEditor.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image086.gif" align=top>
+                 <img src="23_normal_maps_files/image080.jpg"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="FlatBlue" id="FlatBlue">&quot;Flat Blue&quot;</a></h3></span>
+<DIV>
+
+<p>Flat Blue is the colour R=128, G=128, B=256, and represents a flat surface 
+normal. A flat blue normal map means there is no difference in angle from the 
+low-polygon model to the high-polygon model. Flat blue can be useful for 
+removing normal mapping seams. If you are experiencing a lighting seam due to 
+normal maps, paint in a little flat blue along the problem line.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image081.jpg"></p>
+<p class=captLvl1>Before and after fixing the forehead lighting seam<br>by painting in &quot;Flat Blue&quot; along the UV seam.</p>
+
+<p>The background colour of all normal maps should be set to &quot;Flat 
+Blue&quot;, to avoid mipmap sampling errors.</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Which_App">Which application to use </a></h2></span>
+<DIV>
+
+<p>There are many applications available for creating normal maps &ndash; they 
+can be divided into two categories.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><b>Mesh-based normal maps</b></p>
+
+<p class=lvl2>Mesh-based normal maps use a low- and high-polygon model to 
+generate a normal map. Typically, rays are cast from the low-polygon model, and 
+the intersecting angle at which they pass through the high-polygon model 
+determines the colour value of the normal map.</p>
+<p class=lvl2>Mesh-based normal maps tend to be better for creating macro detail 
+that is easily modelled into the high-polygon model &ndash; the exception is 
+Zbrush and Mudbox, which allow for intricate details to be modelled quickly.</p>
+<p class=lvl2>Some mesh-based normal mapping programs include:</p>
+<p class=imgBltLvl3><img src="images/bullet.gif">3dsMax Render to texture 
+technique</p>
+<p class=imgBltLvl3><img src="images/bullet.gif">Maya 6.5 Transfer Surface 
+Information technique</p>
+<p class=imgBltLvl3><img src="images/bullet.gif">Kaldera</p>
+<p class=imgBltLvl3><img src="images/bullet.gif">ATI Normal mapper</p>
+<p class=imgBltLvl3><img src="images/bullet.gif">Zbrush</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><b>Image-based normal maps</b></p>
+
+<p class=lvl2>Image-based normal maps convert a greyscale height map into a 
+normal map with surprisingly good results. This technique is best for creating 
+extremely small details, such as fine lines and wrinkles. It is perfect for 
+creating details on flat surfaces, like bricks on a wall or cracks in 
+pavement.</p>
+<p class=lvl2>Some image-based normal mapping programs include:</p>
+<p class=imgBltLvl3><img src="images/bullet.gif">Nvidia's Normal Map Filter 
+(NvTools) for Photoshop 7.0</p>
+<p class=imgBltLvl3><img src="images/bullet.gif">The Zbrush Plug-In Z mapper</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="NormalMapCreationMethods" id="NormalMapCreationMethods">Normal map creation methods</a></h2></span>
+<DIV>
+
+<p>To create normal maps to be applied to complex organic shapes, such as 
+the human face, it is best to use mesh-generated normal maps. The following 
+sections describe several ways of generating a normal map from a  
+high-resolution mesh.</p>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Zbrush">Zbrush-generated normal maps</a></h3></span>
+<DIV>
+
+<p>To comprehensively cover the capabilities of Zbrush 2.0 is beyond the scope 
+of this tutorial. The following workflow describes a way of generating highly 
+detailed normal maps:</p>
+
+<p class=numBltLvl1>1 Create a low-polygon object in 3ds Max/Maya.</p>
+
+<p class=numBltLvl1>2 Unwrap the low-polygon object in 3ds Max/Maya.</p>
+
+<p class=numBltLvl1>3 Export the low-polygon object as a <code>.obj </code>file 
+from 3ds Max/Maya.</p>
+
+<p class=numBltLvl1>4 Import the low-polygon <code>.obj</code> file into 
+Zbrush.</p>
+
+<p class=numBltLvl1>5 Create a high-polygon object by sculpting extra detail 
+into the low-polygon model, using sub-divide, sculpting tools, and projection 
+master.</p>
+
+<p class=numBltLvl1>6 Use Zbrush to generate a normal map, or export the 
+high-polygon model for normal map generation in a third-party tool.</p>
+
+<p class=numBltLvl1>7 Use the Zbrush plug-in Zmapper to further refine the 
+normal map, by combing normal maps and bump maps and adjusting the normal map 
+intensity with realtime preview.</p>
+
+<p>In its native configuration, Zbrush produces normal maps with the Y (green) 
+component inverted. To make Zbrush-generated normal maps compatible with 
+BigWorld, invert the green channel before exporting, by selecting the
+<b>Preferences&rarr;Import/Export&rarr;Normal Map Flip Y</b> menu item.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image087.gif"></p>
+
+<p>If you are using the Zbrush plug-in Zmapper, then use the 
+<code>ATI_TangentSpace_BestQuality.zmp</code> within the configuration menu.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="3ds_Max_Maya">3ds Max/Maya-generated normal maps</a></h3></span>
+<DIV>
+
+<span onclick=toggle_heading()><h4><img src="images/expanded.bmp"><a name="HighPolygon">Building the high-polygon model</a></h4></span>
+<DIV>
+
+<p>To generate a high-polygon model in 3ds Max or Maya, follow the guidelines 
+below:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Start by building a 
+high-polygon version of the character, with all details actually built into the 
+mesh.</p>
+<p class=lvl2>At this stage, the polygon count is pretty much irrelevant, so you 
+should include as much detail as possible, in order to justify the use of the 
+normal maps.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">When modelling your high-poly 
+model, do not worry about issues like ease of deformation, as the high-poly 
+character will not be animated, and will only used for creating the normal 
+map.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">The high-poly model does not 
+need to be UV-mapped, or textured.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">It is ideal to model the mesh 
+as one continuous shell, but there may be cases when this is not applicable. The 
+reason for this is that intersecting geometry can cause artifacts in the map 
+generation process.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Normal mapping uses ray 
+gathering to determine the depth of the high-poly model. If a face is 
+perpendicular to the ray cast by the low-poly mesh, then it will not register it 
+as having any change in depth. To avoid this from happening, try to avoid 
+90-degree edges.</p>
+
+<p class=lvl2><table><tr>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image095.gif">
+      <p class=captLvl0>Perpendicular angle is bad for ray gathering</p></td>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image096.gif">
+      <p class=captLvl0>Obtuse angle is good for ray gathering</p></td></tr></table></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Exaggerate your details &ndash; 
+the nature of normal maps means that they work better with large, obvious forms, 
+rather than minute, complex ones. This does not mean that a model cannot be 
+complex; it only means that the details themselves work better when they are 
+larger.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><b>Subdivision Surfaces:</b>
+A common technique used to model high-poly characters is to use sub-division 
+surfaces. These are represented in 3ds Max by the <b>meshsmooth</b> modifier 
+(set the <b>Subdivision Method</b> drop-down list box to <b>Classic</b>) or in 
+Maya by the <b>Smooth</b> or <b>Smooth Proxy </b>buttons.</p>
+
+<p class=lvl2><table><tr>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image015.gif"></p>
+      <p class=captLvl0>3ds Max's <b>Subdivision Method</b> field</p>
+  <td valign=top><p class=imgLvl0><img src="23_normal_maps_files/image016.gif"></p>
+      <p class=captLvl0>Maya's <b>Smooth</b> and <b>Smooth Proxy</b> buttons</p></td></tr></table></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><b>Edge loops:</b> One of the 
+problems with high-poly modelling is keeping control of all your vertices. Using 
+edge loops is a good way to get around this.</p>
+<p class=lvl2>Edge loops are the most effective way of modelling a surface that 
+is clean, manageable and that has definite, strong forms. They are basically 
+loops of edges that define both the silhouette and primary forms of your model. 
+By sorting these out before you carve in detail, you can better control the high 
+levels of detail that you will end up adding later.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><b>Quads:</b> It is good 
+practice to keep the surface of your mesh in quads, as opposed to triangles, 
+whenever possible. This results in a cleaner sub-division operation, 
+particularly across areas that have wrinkles or lots of detail. Below is an 
+example of how to resolve an edge loop whilst retaining quads.</p>
+
+<p class=lvl2><table><tr>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image097.gif"></p>
+      <p class=captLvl0>Example of a bad surface</p>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image098.gif"></p>
+      <p class=captLvl0>Example of a good surface</p></td></tr></table></p>
+
+</DIV>
+<span onclick=toggle_heading()><h4><img src="images/expanded.bmp"><a name="LowPolygon">Building the low-polygon model</a></h4></span>
+<DIV>
+
+<p>To generate a low-polygon model in 3ds Max or Maya, follow the guidelines 
+below:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Once the high-poly version is 
+complete, you need to build a low-polygon version that encloses the high-poly 
+one like a cage. The closer the low-poly version of the mesh is to the shape of 
+the high-poly version, the better result you will get in the normal map. The 
+idea is to let the normal maps do most of the detail work, and the low version 
+will provide the overall shape.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">During the process of building 
+the low-poly model, pay attention to how closely it matches the shape of the 
+high-poly version. Curved areas especially should be as close as possible to one 
+another, to prevent distortion of the normal map.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">Once the low-poly mesh has been 
+modelled and UV-mapped, run it though STL check in 3ds Max &ndash; you can 
+access this via the <b>Modifier</b> panel.</p>
+
+<span onclick=toggle_heading()><h5><img src="images/expanded.bmp"><a name="UV">UV-unwrapping the low-polygon mesh</a></h5></span>
+<DIV>
+
+<p>To generate a normal map, UV coordinates are not required for the high-poly 
+model. Only layout UVs for your low-poly model.</p>
+
+<p>Wherever possible, unwrap the model with as few seams as possible. Normal 
+mapping creates  visible artifacts wherever there is a seam, so the less of 
+these the better.</p>
+
+<p>You <b>can</b> mirror UV coordinates on models that will use normal maps 
+within the BigWorld engine. The engine automatically flips during run-time the 
+normal map on the opposite side of the model.</p>
+
+<p>All UVW coordinates must be within 0.01 and 0.99, otherwise some normal map 
+utilities will not generate a sensible normal map. It is also important to 
+allow a small amount of room around each group of UVs, as some normal utilities 
+expand the pixels around the border to prevent mipmapping artifacts.</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h4><img src="images/expanded.bmp"><a name="Generating3dsMax" id="Generating3dsMax">Generating normal maps within 3ds Max</a></h4></span>
+<DIV>
+
+<p>Normal maps can be generated within 3dsMax 7.0 and above using the <b>Render 
+to Texture</b> method. To generate normal maps within 3ds Max, follow the steps
+below:</p>
+
+<p class=numBltLvl1>1 Make sure that you have both your high- and low-poly 
+models in 3dsMax.</p>
+
+<p class=numBltLvl1>2 Select your low-poly model.</p>
+
+<p class=numBltLvl1>3 Select the <b>Rendering&rarr;Render To Texture</b> menu
+item &ndash; the <b>Render To Texture</b> dialog box will be displayed.</p>
+
+<p class=numBltLvl1>4 In the <b>Render To Texture</b> dialog box, expand the 
+<b>Output</b> rollout, then click the <b>Add</b> button &ndash; the <b>Add 
+Texture Elements</b> dialog box will be displayed.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image099.gif"></p>
+
+<p class=numBltLvl1>5 In the <b>Add Texture Elements</b> dialog box's 
+<b>Available Elements</b> list box, select the <b>NormalsMap</b> item, then
+click the <b>Add Elements</b> button.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image100.gif"></p>
+
+<p class=numBltLvl1>6 In the <b>Render To Texture</b> dialog box, expand the 
+<b>Objects To Bake</b> rollout.</p>
+
+<p class=numBltLvl1>7 In the <b>Objects To Bake</b> rollout's <b>Mapping 
+Coordinates</b> group box's <b>Object</b> field:</p>
+<p class=ltrBltLvl2>A Select the <b>Use Existing Channel</b> option button.
+<p class=ltrBltLvl2>B Set the <b>Channel</b> drop-down list box to the same UV 
+channel that you unwrapped your model to.</p>
+
+<p class=imgLvl3><img src="23_normal_maps_files/image101.gif"></p>
+
+<p class=numBltLvl1>8 In the <b>Objects To Bake</b> rollout's <b>Projection
+Mapping</b> group box:</p>
+<p class=ltrBltLvl2>A Select the <b>Enabled</b> check box, and set its 
+drop-down list box to <b>Projection</b>.</p>
+<p class=ltrBltLvl2>B Click the <b>Pick</b> button &ndash; the <b>Add 
+Targets</b> dialog box will be displayed.</p>
+
+<p class=imgLvl3><img src="23_normal_maps_files/image102.gif"></p>
+
+<p class=numBltLvl1>9 In the <b>Add Targets</b> dialog box, select your 
+high-poly model, then click the <b>Add</b> button.</p>
+
+<p class=imgLvl3><img src="23_normal_maps_files/image103.gif"></p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>10</span> Click the 
+<b>Render</b> button to create your normal map.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image104.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h4><img src="images/expanded.bmp"><a name="GeneratingMAYA" id="GeneratingMAYA">Generating normal maps with Maya 8.0</a></h4></span>
+<DIV>
+
+<p class=noteLvl0><img src="images/note.bmp">The <b>Transfer Maps</b> tool was 
+named <b>Surface Sampler</b> in Maya 7.0 and below.</p>
+
+<p>To generate normal maps in Maya, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Select your low-poly model.</p>
+
+<p class=numBltLvl1>2 Select the <b>Ligting/Shading&rarr;Transfer Maps</b> menu
+item &ndash; the <b>Transfer Maps</b> dialog box will be displayed.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image094.gif"></p>
+
+<p class=numBltLvl1>3 In the <b>Output Maps</b> rollout:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the <b>Normal Map</b>
+check box.</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Normal Map</b> 
+field to the folder and name of your normal map file &ndash; the folder must be
+under the <code>res</code> folder structure, and the file name must contain the
+suffix <code>_norms</code>.</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Map Space</b> 
+drop-down list box to <b>Tangent Space</b>.</p>
+
+<p class=numBltLvl1>4 Click the <b>Bake</b> button to generate your normal 
+map.</p>
+
+<p>Maya generates normal maps with Red=Right and Green=Up, so they are 
+compatible with the BigWorld engine.</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="GeneratingATI" id="GeneratingATI">ATI Normal Mapper-generated normal maps</a></h3></span>
+<DIV>
+
+<p>To generate normal maps in ATI Normal Mapper, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Load your file with both the high-poly model and the 
+low-poly model together.</p>
+
+<p class=lvl2>The pictures below show hi-poly model (left), and the hi-poly 
+and low-poly model together (right).</p>
+
+<p class=lvl2><table><td>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image072.gif"></p>
+      <p class=captLvl0>Hi-poly model</p>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image073.gif"></p>
+      <p class=captLvl0>Hi-poly model, along low-poly model</p></td></tr></table></p>
+
+<p class=noteLvl2><img src="images/note.bmp">Please follow the guidelines below:</p>
+<p class=imgBltLvl4><img src="images/bullet.gif">Ensure that your low-poly model
+has only one smoothing group for the entire object &ndash; multiple smoothing 
+groups can adversely effect the normal calculations.</p>
+<p class=imgBltLvl4><img src="images/bullet.gif">Make sure that both the high- 
+and the low-poly meshes do not have an inverted transform. The best way to fix 
+this is to reset the X-form in 3ds Max.</p>
+
+<p class=numBltLvl1>2 If you are going to mirror the final object, then only 
+half of the low-poly model is required to generate the normal map.</p>
+
+<p class=numBltLvl1>3 As mentioned in the previous lesson, the low-poly model 
+must be UVW-unwrapped in order to generate the map.</p>
+<p class=lvl2>Here is an example of how this head model was unwrapped, using the 
+Texturing helper bitmap.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image023.gif">
+                 <img src="23_normal_maps_files/image024.gif" align=top>
+
+<p class=numBltLvl1>4 Export the two different models to the ATI Normal map 
+utility (it can be found in <a href="http://www.ati.com/developer/tools.html">
+http://www.ati.com/developer/tools.html</a>.</p>
+
+<p class=tipLvl2><img src="images/tip.bmp">Unzip the NormalMapper utility and 
+copy the <code>MAX_ExportNMF.dle</code> file to the plugins folder of 3ds Max
+&ndash; this will allow you to export your high- and low-resolution models as 
+<code>*.NMF</code> files to be used by the NormalMapper utility.</p>
+
+<p class=numBltLvl1>5 With the high-poly model selected, select the 
+<b>File&rarr;Export Selected</b> menu item &ndash; the <b>Open</b> dialog box
+will be displayed.</p>
+
+<p class=numBltLvl1>6 In the <b>Open</b> dialog box:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>File Name</b> field 
+to <b>hi.nmf</b>.</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Files Of Type</b> 
+drop-down list box to <b>NMF (<code>*.NMF</code>)</b>.</p>
+<p class=imgBltLvl2><img src="images/bullet.gif">Click the <b>OK</b> button.</p>
+
+<p class=numBltLvl1>7 Repeat the same steps for the low-poly model, naming it
+<b><code>lo.nmf</code></b>.</p>
+
+<p class=numBltLvl1>8 Use the ATI NormalMapper utility to generate the map.</p>
+<p class=lvl2>If you prefer a graphical interface, we suggest to run the 
+NormalMapperUI plugin script from within 3ds Max &ndash; the 
+<b>NormalMapperUI</b> dialog box will be displayed.</p>
+
+<p class=numBltLvl1>9 In the <b>NormalMapperUI</b> dialog box:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Input Files</b> 
+group box's <b>Low Resolution Model</b> field to the low-poly model saved in the 
+previous steps (in our example, <b><code>lo.nmf</code></b>).</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Input Files</b> 
+group box's <b>High Resolution Model</b> field to the high-poly model saved in 
+the previous steps (in our example, <b><code>hi.nmf</code></b>).</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Output File</b> 
+group box's field to the file to which you want the normals exported.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Click the <b>Create Normal 
+Map</b> button.</p>
+
+<p class=imgLvl3><img src="23_normal_maps_files/image105.gif"></p>
+
+<p class=tipLvl1><img src="images/tip.bmp">The ATI Normal Mapping tools come 
+with instructions on how to install the plugins and the NormalmapperUI.</p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>10</span> Use the NMFView
+utility to check the normal map just created for errors and areas to 
+improve (this utility should be located in the same folder as the other ATI 
+tools).</p>
+<p class=lvl2>NMFViewer asks for 2 files during startup: first the lo-poly 
+<code>.NMF </code>file, then the <code>.TGA</code> normal map previously 
+generated.</p>
+
+<p class=tipLvl2><img src="images/tip.bmp">It will save you a lot of time 
+keeping all <code>.NMF</code> and <code>.TGA</code> files in the same 
+folder.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image074.jpg">
+                 <img src="23_normal_maps_files/image075.jpg">
+                 <img src="23_normal_maps_files/image076.jpg"></p>
+
+<p class=lvl2>The following keyboard shortcuts can be used in NMFviewer (please
+refer to the ATI help for a complete list):</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif"><code>A</code> &ndash; Toggles 
+between normal map and coloured normal map modes.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif"><code>W</code> &ndash; Toggles 
+between the wireframe and shaded modes.</p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>11</span> Once you are 
+satisfied with the normal map, it is time to make the model ready for exporting 
+to the <b>BigWorld</b> format.</p>
+
+<p class=lvl2>Back in 3ds Max, if only half of the model was used, then you will 
+need to mirror the object to make a complete model.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image077.gif"></p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>12</span> Next, the colour 
+texture map for the model must be created, applied, and referenced correctly 
+(see lesson <a href="03_create_model.htm">Modify a Model</a>).</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image078.gif"></p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>13</span> With the texture 
+correctly referenced, select the <b>File&rarr; Export</b> menu item &ndash; the
+<b>Select File To Export</b> dialog box will be displayed.</p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>14</span> In the <b>Select 
+File To Export</b> dialog box:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Save In</b> 
+drop-down list box to the folder where you want the model saved.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>File Name</b> field
+to the name of the model.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Set the <b>Save As Type</b>
+drop-down list box to <b>Visual Exporter (<code>*.VISUAL</code>)</b>.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Click the <b>Save</b> 
+button   the <b>Visual Exporter</b> dialog box will be displayed.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image106.gif"></p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>15</span> In the <b>Visual 
+Exporter</b> dialog box:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the <b>Normal 
+Mapped</b> check box.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Click the <b>OK</b> 
+button.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image043.gif"></p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>15</span> Open the visual
+file in ModelEditor, and make sure that the right texture and normal maps are 
+referenced.</p>
+<p class=lvl2>The <b>Material Settings</b> panel should be used for that.</p>
+
+<p class=lvl2><table><tr>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image079.jpg"></p>
+      <p class=captLvl0>No Normal map applied</p>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image046.jpg"></p>
+      <p class=captLvl0>Normal map applied</p></td></tr></table></p>
+
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Texture">Texture-generated normal maps</a></h3></span>
+<DIV>
+
+<p>Normal mapping large flat surfaces with high detail can be achieved using 
+texture-generated normal maps. Normal maps can be generated from grey scale 
+height maps using NVIDIA's nvTools plug-in for Photoshop.</p>
+
+<p>This plug-in can be found on NVIDIA's website 
+<a href="http://developer.nvidia.com/object/photoshop_dds_plugins.html">
+http://developer.nvidia.com/object/photoshop_dds_plugins.html</a></p>
+
+<p class=numBltLvl1>1 Open Photoshop.</p>
+
+<p class=numBltLvl1>2 Load the diffuse texture.</p>
+
+<p class=numBltLvl1>3 Use the diffuse texture to paint a greyscale heightmap.</p>
+
+<p class=lvl2><table><tr>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image064.gif"></p>
+      <p class=captLvl0>Diffuse texture</p>
+  <td><p class=imgLvl0><img src="23_normal_maps_files/image065.gif"></p>
+      <p class=captLvl0>Greyscale heightmap</p></td></tr></table></p>
+
+<p class=numBltLvl1>4 With the heightmap selected, select the <b>Filter&rarr;
+nvTools&rarr;NormalMapFilter</b> menu item &ndash; the <b>NVIDIA Normal Map
+Filter</b> dialog box will be displayed..</p>
+
+<p class=numBltLvl1>5 In the <b>NVIDIA Normal Map Filter</b> dialog box:</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the <b>Height 
+Generation</b> group box's <b>Invert Y</b> check box.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Select the <b>Height 
+Generation</b> group box's <b>Scale</b> field to a value between <b>10</b> and
+<b>30</b>.</p>
+
+<p class=imgBltLvl2><img src="images/bullet.gif">Click the <b>OK</b> button.</p>
+
+<p class=imgLvl3><img src="23_normal_maps_files/image067.gif"></p>
+
+<p class=lvl2>Small sample sizes will capture small detail, whilst missing large 
+variations in tone. Large sample sizes will capture larger detail, whilst 
+missing smaller variations. In this case we are looking to capture large bumps 
+in the surface detail, so a high sample range was chosen.</p>
+
+<p class=lvl2>The <b>Height Generation</b> group box's <b>Scale</b> field 
+determines the strength of the normal map &ndash; values between 10 and 30 
+generally yield good results. Try a few different levels to find the optimum 
+one.</p>
+
+<p class=lvl2>Multiple bitmaps &ndash; one created with a high <b>Scale</b> 
+value and one created with a small one &ndash; can be overlaid in Photoshop, 
+allowing the user to obtain both large and small surface detail. If this is 
+done, then the normal map <b>must</b> be renormalised as described below in the 
+section <a href="23_normal_maps.htm#Renormalising">Renormalising a normal 
+map</a>.</p>
+
+<p class=lvl2><span style="color:red; font-weight:bold;">Warning:</span> Normal 
+maps created with Nvidia Normal Map Filter have their Y component inverted. The 
+<b>Height Generation</b> group box's <b>Invert Y</b> option button should be 
+selected when creating normal maps with this technique.</p>
+
+<p class=numBltLvl1>6 The plugin will generate a normal map based on the 
+heightmap that you painted.</p>
+
+<p class=imgLvl2><img src="23_normal_maps_files/image068.gif">
+
+<p class=numBltLvl1>7 Save the normal map appropriately (see below for 
+details).</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Combining">Combining mesh- and texture-generated normal maps</a></h3></span>
+<DIV>
+
+<p>In some cases, both techniques above can be combined to produce a superior 
+normal map.</p>
+
+<p>If you are using Zbrush to create your normal maps, then you can use the 
+Zbrush plugin <b>Zmapper</b> to preview and create normal maps combined with a 
+bumpmap. Otherwise, you can follow this tutorial and create them manually in 
+Photoshop.</p>
+
+<p>The normal map below is a mesh-generated normal map made using Zbrush 2.0, 
+although any 3D package will suffice. Like most mesh-generated normal maps, it 
+captures large details such as bony protrusions, bumps, scales and muscles.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image080.gif"></p>
+
+<p class=noteLvl1><img src="images/note.bmp">Normal maps created using Zbrush 
+have their Y (green) component inverted for use in the BigWorld engine. When 
+creating normal maps from Zbrush you must invert the Green channel in Photoshop 
+before use. You can do that before exporting by selecting the <b>Preferences
+&rarr;Import/Export&rarr;Normal Map Flip Y (Green)</b> menu item.</p>
+
+<p>Fine detail such as cracks in the dragon statue would have been difficult and 
+time-consuming to model into a high-resolution mesh. Such fine detail is also 
+difficult to capture with ray casting (the method by which normals are 
+calculated from mesh objects). Instead, the fine detail is painted onto a 
+texture. This texture is then used to generate a second normal map as outlined 
+in the section above.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image081.gif">
+                 <img src="23_normal_maps_files/image082.gif"></p>
+
+<p>The two normal maps are then overlaid within Photoshop using <b>Overlay</b> 
+layers.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image053.gif" align=top>
+                 <img src="23_normal_maps_files/image083.gif"></p>
+
+<p>Before this texture can be used, it must be renormalised &ndash; for details,
+read the section below.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Renormalising">Renormalising a normal map</a></h3></span>
+<DIV>
+
+<p>Each pixel on a normal maps represents a normalised (adds up to 1.0) 3D 
+vector where the values R,G,B represent X,Y,Z.</p>
+
+<p>Any editing done to a normal map will cause all normals to not add up to 
+1.0, resulting in visual artifacts. Therefore, normal maps that have been edited 
+in any way must be 'renormalised'.</p>
+
+<p>Normal maps can be renormalised using NVIDIA's Photoshop plug-in texture 
+tools (<a href="http://developer.nvidia.com/object/photoshop_dds_plugins.html">
+http://developer.nvidia.com/object/photoshop_dds_plugins.html</a>).</p>
+
+<p>To renormalise a texture, open the normal map in Photoshop, then select the
+<b>Filter&rarr;nvTools&rarr;NormalMapFilter</b> menu item, then in the 
+<b>NVIDIA Normal Map Filter</b> dialog box, select the <b>Alternate 
+Conversions</b> group box's <b>Normalise Only</b> check box.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image084.gif"></p>
+
+<p>Your normal map will now be ready to use.</p>
+
+<p class=imgLvl1><img src="23_normal_maps_files/image085.gif"></p>
+
+</DIV>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights 
+reserved. Proprietary commercial in confidence.</p>
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

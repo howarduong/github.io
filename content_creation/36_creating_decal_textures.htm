@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create Decal Textures</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER -CREATE DECAL TEXTURES -->
+<h1><a name="lessonTitle">Create Decal Textures</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="36_creating_decal_textures.htm#Guidelines">Creation guidelines</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>Decals are images added dynamically on top of objects on the world to 
+simulate effects such as damage and bullet holes.</p>
+
+<p>The grenade explosion below triggers code to place a decal on the ground.</p>
+
+<p class=imgLvl1><img src="36_creating_decal_textures_files/image001.gif">
+                 <img src="36_creating_decal_textures_files/image002.gif"></p>
+
+<p>Keep in mind that the decal system in the BigWorld client projects decals onto the scene by performing
+an intersection test and clips the decal geometry to the underlying collision BSP. As such, visual artifacts may 
+occur (e.g. floating decals) if the collision BSP differs significantly from the visual mesh.</p>
+
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Guidelines">Creation guidelines</a></h2></span>
+<DIV>
+
+<p>Decals work differently to most alpha transparency textures. The rules that 
+you must adhere to when making decal textures are described in the table below:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr><th class=FirstCol    >Item   </th>
+       <th                   >Rule   </th></tr>
+   <tr><td class=oddRow1stCol>Size   </td>
+       <td class=oddRow      >
+Decals must be 64<i>x</i>64 pixels.</td></tr>
+
+   <tr><td class=evnRow1stCol>Dark values</td>
+       <td class=evnRow      >
+Decals are not affected by the game lighting, so lighter decals will appear to 
+glow at night.</p>
+<p>For this reason, it is recommended that you stick with dark colours.</p></td></tr>
+
+   <tr><td class=oddRow1stCol>Alpha channel </td>
+       <td class=oddRow      >
+Decals must have an alpha channel, to mask the background to which they are 
+applied, <b>not</b> the decal texture &ndash; the example below illustrates this
+point.</p>
+
+<table><tr>
+  <td><p class=imgLvl0><img src="36_creating_decal_textures_files/image003.gif"></p>
+      <p class=captLvl0>Colour channel of the<br>explosion decal shown above</p></td>
+  <td><p class=imgLvl0><img src="36_creating_decal_textures_files/image004.gif"></p>
+      <p class=captLvl0>Alpha channel of the<br>explosion decal shown above</p></td></tr></table>
+
+</td></tr>
+
+   <tr><td class=evnRow1stCol>Invisible borders</td>
+       <td class=evnRow      >
+Decal maps are joined together as one large bitmap in the BigWorld engine. It is 
+therefore important to make sure that the border of the alpha channel is pure 
+white (255,255,255), and the border of the colour channel is pure black (0,0,0).</p>
+<p>If these channels are not set up correctly, then sampling will cause the 
+alpha channels and/or colour channels to leak into each other, resulting in 
+visible borders on your decal textures.</p>
+<p>Remember that the decal is blended additively, so even if the alpha channel 
+is white on the border, any colour values above pure black will create a visible 
+border.</p></td></tr>
+
+</table>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

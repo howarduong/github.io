@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Create Animated or Interactive Entities</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - CREATE ANIMATED OR INTERACTIVE ENTITIES -->
+<h1><a name="lessonTitle">Create Animated or Interactive Entities</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="15_create_interactive_entity.htm#Creating">Creating animations for a door entity</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="15_create_interactive_entity.htm#ReUsingDoorAnimations">Create multiple door animations from a single .animation file</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="15_create_interactive_entity.htm#DoorActions">Create door actions</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="15_create_interactive_entity.htm#Attaching">Attaching a hard-point to an object</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+ 
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Creating">Creating animation</a>s for a door entity</h2></span> 
+<DIV>
+
+<p> Load the <code>Cave_entrance.max</code> and 
+<code>Doors_entity.max</code> files.</p> 
+ 
+<p> Build a cave <i>entrance doorway</i> model for placing 
+over the exit portal of a cave shell.</p> 
+ 
+<p> <img src="15_create_interactive_entity_files/image001.gif"></p>
+<p class=captLvl2>Entrance doorway model</p> 
+  
+<p> Create two <b>doors</b> that will fit into the doorway and 
+move their pivot points to the hinge positions located on the outer edges.</p> 
+ 
+<p><img src="15_create_interactive_entity_files/image002.gif"></p>
+<p>Doors with rotation pivots positioned</p> 
+ 
+<p> Animate the doors so that they open and shut in the 
+30-frame long sequence &ndash; with them fully open at frame 15.</p>
+<p><img src="15_create_interactive_entity_files/image003.gif"></p>
+<p>Doors opening &ndash; frames reduced for documentation purposes</p>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="ReUsingDoorAnimations" id="ReUsingDoorAnimations">Crea</a></span>te multiple door animations from a single .animation file</h3>
+<DIV>
+  <p>Several separate animations are required for an opening door.</p>
+  <p>* DoorClosed: A single frame looping animation where the door is closed</p>
+  <p>* DoorOpening: A multi frame animation of the door opening</p>
+  <p>* DoorOpen: A single frame looping animation where the door is open</p>
+  <p>* DoorClosing: The DoorOpening animation played in reverse.</p>
+<p>Rather than export each animation individually from your 3d app, you can export a single DoorOpening animation and cut it into sections from within ModelEditor. </p>
+<p><img src="15_create_interactive_entity_files/image021.gif" width="558" height="322"></p>
+<p>Simply drag the same DoorOpening animation into the Animation tab multiple times and ModelEditor will created multiple DoorOpening animations. These individual animations can then be split up into pieces by modifying the start and end frame</p>
+<p><img src="15_create_interactive_entity_files/image022.gif" width="268" height="210"> <img src="15_create_interactive_entity_files/image023.gif" width="268" height="210"></p>
+<p class=captLvl2>The Included Frames setting allows users to create multiple animations from a single animation file. </p>
+<p class=captLvl2>&nbsp;</p>
+</DIV>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="DoorActions" id="DoorActions">Create door actions</a></span></h3>
+<DIV>
+  <p>The example door entity in the Fantasy demo scripts <code>fantasydemo\res\scripts\common\GameData\DoorData.py </code>expects several actions with distinct naming conventions. </p>
+  <p> For doors to open inward and outward based on where the opener is<br>
+     the following actions must exist:<br>
+     <br>
+     * DoorOpeningInward<br>
+     * DoorOpeningOutward<br>
+     * DoorOpenInward<br>
+     * DoorOpenOutward<br>
+     * DoorClosingInward<br>
+     * DoorClosingOutward<br>
+     * DoorClosed<br>
+     <br>
+     Otherwise, for doors that only ever open in one direction must have<br>
+     the following actions:<br>
+     <br>
+     * DoorOpening<br>
+     * DoorOpen<br>
+     * DoorClosing<br>
+     * DoorClosed</p>
+  <p>Take a look at the fantasy demo asset <code> fantasydemo\res\sets\temperate\props\tower_door\model\tower_door.model </code>as an example. </p>
+  <p>Note: Your particular door implementation may differ.</p>
+</DIV>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Attaching">Attaching a hard-point to an object</a></h2>
+</span><span onclick=toggle_heading()></span> 
+<DIV>
+ 
+<p class=numBltLvl1>1 Load the <code>Warrior_sword_position.max</code> and 
+<code>Sword_item.max</code> files.</p> 
+ 
+<p class=numBltLvl1>2 First you need to build an object that can be used by the 
+player character as an item to carry &ndash; in this lesson, it will be a
+sword.</p>
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image008.gif"></p>
+<p class=captLvl2>Sword weapon item</p> 
+ 
+<p class=numBltLvl1>3 To allow the player character to pick up interactive items 
+in the game, you will need to attach hard points to them that correspond to the 
+same hard points on the biped.</p>
+<p class=lvl2>The hard point on the right hand of the biped is called  
+<code>HP_right_hand</code>, and this will be where the sword attaches. Make sure this 
+hard point exists in your warrior character file, and that it is linked to the 
+<code>biped R Hand</code>.</p> 
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image009.gif"></p>
+<p class=captLvl2>Hard point on right hand of biped</p> 
+ 
+<p class=numBltLvl1>4 In the case of the sword object, you need to establish 
+exactly where the biped hand will grasp the item. As it is a sword, the obvious 
+place would be the handle.</p>
+<p class=lvl2>The easiest way to make sure that the hard points line up is to 
+position the item in the hand, as though the character is already holding it
+(as in <code>Warrior_sword_position.max</code>). Merge the sword into the same 
+scene as the warrior character, then unhide the hard points called 
+<code>HP_right_hand</code>, <code>HP_left_hand</code>, <code>HP_right_hip</code>, 
+<code>HP_shoulder</code>, and the biped structure.</p> 
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image010.gif"></p>
+<p class=captLvl2>Sword merged with the warrior character</p> 
+ 
+<p class=numBltLvl1>5 Align and position (in local coordinates) the sword object 
+to the biped right-hand position, as though it is being carried by the warrior
+character at the handle.</p> 
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image011.gif"></p>
+<p class=captLvl2>Sword in position on the right hand</p> 
+
+<p class=numBltLvl1>6 Clone the right-hand hard point, and name it 
+<code>HP_sword</code> (already done for you in 
+<code>Warrior_sword_position.max</code>). Unlink this new copy from the biped 
+right hand. <code>HP_sword</code> is only a temporary name used to
+differentiate this new hard point from the hard point attached to the biped.</p> 
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image012.gif">
+                 <img src="15_create_interactive_entity_files/image020.gif" align=top></p>
+<p class=captLvl2>Hard point cloned with a new name</p> 
+ 
+<p class=numBltLvl1>7 With the first hard point already linked to the biped's 
+right hand, you can now link the sword to the <code>HP_sword</code> hard point.</p>
+<p class=lvl2>You should now have two separate hierarchies established &ndash; 
+one for <code>HP_right_hand</code>&rarr;<code>biped R Hand</code>, and the other 
+for <code>Sword</code>&rarr;<code>HP_sword</code>.</p> 
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image013.gif"></p>
+<p class=captLvl2>Two separate hierarchies</p> 
+ 
+<p class=noteLvl2><img src="images/note.bmp">This linkage setup is designed so 
+that when the biped's right hand moves, the hard point linked to it will follow. 
+However, when the hard point for the sword is moved, the sword object follows it 
+instead. When the right hand is positioned over the sword in the game (during a 
+pick up animation), the two hard points will be matched based on their names, 
+and if they are the same, they are then linked using a programmed script toggle 
+to indicate that contact is made.</p> 
+ 
+<p class=imgLvl4><img src="15_create_interactive_entity_files/image015.gif" height=200></p>
+<p class=captLvl4>Sword follows its own hardpoint</p> 
+ 
+<p class=numBltLvl1>8 For the purpose of exporting the sword at a position more 
+suitable for world placement, start by unlinking the sword from its hard point,
+then linking the hard point to the sword.</p> 
+ 
+<p class=numBltLvl1>9 Realign the sword to the origin in a position above the 
+home-grid, to make it visible in the scene when exported &ndash; the hard point 
+will follow the sword as you move into position.</p> 
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image016.gif"></p>
+<p class=captLvl2>Sword centred at the origin with hard-point linked)</p> 
+ 
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>10</span> Rename <code>HP_sword</code> to <code>HP_right_hand</code>.</p>
+<p class=lvl2>Now you have two copies of <code>HP_right_hand</code> &ndash; one 
+for the biped attached to its right hand, and one for the sword located on its 
+handle.</p> 
+ 
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>11</span> Repeat the above 
+process from steps <span class=numBltLvl1_Font>5</span> to 
+<span class=numBltLvl1_Font>10</span> for the hard points 
+<code>HP_left_hand</code>, <code>HP_right_hip</code>, and 
+<code>HP_shoulder</code>, so that the sword will be positioned at the origin 
+with all its duplicated hard points located near it.</p>
+<p class=lvl2>The 3ds Max file should have two of each of the following hard 
+points: <code>HP_right_hand</code>, <code>HP_left_hand</code>, 
+<code>HP_right_hip</code>, and <code>HP_shoulder</code>. One set should be 
+attached to the biped, and the other should be located near the sword.</p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>12</span> Select the sword 
+and its newly created hard points, then save them to a separate 3ds Max file.</p> 
+ 
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>13</span> Open the sword 
+object's 3ds Max file.</p>
+
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>14</span> Export both the
+sword and its hard points.</p>
+<p class=lvl2>In the <b>Visual Exporter</b> dialog box, select the <b>Visual
+Type</b> group box's <b>Static with nodes</b> option button.</p>
+
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image019.gif"></p> 
+ 
+<p class=numBltLvl1_Gt9><span class=numBltLvl1_Font>14</span> Save the exported 
+sword (with texture maps properly referenced).
+<p class=lvl2>Under the game resource folder's  <code>sets/items</code> 
+structure, create the sub-folder <code>weapons</code>, then save the file in this
+new folder, with the name <code>sword.visual</code>.</p>
+ 
+<p class=imgLvl2><img src="15_create_interactive_entity_files/image017.gif"></p>
+<p class=captLvl2>Weapons folder created</p> 
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

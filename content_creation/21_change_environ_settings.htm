@@ -1,0 +1,487 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>Change Environmental Settings</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <style type="text/css">
+<!--
+.style1 {font-style: italic}
+.style2 {color: #FF0000}
+-->
+  </style>
+  </head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER - CHANGE ENVIRONMENTAL SETTINGS -->
+<h1><a name="lessonTitle">Change Environmental Settings</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><img src="images/leaf.bmp"><A HREF="21_change_environ_settings.htm#Overview">Overview</A></LI>
+<LI><img src="images/leaf.bmp"><a href="21_change_environ_settings.htm#NightSkydome">Night sky dome</a></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><a href="21_change_environ_settings.htm#DaySkydome">Day sky dome</a></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Creating">Sky gradient map</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Fog">Fog Colour</A></LI>
+ </UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="21_change_environ_settings.htm#StaticSkyBoxes">Static sky boxes </A></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#StaticSkyBoxShaders">Static Sky box shaders</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Create_Skydome">Create a Static Sky Dome Model</A></LI>
+ </UL>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><a href="21_change_environ_settings.htm#DynamicSkyBoxes">Dynamic sky boxes (Weather</a>)</LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#DynamicSkyBoxShaders">Dynamic "weather" Sky box shaders </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Create_dynamic_skydome">Create a Dynamic SkyDome Model</A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Maps_Cloud_Layer">Painting Maps for the cloud_layer Effect Sky domes </A></LI> 
+ </UL>
+<LI><img src="images/leaf.bmp"><a href="21_change_environ_settings.htm#SpecialEffectsAndParticles">Weather system special effects and particle systems</a></LI>
+<LI><img src="images/leaf.bmp"><a href="21_change_environ_settings.htm#Bloom">Bloom</a></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><a href="21_change_environ_settings.htm#EnvironmentOptions">Space environment options </a></LI>
+ <UL STYLE="display:none">
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Time">Changing hour length and start time </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Angle">Sun and Moon angle </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Sun_Flare">Sun Flare </A></LI> 
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#Time_Slider">Time of day </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#AmbientLight">Ambient and Sun Light </A></LI>
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#AtmosphericEffects">Atmospheric effects </A></LI> 
+  <LI><IMG SRC="images/leaf.bmp"><a href="21_change_environ_settings.htm#FarPlane">Changing far plane settings </A></LI> 
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="21_change_environ_settings.htm#Clouds">Pre 1.9 Clouds</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>Each world space has a <code>space.settings</code> file, which can be found 
+in the folder where the space's chunk data is stored. The 
+<code>space.settings</code> file for the main space in Fantasy Demo is located
+in  <code>fantasydemo/res/spaces/highlands</code>. This file references the
+<code>sky.xml</code> file, which controls all environmental variables discussed 
+below. The <code>sky.xml</code> file for FantasyDemo is located in 
+<code>fantasydemo/res/environments/sky.xml</code>.</p> 
+ 
+<p>Each <code>space.settings</code> file can point to a different 
+<code>sky_spacename.xml</code> file. Therefore, you can make a different 
+<code>sky.xml</code> file for each space, which allows different environment 
+effects per space. The desert's <code>space.settings</code> file, for example, 
+points to <code>desert_sky.xml</code>, which changes the environmental effects 
+to use a different colour sky.</p>
+
+<p>Many of the properties outlined in <code>sky.xml</code> file can be modified 
+in WorldEditor's <b>Environment Options</b> panel, and are described in the 
+sections below.</p>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Overview" id="Overview">Overview</a></span></h2>
+<DIV>
+  <p><img src="21_change_environ_settings_files/image031.gif" alt="Sky box layers" width="443" height="360"></p>
+  <p>The diagram above shows the multiple sky boxes available within the BigWorld Engine </p>
+  <p>1. <a href="#NightSkydome">Night Sky dome</a></p>
+  <p>2. <a href="#DaySkydome">Day Sky dome</a> (Sky Gradient map) </p>
+  <p>3. <a href="#StaticSkyBoxes">Static Sky Boxes </a></p>
+  <p>4. <a href="#DynamicSkyBoxes">Dynamic Sky Boxes</a> (Weather Systems) </p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="NightSkydome">Night Sky dome</a></span></h2>
+</span>
+<DIV>
+  <p>The <code>fx_skydome.model</code> displays the stars at night. It is located
+    in the <code>bigworld/res/system/models</code>, and uses the texture <code>bigworld/res/system/maps/star.bmp.  </code>Its material properties are described in <code>bigworld/res/system/materials/sky_dome.mfm</code></p>
+  <p>This sky dome is displayed behind all other sky domes. </p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="DaySkydome">Day Sky dome</a></span></h2>
+</span>
+<DIV>
+  <p>In front of the night sky dome is a day sky dome. This sky dome is textured with the skygradient map</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Creating" id="Creating">Sky gradient map</a></span></h3>
+  <p>The sky gradient map determines the colour of the sky as the time of day 
+    changes. A single vertical line of pixels is chosen from the sky gradient map, 
+    depending on the time of day. The colour from these pixels is then stretched 
+  across the entire sky.</p>
+  <p>The image size of a sky gradient map should be 64 pixels wide and 256 pixels 
+    high.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image015.gif"></p>
+  <p>The sky gradient map is referenced by the <code>sky.xml</code> file, and can 
+    be chosen on a per-space basis in WorldEditor's <b>Environment Options</b> panel. </p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image016.gif"></p>
+  <p>At night the alpha in a sky gradient map is used to fade out the skygradient colour 
+    as nightfall sets in, allowing you to see the night sky dome behind it. Therefore, a skygradient texture must be saved as a 
+    32-bit TGA file. To prevent sky gradient maps from being compressed to the DXT3 
+    format, an associated <code>.texformat</code> file is required (for details,
+    see lesson <a href="18_animated_texture_maps.htm">Texture Maps</a>, section <a href="18_animated_texture_maps.htm#Texformat">Texformat - Defining texture 
+      compression settings</a>).</p>
+  <p>Note in the image below the increase to black as nightfall sets in. This 
+    allows the player to see the night sky dome behind the skygradient colour.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image017.gif"></p>
+  <p>Below are three examples of sky gradient textures.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image003.gif"> <img src="21_change_environ_settings_files/image005.gif"> <img src="21_change_environ_settings_files/image007.gif"></p>
+  <p class=captLvl1>Example sky gradient textures</p>
+  <p>The relationship of the texture colours in the gradient to the actual 
+    sky colour can be seen in the example below. The bottom of the texture represents 
+    the horizon leading upwards to the centre of the sky dome, exactly where the 
+    sun would appear around midday.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image009.gif"></p>
+  <p>In the example below, you can see what can be achieved by making quick 
+    changes to the sky gradient texture. You can also see the effect of the alpha 
+    channel, allowing the stars on the night sky dome to show through the evening.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image011.gif"></p>
+  <p>&nbsp;</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Fog" id="Fog">Fog Colour </a></span></h3>
+  <p>The fog colour is determined by the time of day and colour of the bottom line 
+    of pixels in the sky colour gradient texture. The texture is read from left 
+  (morning) to right (night), as illustrated below.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image001.gif"></p>
+<span onclick=toggle_heading()> </span></DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="StaticSkyBoxes" id="StaticSkyBoxes">Static Sky Boxes</a></h2>
+</span>
+<DIV>
+
+<p>Static Sky boxes will completely obscure both the night and day sky domes. They are generally used when you want to define a non dynamic sky, or a ring of mountains/building around the player. </p>
+<p>You can add a sky box to the world through the <b>Environment Options</b>
+  panel in WorldEditor. Simply click the <b>Sky Bitmaps And Gradients</b> group box's <b>Add</b>
+  button, and specify the <code>.visual</code> file representing the sky box. If no skybox is used the <a href="#DaySkydome">Day Sky Box</a> will be visible.</p>
+<p>Sky boxes defined in this section of the environments tab can be thought of as non changing fixtures to the world. For example a non changing hand painted sky, a ring of mountains, or a sister planet in the sky. </p>
+<p class=imgLvl1><img src="21_change_environ_settings_files/image012.gif" width="271" height="186"></p>
+<p class=imgLvl1>&nbsp;</p>
+<p>The grayed out Weather Systems entry within the sky box window allows you to decide if your static sky boxes are to be drawn in front or behind the weather systems by moving them above or below the Weather Systems entry.  A mountain ring for example would need to be drawn in front of the weather systems (The clouds do not obscure the mountains), whilst a large planet in the sky is definitely going to be obscured by weather systems. </p>
+<p>There are several types of effect files that can be used with a sky dome, all of them are located in <em>bigworld/res/shaders/environment</em>. These effects can be applied to your sky domes from within Model Editor and are described in the <a href="#StaicSkyBoxShaders">following section</a>. </p>
+<p>Weather Systems are described <a href="#DynamicSkyBoxes">below </a></p>
+<h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="StaticSkyBoxShaders" id="StaticSkyBoxShaders">Static Sky box shaders </a></span></h3>
+<p>The static sky box shaders include: </p>
+<p class=imgBltLvl1><img src="images/bullet.gif"><code>sky_box.fx</code> This is a  static sky box which should 
+be used for spaces that do not need a dynamic time of day.  &ndash; see the example sky box 
+<code>fantasydemo/res/sets/temperate/props/skybox.visual</code>. in the fantasy demo desert space. This type of sky box will generally be used to cover the entire sky. Using the static day sky dome is not recommended in conjunction with a 
+  dynamically changing time of day, because the illustrated light direction within 
+  the sky dome will not match the dynamic sun light source, and the same sky dome 
+  is used both during day and night.</p>
+<p class=imgBltLvl1><img src="21_change_environ_settings_files/image004.jpg" width="108" height="175"></p>
+<p class=imgBltLvl1><img src="images/bullet.gif"><code>sky_box_alpha.fx</code> 
+This is also a static sky box, it can however be used with a dynamic time of day as it has the option of receiving  time of day lighting. This sky box effect also uses the diffuse map alpha to define transparency which allows the sky behind the dome to be seen.  This sky box can be used to simulate  a distant mountain range, or city scape. By setting the material property - Sunlight Response to 0.0 the sky box can be used to simulate astral  objects in the sky, like a sister planet or space station. See the example skybox_alpha <code>fantasydemo/res/sets/t_ice/props/skybox_withmount.visual</code> in the fantasy demo arctic space. </p>
+<p class=imgBltLvl1><img src="21_change_environ_settings_files/image003.jpg" width="160" height="175"></p>
+<p>&nbsp;</p>
+<span onClick="toggle_heading()">
+<h3><img src="images/expanded.bmp"><a name="Create_Skydome" id="Create_Skydome">Create a Static Sky Dome Model </a></h3>
+</span>
+<p class=imgBltLvl1><strong>What Shape?:</strong></p>
+<p class=imgBltLvl1>When using the <code>sky_box.fx</code> or <code>sky_box_alpha.fx</code> the shape of a sky box can differ significantly, with some tricky mapping a cube can be used (there are many third party applications that may help you create a cube sky dome). Alternatively you could use a sphere or cylinder (especially for mountain rings). To get an idea of what your sky box might look like from your 3d application  position the  camera at the world origin (0,0,0 coordinates). The sky box should surround the camera, ensure that the faces of the sky box geometry are pointing in towards the camera. </p>
+<p class=imgBltLvl1><strong>How big?: </strong></p>
+<p class=imgBltLvl1>Objects using the above sky box effect shaders are drawn first in the scene, this ensures that the sky box will be behind every other scene object giving it a distant appearance. The shader also ensures that the sky box position is fixed to the camera. This simulates the lack of parallax movement that occurs with very distant objects. </p>
+<p class=imgBltLvl1>When creating a sky box in your 3d application, the size of the sky box doesn't matter. A 10meter X 10 meter sky box will appear the same as 1km X 1km sky box because of the way it is rendered and its position relative to the camera.  </p>
+<p class=imgBltLvl1>&nbsp;</p>
+</DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="DynamicSkyBoxes" id="DynamicSkyBoxes">Dynamic Sky Boxes (Weather)</a></span></h2>
+<DIV>
+  <p>Of all the sky domes, Weather sky domes are usually drawn closest to the player. </p>
+  <p>Weather in BigWorld is a combination of multiple effects including, Dynamic Sky boxes, Particle Systems, alteration to Sun and Ambient colour and alteration to Fog Colour and Fog Distance. </p>
+  <p>Weather systems can be created and modified from the Weather tab in WorldEditor. Changes made in this tab are saved in the   weather.xml file located in <em>C:\mf\fantasydemo\res\scripts\data\weather.xml</em></p>
+  <p>Here is an example of the Snow weather system in the Weather Systems Tab and its related data in the weather.xml file.</p>
+  <table width="938" border="0">
+    <tr>
+      <td width="270"><img src="21_change_environ_settings_files/image028.gif" alt="Weather Tab" width="270" height="608"></td>
+      <td width="652"><p>&nbsp;</p>
+        <pre>&lt;Snow&gt; 
+   &lt;sky box&gt; system/models/storm_overhead.model &lt;/sky box&gt;
+   &lt;sky box&gt; system/models/horizon_ring_storm.model &lt;/sky box&gt;
+   &lt;sun&gt;  1.0 1.4 1.8 1.0 &lt;/sun&gt;
+   &lt;ambient&gt; 1.1 1.1 1.1 1.0 &lt;/ambient&gt;
+   &lt;fog&gt; 0.8 0.8 1.0 2.0 &lt;/fog&gt;
+   &lt;temperature&gt; -5.0 &lt;/temperature&gt;
+   &lt;sfx&gt; sfx/snow.xml &lt;/sfx&gt;
+   &lt;windSpeed&gt;	5.0 0 &lt;/windSpeed&gt;
+   &lt;windGustiness&gt;	1.0 &lt;/windGustiness&gt;
+   &lt;exclude&gt;	spaces/desert	&lt;/exclude&gt;
+   &lt;bloom&gt;
+   	&lt;attenuation&gt;	1.010000 0.990000 0.980000 1.005	&lt;/attenuation&gt;
+	&lt;numPasses&gt;	10	&lt;/numPasses&gt;
+	&lt;power&gt;	8.000000	&lt;/power&gt;
+	&lt;width&gt;	2	&lt;/width&gt;
+   &lt;/bloom&gt;
+&lt;/snow&gt; </pre>
+      <p></p></td>
+    </tr>
+  </table>
+  <p>The first window (<span class="style2">1</span>) contains all the available weather systems. You can chose which weather systems should play in a chosen space by ticking the box next to each weather system. In the example above, the Blizzard weather system will not appear in the space being edited. </p>
+  <p>Selecting a weather system will cause it to be previewed in the space. </p>
+  <p>Ensure that sky boxes are set to visible from the General Options tab, otherwise you will not be able to preview the weather systems. </p>
+  <p><img src="21_change_environ_settings_files/image029.gif" width="229" height="222"></p>
+  <p>Once a weather system is selected, the Sky Boxes window (<span class="style2">2</span>) will display the dynamic weather sky boxes used in the selected weather system. Multiple sky boxes are used in the Rainy example above. The weather system sky box <a href="#DynamicSkyBoxShaders">material properties</a> can be edited within ModelEditor.</p>
+  <p>&nbsp;</p>
+  <p>Apart from the sky boxes, each weather system has associated with it a number of properties which can be edited in the Properties window (<span class="style2">3</span>). </p>
+  <p><strong>Special Effect File: </strong><span class="style1">&lt;<em>sfx&gt;</em></span> The <a href="#SpecialEffectsAndParticles">special effects file</a> to be associated with the weather system allows you to associate particle systems and other effects with the weather system. </p>
+  <p><strong>Rain Amount:</strong><span class="style1"> &lt;rain<em>&gt;</em></span> Determines the amount of rain associated with the weather system. </p>
+  <p><strong>Sun:</strong><span class="style1"> &lt;<em>sun&gt;</em></span> Defines the sun RGB colour and sun multiplier  </p>
+  <p><strong>Ambient:</strong><span class="style1"> &lt;<em>ambient&gt;</em></span> Each weather system have its own unique ambient colour RGB and ambient multiplier  </p>
+  <p><strong>Fog:</strong><span class="style1"> &lt;<em>fog&gt;</em></span> RGB value of fog colour, followed by a multiplier on the Fog (farplane) distance higher numbers bring the fog plane closer to the camera</p>
+  <p><strong>Sky Box Fog Response:</strong><span class="style1"> &lt;<em>fogFactor&gt;</em></span> Determines how much of the fog colour is inherited by the skydome </p>
+  <p><strong>Wind Speed:</strong><span class="style1"> &lt;<em>windSpeed&gt; </em></span>Wind speed in the X and Z world coordinates in meters per second. Wind speed can reach a maximum of  15.</p>
+  <p><strong>Wind Gustiness:</strong><span class="style1"> &lt;<em>windGustiness&gt; </em></span>This value adds noise to the wind speed to simulate gusting wind. </p>
+  <p><strong>Temperature:</strong><span class="style1"> &lt;<em>temperature&gt; </em></span>Each weather system have its own unique temperature which can be used in script to call other events. e.g. the Ranger character breaths fog when the temperature drops </p>
+  <p><strong>Bloom Settings:</strong><span class="style1"> &lt;<em>bloom&gt;</em></span> The Bloom parameters are described <a href="#Bloom">here </a></p>
+  <p>&nbsp;</p>
+  <p>Weather systems can be triggered from the chat console (enter)  by typing <code>&quot;/weather SystemName</code>&quot; where the SystemName is replaced by any of the weather systems listed in the weather.xml file. </p>
+  <p><img src="21_change_environ_settings_files/image005.jpg" width="307" height="230"> <img src="21_change_environ_settings_files/image006.jpg" width="307" height="230"> <img src="21_change_environ_settings_files/image007.jpg" width="307" height="230"></p>
+  <p class="imgBltLvl1"> <img src="21_change_environ_settings_files/image008.jpg" width="307" height="230"> <img src="21_change_environ_settings_files/image009.jpg" width="307" height="230"></p>
+  <p class=captLvl1>Examples screen shots of the same position with different weather systems</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="DynamicSkyBoxShaders" id="DynamicSkyBoxShaders">Dynamic &quot;weather&quot; Sky box shaders </a></span></h3>
+  <p class=imgBltLvl1>The dynamic weather sky boxes include: </p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><code>cloud_layer.fx</code> Is designed to work with a dynamic time of day. The cloud_layer shader uses the Diffuse map alpha to determine the rims of clouds and subsequently light them. The Rim  and Scattering parameters offer fine control of how this cloud rim lighting is applied. </p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><code>dual_cloud_layer.fx</code> Works the same as the cloud_layer.fx except it has a second layer to allow the appearance of higher and lower cloud layers. </p>
+  <p class=imgBltLvl1>&nbsp;</p>
+  <p class=imgBltLvl1><strong>Shader model compatibility</strong></p>
+  <p class=imgBltLvl1>Shader model 2 cards and higher can use the <code>dual_cloud_layer.fx</code> with simulated light scattering</p>
+  <p class=imgBltLvl1>Shader model 1 cards can use the single layer <code>cloud_layer.fx </code>with simulated light scattering</p>
+  <p class=imgBltLvl1>Fixed function cards can use the <code>dual_cloud_layer.fx</code> without simulated light scattering</p>
+  <p class=imgBltLvl1>&nbsp;</p>
+  <p class=imgBltLvl1>The parameters defining the cloud_layer.fx and dual_cloud_layer.fx can be altered from within Model Editors material tab. </p>
+  <p class=imgBltLvl1>When tweaking cloud_layer material properties ensure that the Lighting Setup is using Game Lighting, otherwise the position of the directional light that represents the sun will be offset from the actual sun position.</p>
+  <p class=imgBltLvl1><img src="21_change_environ_settings_files/image027.gif" width="291" height="110"></p>
+  <p class=imgBltLvl1>&nbsp;</p>
+  <p class=imgBltLvl1><img src="21_change_environ_settings_files/image026.gif" width="363" height="252"></p>
+  <p class=imgBltLvl1><strong>Diffuse Map:</strong> Defines the colour (RGB) and Opacity of the cloud layer </p>
+  <p class=imgBltLvl1><strong>Fog Map:</strong> Determines the amount of fogging applied to the skydome. White areas receive more fog than dark areas. This is useful for fading off the skydome as it approaches the horizon. </p>
+  <p class=imgBltLvl1><strong>Rim Power:</strong> This factor determines how far away from the sun the cloud rim lighting effect will occur. Higher numbers will cause only clouds close to the sun to be effected by rim lighting, lower numbers will cause clouds further away to be effected. </p>
+  <p class=imgBltLvl1><strong>Rim Detect Power</strong>: This determines how quickly the rim lighting fades away. Higher values result in quicker falloff, lower values fade away slowly. </p>
+  <p class=imgBltLvl1><strong>Rim Detect Width:</strong> When a cloud rim is detected the Rim Detect Width will offset the point at which the Rim Detect Power begins to fade the rim lighting. </p>
+  <p class=imgBltLvl1><strong>Rim Strength</strong>: This factor scales the combined effect of the above rim parameters. Allowing you to dial down/up the rim power as a whole. </p>
+  <p class=imgBltLvl1><img src="21_change_environ_settings_files/image025.gif" width="388" height="365"></p>
+  <p class=imgBltLvl1>&nbsp;</p>
+  <p class=imgBltLvl1><strong>Scattering Strength</strong>: Adds white to the general area around the sun, it does not take into consideration the cloud rims. Higher numbers cause a larger area to receive the scattering effect. </p>
+  <p class=imgBltLvl1><strong>Scattering Power</strong>: Determines the falloff of Scattering Strength, it does not take into consideration the cloud rims.  Higher values result in quicker falloff, lower values fade away slowly. </p>
+  <p class=imgBltLvl1><strong>Wind Speed:</strong> Determines the UV scrolling speed of the sky box Diffuse map. Use this to simulate wind moving the clouds across the sky.  The wind direction is provided in-game, this wind speed value scales the amount of the effect.</p>
+  <p class=imgBltLvl1><strong>Texture Tile:</strong> Determines the UV tiling and UV offset of the skydome Diffuse map. </p>
+  <p class=imgBltLvl1><strong>Sun Flare Occlusion: </strong>The alpha value of the diffuse map is also used to occlude the <a href="22_add_lights_to_world.htm#Create_Flares">sun flare</a>. When the sun goes behind an area of the sky box containing  alpha above the Sun Flare Occlusion value, the sun flare will not be rendered.</p>
+  <p class=imgBltLvl1><strong>Parallax:</strong> Adds a small amount of parallax to the sky box position. This helps reduce  &quot;sky box stuck to camera effect&quot; as the player increases altitude. </p>
+  <p>Multiple sky boxes can be used simultaneously. Simply add them sequentially to
+    the <b>Sky Model And Gradient</b> group box's <b>Sky Model:</b> list box.
+    The sky boxes will be rendered in order, from top to the bottom of the list.
+    The order of the sky boxes can be changed via the <img src="21_change_environ_settings_files/image013.gif"> and <img src="21_change_environ_settings_files/image014.gif"> buttons. So if you want your mountain box in front of your sky box the sky box should be at the top of the list. </p>
+  <p>Ensure that the static sky option is ticked within World Editor's options tab, otherwise the sky box will not be shown. </p>
+  <p><img src="21_change_environ_settings_files/image029.gif" width="286" height="270"></p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Create_dynamic_skydome" id="Create_dynamic_skydome">Create a Dynamic SkyDome Model</a></span></h3>
+  <p class=imgBltLvl1><strong>What Shape?:</strong></p>
+  <p class=imgBltLvl1>The <code>cloud_layer.fx</code> and <code>dual_cloud_layer.fx</code> shaders are intended for weather system sky boxes. There are two types used in the Fantasy Demo, an Overhead cloud layer and a Horizon ring cloud. The 3dsMax models used to create these layers are Included in  <code>bigworld/doc/</code><code>tools_tutorial_examples/working_files/sky box/example_dual_layer_skybox.max</code>. </p>
+  <p class=imgBltLvl1>The fantasy demo highlands space uses two different sky boxes <em>clear_overhead.visual</em> and <em>horizon_ring_cloud.visual. </em>The <em>clear_overhead.visual</em> is a plane that stretches off into the distance. The <em>horizon_ring.visual</em> is a topless cylinder. If you open either of these assets in Model Editor and apply a light only shader to them you will be able to view them as they were created in 3dsMax. </p>
+  <p class=imgBltLvl1><img src="21_change_environ_settings_files/image030.gif" width="291" height="174"></p>
+  <p class=imgBltLvl1>&nbsp;</p>
+  <p class=imgBltLvl1><strong>How big?: </strong></p>
+  <p class=imgBltLvl1>Objects using the above sky box effect shaders are drawn first in the scene, this ensures that the sky box will be behind every other scene object giving it a distant appearance. The shader also ensures that the sky box position is fixed to the camera. This simulates the lack of parallax movement that occurs with very distant objects. </p>
+  <p class=imgBltLvl1>When creating a sky box in your 3d application, the size of the sky box doesn't matter. A 10meter X 10 meter sky box will appear the same as 1km X 1km sky box because of the way it is rendered and its position relative to the camera. </p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Maps_Cloud_Layer">Painting Maps for the  cloud_layer Effect Sky domes </a></span></h3>
+  <p>Take a look at the following maps used on the sky domes in the fantasy demo highlands space. </p>
+  <p><em>mf\bigworld\res\system\maps\cumulus_horizondark_cloud.tga</em></p>
+  <p><em>mf\bigworld\res\system\maps\cumulus_overhead_cloud.tga</em></p>
+  <p>These skydome maps were created by stitching a series of photographs together, pay close attention to the white rim that surrounds each of the clouds. This white rim helps reduce the blue that can creep in from sky in the bitmap. </p>
+  <p><span class="imgBltLvl1">I used Photoshop's dodge tool </span>to create the white rim around the clouds. Alternatively you could de saturate the area around the cloud rim.</p>
+  <p><img src="21_change_environ_settings_files/image001.jpg" width="172" height="142"> <img src="21_change_environ_settings_files/image002.jpg" width="172" height="142"></p>
+  <p>A section of the cumulus_horizondark_cloud.tga showing the white cloud borders and its associated alpha.</p>
+</DIV>
+  <h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="SpecialEffectsAndParticles" id="SpecialEffectsAndParticles">Weather system special effects and particle systems </a></span></h2>
+  <DIV>
+    <p>The <strong>Special Effect File </strong><em>&lt;sfx&gt;</em> entry defines a special effect file which enables the user to associate a number of special effects with a weather system. In the <em>&lt;snow&gt;</em> example below a particle system called <em>snow_flakes.xml</em> is attached to the player model. </p>
+    <pre>&lt;snow&gt; 
+   &lt;Actor&gt; particles
+   	&lt;ParticleSystem&gt; sparticles/snow_flakes.xml &lt;/ParticleSystem&gt;
+   &lt;/Actor&gt;
+
+   &lt;Joint&gt; particles 
+   	&lt;DummyModel/&gt;
+   &lt;/Joint&gt;
+
+   &lt;Event&gt; particles 
+	&lt;ForceParticle/&gt;
+   &lt;/Event&gt;
+
+   &lt;Event&gt; particles
+    &lt;RampTimeTriggeredParticles&gt;
+   	 &lt;fadeTime&gt;	2.0	&lt;/fadeTime&gt;
+    &lt;/RampTimeTriggeredParticles&gt;
+   &lt;/Event&gt;
+&lt;/snow.xml&gt;
+    </pre>
+    <p><strong></strong></p>
+    <p>To create the density of particles needed for a weather system most particle systems use the <a href="30_particles.htm#Barrier">wrap barrier </a> which moves a particle from one side of the barrier to the other when it collides with the barrier edge.</p>
+    <p><img src="30_particles_files/image103.gif" width="197" height="176"></p>
+    <p>A particle created at position 1. will hit the barrier at position 2 where it is teleported to position 3. This ensures that the density of particles remains high around the player. </p>
+    <p>If this system was not used a fast moving player would run past the particles before they had a chance to spawn. </p>
+    <p>&nbsp;</p>
+    <p>Weather particle systems can be restricted to only render outside by setting the <a href="30_particles.htm#Sink">outside only</a> parameter of the sink component to true. </p>
+    <p><img src="21_change_environ_settings_files/image011.jpg" width="350" height="238"></p>
+  </DIV>
+  <h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Bloom" id="Bloom">Bloom </a></span></h2>
+<DIV>
+    <p>The BigWorld engine simulates the blooming that occurs when looking at  strong light sources by overlaying a blurred image of the screen that has been through a power function </p>
+    <p>The artist has control of these bloom parameters per weather system from the WorldEditor weather panel or may choose to edit the <code> weather.xml</code> file located in <em>C:\mf\fantasydemo\res\scripts\data\weather.xml.</em></p>
+    <p>Here is an example of the Snow weather system from the weather.xml file. </p>
+    <pre>&lt;Snow&gt; 
+   &lt;sky box&gt; system/models/storm_overhead.model &lt;/sky box&gt;
+   &lt;sky box&gt; system/models/horizon_ring_storm.model &lt;/sky box&gt;
+   &lt;sun&gt;  1.0 1.4 1.8 1.0 &lt;/sun&gt;
+   &lt;ambient&gt; 1.1 1.1 1.1 1.0 &lt;/ambient&gt;
+   &lt;fog&gt; 0.8 0.8 1.0 2.0 &lt;/fog&gt;
+   &lt;temperature&gt; -5.0 &lt;/temperature&gt;
+   &lt;sfx&gt; sfx/snow.xml &lt;/sfx&gt;
+   &lt;windSpeed&gt;	5.0 0 &lt;/windSpeed&gt;
+   &lt;windGustiness&gt;	1.0 &lt;/windGustiness&gt;
+   &lt;exclude&gt;	spaces/desert	&lt;/exclude&gt;
+   <strong>&lt;bloom&gt;
+   		&lt;attenuation&gt;	1.010000 0.990000 0.980000 1.005	&lt;/attenuation&gt;
+		&lt;numPasses&gt;	10	&lt;/numPasses&gt;
+		&lt;power&gt;	8.000000	&lt;/power&gt;
+		&lt;width&gt;	2	&lt;/width&gt;
+   &lt;/bloom&gt;</strong>
+&lt;/snow&gt; </pre>
+    <p>&nbsp;</p>
+    <p><strong>Attenuation:</strong><span class="style1"> &lt;<em>attenuation&gt;</em></span> Defines the colour change applied to the bloom filter R, G, B and a multiplier value. </p>
+    <p><strong>Num Passes:</strong><span class="style1"> &lt;<em>numPasses&gt;</em></span> Defines the number of times the bloom filter is blurred before being applied to the screen</p>
+    <p><strong>Sensitivity:</strong><span class="style1"> &lt;<em>power&gt;</em></span> Chooses a brightness value, above which the bloom will be applied. Small values indicate higher sensitivity.</p>
+    <p><strong>Filter Width:</strong><span class="style1"> &lt;<em>width</em></span> Offsets the each pass of the bloom filter</p>
+    <p>Bloom parameters  can also be defined within the C:\mf\fantasydemo\res\scripts\data\bloom.xml file. This has been done in the example below, where the <em>Standard</em> bloom parameters are defined in the bloom.xml file.</p>
+    <pre>&lt;Cloudy4&gt; 
+   &lt;sky box&gt; system/models/overhead04.model &lt;/sky box&gt;
+   &lt;sky box&gt; system/models/horizon_ring_cloud.model &lt;/sky box&gt;
+   &lt;windSpeed&gt;	1.0 0 &lt;/windSpeed&gt;
+   &lt;windGustiness&gt;	1.0 &lt;/windGustiness&gt;
+   <strong>&lt;bloom&gt; Standard   &lt;/bloom&gt;</strong>
+&lt;/snow&gt; </pre>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="EnvironmentOptions" id="EnvironmentOptions">Space environment settings </a></h2>
+</span>
+  <DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Time" id="Time">Changing hour length and start time </a></span></h3>
+  <p>The start time (for WorldEditor only) and the speed at which time passes 
+  within the game can be altered per space.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image018.gif"></p>
+  <p class=imgLvl1>&nbsp;</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Angle" id="Angle">Sun and Moon angle </a></span></h3>
+  <p>The angle of the sun and the moon in the sky can be altered. You may want to 
+    drop the angle of the sun to simulate a more polar or winter environment, for
+  example.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image019.gif"></p>
+  <p>&nbsp;</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Sun_Flare" id="Sun_Flare">Sun Flare </a></span></h3>
+  <p>Instructions on how to customise the sun flare can be found <a href="22_add_lights_to_world.htm#Create_Flares">here</a></p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Time_Slider" id="Time_Slider">Time of day </a></span></h3>
+  <p>The time of day can be altered in WorldEditor, but only as a preview feature, 
+  and does not affect the time of the day within the game.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image020.gif"><span onclick=toggle_heading()>
+  </span></p>
+  <p class=imgLvl1>&nbsp;</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="AmbientLight" id="AmbientLight">Ambient and Sun Light </a></span></h3>
+  <p>Both the colour and value of the sun and ambient lights can be animated 
+    throughout the course of the day. Keys can be created and removed, and the 
+  colour of each key can be altered.</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image022.gif"></p>
+  <p>These animation keys are stored as in the <code>sky.xml</code> file's <code>&lt;lightkey&gt;</code> tag for the chosen space.</p>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="AtmosphericEffects" id="AtmosphericEffects">Atmospheric effects </a></span></h3>
+  <p>The environment settings are editable per space from within WorldEditor. You 
+    can also edit the sky's configuration file ( <code>fantasydemo/res/environments/sky.xml</code> for FantasyDemo, for 
+  example).</p>
+  <p class=imgLvl1><img src="21_change_environ_settings_files/image023.gif"> </p>
+  <p>The fields for environment settings are explained below:</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><b>MIE Amount</b> - Amount of
+    scattering applied to light as it travels through the atmosphere.</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><b>Turbidity Offset</b> - 
+    Amount of suspended particulate matter (proportionally affects MIE scattering 
+    effect).</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><b>Turbidity Factor</b> - 
+    Defines how MIE scattering responds to increases in the global fog amount.</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><b>Vertex Effect</b> - Vertex
+    height contribution to MIE scattering (the vertex effect gives the scattering 
+    an elongated shape at the horizon).</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><b>Sun Height Effect</b> - Sun
+    height contribution to MIE scattering (the sun height effect decreases the 
+    overall amount of the effect when the sun is high in the sky, <i>i.e.</i>, 
+    noon).</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif"><b>Power</b> - Mathematical
+    power of the MIE scattering effect (it makes the effect looks less like a flat
+    shaded circle, and more like a circular gradient with emphasis being put on 
+    white nearer the sun).
+    
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FarPlane" id="FarPlane">Changing far plane settings </a></span></h3>
+  <p>To change the far plane setting, you have two options: set a per-sky far 
+  plane, or set a per-space far plane. </p>
+  <p class=imgBltLvl1><img src="images/bullet.gif">Set a per-sky far plane &ndash;
+    Set the <code>farPlane</code> tag in the sky configuration file specified in 
+    your <code>space.settings</code> file (for example, the <code>desert</code> space uses the <code>desertsky.xml</code> file).</p>
+  <p class=imgBltLvl1><img src="images/bullet.gif">Set a per-space far plane 
+    &ndash; Set the <code>farPlane</code> tag in the space's <code>space.settings</code> configuration file &ndash; this will 
+    apply only to the given space, and will override any such setting in the sky 
+    file.</p>
+  <p class=noteLvl1><img src="images/note.bmp">The far plane should be 
+    a floating-point value and, for the best results, should be between roughly 
+    200.0 and 1500.0 meters.</p>
+  <p class=imgBltLvl1>
+  </DIV>
+  <h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Clouds" id="Clouds">Pre 1.9 Clouds</a></span></h2>
+  <DIV>
+  <p>Before BigWorld 1.9 a much simpler cloud system was used. These clouds  are defined in <code>bigworld/res/resources.xml</code> &ndash; this file points at the two bitmaps to be used for the cloud 
+  textures.</p>
+  <p>The clouds are represented by two planes, each with its own unique texture 
+    map:</p>
+  <p class="imgBltLvl1"><img src="images/bullet.gif">The lower plane uses <code>cloud_loom_brood.tga</code> to simulate the part of the cloud in shadow.</p>
+  <p class="imgBltLvl1"><img src="images/bullet.gif" alt="*">The higher plane uses <code>cloud_edges.tga</code> to simulate the higher part of the cloud that is 
+    lit by the sun.</p>
+  <p>The excerpt below displays the relevant tags in <code>bigworld/res/resources.xml</code>:</p>
+  <pre>   &lt;cloudEdgesBmpName&gt; system/maps/cloud_edges.tga      &lt;/cloudEdgesBmpName&gt;
+   &lt;cloudBodyBmpName&gt;  system/maps/cloud_loom_brood.tga &lt;/cloudBodyBmpName&gt;</pre>
+  <p>Clouds can only be set per game, <i>i.e.</i>, all clouds in all spaces must 
+    be  the same &ndash; they cannot be set per space. To use your own clouds, either 
+    overwrite the existing bitmaps, or point the <code>&lt;cloudEdgesBmpName&gt;</code> and <code>&lt;cloudBodyBmpName&gt;</code> tags to your own maps.</p>
+  <p>You can preview the clouds in FantasyDemo by accessing the client watchers <a href="#1"></a> (via the <code>~(tilde) + F7</code> keyboard shortcut), or through the client 
+    access tool CAT.</p>
+  <p>Weather can also be adjusted in WorldEditor, so that the clouds are visible 
+    by using the <b>Weather Preview</b> panel.</p>
+</DIV>
+<hr align="center" size="2" width="100%">
+
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+  location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; 
+}
+</script>
+
+<!-------- REFERENCES TO OTHER LESSONS OR DOCUMENTS -------->
+<p><a name="1"><span class="footnoteAnchor">1</span></a>-For more details, see 
+   <a onClick="parser('client_programming_guide.pdf')"><span class="linkToFile">Client Programming Guide</span></a>, 
+   section <span class="reference">Debugging</span>, <span class="reference">Watchers</span>.
+</p><p><a name="2"><span class="footnoteAnchor">2</span></a>-For more details, see 
+   <a onClick="parser('client_programming_guide.pdf')"><span class="linkToFile">Client Programming Guide</span></a>,
+   section <span class="reference">Debugging</span>, <span class="reference">Client Access Tool (CAT)</span>.
+</p><p><a name="3"><span class="footnoteAnchor">3</span></a>-For more details, see
+   <a onClick="parser('content_tools_reference_guide.pdf')"><span class="linkToFile">Content Tools Reference Guide</span></a>, 
+   section <span class="reference">WorldEditor</span>, <span class="reference">Panel Summary</span>, <span class="reference">Weather Preview Panel</span>.
+
+<!-------- HORIZONTAL RULE -------->
+</p><hr align="center" size="2" width="100%">
+
+<!-------- COPYRIGHT INFO -------->
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

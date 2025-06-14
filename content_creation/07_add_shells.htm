@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Create an Internal Area in WorldEditor Using Shells</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">Create an Internal Area in WorldEditor Using Shells</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="07_add_shells.htm#Placing">Placing shells in the world</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="07_add_shells.htm#ShellSnaps">Shell snaps</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="07_add_shells.htm#Integrating">Integrating plugs with shells</A></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="07_add_shells.htm#Creating">Creating templates and prefabs</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="07_add_shells.htm#Templates">Templates</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="07_add_shells.htm#Prefabs">Prefabs</A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p class=numBltLvl1>1 Open WorldEditor with an existing world such as
+the fantasy world-space created in the lesson 
+<a href="01_setup_new_project.htm">Setup a new project</a>.</p>
+
+<p class=numBltLvl1>2 Use the Asset Browser to find your newly exported shell.</p>
+   <p class=lvl2>Select the <b>Shells</b> virtual folder and type 
+<code>shell_room</code> into the dynamic search field &ndash; the browser will 
+display your shell. If you select the shell, the path name at the bottom of 
+the browser should read 
+<code>c:\<i>&lt;mf_root&gt;</i>\fantasydemo\res\sets\towns\shells</code>.</p>
+   <p class=lvl2>You should now be able to see the exported <code>shell_room_exit.model</code   >
+as an <b>icon</b> in the second white box area of the browser.</p>
+
+<p class=imgLvl2><img src="07_add_shells_files/image001.png"></p>
+<p class=captLvl2>Room shell icon in the Asset Browser</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Placing">Placing shells in the world</a></h2></span>
+<DIV>
+
+<p class=numBltLvl1>1 There are two possible ways to place a shell (or any other
+item for that matter) in the world using WorldEditor:</p>
+   <p class=ltrBltLvl2>A In the <b>Asset Browser</b> panel, select the item that
+   you want to place in the world, then move the mouse to the viewport, and
+   finally press <code>Enter</code>; or,</p>
+   <p class=ltrBltLvl2>B Drag the desired item from the <b>Asset Browser</b> 
+   panel, then drop it in the viewport.</p>
+
+<p>Shells will always conform to the grid and rotational snap settings specified 
+in the <b>Object</b> panel.</p>
+
+<p class=imgLvl1><img src="07_add_shells_files/image033.png"></p>
+<p class=captLvl1>WorldEditor's <b>Object</b> panel</p>
+
+<p class="notelvl1"><img src="images/note.bmp">
+Shell <code>shell_room_exit.model</code> will appear black within WorldEditor, 
+because no lights have been placed within the shell. (Lights will be 
+added later.)</p>
+
+<p>If the model is not displayed in the editor, then make sure that the 
+<b>General Options</b> panel's <b>Shells&rarr;Game Visibility</b> check box
+is selected.
+<p class=imglvl1><img src="07_add_shells_files/image032.gif"></p>
+<p class=captLvl1>WorldEditor's <b>General Options</b> panel</p>
+
+<p class=tipLvl1><img src="images/tip.bmp">Sometimes the terrain may intersect with the floor of the shell.
+To fix this, simply apply a very small amount of terrain brush to lower the terrain level 
+slightly. Alternatively you could raise the shell itself or, as explained in the lesson 
+<a href="05_scuplt_terrain.htm">Sculpt Terrain</a>, you could remove the terrain by using
+the Cut option under the Mesh tab. <br></p>
+
+<p class=imgLvl3><img src="07_add_shells_files/image010.gif"></p>
+<p class=captLvl3>Terrain slightly lowered  to reveal shell floor</p>
+
+<p class=numBltLvl1>2 Place&nbsp;another shell in the viewport by positioning the cursor and
+pressing the <b>Enter</b> key.</p>
+
+<p class=imgLvl2><img src="07_add_shells_files/image027.gif"></p>
+<p class=captLvl2>Two shells placed in the viewport</p>
+
+<p class=numBltLvl1>3 The portals that were exported with the shell will show up transparent
+blue in the viewport. This enables you to snap shells together by using the blue portals as
+position connectors. To <b>auto-snap</b> the shells &ndash; click on one
+shell to select it&hellip;</p>
+
+<p class=imgLvl2><img src="07_add_shells_files/image028.gif"></p>
+<p class=captLvl2>One shell selected</p>
+
+<p class=numBltLvl1>4 Using the <b>middle mouse button</b>, click on the other shell. The selected shell will move and rotate,
+to line up one of its portals with a portal on the other shell.</p>
+
+<p class=imgLvl2><img src="07_add_shells_files/image029.gif"></p>
+<p class=captLvl2>Result of middle click</p>
+
+<p class=numBltLvl1>4 With the&nbsp;<b>mouse wheel</b>, roll the wheel up a 
+little to rotate the shell 90 degrees clockwise</p>
+<p class=numBltLvl1>5 Resolve the portals using the <b>middle mouse click</b>
+  again on the other shell to snap the two together.</p>
+
+<p class=imgLvl2><img src="07_add_shells_files/image031.gif"></p>
+<p class=captLvl2>Selected shell in position</p>
+
+<p class=lvl2>The two joining portals should <b>&lsquo;resolve&rsquo;</b> and disappear, leaving a
+passageway from one shell to the other &ndash; as shown below circled in red.</p>
+
+<p class=imgLvl2><img src="07_add_shells_files/image016.gif"></p>
+<p class=captLvl2>Passageway created by the two resolved portals</p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="ShellSnaps">Shell snaps</a></h2></span>
+<DIV>
+
+<p>Shells can only be moved in increments defined by the shell snaps settings. The shell snap settings are defined within the 
+WorldEditor's <code>options.xml</code> file, at <span style="font-family: monospace;"> </span><code>bigworld\tools\worldeditor\options.xml</code>.
+<br>
+The default settings (below) will allow you to move shells on a 0.01-metre grid and rotate them in increments of 0.1 degrees. This default setting is set to the highest fidelity possible for shells.  If you customise these settings do not increase the fidelity of the snaps, for example a grid snap of (1, 1, 1)-metre is OK, whilst a setting of (0.0001,0.0001,0.0001) may cause issues. </p>
+<p>&nbsp;</p>
+<pre>&lt;shellSnaps&gt;
+   &lt;movement&gt;  0.01 0.01 0.01 &lt;/movement&gt;
+   &lt;angle&gt;    0.100000                   &lt;/angle&gt;
+&lt;/shellSnaps&gt;</pre>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Integrating">Integrating plugs with shells</a></h2></span>
+<DIV>
+
+<p>Plugs can be inserted between shells to provide more interesting
+    architecture and to cover the transition from one shell to the next. To 
+place a plug in the scene, follow the steps below:</p>
+
+<p class=numBltLvl1>1 In the <b>Asset Browser</b> panel, select the 
+<b>Models</b> virtual folder.</p>
+
+<p class=numBltLvl1>2 Locate the desired plug by typing its name in the search 
+field &ndash; the plug's thumbnail will be displayed in the browser.</p>
+
+<p class=imgLvl2><img src="07_add_shells_files/image001.jpg"></p>
+<p class=captLvl2>Plug icons in the selection panel</p>
+
+<p class=numBltLvl1>3 Click the <code>plug_doorway.model</code> icon
+to highlight it, then place it in the scene.</p>
+    
+<p class=imgLvl2><img src="07_add_shells_files/image020.gif"></p>
+<p class=captLvl2>Doorway plug placed in scene and out of position</p>
+
+<p class=numBltLvl1>4 Click the <b>Object Tool</b> toolbar button &ndash;
+<img src="07_add_shells_files/image034.png"> &ndash;, which activates the
+<b>Object</b> panel.</p>
+
+<p class=numBltLvl1>5 In the <b>Object</b> panel's <b>Object Grid Snaps</b>
+group box:</p>
+   
+<p class=ltrBltLvl2>A Select the <b>Enabled</b> check box.</p>
+<p class=ltrBltLvl2>B Click the <b>Shell Snaps</b> button &ndash; it will set
+the <code>x</code>, <code>y</code>, <code>z</code>, and <code>angle</code> 
+fields to the optimum values for shell placement.</p>
+
+<p class=imgLvl3><img src="07_add_shells_files/image002.jpg"></p>
+<p class=captLvl3>Snaps setting changed</p>
+
+<p class=numBltLvl1>6 Move the <b>doorway plug</b> into position over the 
+<b>socket</b> to cover the hole.</p>
+    
+<p class=imgLvl2><img src="07_add_shells_files/image024.gif"></p>
+<p class=captLvl2>Doorway plug moved to the correct position</p>
+
+<p class=numBltLvl1>7 You can now apply this same process to the other plug models as well.</p>
+
+<p class=numBltLvl1>8 For the <b>entrance</b> model, simply place it in the scene and position
+    it over the doorway plug on the outside of the shell.</p>
+
+<p class="lvl2"><table><tr>
+   <td valign="top"><p class=imglvl0><img src="07_add_shells_files/image025.gif"><br>
+                    <p class=captLvl0>Doorway placed</p></td>
+   <td valign="top"><p class=imglvl0><img src="07_add_shells_files/image026.gif"><br>
+                    <p class=captLvl0>Doorway snapped into position</p></td></tr></table></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.bmp"><a name="Creating">Creating templates and prefabs</a></h2></span>
+<DIV>
+
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Templates">Templates</a></h3></span>
+<DIV>
+
+<p>It is best to avoid having to create a basic lighting setup every time you place a shell in the world.
+Templates allow you to save a basic lighting setup for each shell, which is then automatically placed with each new
+shell.</p>
+
+<p>To create a template, follow the steps below:</p>
+
+<p class=numBltLvl1>1 Place a shell in the world and set it up with the basic lighting setup
+to be used in all future placements.</p>
+<p class=numBltLvl1>2 Select the <b>Edit&rarr;Save Chunk as Template</b> menu item.</p>
+<p class=lvl2> This option will create a <code>*.template</code> file in the 
+same directory as the shell object.</p>
+<p class=lvl2>To remove the template effects in order to place empty shells, you must delete
+the associated <code>*.template</code> file.</p>
+
+</DIV>
+<span onclick=toggle_heading()><h3><img src="images/expanded.bmp"><a name="Prefabs">Prefabs</a></h3></span>
+<DIV>
+
+<p>The shell above contains two objects (a torch and table) and
+two lights (ambient and dynamic). Saving as a template will save only the
+lighting setup and ignore the objects.</p>
+
+<p>If you want to save both lighting and object setup you must select the
+<b>File&rarr;Save Selection as a Prefab</b> menu item.</p>
+
+<p>Prefabs are slightly different to templates. Firstly they
+save both objects and lighting setups. Secondly they do not override the
+existing shell objects in WorldEditor.</p>
+
+<p>Once a template is created, all future placements will
+contain the template information. Prefabs are saved as a separate prefab. To 
+place prefabs go to prefab tab in WorldEditor and select the prefab file.</p>
+
+<p class=imgLvl1><img src="07_add_shells_files/image003.jpg"></p>
+<p class=captLvl1><b>Asset Browser</b> panel's <b>Prefabs</b> virtual folder</p>
+
+</DIV>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2011 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>
