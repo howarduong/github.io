@@ -1,0 +1,249 @@
+style>
+
+
+/*----- BASIC PARAGRAPH, LIST AND DIV -----*/
+body { margin-top:6pt; margin-left:6pt; margin-bottom:6pt; font-family:Arial; font-size:9pt;}
+p, li, div { margin-top:6pt; margin-left:6pt; margin-bottom:6pt; font-family:Arial; font-size:9pt;}
+
+/*------ HYPERLINKS ------*/
+a:link    { color: darkslateblue } /* unvisited link  */
+a:visited { color: darkslateblue } /* visited link    */
+a:hover   { color: lightslategray } /* mouse over link */
+
+/*----- HEADINGS -----*/
+h1 {margin-left:00pt;margin-top:12pt;margin-right:0cm;margin-bottom:0pt;page-break-after:avoid;font-size:14pt;font-family:Arial;padding-left:2pt;padding-top:4pt;padding-bottom:4pt;color:white;background:steelblue;}
+h2 {margin-left:00pt;margin-top:6pt;margin-right:0cm;margin-bottom:12pt;page-break-after:avoid;font-size:12pt;font-family:Arial;padding-left:2pt;padding-top:2pt;padding-bottom:2pt;color:white;background:lightslategray;}
+h3 {margin-left:00pt;margin-top:6pt;margin-right:0cm;margin-bottom:03pt;page-break-after:avoid;font-size:10pt;font-family:Arial;padding-left:2pt;padding-top:2pt;padding-bottom:2pt;color:white;background:darkgray;}
+h4 {margin-left:00pt;margin-top:6pt;margin-right:0cm;margin-bottom:03pt;page-break-after:avoid;font-size:09pt;font-family:Arial;padding-left:2pt;padding-top:2pt;padding-bottom:2pt;color:white;background:silver;font-style:oblique}
+h5 {margin-left:00pt;margin-top:6pt;margin-right:0cm;margin-bottom:03pt;page-break-after:avoid;font-size:09pt;font-family:Arial;padding-left:2pt;padding-top:2pt;padding-bottom:2pt;            background:whitesmoke;font-style:oblique;border-bottom:1pt solid lightslategray}
+
+/*----- IMAGES IN HEADING -----*/
+h1 img { margin-right:3pt; margin-bottom:1pt; }
+h2 img { margin-right:3pt; margin-bottom:1pt; }
+h3 img { margin-right:3pt; margin-bottom:1pt; }
+h4 img { margin-right:3pt; margin-bottom:1pt; }
+h5 img { margin-right:3pt; margin-bottom:1pt; }
+
+/*----- TABLE -----*/
+table.normal          {font-family:Tahoma; font-size:8pt; margin-left:18pt; border-top:1pt solid darkslateblue; border-left:1pt solid darkslateblue; }
+table.normal th       {padding:3pt; font-weight:bold; color:white; background:darkslateblue; }
+table.normal td       {vertical-align:top; padding:3pt; border-bottom:1pt solid darkslateblue; border-right:1pt solid darkslateblue; background:whitesmoke;}
+table.normal td code  {font-size:7.5pt;}
+table.normal td img   {border:1pt solid darkslateblue;}
+table.normal td p     {font-family:Tahoma;font-size:8pt; margin-left:0pt; margin-top:0pt; margin-bottom:4pt;}
+/* Alternating table */
+table.alternate                 {font-family:Tahoma; font-size:8pt; margin-left:12pt; margin-right:0pt; border:none; }
+table.alternate th              {padding:3pt; font-weight:bold; color:white; background:black; border:none; }
+table.alternate th.FirstCol     {padding:3pt; font-weight:bold; color:white; background:black; border:none; border-right:1pt solid white;}
+table.alternate th.MidCol       {padding:3pt; font-weight:bold; color:white; background:black; border:none; border-right:1pt solid white;}
+table.alternate td.oddRow       {vertical-align:top; padding:3pt; background:white;   border-top:none; border-left:none;            border-bottom:1pt solid black; border-right:1pt solid black;}
+table.alternate td.oddRow1stCol {vertical-align:top; padding:3pt; background:white;   border-top:none; border-left:1pt solid black; border-bottom:1pt solid black; border-right:1pt solid black;}
+table.alternate td.evnRow       {vertical-align:top; padding:3pt; background:#E6F1FE; border-top:none; border-left:none;            border-bottom:1pt solid black; border-right:1pt solid black;}
+table.alternate td.evnRow1stCol {vertical-align:top; padding:3pt; background:#E6F1FE; border-top:none; border-left:1pt solid black; border-bottom:1pt solid black; border-right:1pt solid black;}
+table.alternate td code         {font-size:8pt;}
+table.alternate td p            {font-family:Tahoma; font-size:8pt; margin-left:00pt; margin-top:3pt; margin-bottom:0pt;}
+table.alternate td p.lvl2       {                                   margin-left:06pt; margin-top:3pt; margin-bottom:0pt;}
+table.alternate td p.lvl3       {                                   margin-left:12pt; margin-top:3pt; margin-bottom:0pt;}
+table.alternate td p.imgBltLvl  {                                   margin-left:12pt;                 text-indent:-12pt;}
+table.alternate td p.imgLvl1    {margin-left:06pt; margin-top:3pt; margin-bottom:0pt; }
+table.alternate td p.captLvl1   {margin-left:06pt; margin-top:0pt; margin-bottom:3pt; color:darkslategray; font-size:90%; }
+table.alternate table.alternate { margin-top:6pt; margin-left:6pt; }
+table.alternate table.alternate table.alternate { margin-top:3pt; margin-left:3pt; }
+table.alternate table td p.captLvl0 {margin-left:0pt; margin-top:0pt; margin-bottom:3pt; color:darkslategray; font-size:65%; }
+
+/* Borderless table */
+table.borderless         {font-family:Tahoma;font-size:8pt; border-top:0pt; border-left:0pt; }
+table.borderless th      {padding:0pt; font-weight:bold; color:white; background:darkslateblue; }
+table.borderless td      {vertical-align:top; padding:0pt; border-bottom:0pt; border-right:0pt; }
+table.borderless td code {font-size:7.5pt;}
+table.borderless td p    {font-family:Tahoma;font-size:8pt; margin-left:0pt; margin-top:0pt; margin-bottom:4pt;}
+/* Box tables */
+table.boxLvl1        {font-family:Arial ; margin-left:12pt; border:1pt solid darkslateblue; background:ghostwhite; padding:0pt;}
+table.boxLvl1 th     {background:darkslateblue; color:white; font-weight:bold;}
+table.boxLvl2        {font-family:Arial ; margin-left:26pt; border:1pt solid darkslateblue; background:ghostwhite; padding:0pt;}
+table.boxLvl2 th     {background:darkslateblue; color:white; font-weight:bold;}
+/* Note tables */
+table.noteLvl1           {margin-left:12pt; font-family:Arial; border:1pt solid orange; background:ghostwhite; margin-top:6pt; margin-bottom:6pt; padding:0pt;}
+table.noteLvl2           {margin-left:26pt; font-family:Arial; border:1pt solid orange; background:ghostwhite; margin-top:6pt; margin-bottom:6pt; padding:0pt;}
+table.noteLvl3           {margin-left:40pt; font-family:Arial; border:1pt solid orange; background:ghostwhite; margin-top:6pt; margin-bottom:6pt; padding:0pt;}
+table.noteLvl4           {margin-left:56pt; font-family:Arial; border:1pt solid orange; background:ghostwhite; margin-top:6pt; margin-bottom:6pt; padding:0pt;}
+table.noteLvl5           {margin-left:70pt; font-family:Arial; border:1pt solid orange; background:ghostwhite; margin-top:6pt; margin-bottom:6pt; padding:0pt;}
+table.noteLvl1 td,
+table.noteLvl2 td,
+table.noteLvl3 td,
+table.noteLvl4 td,
+table.noteLvl5 td        {vertical-align:top;}
+table.noteLvl1 td p,
+table.noteLvl2 td p,
+table.noteLvl3 td p,
+table.noteLvl4 td p,
+table.noteLvl5 td p      {font-size:8.5pt; margin:0pt;}
+
+
+/*----- OTHER PARAGRAPHS -----*/
+
+/* Indented paragraphs */
+p.lvl1     {margin-left:12pt; margin-top:6pt; margin-bottom: 3pt; }
+p.lvl2     {margin-left:26pt; margin-top:6pt; margin-bottom: 3pt; } 
+p.lvl3     {margin-left:40pt; margin-top:6pt; margin-bottom: 3pt; } 
+p.lvl4     {margin-left:54pt; margin-top:4pt; margin-bottom: 2pt; } 
+p.lvl5     {margin-left:68pt; margin-top:4pt; margin-bottom: 2pt; } 
+
+/* Captions */
+p.captLvl0 {margin-left:02pt; margin-top:0pt; margin-bottom:6pt; color:darkslategray; font-size:8pt; }
+p.captLvl1 {margin-left:14pt; margin-top:0pt; margin-bottom:6pt; color:darkslategray; font-size:8pt; }
+p.captLvl2 {margin-left:28pt; margin-top:0pt; margin-bottom:6pt; color:darkslategray; font-size:8pt; }
+p.captLvl3 {margin-left:42pt; margin-top:0pt; margin-bottom:6pt; color:darkslategray; font-size:8pt; }
+p.captLvl4 {margin-left:56pt; margin-top:0pt; margin-bottom:6pt; color:darkslategray; font-size:8pt; }
+p.captLvl5 {margin-left:70pt; margin-top:0pt; margin-bottom:6pt; color:darkslategray; font-size:8pt; }
+p.captLvl6 {margin-left:84pt; margin-top:0pt; margin-bottom:6pt; color:darkslategray; font-size:8pt; }
+
+/* Images */
+p.imgLvl0  {margin-left:01pt; margin-top:3pt; margin-bottom:0pt; }
+p.imgLvl1  {margin-left:13pt; margin-top:3pt; margin-bottom:0pt; }
+p.imgLvl2  {margin-left:27pt; margin-top:3pt; margin-bottom:0pt; }
+p.imgLvl3  {margin-left:41pt; margin-top:3pt; margin-bottom:0pt; }
+p.imgLvl4  {margin-left:55pt; margin-top:3pt; margin-bottom:0pt; }
+p.imgLvl5  {margin-left:69pt; margin-top:3pt; margin-bottom:0pt; }
+p.imgLvl6  {margin-left:83pt; margin-top:3pt; margin-bottom:0pt; }
+
+/* Notes */
+p.noteLvl0 {margin-left:36pt; text-indent:-30pt; color:navy;}
+p.noteLvl1 {margin-left:42pt; text-indent:-30pt; color:navy;}
+p.noteLvl2 {margin-left:56pt; text-indent:-30pt; color:navy;}
+p.noteLvl3 {margin-left:70pt; text-indent:-30pt; color:navy;}
+p.noteLvl4 {margin-left:84pt; text-indent:-30pt; color:navy;}
+p.noteLvl5 {margin-left:98pt; text-indent:-30pt; color:navy;}
+
+/* Tips */
+p.tipLvl1 {margin-left:35pt; text-indent:-23pt; margin-top:6pt; color:navy;}
+p.tipLvl2 {margin-left:49pt; text-indent:-23pt; margin-top:6pt; color:navy;}
+p.tipLvl3 {margin-left:63pt; text-indent:-23pt; margin-top:6pt; color:navy;}
+p.tipLvl4 {margin-left:77pt; text-indent:-23pt; margin-top:6pt; color:navy;}
+p.tipLvl5 {margin-left:91pt; text-indent:-23pt; margin-top:6pt; color:navy;}
+
+
+/* FYI'a */
+p.FYILvl1 {margin-left:14pt; margin-top:3pt; color:darkslategray; }
+p.FYILvl2 {margin-left:28pt; margin-top:3pt; color:darkslategray; }
+p.FYILvl3 {margin-left:42pt; margin-top:3pt; color:darkslategray; }
+p.FYILvl4 {margin-left:56pt; margin-top:3pt; color:darkslategray; }
+p.FYILvl5 {margin-left:70pt; margin-top:3pt; color:darkslategray; }
+
+
+/* ----- BULLETED LISTS -----*/
+
+/* Image bullet */ 
+p.imgBltLvl0  {margin-left:18pt;  margin-top:5pt;     margin-bottom:4pt; text-indent:-12pt; }
+p.imgBltLvl1  {margin-left:24pt;  margin-top:5pt;     margin-bottom:4pt; text-indent:-12pt; }
+p.imgBltLvl2  {margin-left:38pt;  margin-top:5pt;     margin-bottom:4pt; text-indent:-12pt; }
+p.imgBltLvl3  {margin-left:52pt;  margin-top:4pt;     margin-bottom:3pt; text-indent:-12pt; }
+p.imgBltLvl4  {margin-left:66pt;  margin-top:4pt;     margin-bottom:3pt; text-indent:-12pt; }
+p.imgBltLvl5  {margin-left:80pt;  margin-top:4pt;     margin-bottom:3pt; text-indent:-12pt; }
+
+/* Letter bullet */
+p.ltrBltLvl1  {margin-left:27pt;  margin-top:5pt;     margin-bottom:4pt;   text-indent:-14pt; }
+p.ltrBltLvl2  {margin-left:41pt;  margin-top:5pt;     margin-bottom:4pt;   text-indent:-14pt; }
+p.ltrBltLvl3  {margin-left:55pt;  margin-top:4pt;     margin-bottom:3pt;   text-indent:-14pt; }
+p.ltrBltLvl4  {margin-left:69pt;  margin-top:4pt;     margin-bottom:3pt;   text-indent:-14pt; }
+p.ltrBltLvl5  {margin-left:83pt;  margin-top:4pt;     margin-bottom:3pt;   text-indent:-14pt; }
+
+/* Number bullet - Number < 10 */
+p.numBltLvl1  {margin-left:26pt;  margin-top:5pt;     margin-bottom:4pt;   text-indent:-14pt; }
+p.numBltLvl2  {margin-left:40pt;  margin-top:5pt;     margin-bottom:4pt;   text-indent:-14pt; }
+p.numBltLvl3  {margin-left:54pt;  margin-top:4pt;     margin-bottom:3pt;   text-indent:-14pt; }
+p.numBltLvl4  {margin-left:68pt;  margin-top:4pt;     margin-bottom:3pt;   text-indent:-14pt; }
+
+/* Number bullet - Number >= 10 */
+p.numBltLvl1_Gt9  {margin-left:29pt;  margin-top:6pt;     margin-bottom:3pt;   text-indent:-17pt; }
+p.numBltLvl2_Gt9  {margin-left:43pt;  margin-top:6pt;     margin-bottom:3pt;   text-indent:-17pt; }
+p.numBltLvl3_Gt9  {margin-left:57pt;  margin-top:6pt;     margin-bottom:2pt;   text-indent:-17pt; }
+p.numBltLvl4_Gt9  {margin-left:71pt;  margin-top:6pt;     margin-bottom:2pt;   text-indent:-17pt; }
+
+/* Number bullet - Inside table */
+p.numBltLvl1_TableEntry {margin-left:15pt;margin-top:2pt;margin-bottom:1pt;text-indent:-12pt;}
+
+/* Point bullet */
+p.pntBltLvl1  {margin-left:18pt;  margin-top:2pt;     margin-bottom:2pt;   text-indent:-6pt; }
+p.pntBltLvl2  {margin-left:32pt;  margin-top:2pt;     margin-bottom:2pt;   text-indent:-6pt; }
+p.pntBltLvl3  {margin-left:46pt;  margin-top:2pt;     margin-bottom:2pt;   text-indent:-6pt; }
+p.pntBltLvl4  {margin-left:60pt;  margin-top:2pt;     margin-bottom:2pt;   text-indent:-6pt; }
+p.pntBltLvl5  {margin-left:74pt;  margin-top:1pt;     margin-bottom:1pt;   text-indent:-6pt; }
+p.pntBltLvl6  {margin-left:88pt;  margin-top:1pt;     margin-bottom:1pt;   text-indent:-6pt; }
+
+/* 1st letter of letter-bulleted lists */
+p.ltrBltLvl1:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:darkslateblue;  }
+p.ltrBltLvl2:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:teal;  }
+p.ltrBltLvl3:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:lightslategray;  }
+p.ltrBltLvl4:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:gray;  }
+p.ltrBltLvl5:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:darkgray;  }
+
+/* 1st letter of number-bulleted lists */
+p.numBltLvl1:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:darkslateblue; }
+p.numBltLvl2:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:teal;  }
+p.numBltLvl3:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:lightslategray;  }
+p.numBltLvl4:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:gray;  }
+p.numBltLvl5:first-letter { font-family:monospace; font-weight:bold; padding:4px; color:white; background:darkgray;  }
+
+/* 1st letter of number-bulleted lists - Inside table */
+p.numBltLvl1_TableEntry:first-letter { font-family:monospace; font-weight:bold; padding:3px; color:white; background:navy; }
+
+/* Copyright Info */
+p.copyrightInfo { text-align:right; background:dimgray; color:white; }
+
+/* Lear more */
+p.learnMore { text-align:right; background:gainsboro; color:darkslateblue; font-weight:bold; font-size:85%; }
+
+/*---- FONT STYLES -----*/
+
+/* Style for number in bulleted lists (when step >= 10 OR when referrencing other steps) */
+span.numBltLvl1_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:darkslateblue;  }
+span.numBltLvl2_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:teal;  }
+span.numBltLvl3_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:lightslategray;  }
+span.numBltLvl4_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:gray;  }
+span.numBltLvl5_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:darkgray;  }
+
+/* Style for letter in bulleted lists (for referrencing other steps) */
+span.ltrBltLvl1_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:darkslateblue;  }
+span.ltrBltLvl2_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:teal;  }
+span.ltrBltLvl3_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:lightslategray;  }
+span.ltrBltLvl4_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:gray;  }
+span.ltrBltLvl5_Font { font-family:monospace; font-weight:bold; padding-left:3px; padding-right:3px; color:white; background:darkgray;  }
+
+
+/* Inline image */
+span.imgLeft  { float:left;  padding-right:3pt; }
+span.imgRight { float:right; padding-left:3pt;  }
+
+/* TOP-OF-PAGE TABLE OF CONTENTS */
+DIV.TopOfPageTOC                    { margin:0; margin-top:3pt; padding:0; }
+DIV.TopOfPageTOC img                { margin-right:3pt; }
+DIV.TopOfPageTOC ul                 { margin:0; padding:0; }
+DIV.TopOfPageTOC ul li              { line-height:3.5mm; font-family:Arial;font-size:8pt; list-style-type:none; margin:0pt; margin-left:10pt; padding:0pt; }
+DIV.TopOfPageTOC ul li:first-letter { color:"#0F5286"; }
+
+
+/* General font styles */
+p.bigWorldBlueFont{ font-weight:bold; font-size:150%; color:steelblue; }
+div.caption          { padding-left:2pt; color:darkslategray; font-family:Arial; font-size:8pt; }
+span.chapter         { font-weight:bold; text-decoration:none; padding-left:3pt; padding-right:3pt; color:white; background:steelblue; }
+span.code            { font-weight:bold; font-family:monospace; }
+span.dialogTitle     { font-weight:bold; }
+span.emphasis        { font-style:italic; }
+span.fyi             { color:darkslategray; }
+span.footnoteAnchor  { font-weight:bold; }
+span.highlight       { font-weight:bold; }
+span.interface       { font-weight:bold; }
+span.linkToFile      { text-decoration:underline; color:darkslateblue; cursor:hand; }
+span.linkToFootnote  { font-weight:bold; vertical-align:super; font-size:smaller; }
+span.placeholder     { font-style:italic; }
+span.procedureOr     { font-family:monospace; font-size:10pt; }
+span.reference       { font-weight:bold; }
+span.returnToTop     { font-weight:bold; padding-left:3pt; padding-right:3pt; color:white; background:black; } 
+span.section         { font-weight:bold; text-decoration:none; padding-left:3pt; padding-right:3pt; background:lightslategray; color:white; }
+span.topic           { font-weight:bold; text-decoration:none; padding-left:3pt; padding-right:3pt; background:darkgray; color:white; }
+span.subTopic        { font-weight:bold; text-decoration:none; padding-left:3pt; padding-right:3pt; background:silver; color:white; }
+span.thickRedBorder  { border:3pt solid red; }
+span.windowTitle     { font-weight:bold }
+
+pre { font-size: 8pt; margin-left:12pt; margin-top:0pt; margin-bottom:0pt; background-color:#FBFBFB; border:1pt solid gray;}

@@ -1,0 +1,2728 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><META http-equiv=Content-Type content="text/html; charset=iso-8859-1"></HEAD><BODY>
+<UL>
+
+
+   <!-- INTRODUCTION-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Introduction">
+       <param name="Local" value="00_introduction.htm">
+       </OBJECT>
+
+
+
+   <!-- SETUP A NEW PROJECT-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Setup a New Project">
+       <param name="Local" value="01_setup_new_project.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Resource paths">
+          <param name="Local" value="01_setup_new_project.htm#Res_Path">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating a new space">
+          <param name="Local" value="01_setup_new_project.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Terrain Creation Settings">
+             <param name="Local" value="01_setup_new_project.htm#Terrain_Settings">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Terrain Types ">
+             <param name="Local" value="01_setup_new_project.htm#Terrain_Types">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Changing Space">
+          <param name="Local" value="01_setup_new_project.htm#Changing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Terrain LOD settings ">
+          <param name="Local" value="01_setup_new_project.htm#Terrain_LOD">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Geomorphing">
+             <param name="Local" value="01_setup_new_project.htm#Geomorphing">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Geomipmapping ">
+             <param name="Local" value="01_setup_new_project.htm#Geomipmapping">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Space.settings file ">
+             <param name="Local" value="01_setup_new_project.htm#Space_settings">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- MANAGE RESOURCES-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Manage Resources">
+       <param name="Local" value="02a_resource_management.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Letter Case">
+          <param name="Local" value="02a_resource_management.htm#Case">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Reusing BigWorld art assets ">
+          <param name="Local" value="02a_resource_management.htm#BWAssets">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" Organising art resources">
+          <param name="Local" value="02a_resource_management.htm#OrganiseAssets">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value=" Sets">
+             <param name="Local" value="02a_resource_management.htm#Sets">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value=" Characters - Avatars and NPC's">
+             <param name="Local" value="02a_resource_management.htm#Characters">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Non-specific resources">
+             <param name="Local" value="02a_resource_management.htm#Others">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Terrain Maps">
+             <param name="Local" value="02a_resource_management.htm#Terrain">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Particles">
+             <param name="Local" value="02a_resource_management.htm#Particles">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Working with source creation files">
+          <param name="Local" value="02a_resource_management.htm#Source">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Working with the Asset Browser">
+          <param name="Local" value="02a_resource_management.htm#Working_with_the_Asset_Browser">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Customising the Asset  Browser">
+          <param name="Local" value="02a_resource_management.htm#Customise_Asset_Browser">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE AND EXPORT A STATIC OBJECT IN 3DS MAX AND MAYA-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create and Export a Static Object in 3ds Max and Maya">
+       <param name="Local" value="02b_create_objects.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="3ds Max and Maya Export Paths">
+          <param name="Local" value="02b_create_objects.htm#Export_Dir">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="3ds Max Unit Setup">
+          <param name="Local" value="02b_create_objects.htm#Max_Units">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Maya Unit and World Coordinate Setup">
+          <param name="Local" value="02b_create_objects.htm#Maya_Units">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Object size restrictions ">
+          <param name="Local" value="02b_create_objects.htm#Size_Restrictions">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Avoiding Z fighting ">
+          <param name="Local" value="02b_create_objects.htm#Z_Fighting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Avoiding sorting problems ">
+          <param name="Local" value="02b_create_objects.htm#Sorting_Problems">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Problems with scaling objects ">
+          <param name="Local" value="02b_create_objects.htm#Scaling_Objects">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Object pivot point">
+          <param name="Local" value="02b_create_objects.htm#Orientation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Applying BigWorld shaders directly to 3ds Max models">
+          <param name="Local" value="02b_create_objects.htm#ApplyDX9Materials">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Setting up 3ds Max to use DirectX">
+             <param name="Local" value="02b_create_objects.htm#3dsmax_DirectX">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Assigning BigWorld Shaders directly to models in 3ds Max">
+             <param name="Local" value="02b_create_objects.htm#DirectXShader">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Previewing BigWorld UV-scrolling shaders ">
+             <param name="Local" value="02b_create_objects.htm#PreviewUvScrolling">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Fast material assignment">
+          <param name="Local" value="02b_create_objects.htm#FastAssignment">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Creating a BigWorld 3ds Max material library">
+             <param name="Local" value="02b_create_objects.htm#FastAssignment_CreatingLib">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using the BigWorld 3ds Max material library">
+             <param name="Local" value="02b_create_objects.htm#FastAssignment_UseMaterialLib">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Referencing the object texture maps">
+          <param name="Local" value="02b_create_objects.htm#Referencing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Texturing outside UV coordinates avoids compression artifacts">
+          <param name="Local" value="02b_create_objects.htm#Texturing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Multiple material types">
+          <param name="Local" value="02b_create_objects.htm#Multiple_Materials">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Multiple material types within 3ds Max">
+             <param name="Local" value="02b_create_objects.htm#Multiple_Materials_Max">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Multiple material types within Maya">
+             <param name="Local" value="02b_create_objects.htm#Multiple_Materials_Maya">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="High cost of multiple material types">
+             <param name="Local" value="02b_create_objects.htm#Max_Material_Channels">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting multiple UV coordinates ">
+          <param name="Local" value="02b_create_objects.htm#Multi_UV">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting vertex colour ">
+          <param name="Local" value="02b_create_objects.htm#Vert_Colour">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the Edit Normals Modifier">
+          <param name="Local" value="02b_create_objects.htm#Edit_Normals">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting static objects from your 3D application">
+          <param name="Local" value="02b_create_objects.htm#Exporting">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using the BigWorld 3ds Max exporter to export static objects">
+             <param name="Local" value="02b_create_objects.htm#3dsExport">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using the BigWorld Maya exporter to export static objects.">
+             <param name="Local" value="02b_create_objects.htm#MayaExport">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="BigWorld and Collada">
+          <param name="Local" value="02b_create_objects.htm#Collada">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Exporting Collada .dae files to BigWorld">
+             <param name="Local" value="02b_create_objects.htm#ColladaToBigWorld">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using the BigWorld (Visual) to Collada converter">
+             <param name="Local" value="02b_create_objects.htm#BigWorldToCollada">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- MODIFY A MODEL IN MODELEDITOR-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Modify a Model in ModelEditor">
+       <param name="Local" value="03_create_model.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Importing an object">
+          <param name="Local" value="03_create_model.htm#Importing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Manipulating the camera">
+          <param name="Local" value="03_create_model.htm#ManipulatingCamera">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Changing a model's shader / material">
+          <param name="Local" value="03_create_model.htm#Loading">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Changing a model's texture">
+          <param name="Local" value="03_create_model.htm#Changing_Textures">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using MFM's">
+          <param name="Local" value="03_create_model.htm#Saving">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Create an MFM">
+             <param name="Local" value="03_create_model.htm#CreateMFMSub">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Apply an MFM to a model">
+             <param name="Local" value="03_create_model.htm#ApplyMFMSub">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exposing a material parameter to Python">
+          <param name="Local" value="03_create_model.htm#Expose_Python">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Enabling a texture feed">
+          <param name="Local" value="03_create_model.htm#Texture_Feed">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Changing the model's thumbnail">
+          <param name="Local" value="03_create_model.htm#Changing_Thumb">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- ADD MODELS TO THE WORLD-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Add Models to the World">
+       <param name="Local" value="04_place_models.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Locating models in the Asset Browser">
+          <param name="Local" value="04_place_models.htm#Locating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Navigating the WorldEditor viewport">
+          <param name="Local" value="04_place_models.htm#Navigating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Placing models on the terrain">
+          <param name="Local" value="04_place_models.htm#Placing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Manipulating the models">
+          <param name="Local" value="04_place_models.htm#Manipulating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the clone feature">
+          <param name="Local" value="04_place_models.htm#Using">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating invisible barriers ">
+          <param name="Local" value="04_place_models.htm#Invisible">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Finding missing Assets">
+          <param name="Local" value="04_place_models.htm#Missing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- SCULPT TERRAIN-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Sculpt Terrain">
+       <param name="Local" value="05_sculpt_terrain.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Changing the surface height">
+          <param name="Local" value="05_sculpt_terrain.htm#Changing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Average brush  ">
+          <param name="Local" value="05_sculpt_terrain.htm#Average">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding refinement filters">
+          <param name="Local" value="05_sculpt_terrain.htm#Adding">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Removing terrain">
+          <param name="Local" value="05_sculpt_terrain.htm#Removing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE AN INTERNAL SHELL-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create an Internal Shell">
+       <param name="Local" value="06_create_shell.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="What is a Shell? ">
+          <param name="Local" value="06_create_shell.htm#What_is_a_Shell">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Components of a shell ">
+          <param name="Local" value="06_create_shell.htm#Components_Shells">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Portals">
+             <param name="Local" value="06_create_shell.htm#Portal_restrictions">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Standard portals">
+                <param name="Local" value="06_create_shell.htm#Standard_Portal">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Exit portals">
+                <param name="Local" value="06_create_shell.htm#Exit_Portal">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Heavenly portals">
+                <param name="Local" value="06_create_shell.htm#Heavenly_Portal">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Portal Rules">
+                <param name="Local" value="06_create_shell.htm#Portal_Rules">
+                </OBJECT>
+
+            </UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Custom Hull ">
+             <param name="Local" value="06_create_shell.htm#Custom_Hull">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Custom Hull Rules">
+                <param name="Local" value="06_create_shell.htm#HullRules">
+                </OBJECT>
+
+            </UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Game Geometry">
+             <param name="Local" value="06_create_shell.htm#Game_Geometry">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Game Geometry  Rules">
+                <param name="Local" value="06_create_shell.htm#GameGeometryRules">
+                </OBJECT>
+
+            </UL>
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Shell snaps within WorldEditor">
+          <param name="Local" value="06_create_shell.htm#ShellSnaps_WorldEditor">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Modelling a room as a shell">
+          <param name="Local" value="06_create_shell.htm#Modelling">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Creating ceiling height variation">
+             <param name="Local" value="06_create_shell.htm#CreatingCeilingHeightVariation">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating portals">
+          <param name="Local" value="06_create_shell.htm#Creating_Portals">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Labelling Portals">
+          <param name="Local" value="06_create_shell.htm#Portal_Label">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Shell planning - Dividing up an internal space">
+          <param name="Local" value="06_create_shell.htm#Shell_Planning">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Shell navigation constraints">
+          <param name="Local" value="06_create_shell.htm#Shell_Navigation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Town planning - Optimising portal culling">
+          <param name="Local" value="06_create_shell.htm#Town">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="City type 1">
+             <param name="Local" value="06_create_shell.htm#Type1">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="City type 2">
+             <param name="Local" value="06_create_shell.htm#Type2">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Portal creation: Using materials on custom hulls">
+          <param name="Local" value="06_create_shell.htm#Material_Portals">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Preventing Sparkles and improve culling ">
+          <param name="Local" value="06_create_shell.htm#Preventing_Sparkles">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Shell flanges">
+             <param name="Local" value="06_create_shell.htm#Shell_Flanges">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Plugs">
+             <param name="Local" value="06_create_shell.htm#Plugs">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Plug for the standard portal">
+                <param name="Local" value="06_create_shell.htm#BuildingPlugForStandardPortal">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Plug for the exit portal">
+                <param name="Local" value="06_create_shell.htm#BuildingPlugForExitPortal">
+                </OBJECT>
+
+            </UL>
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating an undercover area">
+          <param name="Local" value="06_create_shell.htm#UnderCover">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" Outside only: lighting property">
+          <param name="Local" value="06_create_shell.htm#Outside_Only">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Referencing the room and plug texture maps">
+          <param name="Local" value="06_create_shell.htm#Referencing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting Shells">
+          <param name="Local" value="06_create_shell.htm#Exporting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting the plugs">
+          <param name="Local" value="06_create_shell.htm#Exporting2">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE AN INTERNAL AREA IN WORLDEDITOR USING SHELLS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create an Internal Area in WorldEditor Using Shells">
+       <param name="Local" value="07_add_shells.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Placing shells in the world">
+          <param name="Local" value="07_add_shells.htm#Placing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Shell snaps">
+          <param name="Local" value="07_add_shells.htm#ShellSnaps">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Integrating plugs with shells">
+          <param name="Local" value="07_add_shells.htm#Integrating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating templates and prefabs">
+          <param name="Local" value="07_add_shells.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Templates">
+             <param name="Local" value="07_add_shells.htm#Templates">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Prefabs">
+             <param name="Local" value="07_add_shells.htm#Prefabs">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- CREATE LOW-POLYGON CHARACTERS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create Low-Polygon Characters">
+       <param name="Local" value="08_create_lowpoly_char.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Character Orientation">
+          <param name="Local" value="08_create_lowpoly_char.htm#Orientation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Node/Bone Limit">
+          <param name="Local" value="08_create_lowpoly_char.htm#BoneLimit">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Order of Modifiers and History ">
+          <param name="Local" value="08_create_lowpoly_char.htm#Order">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Orientation of nodes for use with the Head Trackers">
+          <param name="Local" value="08_create_lowpoly_char.htm#Trackers">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Rigging the character with Biped">
+          <param name="Local" value="08_create_lowpoly_char.htm#Rigging">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Skinning">
+          <param name="Local" value="08_create_lowpoly_char.htm#Skinning">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Skinning the character using the Skin modifier">
+             <param name="Local" value="08_create_lowpoly_char.htm#SkinningWithSkin">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Skinning the character using Physique">
+             <param name="Local" value="08_create_lowpoly_char.htm#SkinningWithPhysique">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Skinning the  character in Maya ">
+             <param name="Local" value="08_create_lowpoly_char.htm#Skinning_Maya">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Hard points">
+          <param name="Local" value="08_create_lowpoly_char.htm#HP">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Placing hard points on your character for attaching items">
+             <param name="Local" value="08_create_lowpoly_char.htm#PlacingHPsOnCharacter">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Placing hard points on your items">
+             <param name="Local" value="08_create_lowpoly_char.htm#PlacingHPsOnItems">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Referencing the character texture maps">
+          <param name="Local" value="08_create_lowpoly_char.htm#Referencing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting the character">
+          <param name="Local" value="08_create_lowpoly_char.htm#Exporting">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE CHARACTER MOVEMENT ANIMATIONS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create Character Movement Animations">
+       <param name="Local" value="09_create_char_anims.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Animations must translate the root node">
+          <param name="Local" value="09_create_char_anims.htm#Root_Node_Translate">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Linear movement of the root node">
+          <param name="Local" value="09_create_char_anims.htm#Using">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Synchronising blend transitions ">
+          <param name="Local" value="09_create_char_anims.htm#Synchronising">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Starting position ">
+             <param name="Local" value="09_create_char_anims.htm#Start_position">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Locomotion animations ">
+             <param name="Local" value="09_create_char_anims.htm#Locomotion">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Turn Animations ">
+             <param name="Local" value="09_create_char_anims.htm#Turn_Animations">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Falling animations">
+          <param name="Local" value="09_create_char_anims.htm#Falling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Death animations ">
+          <param name="Local" value="09_create_char_anims.htm#Death_Animations">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Animation frame rate">
+          <param name="Local" value="09_create_char_anims.htm#FrameRate">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Animation range">
+          <param name="Local" value="09_create_char_anims.htm#Maya_Animation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting character animation with BigWorld Exporter">
+          <param name="Local" value="09_create_char_anims.htm#Exporting">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Exporting animation from 3ds Max for use in the BigWorld engine">
+             <param name="Local" value="09_create_char_anims.htm#3DSMaxExportAnim">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Exporting animation from Maya for use in the BigWorld engine">
+             <param name="Local" value="09_create_char_anims.htm#MAYAExportAnim">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Opposite Facing Direction ">
+          <param name="Local" value="09_create_char_anims.htm#OppositeFacing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Designing Rigs for customisable models">
+          <param name="Local" value="09_create_char_anims.htm#RigDesignCustomisable">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Supermodel">
+             <param name="Local" value="09_create_char_anims.htm#SuperModel">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Driving Hard Point attached items with the parent models Action Matcher ">
+             <param name="Local" value="09_create_char_anims.htm#RevHardPoints">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Fixing vertex normal seams ">
+             <param name="Local" value="09_create_char_anims.htm#VertexNormal">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Reference hierarchy/custom node hierarchy">
+          <param name="Local" value="09_create_char_anims.htm#ReferenceHierarchy">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using the Reference Hierarchy feature to remove unwanted controllers ">
+             <param name="Local" value="09_create_char_anims.htm#Unwanted_Controllers">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Animating HP using a reference hierarchy">
+             <param name="Local" value="09_create_char_anims.htm#HP_hierarchy">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding Note tracks to trigger events and sounds ">
+          <param name="Local" value="09_create_char_anims.htm#NoteTracks">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- ADD ANIMATIONS TO CHARACTERS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Add Animations to Characters">
+       <param name="Local" value="10_add_anims_to_chars.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Importing a new character">
+          <param name="Local" value="10_add_anims_to_chars.htm#Importing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding an animation to a model ">
+          <param name="Local" value="10_add_anims_to_chars.htm#Importing2">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Viewing the animation and altering its frame rate">
+          <param name="Local" value="10_add_anims_to_chars.htm#Viewing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Per-node animation blending">
+          <param name="Local" value="10_add_anims_to_chars.htm#Node_Blending">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Blend bones">
+             <param name="Local" value="10_add_anims_to_chars.htm#BlendBones">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Compressing animations">
+          <param name="Local" value="10_add_anims_to_chars.htm#Compressing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- MODIFY ANIMATIONS WITH ACTIONS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Modify Animations with Actions">
+       <param name="Local" value="11_create_actions.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating actions">
+          <param name="Local" value="11_create_actions.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Actions' tags and tracks">
+          <param name="Local" value="11_create_actions.htm#TagsAndTracks">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Animation tracks">
+             <param name="Local" value="11_create_actions.htm#AnimationTracks">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Blending actions">
+          <param name="Local" value="11_create_actions.htm#Blending">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Player movement">
+          <param name="Local" value="11_create_actions.htm#Movement">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Speed Trigger Values">
+          <param name="Local" value="11_create_actions.htm#SpeedTriggerValues">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Action order and LODs">
+          <param name="Local" value="11_create_actions.htm#Order_LODs">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using Actions with flying entities ">
+          <param name="Local" value="11_create_actions.htm#Flying">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flying Idle to Movement transitions">
+             <param name="Local" value="11_create_actions.htm#FlyingIdleToMovement">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Scale playback speed ">
+             <param name="Local" value="11_create_actions.htm#FlyingScalePlaybackSpeed">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Viewing and Debugging actions">
+          <param name="Local" value="11_create_actions.htm#ViewingDebugging">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="From Python console">
+             <param name="Local" value="11_create_actions.htm#DebugFromPython">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using Action Matcher debugger">
+             <param name="Local" value="11_create_actions.htm#AMDebugger">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Debug actions from CAT">
+             <param name="Local" value="11_create_actions.htm#DebugFromCAT">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Debug actions from within ModelEditor">
+             <param name="Local" value="11_create_actions.htm#DebugFromModelEditor">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="How to preview blending in ModelEditor">
+                <param name="Local" value="11_create_actions.htm#HowToPreviewBlending">
+                </OBJECT>
+
+            </UL>
+         </UL>
+      </UL>
+
+
+   <!-- CREATE LEVEL-OF-DETAIL MESH FOR CHARACTERS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create Level-of-Detail Mesh for Characters">
+       <param name="Local" value="14_create_character_lods.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mesh LOD Theory">
+          <param name="Local" value="14_create_character_lods.htm#Mesh_Theory">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Optimising the object density">
+             <param name="Local" value="14_create_character_lods.htm#Optimising">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Material LOD Theory">
+          <param name="Local" value="14_create_character_lods.htm#Material_Theory">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Node LOD Theory">
+          <param name="Local" value="14_create_character_lods.htm#Node_Theory">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Skinning with reduced links">
+             <param name="Local" value="14_create_character_lods.htm#Skinning">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting the LOD components">
+          <param name="Local" value="14_create_character_lods.htm#Exporting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Implementing the LOD">
+          <param name="Local" value="14_create_character_lods.htm#Implementing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE ANIMATED OR INTERACTIVE ENTITIES-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create Animated or Interactive Entities">
+       <param name="Local" value="15_create_interactive_entity.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating animation">
+          <param name="Local" value="15_create_interactive_entity.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Crea">
+             <param name="Local" value="15_create_interactive_entity.htm#ReUsingDoorAnimations">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Create door actions">
+             <param name="Local" value="15_create_interactive_entity.htm#DoorActions">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Attaching a hard-point to an object">
+          <param name="Local" value="15_create_interactive_entity.htm#Attaching">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- ANIMATE CHARACTER INTERACTIONS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Animate Character Interactions">
+       <param name="Local" value="16_animating_char_interactions.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Positioning characters for interaction with an entity (IsCoordinated)">
+          <param name="Local" value="16_animating_char_interactions.htm#Positioning">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Animating the contact point for attachment">
+             <param name="Local" value="16_animating_char_interactions.htm#Animating">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Exporting character animation segments ">
+             <param name="Local" value="16_animating_char_interactions.htm#Exporting">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Exporting the entity object">
+             <param name="Local" value="16_animating_char_interactions.htm#Exporting2">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Two characters interacting (IsCoordinated and IsImpacting)">
+          <param name="Local" value="16_animating_char_interactions.htm#Two">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Animating Hard Points ">
+          <param name="Local" value="16_animating_char_interactions.htm#Animating_HardPoints">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- TINTS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Tints">
+       <param name="Local" value="17_create_a_new_material.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating a material tint">
+          <param name="Local" value="17_create_a_new_material.htm#Tint">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Increase world variation - Using tints in WorldEditor">
+          <param name="Local" value="17_create_a_new_material.htm#Variation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Level Of Detail (LOD) and Tints ">
+          <param name="Local" value="17_create_a_new_material.htm#LODTints">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- TEXTURE MAPS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Texture Maps">
+       <param name="Local" value="18_animated_texture_maps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Texture formats and   compression settings">
+          <param name="Local" value="18_animated_texture_maps.htm#Texformat">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Texture detail levels - texture compression">
+             <param name="Local" value="18_animated_texture_maps.htm#Detail_Levels">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Texformat - texture compression">
+             <param name="Local" value="18_animated_texture_maps.htm#Texformat_File">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Animated texture maps">
+          <param name="Local" value="18_animated_texture_maps.htm#Animated_Textures">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Creating the texture animation file">
+             <param name="Local" value="18_animated_texture_maps.htm#Creating">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Applying animated texture map to a material">
+             <param name="Local" value="18_animated_texture_maps.htm#Applying">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating Cube Maps">
+          <param name="Local" value="18_animated_texture_maps.htm#cube_maps">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Authoring textures for re sizable GUI windows">
+          <param name="Local" value="18_animated_texture_maps.htm#gui_windows">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE AND APPLY TERRAIN TEXTURE MAPS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create and Apply Terrain Texture Maps">
+       <param name="Local" value="20_terrain_texture_maps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Painting the terrain">
+          <param name="Local" value="20_terrain_texture_maps.htm#Applying">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using masks to texture the terrain">
+          <param name="Local" value="20_terrain_texture_maps.htm#Using_Masks">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using imported masks to rapidly texture terrain ">
+             <param name="Local" value="20_terrain_texture_maps.htm#ImportedMasks">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Terrain texture  management ">
+          <param name="Local" value="20_terrain_texture_maps.htm#Management">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Terrain texture projection">
+          <param name="Local" value="20_terrain_texture_maps.htm#Projection">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Terrain texture tiling">
+          <param name="Local" value="20_terrain_texture_maps.htm#Tiling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Specular lighting on terrain">
+          <param name="Local" value="20_terrain_texture_maps.htm#Specular">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Adjusting terrain specular properties via watchers">
+             <param name="Local" value="20_terrain_texture_maps.htm#AdjustSpecular">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Terrain texture material type">
+          <param name="Local" value="20_terrain_texture_maps.htm#MaterialType">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Cloud shadows">
+          <param name="Local" value="20_terrain_texture_maps.htm#Cloud">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating terrain textures">
+          <param name="Local" value="20_terrain_texture_maps.htm#CreatingTerrainTextures">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Removing small frequency tiling">
+             <param name="Local" value="20_terrain_texture_maps.htm#RemovingSmall">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Removing large frequency tiling">
+             <param name="Local" value="20_terrain_texture_maps.htm#RemovingLarge">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- CHANGE ENVIRONMENTAL SETTINGS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Change Environmental Settings">
+       <param name="Local" value="21_change_environ_settings.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Overview">
+          <param name="Local" value="21_change_environ_settings.htm#Overview">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Night Sky dome">
+          <param name="Local" value="21_change_environ_settings.htm#NightSkydome">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Day Sky dome">
+          <param name="Local" value="21_change_environ_settings.htm#DaySkydome">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Sky gradient map">
+             <param name="Local" value="21_change_environ_settings.htm#Creating">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Fog Colour ">
+             <param name="Local" value="21_change_environ_settings.htm#Fog">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Static Sky Boxes">
+          <param name="Local" value="21_change_environ_settings.htm#StaticSkyBoxes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Static Sky box shaders ">
+             <param name="Local" value="21_change_environ_settings.htm#StaticSkyBoxShaders">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Create a Static Sky Dome Model ">
+             <param name="Local" value="21_change_environ_settings.htm#Create_Skydome">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Dynamic Sky Boxes (Weather)">
+          <param name="Local" value="21_change_environ_settings.htm#DynamicSkyBoxes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Dynamic &quot;weather&quot; Sky box shaders ">
+             <param name="Local" value="21_change_environ_settings.htm#DynamicSkyBoxShaders">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Create a Dynamic SkyDome Model">
+             <param name="Local" value="21_change_environ_settings.htm#Create_dynamic_skydome">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Painting Maps for the  cloud_layer Effect Sky domes ">
+             <param name="Local" value="21_change_environ_settings.htm#Maps_Cloud_Layer">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Weather system special effects and particle systems ">
+          <param name="Local" value="21_change_environ_settings.htm#SpecialEffectsAndParticles">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Bloom ">
+          <param name="Local" value="21_change_environ_settings.htm#Bloom">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Space environment settings ">
+          <param name="Local" value="21_change_environ_settings.htm#EnvironmentOptions">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Changing hour length and start time ">
+             <param name="Local" value="21_change_environ_settings.htm#Time">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Sun and Moon angle ">
+             <param name="Local" value="21_change_environ_settings.htm#Angle">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Sun Flare ">
+             <param name="Local" value="21_change_environ_settings.htm#Sun_Flare">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Time of day ">
+             <param name="Local" value="21_change_environ_settings.htm#Time_Slider">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Ambient and Sun Light ">
+             <param name="Local" value="21_change_environ_settings.htm#AmbientLight">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Atmospheric effects ">
+             <param name="Local" value="21_change_environ_settings.htm#AtmosphericEffects">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Changing far plane settings ">
+             <param name="Local" value="21_change_environ_settings.htm#FarPlane">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Pre 1.9 Clouds">
+          <param name="Local" value="21_change_environ_settings.htm#Clouds">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- ADD LIGHTS TO THE WORLD-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Add Lights to the World">
+       <param name="Local" value="22_add_lights_to_world.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Lighting Environments">
+          <param name="Local" value="22_add_lights_to_world.htm#LightingEnvironments">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Indoor Lighting">
+             <param name="Local" value="22_add_lights_to_world.htm#IndoorLighting">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Outdoor Lighting">
+             <param name="Local" value="22_add_lights_to_world.htm#OutdoorLighting">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Light types">
+          <param name="Local" value="22_add_lights_to_world.htm#LightTypes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="True lights">
+             <param name="Local" value="22_add_lights_to_world.htm#True_Lights">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Image-based lights (flares)">
+             <param name="Local" value="22_add_lights_to_world.htm#Image_Lights">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Light properties">
+          <param name="Local" value="22_add_lights_to_world.htm#Properties">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Light placement">
+          <param name="Local" value="22_add_lights_to_world.htm#LightPlacement">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Visualising lighting contribution">
+          <param name="Local" value="22_add_lights_to_world.htm#Contribution">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Placing ambient lights">
+          <param name="Local" value="22_add_lights_to_world.htm#Placing_Ambient">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Placing lights">
+          <param name="Local" value="22_add_lights_to_world.htm#Placing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adjusting the colour">
+          <param name="Local" value="22_add_lights_to_world.htm#Adjusting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding coronas and streaks">
+          <param name="Local" value="22_add_lights_to_world.htm#Coronas">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding spotlights">
+          <param name="Local" value="22_add_lights_to_world.htm#Spotlights">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating and editing flares">
+          <param name="Local" value="22_add_lights_to_world.htm#Create_Flares">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- BUILD AND USE NORMAL MAPS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Build and Use Normal Maps">
+       <param name="Local" value="23_normal_maps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Normal maps in the BigWorld engine">
+          <param name="Local" value="23_normal_maps.htm#Technical">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Channel direction">
+             <param name="Local" value="23_normal_maps.htm#Channel_Direction">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="BigWorld uses Tangent space normals. ">
+             <param name="Local" value="23_normal_maps.htm#UV_Lowpolygon">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Naming conventions">
+          <param name="Local" value="23_normal_maps.htm#Naming">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Normal mapping hints and tips">
+          <param name="Local" value="23_normal_maps.htm#HintsnTips">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Visualising the normal map contribution">
+             <param name="Local" value="23_normal_maps.htm#Visualising">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="&quot;Flat Blue&quot;">
+             <param name="Local" value="23_normal_maps.htm#FlatBlue">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Which application to use ">
+          <param name="Local" value="23_normal_maps.htm#Which_App">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Normal map creation methods">
+          <param name="Local" value="23_normal_maps.htm#NormalMapCreationMethods">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Zbrush-generated normal maps">
+             <param name="Local" value="23_normal_maps.htm#Zbrush">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="3ds Max/Maya-generated normal maps">
+             <param name="Local" value="23_normal_maps.htm#3ds_Max_Maya">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Building the high-polygon model">
+                <param name="Local" value="23_normal_maps.htm#HighPolygon">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Building the low-polygon model">
+                <param name="Local" value="23_normal_maps.htm#LowPolygon">
+                </OBJECT>
+
+
+               <UL>
+               <LI><OBJECT type="text/sitemap">
+                   <param name="Name" value="UV-unwrapping the low-polygon mesh">
+                   <param name="Local" value="23_normal_maps.htm#UV">
+                   </OBJECT>
+
+               </UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Generating normal maps within 3ds Max">
+                <param name="Local" value="23_normal_maps.htm#Generating3dsMax">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Generating normal maps with Maya 8.0">
+                <param name="Local" value="23_normal_maps.htm#GeneratingMAYA">
+                </OBJECT>
+
+            </UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="ATI Normal Mapper-generated normal maps">
+             <param name="Local" value="23_normal_maps.htm#GeneratingATI">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Texture-generated normal maps">
+             <param name="Local" value="23_normal_maps.htm#Texture">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Combining mesh- and texture-generated normal maps">
+             <param name="Local" value="23_normal_maps.htm#Combining">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Renormalising a normal map">
+             <param name="Local" value="23_normal_maps.htm#Renormalising">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- OUTDOOR-TO-INDOOR TRANSITIONS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Outdoor-to-Indoor Transitions">
+       <param name="Local" value="29_outdoor_to_indoor_transitions.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating an entrance/exit">
+          <param name="Local" value="29_outdoor_to_indoor_transitions.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Cutting the Terrain">
+          <param name="Local" value="29_outdoor_to_indoor_transitions.htm#Cutting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Placing an interior shell">
+          <param name="Local" value="29_outdoor_to_indoor_transitions.htm#Placing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- PARTICLES AND SPECIAL EFFECTS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Particles and Special Effects">
+       <param name="Local" value="30_particles.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Special effects - A combination of mesh and particles">
+          <param name="Local" value="30_particles.htm#SpecialFX">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating your particle system">
+          <param name="Local" value="30_particles.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating a particle source">
+          <param name="Local" value="30_particles.htm#Source">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding a Sink component to remove particles">
+          <param name="Local" value="30_particles.htm#Sink">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding a force like gravity or wind">
+          <param name="Local" value="30_particles.htm#Force">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding a new particle sub-system">
+          <param name="Local" value="30_particles.htm#Adding">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Colouring your particles">
+          <param name="Local" value="30_particles.htm#Colouring">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Changing the number of spawned particles">
+          <param name="Local" value="30_particles.htm#Changing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Sub-system components">
+          <param name="Local" value="30_particles.htm#SubSystem">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="System Properties sub-panel">
+             <param name="Local" value="30_particles.htm#SystemProperties">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Renderer Properties sub-panel">
+             <param name="Local" value="30_particles.htm#RendererProperties">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using Mesh Particles to add small objects to the world. ">
+             <param name="Local" value="30_particles.htm#Meshparticles">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Source sub-panel">
+             <param name="Local" value="30_particles.htm#Source2">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Sink sub-panel">
+             <param name="Local" value="30_particles.htm#Sink2">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Barrier sub-panel">
+             <param name="Local" value="30_particles.htm#Barrier">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Force sub-panel">
+             <param name="Local" value="30_particles.htm#Force2">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Stream sub-panel">
+             <param name="Local" value="30_particles.htm#Stream">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Jitter sub-panel">
+             <param name="Local" value="30_particles.htm#Jitter">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Scaler sub-panel">
+             <param name="Local" value="30_particles.htm#Scaler">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Tint Shader sub-panel">
+             <param name="Local" value="30_particles.htm#TintShader">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Node Clamp sub-panel">
+             <param name="Local" value="30_particles.htm#NodeClamp">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Orbitor sub-panel">
+             <param name="Local" value="30_particles.htm#Orbitor">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flare sub-panel">
+             <param name="Local" value="30_particles.htm#Flare">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Collide sub-panel">
+             <param name="Local" value="30_particles.htm#Collide">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Matrix Swarm sub-panel">
+             <param name="Local" value="30_particles.htm#MatrixSwarm">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Magnet sub-panel">
+             <param name="Local" value="30_particles.htm#Magnet">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Splat sub-panel">
+             <param name="Local" value="30_particles.htm#Splat">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Limitations">
+          <param name="Local" value="30_particles.htm#Limitations">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using python">
+          <param name="Local" value="30_particles.htm#Using_Python">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Python Macros">
+             <param name="Local" value="30_particles.htm#Python_Macros">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Attaching a weapon to the player character">
+             <param name="Local" value="30_particles.htm#Attach_Weapon">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Playing an action on a model ">
+             <param name="Local" value="30_particles.htm#PlayAction">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Attaching a particle system to a hardpoint ">
+             <param name="Local" value="30_particles.htm#Attach_Particle">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Swapping Player Models ">
+             <param name="Local" value="30_particles.htm#Swap_Model">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- CREATE AND USE FLORA-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create and Use Flora">
+       <param name="Local" value="31_flora.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating your flora artwork">
+          <param name="Local" value="31_flora.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flora texture size and polycount">
+             <param name="Local" value="31_flora.htm#FloraPolyTex">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flora UV coordinates">
+             <param name="Local" value="31_flora.htm#FloraUV">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Flora configuration">
+          <param name="Local" value="31_flora.htm#Configuring">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flora.xml">
+             <param name="Local" value="31_flora.htm#FloraXML">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flora draw distances">
+             <param name="Local" value="31_flora.htm#FloraDRAW">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Flora placment, noise and weight">
+          <param name="Local" value="31_flora.htm#Noise">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flora noise">
+             <param name="Local" value="31_flora.htm#FloraNoise">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Keeping flora off paths, the weight tag">
+             <param name="Local" value="31_flora.htm#FloraWeight">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Miscellaneous xml tags ">
+          <param name="Local" value="31_flora.htm#Misc_Tags">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Art and performance tips">
+          <param name="Local" value="31_flora.htm#Tips">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- BEST PRACTICES-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Best Practices">
+       <param name="Local" value="32_best_practices.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the Realtime Profiling Console to test game performance ">
+          <param name="Local" value="32_best_practices.htm#Realtime_Profiling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the Client Watchers to identify problem assets ">
+          <param name="Local" value="32_best_practices.htm#Client_Watchers">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Testing portal culling">
+          <param name="Local" value="32_best_practices.htm#Portal_Culling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Animation tree - Using  LOD models to share animations">
+          <param name="Local" value="32_best_practices.htm#Animation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Batch rendering">
+          <param name="Local" value="32_best_practices.htm#Batch_Rendering">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DPVS and Umbra">
+          <param name="Local" value="32_best_practices.htm#DPVS_Umbra">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="DPVS">
+             <param name="Local" value="32_best_practices.htm#DPVS">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Umbra">
+             <param name="Local" value="32_best_practices.htm#Umbra">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Creating assets for DPVS and Umbra">
+             <param name="Local" value="32_best_practices.htm#AssetsUmbra">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the Client Access Tool (CAT) ">
+          <param name="Local" value="32_best_practices.htm#CAT">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the complete range of textures and lighting">
+          <param name="Local" value="32_best_practices.htm#Textures">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using SpeedTree">
+          <param name="Local" value="32_best_practices.htm#SpeedTree">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Billboards">
+             <param name="Local" value="32_best_practices.htm#SpeedTreeBillboards">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Optimisations">
+             <param name="Local" value="32_best_practices.htm#SpeedTreeOptimisations">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" Lock Server; Working simultaneously on one space">
+          <param name="Local" value="32_best_practices.htm#Lock_Daemon">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" Reloading client assets on the fly">
+          <param name="Local" value="32_best_practices.htm#ReloadAssets">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- USE MAYA VISUAL EXPORTER-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Use Maya Visual Exporter">
+       <param name="Local" value="33_maya_exporter.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the exporter">
+          <param name="Local" value="33_maya_exporter.htm#UsingExporter">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Defining portals using BigWorld shelf">
+          <param name="Local" value="33_maya_exporter.htm#Shelf">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating hard points within Maya">
+          <param name="Local" value="33_maya_exporter.htm#HardPoints">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- BIGWORLD SHADERS AND MATERIALS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="BigWorld Shaders and Materials">
+       <param name="Local" value="34_fx_files_and_materials.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Material properties">
+          <param name="Local" value="34_fx_files_and_materials.htm#Properties">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Material Kinds">
+          <param name="Local" value="34_fx_files_and_materials.htm#Kinds">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="BigWorld shaders">
+          <param name="Local" value="34_fx_files_and_materials.htm#BWShaders">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Multiple UV's and Vertex Colour ">
+             <param name="Local" value="34_fx_files_and_materials.htm#MultipleUVandVertexColour">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Skybox shaders ">
+             <param name="Local" value="34_fx_files_and_materials.htm#Skybox_Shaders">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="How to choose the correct shader">
+             <param name="Local" value="34_fx_files_and_materials.htm#Choose_Shader">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="How to apply a shader in ModelEditor">
+             <param name="Local" value="34_fx_files_and_materials.htm#apply_a_shader">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating a rolling UV material">
+          <param name="Local" value="34_fx_files_and_materials.htm#UV">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Saving a material MFM file">
+          <param name="Local" value="34_fx_files_and_materials.htm#Creating">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE CUSTOM BSPS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create Custom BSPs">
+       <param name="Local" value="35_creating_custom_bsps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="BSP definition">
+          <param name="Local" value="35_creating_custom_bsps.htm#Definition">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating a BSP for an animated object">
+          <param name="Local" value="35_creating_custom_bsps.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Custom BSPs and material collision flags">
+          <param name="Local" value="35_creating_custom_bsps.htm#Material_Kind">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Navigation and art">
+          <param name="Local" value="35_creating_custom_bsps.htm#Navigation">
+          </OBJECT>
+
+
+            <UL>
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="Vertical navigation limit">
+                <param name="Local" value="35_creating_custom_bsps.htm#Vertical_Navigation_Limits">
+                </OBJECT>
+
+            </UL>
+         </UL>
+      </UL>
+
+
+   <!-- CREATE DECAL TEXTURES-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create Decal Textures">
+       <param name="Local" value="36_creating_decal_textures.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creation guidelines">
+          <param name="Local" value="36_creating_decal_textures.htm#Guidelines">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- CREATE TREES AND BILLBOARDS WITH BETTER LIGHTING-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Create Trees And Billboards With Better Lighting">
+       <param name="Local" value="37_creating_trees_with_better_lighting.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using the mungenormals script">
+          <param name="Local" value="37_creating_trees_with_better_lighting.htm#mungenormals">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- USING SPEEDTREE IN THE BIGWORLD ENGINE-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Using SpeedTree in the BigWorld engine">
+       <param name="Local" value="39_speedtree.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Placing SpeedTrees in the world through World Editor ">
+          <param name="Local" value="39_speedtree.htm#PlacingTrees">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Hints and Tips">
+          <param name="Local" value="39_speedtree.htm#Hints">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Values and Colours">
+             <param name="Local" value="39_speedtree.htm#Values">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Specular Lighting ">
+             <param name="Local" value="39_speedtree.htm#Specular">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Leaf Dimming">
+             <param name="Local" value="39_speedtree.htm#LeafDimming">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Reduce wasted texture space">
+             <param name="Local" value="39_speedtree.htm#ReduceTextureSpace">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="How many billboards and what size texture?">
+             <param name="Local" value="39_speedtree.htm#Billboards">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Billboard lighting ">
+             <param name="Local" value="39_speedtree.htm#BillboardLighting">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Defining a tree's collision volume ">
+          <param name="Local" value="39_speedtree.htm#Collision_Volume">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Engine generated files">
+          <param name="Local" value="39_speedtree.htm#GeneratedFiles">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SpeedTree LOD">
+          <param name="Local" value="39_speedtree.htm#LevelOfDetail">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SpeedTree and Wind">
+          <param name="Local" value="39_speedtree.htm#SpeedTreeWind">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- MORPH TARGETS AND BLEND SHAPES-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Morph Targets and Blend Shapes">
+       <param name="Local" value="40_morph_and_blend_shape_animation.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Morph target restrictions">
+          <param name="Local" value="40_morph_and_blend_shape_animation.htm#Restrictions">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="3ds Max Morph Targets">
+          <param name="Local" value="40_morph_and_blend_shape_animation.htm#3dsMax_Morph_Targets">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Exporting 3ds Max Morph Target Visuals and Animations">
+             <param name="Local" value="40_morph_and_blend_shape_animation.htm#Export_Morph">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Maya Blend Shapes">
+          <param name="Local" value="40_morph_and_blend_shape_animation.htm#Maya_Blend_Shapes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using blendshapes with skeletal animation">
+             <param name="Local" value="40_morph_and_blend_shape_animation.htm#Blendshapes_Skin">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Exporting Maya Blend Shapes">
+             <param name="Local" value="40_morph_and_blend_shape_animation.htm#Export_Blend_Shapes">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- ADD WATER TO THE WORLD-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Add Water to the World">
+       <param name="Local" value="41_water.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Adding water in WorldEditor">
+          <param name="Local" value="41_water.htm#WorldEditor">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Water surface">
+          <param name="Local" value="41_water.htm#WaterSurface">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Multiple water surfaces">
+             <param name="Local" value="41_water.htm#Multiple_Water">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Water properties">
+          <param name="Local" value="41_water.htm#WaterProperties">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Custom water surfaces">
+          <param name="Local" value="41_water.htm#CustomWater">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Lightonly_uvtransform2_alpha_mask.fx for water surfaces">
+             <param name="Local" value="41_water.htm#Custom_water1">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="water_surface.fx for water surfaces">
+             <param name="Local" value="41_water.htm#CustomWater2">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- USING GREYSCALE HEIGHTMAPS TO EDIT TERRAIN-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="The Project view and using greyscale heightmaps to edit terrain">
+       <param name="Local" value="42_heightmaps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Project view">
+          <param name="Local" value="42_heightmaps.htm#ProjectView">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Creating heightmaps ">
+          <param name="Local" value="42_heightmaps.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Heightmaps for level design prototyping">
+             <param name="Local" value="42_heightmaps.htm#Design_Prototyping">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Importing heightmaps">
+          <param name="Local" value="42_heightmaps.htm#Importing_Height_Maps">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Exporting heightmaps">
+          <param name="Local" value="42_heightmaps.htm#Exporting_Height_Maps">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- USING UDOS (USER DATA OBJECTS) AND ENTITIES-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Using UDOs (User Data Objects) and Entities">
+       <param name="Local" value="43_user_data_objects.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="UDO and Entity Properties">
+          <param name="Local" value="43_user_data_objects.htm#Properties">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Placing UDOs">
+             <param name="Local" value="43_user_data_objects.htm#Placing">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Performance profiling using UDO camera nodes">
+          <param name="Local" value="43_user_data_objects.htm#Profiling">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- USING THE SCENE BROWSER-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Using the Scene Browser">
+       <param name="Local" value="44_using_the_scene_browser.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Scene Browswer ">
+          <param name="Local" value="44_using_the_scene_browser.htm#SceneBrowser">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Common properties ">
+             <param name="Local" value="44_using_the_scene_browser.htm#Common">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Using the Scene Browser to find problem assets">
+             <param name="Local" value="44_using_the_scene_browser.htm#Problem">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- POST PROCESSING-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Post Processing">
+       <param name="Local" value="45_post_processing.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Post Processing ">
+          <param name="Local" value="45_post_processing.htm#PostProcessing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Post Processing Chain">
+          <param name="Local" value="45_post_processing.htm#PPChain">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Render targets and the Backbuffer">
+          <param name="Local" value="45_post_processing.htm#BackBuffer">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Filter Quad Components">
+          <param name="Local" value="45_post_processing.htm#FilterQuad">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Post Processing Effects ">
+          <param name="Local" value="45_post_processing.htm#PPEffects">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="FXAA">
+             <param name="Local" value="45_post_processing.htm#FXAA">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Hatching">
+             <param name="Local" value="45_post_processing.htm#Hatching">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Colour Correct">
+             <param name="Local" value="45_post_processing.htm#ColourCorrect">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="HSV Colour Correct ">
+             <param name="Local" value="45_post_processing.htm#HSVColourCorrect">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Lens Distortion ">
+             <param name="Local" value="45_post_processing.htm#LensDistortion">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Rainbow">
+             <param name="Local" value="45_post_processing.htm#Rainbow">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Scotopic Vision ">
+             <param name="Local" value="45_post_processing.htm#ScotopicVision">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Posterise and Edge ">
+             <param name="Local" value="45_post_processing.htm#PPEffectsPosteriseEdge">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Depth of Field">
+             <param name="Local" value="45_post_processing.htm#DOF">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Film Grain ">
+             <param name="Local" value="45_post_processing.htm#FilmGrain">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Using Post Processing ">
+          <param name="Local" value="45_post_processing.htm#PPSFX">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- BIGWORLD MAXSCRIPTS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="BigWorld MAXScripts">
+       <param name="Local" value="46_bigworld_maxscripts.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Installation">
+          <param name="Local" value="46_bigworld_maxscripts.htm#Installation">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Maxscript Installation">
+             <param name="Local" value="46_bigworld_maxscripts.htm#MaxInstallation">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Maya BigWorld Shelf Installation">
+             <param name="Local" value="46_bigworld_maxscripts.htm#MayaInstallation">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Export Visual">
+          <param name="Local" value="46_bigworld_maxscripts.htm#ExportVisual">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Add Custom Hull">
+          <param name="Local" value="46_bigworld_maxscripts.htm#CustomHull">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Add Portal">
+          <param name="Local" value="46_bigworld_maxscripts.htm#AddPortal">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Label Portal">
+          <param name="Local" value="46_bigworld_maxscripts.htm#LabelPortal">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Import Hard Point">
+          <param name="Local" value="46_bigworld_maxscripts.htm#ImportHP">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Add a Note Track">
+          <param name="Local" value="46_bigworld_maxscripts.htm#AddNoteTrack">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Flag as BSP (collision geometry)">
+          <param name="Local" value="46_bigworld_maxscripts.htm#FlagBSP">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Munge Normals">
+          <param name="Local" value="46_bigworld_maxscripts.htm#MungeNormals">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Attach Hitbox and Export HitBox to XML">
+          <param name="Local" value="46_bigworld_maxscripts.htm#HitBox">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Object Divider">
+          <param name="Local" value="46_bigworld_maxscripts.htm#Divider">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Prefab Assembler">
+          <param name="Local" value="46_bigworld_maxscripts.htm#Prefab">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Maya Prefab Assembler">
+             <param name="Local" value="46_bigworld_maxscripts.htm#MayaPrefabAssembler">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Large object workflow">
+          <param name="Local" value="46_bigworld_maxscripts.htm#LargeObjectWorkflow">
+          </OBJECT>
+
+      </UL>
+</UL>
+</BODY>
+</HTML>
