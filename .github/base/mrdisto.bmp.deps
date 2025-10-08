@@ -1,0 +1,38 @@
+<root>
+	<PrimaryInputs>
+		<Dependency
+				Type="0"
+				Hash="3081852804832864088"
+				File="characters/avatars/base/mrdisto.bmp"
+				Critical="true" />
+		<Dependency
+				Type="3"
+				Hash="7438824836517124430"
+				Id="17268208727046797584"
+				Version="2.8.2"
+				Critical="true" />
+		<Dependency
+				Type="4"
+				Hash="14695981039346656037"
+				Params=""
+				Critical="true" />
+	</PrimaryInputs>
+	<SecondaryInputs>
+		<Dependency
+				Type="0"
+				Hash="9535789400672017486"
+				File="characters/avatars/base/mrdisto.texformat"
+				Critical="false" />
+		<Dependency
+				Type="2"
+				Hash="14488208023171177056"
+				File="maps/texture_detail_levels.xml"
+				Critical="true" />
+	</SecondaryInputs>
+	<IntermediateOutputs />
+	<Outputs>
+		<Compiled
+				File="characters/avatars/base/mrdisto.dds"
+				Hash="9379799424593909165" />
+	</Outputs>
+</root>

@@ -1,0 +1,38 @@
+<root>
+	<PrimaryInputs>
+		<Dependency
+				Type="0"
+				Hash="13753398625010453695"
+				File="characters/avatars/base/base.primitives"
+				Critical="true" />
+		<Dependency
+				Type="3"
+				Hash="3428982708558591718"
+				Id="403819091537057178"
+				Version="2.8.3"
+				Critical="true" />
+		<Dependency
+				Type="4"
+				Hash="16723335811185751873"
+				Params="-target D3D9"
+				Critical="true" />
+	</PrimaryInputs>
+	<SecondaryInputs>
+		<Dependency
+				Type="0"
+				Hash="842195293170646912"
+				File="shaders/formats/xyznuviiiwwtb.xml"
+				Critical="true" />
+		<Dependency
+				Type="0"
+				Hash="16444617436658240935"
+				File="shaders/formats/xyznuviiiwwtbpc.xml"
+				Critical="true" />
+	</SecondaryInputs>
+	<IntermediateOutputs />
+	<Outputs>
+		<Compiled
+				File="characters/avatars/base/base.primitives.processed"
+				Hash="12399220059442588561" />
+	</Outputs>
+</root>

@@ -1,0 +1,33 @@
+<root>
+	<PrimaryInputs>
+		<Dependency
+				Type="0"
+				Hash="2774665491670025429"
+				File="characters/avatars/base/base.visual"
+				Critical="true" />
+		<Dependency
+				Type="3"
+				Hash="13242118841675717804"
+				Id="4336136662500318267"
+				Version="2.8"
+				Critical="true" />
+		<Dependency
+				Type="4"
+				Hash="14695981039346656037"
+				Params=""
+				Critical="true" />
+	</PrimaryInputs>
+	<SecondaryInputs>
+		<Dependency
+				Type="2"
+				Hash="6082053105294759585"
+				File="characters/avatars/base/base.primitives.processed"
+				Critical="false" />
+	</SecondaryInputs>
+	<IntermediateOutputs />
+	<Outputs>
+		<Compiled
+				File="characters/avatars/base/base.visual.processed"
+				Hash="4217175241116167433" />
+	</Outputs>
+</root>
