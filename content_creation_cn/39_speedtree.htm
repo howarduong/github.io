@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>&#22312;BigWorld&#24341;&#25806;&#20013;&#20351;&#29992;Speedtree</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style type="text/css">
+<!--
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+}
+.style2 {
+	font-style: italic;
+	font-size: 8pt;
+}
+.style3 {font-family: Arial, Helvetica, sans-serif}
+.style4 {font-size: 8pt}
+-->
+</style>
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1>&#22312;BigWorld&#24341;&#25806;&#20013;&#20351;&#29992;Speedtree</h1>
+<p>&nbsp;</p>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#PlacingTrees">&#22312;&#19990;&#30028;&#32534;&#36753;&#22120;&#20013;&#28155;&#21152;speedtree </A></LI>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="39_speedtree.html#Hints">&#25216;&#24039;&#25552;&#31034;</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#Values">&#39068;&#33394;&#21644;&#27987;&#24230;</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#Specular">&#39640;&#20809;&#21453;&#23556; </A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#ReduceTextureSpace">&#38450;&#27490;&#36148;&#22270;&#31354;&#38388;&#30340;&#28010;&#36153;</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#Billboards">Billboard &#25968;&#37327;&#21644;&#36148;&#22270;&#23610;&#23544;&#30340;&#20351;&#29992;</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#BillboardLighting">Billboard &#30340;&#20809;&#25928;</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#Collision_Volume">&#23450;&#20041;&#26641;&#30340;&#30896;&#25758;&#20307; </A><a href="../content_creation/39_speedtree.html">39_speedtree</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#LOD">SpeedTree &#30340;LOD</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="39_speedtree.html#SpeedTreeWind">SpeedTree &#21644;&#39118;&#25928;</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p><b>&#39318;&#20808;&#30003;&#26126; 
+Speed Tree CAD &#26159;BigWorld&#30340;&#19968;&#39033;&#38750;&#24378;&#21046;&#32452;&#20214;. &#23427;&#24182;&#38750;BigWorld&#21517;&#19979;&#30340;&#24037;&#20855;.</b></p>
+
+<p>&#20851;&#20110;speedtree&#30340;&#21151;&#33021;&#20171;&#32461;&#36828;&#19981;&#27490;&#36825;&#31687;&#25945;&#31243;. &#25152;&#26377;&#20851;&#20110;&#22914;&#20309;&#20351;&#29992;speed tree, &#24182;&#19988;&#21019;&#24314;&#20320;&#33258;&#24049;&#30340;&#26641;&#30340;&#25991;&#26723;&#35831;&#21442;&#32771;&#23427;&#30340;&#30456;&#20851;&#24037;&#20855;&#25152;&#38468;&#24102;&#30340;&#25991;&#26723;&#36164;&#26009;.</p>
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="PlacingTrees">&#22312;&#19990;&#30028;&#32534;&#36753;&#22120;&#20013;&#28155;&#21152;speedtree </a></h2>
+</span>
+<DIV>
+
+<p>SpeedTrees &#30340;&#36164;&#28304;&#25991;&#20214;&#21487;&#22312;&#19990;&#30028;&#32534;&#36753;&#22120;, Asset&#27983;&#35272;&#22120;&#19979;, Tree &#34394;&#25311;&#25991;&#20214;&#22841;&#19979;&#38754;&#25214;&#21040;. 
+<p><img src="39_speedtree_files/image008.gif">
+<p>&#21482;&#35201;&#20174;&#36164;&#28304;&#27983;&#35272;&#22120;&#25302;&#21160;&#20320;&#24819;&#35201;&#30340;&#26641;&#21040;&#19990;&#30028;,&#23601;&#21487;&#20197;&#20102;, &#25110;&#32773;&#20320;&#36873;&#25321;&#22909;&#24819;&#35201;&#30340;&#26641;&#25991;&#20214;, &#31227;&#21160;&#20809;&#26631;&#21040;&#21512;&#36866;&#20301;&#32622;,&#20877;&#25353;&#22238;&#36710;&#38190;.SpeedTrees &#21487;&#20197;&#31227;&#21160;,&#32553;&#25918;,&#26059;&#36716;,&#23601;&#21644;&#22810;&#25968;&#30340;&#20854;&#20182;&#27169;&#22411;&#19968;&#26679;.
+
+<p>
+
+<p class=tipLvl1><img src="images/tip.bmp">&#22312;&#25918;&#32622;&#26641;&#30340;&#26102;&#20505;, &#26368;&#22909;&#35760;&#24471;&#20351;&#29992;&#38145;&#23450;&#26041;&#24335;&#20013;&#30340;&#22320;&#24418;&#21560;&#38468;&#27169;&#24335;, &#36825;&#22312;&#24037;&#20855;&#36873;&#39033;:&#23545;&#35937;&#38754;&#26495;&#20013;&#36873;&#25321;.</p>
+
+<p class=imgLvl3><img src="39_speedtree_files/image009.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Hints">&#25216;&#24039;&#25552;&#31034;</a></h2>
+</span>
+<DIV>
+
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.gif"><a name="Values">&#39068;&#33394;&#21644;&#27987;&#24230;</a></h3>
+</span>
+<DIV>
+
+<p>SpeedTree&#20844;&#21496;&#38543;&#24037;&#20855;&#21457;&#36865;&#30340;&#36148;&#22270;&#30340;&#33394;&#24425;&#27987;&#24230;&#20540;&#33539;&#22260;&#37117;&#27604;&#36739;&#20302;. (&#21442;&#32771;&#19979;&#22270;). &#22914;&#26524;&#20320;&#35201;&#20351;&#29992;&#40664;&#35748;&#30340;SpeedTree&#36148;&#22270;, &#33258;&#24049;&#35843;&#25972;&#36148;&#22270;&#30340;&#33394;&#24425;&#20540;&#20250;&#38750;&#24120;&#26377;&#24110;&#21161;&#30340;. &#32463;&#36807;&#35843;&#25972;&#21487;&#20197;&#26356;&#21152;&#22797;&#21512;&#20320;&#20204;&#28216;&#25103;&#35774;&#23450;&#30340;&#38656;&#35201;. &#22312;&#25105;&#20204;&#30340;FantasyDemo&#20013;, &#25968;&#20540;&#37117;&#26159;&#25552;&#21319;&#35843;&#25972;&#36807;&#30340;.</p>
+
+<table><tr>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image010.gif"></p>
+      <p class=captLvl0> Speed Tree&#33258;&#24102;&#30340;&#36148;&#22270;&#33394;&#24425;&#27987;&#24230;&#33539;&#22260;</p></td>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image011.gif"></p>
+      <p class=captLvl0>&#35843;&#25972;&#21518;&#30340;&#33394;&#24425;&#27987;&#24230;&#33539;&#22260;</p></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.gif"><a name="Specular" id="Specular">&#39640;&#20809;&#21453;&#23556; </a></h3></span>
+<DIV>
+  <p>&#36890;&#24120;&#26641;&#21494;&#30340;&#39640;&#20809;&#21453;&#23556;&#37117;&#27604;&#36739;&#24369;, &#24182;&#19988;&#22240;&#20026;&#21494;&#23376;&#30340;&#24418;&#29366;,&#20063;&#21482;&#22312;&#21322;&#36793;&#21494;&#23376;&#19978;&#34920;&#29616;.</p>
+  <p>&#39640;&#20809;&#36148;&#22270;&#22312;speedtree&#21494;&#23376;&#19978;&#30340;&#25928;&#26524;&#21487;&#20197;&#36890;&#36807;&#25163;&#21160;&#20462;&#25913;&#21494;&#23376;&#30340;&#27861;&#21521;&#36148;&#22270;&#26469;&#26174;&#33879;&#25552;&#39640;. </p>
+  <p><img src="39_speedtree_files/image007.jpg" width="161" height="141"></p>
+  <p class=captLvl0>&#26641;&#30340;&#39640;&#20809;&#19968;&#33324;&#27604;&#36739;&#24369;,&#24182;&#19988;&#20027;&#35201;&#21457;&#29983;&#22312;&#21322;&#36793;&#19978;</p>
+  <p class=numBltLvl1>1 &#20026;&#20102;&#29702;&#35299;&#26641;&#21494;&#30340;normalmap, &#25105;&#20204;&#35201;&#39318;&#20808;&#21019;&#24314;&#19968;&#20010;&#33394;&#24425;&#30424;. &#22312;photoshop&#24037;&#20855;&#20013;&#21019;&#24314;&#19968;&#20010;&#20013;&#24515;&#36752;&#23556;&#28176;&#21464;&#30340;&#21407;&#22411;</p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image004.jpg" width="64" height="64"></p>
+  <p class=numBltLvl1>3 &#20351;&#29992;&#24037;&#20855; <a href="http://developer.nvidia.com/object/photoshop_dds_plugins.html">Nvidias Photoshop Plugins</a> &#25226;&#21407;&#26412;&#30340;&#40657;&#30333;&#22270;&#24418;&#36716;&#25442;&#20026;normalmap</p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image020.gif" width="417" height="370"> <img src="39_speedtree_files/image006.jpg" width="200" height="176"></p>
+  <p class=numBltLvl1>4 &#29616;&#22312;&#21487;&#20197;&#20351;&#29992;&#36716;&#21464;&#22909;&#30340;normalmap&#20570;&#21442;&#32771;,&#25163;&#32472;&#25105;&#20204;&#30340;&#26641;&#21494;normalmap&#20102;. </p>
+  <p class=numBltLvl1>5&#22312;photoshop&#20013;&#25171;&#24320;&#26641;&#21494;&#36148;&#22270;,&#26681;&#25454;&#20998;&#26512;,&#22312;&#33394;&#30424;&#19978;&#36873;&#25321;&#26368;&#33021;&#34920;&#36798;&#26641;&#21494;&#26397;&#21521;&#30340;&#39068;&#33394;,&#25163;&#32472;normal.</p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image008.jpg" width="134" height="143"> <img src="39_speedtree_files/image009.jpg" width="134" height="143"></p>
+  <p class=numBltLvl1>6&#30011;&#30340;&#26102;&#20505;&#35201;&#36229;&#36807;&#21494;&#23376;&#30340;&#22806;&#36793;&#30028;, &#36825;&#26679;&#21487;&#20197;&#20445;&#35777;&#32473;&#25105;&#20204;&#19968;&#20010;&#28418;&#20142;&#24179;&#28369;&#30340;&#39640;&#20809;&#25928;&#26524;.</p>
+  <p class=numBltLvl1><img src="39_speedtree_files/image010.jpg" width="252" height="171"></p>
+  </DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.gif"><a name="ReduceTextureSpace">&#38450;&#27490;&#36148;&#22270;&#31354;&#38388;&#30340;&#28010;&#36153;</a></h3>
+</span>
+<DIV>
+
+<p>SpeedTree &#22312;&#21019;&#24314;&#25972;&#21512;&#36148;&#22270;&#30340;&#26102;&#20505;, &#23427;&#25226;&#29420;&#31435;&#30340;&#36148;&#22270;&#25340;&#21512;&#21040;&#19968;&#24352;&#19978;&#21435;,&#24182;&#35797;&#22270;&#20351;&#29992;&#26368;&#23567;&#30340;&#31354;&#38388;. &#26377;&#26102;&#20505;&#21019;&#24314;&#20986;&#30340;&#36148;&#22270;&#28010;&#36153;&#20102;&#22823;&#37327;&#30340;&#36148;&#22270;&#31354;&#38388;, - &#36825;&#24120;&#24120;&#22240;&#20026;&#36148;&#22270;&#30340;&#19981;&#35268;&#21017;&#23610;&#23544;&#21644;&#24418;&#29366;&#32780;&#21457;&#29983;.&#19979;&#20363;&#20013;,&#36890;&#36807;&#35843;&#25972; frond&#36148;&#22270;&#23610;&#23544;&#20351;&#24471;&#25340;&#21512;&#21518;&#30340;&#36148;&#22270;&#21487;&#20197;&#25972;&#21512;&#21040;&#19968;&#24352; 1024<i>x</i>1024 &#30340;&#36148;&#22270;&#19978;.</p>
+
+<table><tr>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image012.gif"></p>
+       <p class=captLvl0>&#23610;&#23544;&#20462;&#25913;&#21069;</p></td>
+  <td><p class=imgLvl0><img src="39_speedtree_files/image013.gif"></p>
+      <p class=captLvl0>&#23610;&#23544;&#20462;&#25913;&#21518;</p></td></tr></table>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.gif"><a name="Billboards">Billboard &#25968;&#37327;&#21644;&#36148;&#22270;&#23610;&#23544;&#30340;&#20351;&#29992;</a></h3>
+</span>
+<DIV>
+<p>&#22810;&#25968;&#22312;FantasyDemo&#30340;&#20013;&#30340;SpeedTrees&#20351;&#29992;&#20102;6&#20010;&#32437;&#21521;,1&#20010;&#27178;&#21521;&#30340;billboard. &#27599;&#20010;&#20026;128X128&#20687;&#32032;&#22823;&#23567;.</p>
+
+<p>&#23545;&#20110;&#19968;&#20123;&#24456;&#22823;&#30340;&#26641;&#21644;&#26641;&#19995;, &#25105;&#20204;&#24314;&#35758;&#20320;&#21487;&#20197;&#20808;&#27979;&#35797;&#29616;&#26377;billboard&#30340;&#25928;&#26524;, &#24182;&#20174;&#20010;&#20010;&#35282;&#24230;&#35266;&#23519;, &#22914;&#26524;&#20182;&#20204;&#30475;&#19978;&#21435;&#19981;&#23545;, &#37027;&#20040;&#23601;&#21487;&#20197;&#36890;&#36807;&#22686;&#21152;&#36148;&#22270;&#25968;&#37327;&#21644;&#23610;&#23544;&#26469;&#35843;&#25972;.</p>
+
+<p class=imgLvl1><img src="39_speedtree_files/image014.gif"></p>
+<p class=captLvl1>&#36890;&#24120;&#22312;&#23548;&#20986;speedtree&#21040;bigworld&#24341;&#25806;&#26102;&#30340;&#35774;&#32622;</p>
+<p class=captLvl1>&nbsp;</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.gif"><a name="BillboardLighting" id="BillboardLighting">Billboard &#30340;&#20809;&#25928;</a></h3>
+</span>
+<DIV>
+
+<p>&#22914;&#26524;&#20320;&#20351;&#29992;&#20102;&#24102;normalmap&#30340;billboard. &#35760;&#20303;&#22312;&#23548;&#20986;&#26102;&#21246;&#36873;<strong> Uniform lighting </strong>&#36873;&#39033;.&#36825;&#26159;&#20026;&#20102;&#20445;&#35777;&#27809;&#26377;&#20219;&#20309;&#26041;&#21521;&#24615;&#20809;&#28304;&#20449;&#24687;&#28888;&#22521;&#21040;&#20320;&#30340;billboard&#21387;&#32553;&#36148;&#22270;&#19978;.</p>
+
+<p><img src="39_speedtree_files/image018.gif" width="510" height="565"></p>
+<p class=imgLvl1>&nbsp;</p>
+
+</DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Collision_Volume">&#23450;&#20041;&#26641;&#30340;&#30896;&#25758;&#20307; </a></h2>
+</span>
+<DIV>
+
+<p>SpeedTree&#30340;&#30896;&#25758;&#20307;&#26159;&#22312;SpeedTree Cad&#20013;&#23450;&#20041;&#30340; &ndash; 
+&#35201;&#26597;&#30475;&#30896;&#25758;&#20307;,&#35201;&#28857;&#20987;&#25353;&#38062;&#19979;&#25289;&#33756;&#21333; <b>Toggle Collision Objects</b> 
+(<img src="39_speedtree_files/image004.gif">) , &#36873;&#25321;&#24418;&#29366;&#21019;&#24314;.(&#19979;&#20363;&#20013;&#25105;&#20204;&#36873;&#25321;&#20102;&#28155;&#21152;Box)</p>
+
+<p class=imgLvl1><img src="39_speedtree_files/image005.gif"></p>
+
+<p>&#35843;&#25972;box&#30340;&#20301;&#32622;&#24418;&#29366;,&#20351;&#23427;&#21644;&#25968;&#30446;&#20999;&#21512;. &#36991;&#20813;&#20351;&#29992;&#29699;&#20307;,&#31435;&#26041;&#20307;&#22312;&#28216;&#25103;&#20013;&#27604;&#29699;&#20307;&#26377;&#25928;&#22810;&#20102;, &#35760;&#20303;&#20351;&#29992;&#36234;&#23569;&#30340;&#38754;&#36234;&#22909;. </p>
+<p>&#27809;&#26377;&#23545;&#26641;&#24178;&#20570;&#30896;&#25758;&#20307;&#30340;&#24517;&#35201;, BigWorld&#20250;&#33258;&#21160;&#23545;&#26641;&#24178;&#27169;&#22411;&#20570;&#33258;&#36523;&#30896;&#25758;&#30340;.</p>
+<p class=imgLvl1><img src="39_speedtree_files/image006.gif"></p>
+
+<p>&#22312;&#20570;&#21494;&#23376;&#30340;&#26102;&#20505;&#35201;&#27880;&#24847;&#30896;&#25758;&#20307;&#30340;&#20301;&#32622;, &#22914;&#26524;&#22826;&#20302;&#20102;,&#35282;&#33394;&#20250;&#25758;&#21040;.</p>
+
+<p>&#36825;&#20010;&#20320;&#21487;&#20197;&#22312;BW&#19990;&#30028;&#32534;&#36753;&#22120;&#20013;&#26597;&#30475;&#22312;speedtree&#20013;&#23450;&#20041;&#30340;&#30896;&#25758;&#20307;,&#21644;&#26641;&#24178;&#30340;&#33258;&#36523;&#30896;&#25758;, &#20320;&#22312;<b> Options</b> &#38754;&#26495; <b>Show</b> &#32452;&#19979;&#21246;&#36873; 
+<b>Scenery&rarr;BSP</b> &#23601;&#21487;&#20197;&#30475;&#21040;&#19979;&#22270;&#30340;bsp</p>
+<p><span class="imgLvl1"><img src="39_speedtree_files/image007.gif" align=top></span></p>
+<p><span class="imgLvl1"><img src="39_speedtree_files/image001.jpg" alt=""></span></p>
+<p class=imgLvl1>&nbsp;</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="LOD" id="LOD">SpeedTree &#30340;LOD</a></h2>
+</span>
+<DIV>
+  <p>&nbsp;</p>
+  <p>SpeedTree &#30340; (LOD) &#35774;&#32622;&#21487;&#20197;&#22312;&#25991;&#20214; <strong>speedtree.xml</strong> &#20013;&#20462;&#25913;, &#20301;&#20110;<em>bigworld\res\system\data\speedtree.xml</em></p>
+  <p>&#22312;speedtree.xml &#20013;&#30340;&#22810;&#25968;&#21442;&#25968;&#26159;&#21487;&#20197;&#20462;&#25913;&#30340;. (&#20294;&#20165;&#20379;&#39044;&#35272;) &#26041;&#27861;&#26159;&#22312;client&#36816;&#34892;&#26102;,&#20351;&#29992;&#24555;&#25463;&#38190; Caps + F7&#21040;13 [SpeedTree]&#19979;.</p>
+  <p><img src="39_speedtree_files/image002.jpg" width="260" height="323"></p>
+  <p>&nbsp;</p>
+  <p>speedtree.xml &#25991;&#20214;&#30340;&#22823;&#33268;&#20869;&#23481;&#22914;&#19979;.  xml &#25991;&#20214;&#20013;&#30340;&#27880;&#35299;&#35299;&#37322;&#20102;&#36825;&#20123;&#21442;&#25968;&#26159;&#22914;&#20309;&#24433;&#21709;speedtree&#30340;.</p>
+  <p class="style1 style4"><pre>&lt;speedtree.xml&gt;<br>	&lt;lodMode&gt; -2 &lt;/lodMode&gt;<br>	&lt;!-- lodMode to use:<br>		-1: dynamic (near and far LOD defined per tree using speedtreeCAD defined values);<br>		-2: dynamic (use global near and far LOD values);<br>		[0.0 - 1.0]: forces static value.<br>	--&gt;<br>	<br>	&lt;lodNear&gt; 40 &lt;/lodNear&gt;<br>	&lt;!-- Distance from camera at which trees will start <br>		to display maximum detail. Only used if lodMode is -2 --&gt;<br>		<br>	&lt;lodFar&gt; 200 &lt;/lodFar&gt;<br>	&lt;!-- Distance from camera from which trees be rendered <br>	as billboards only. Only used if lodMode is -2 --&gt;<br>	<br>	&lt;lod0Yardstick&gt; 60 &lt;/lod0Yardstick&gt;<br>	&lt;!-- Trees taller than the yardstick will LOD to billboard farther than LodFar.<br>	Trees shorter than the yardstick will LOD to billboard closer than LodFar.<br>	This should be set to average the height of your trees--&gt;<br>	<br>	&lt;lod0Variance&gt; 0.3 &lt;/lod0Variance&gt;<br>	&lt;!-- How much will the lod level vary depending on the size of the tree --&gt;<br>	<br>	&lt;speedWindINI&gt; system/data/speedwind.ini &lt;/speedWindINI&gt;<br>	&lt;!-- Global SpeedWind setup file --&gt;<br>	<br>	&lt;fxFiles&gt;<br>		&lt;branches&gt; 		shaders/speedtree/branches.fx 	&lt;/branches&gt; <br>		&lt;leaves&gt; 		shaders/speedtree/leaves.fx 	&lt;/leaves&gt; <br>		&lt;billboards&gt; 	shaders/speedtree/billboards.fx &lt;/billboards&gt; <br>		&lt;shadows&gt; 		shaders/speedtree/speedtree_shadows.fx &lt;/shadows&gt; <br>	&lt;/fxFiles&gt;<br>	&lt;!-- Effect file used to render trees --&gt;<br>	<br>	&lt;billboardOptimiser&gt;<br>		&lt;fxFile&gt;	shaders/speedtree/billboards_opt.fx	&lt;/fxFile&gt;<br>		&lt;enabled&gt;	true &lt;/enabled&gt;<br>		&lt;textureAtlas&gt;<br>			&lt;!-- The optimiser will create one big <br>			texture to hold all billboards --&gt;<br>			<br>			&lt;minSize&gt;	128	&lt;/minSize&gt;<br>			&lt;maxSize&gt;	2048	&lt;/maxSize&gt;<br>			&lt;mipLevels&gt;	7		&lt;/mipLevels&gt;<br>			&lt;!-- <br>				2^(mipLevels-1) should not <br>				be greater than minSize<br>			--&gt;<br>			<br>			&lt;save&gt;			false	&lt;/save&gt;<br>			&lt;!-- If true, will save the texture atlas into a file called <br>			bboptimiser.dds, in the current work dir. This can be useful<br>			for debugging and also to tune the ideal parameters of the <br>			texture atlas. The file will be resaved for every new tree <br>			type read from disk. So, make sure all tree types have been <br>			loaded before making any decision based on this file. --&gt;<br>			<br>		&lt;/textureAtlas&gt;<br>		<br>		&lt;buffers&gt;<br>			&lt;framesToRecycle&gt;	5		&lt;/framesToRecycle&gt;	<br>			&lt;!-- number of frames before a buffer is <br>			made available for reuse by a new chunk --&gt;<br>			<br>			&lt;framesToDelete&gt;	100	&lt;/framesToDelete&gt;	<br>			&lt;!-- number of frames since last time before a <br>			buffer is permanently deleted --&gt;<br>			<br>		&lt;/buffers&gt;<br>	&lt;/billboardOptimiser&gt;<br>&lt;/speedtree.xml&gt;<br>
+</pre></DIV>
+<!-------- HORIZONTAL RULE -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="SpeedTreeWind" id="SpeedTreeWind">SpeedTree &#21644;&#39118;&#25928;</a></h2>
+</span>
+<DIV>
+  <p>SpeedTree &#25152;&#21019;&#24314;&#30340;&#26641;&#26159;&#20250;&#21463;&#19990;&#30028;&#39118;&#30340;&#24433;&#21709;&#30340;. &#32780;&#25511;&#21046;&#23427;&#21463;&#24433;&#21709;&#30340;&#25991;&#20214;&#26159;&#20301;&#20110;<em>bigworld\res\system\data\</em>&#19979;&#30340; speedwind.ini&#25991;&#20214;. &#23427;&#26159;&#19968;&#20010;&#20840;&#23616;&#25511;&#21046;&#25991;&#20214;.</p>
+  <p>&#22914;&#26524;&#20320;&#24819;&#35201;&#27599;&#26869;&#26641;&#26377;&#19981;&#21516;&#30340;&#39118;&#25928;&#24433;&#21709;,&#37027;&#20040;&#23601;&#35201;&#22312;&#27599;&#20010;&#26641;&#30340;&#30446;&#24405;&#19979;&#24314;&#35758;&#19968;&#20010;&#29420;&#31435;&#30340; <em>speedwind.ini</em> &#25991;&#20214;. &#20294;&#26159;&#36825;&#31181;&#20570;&#27861;&#20250;&#24433;&#21709;&#28216;&#25103;&#25928;&#29575;.</p>
+  <p>speedwind.ini &#25991;&#20214;&#20013;&#19979;&#21015;&#23646;&#24615;&#30340;&#25551;&#36848;,&#21487;&#20197;&#21442;&#35265;SpeedTree CADs &#20351;&#29992;&#32773;&#21442;&#32771;&#25991;&#26723;&#20013;&#20197;SpeedWind &#24320;&#22836;&#30340;&#36164;&#26009;</p>
+  <p>&nbsp;</p>
+  <p>NumWindMatricesAndLeafAngles 6 8<br>
+    WindResponseAndLimit 0.4 0.01<br>
+    MaxBendAngle 70<br>
+    BranchExponent 3<br>
+    LeafExponent 0.8<br>
+    GustStrengthMinMax 0.1 0.5<br>
+    GustDurationMinMax 2 5<br>
+    GustFrequency 0.166667<br>
+    BranchOscillationX_LaLsHaHs 2 3 15 4<br>
+    BranchOscillationY_LaLsHaHs 1 3 65 3<br>
+    LeafRocking_LaLsHaHs 1 4 5 15 <br>
+  LeafRustling_LaLsHaHs 2 4 5 10</p>
+  <p>&nbsp;</p>
+  <p>&#36825;&#20123;&#35774;&#23450;&#22312;&#21644;&#22312; SpeedTreeCAD &#20013;&#30340;&#32534;&#36753; SpeedWind &#21442;&#25968;&#26159;&#19968;&#33268;&#30340;&#12290; </p>
+  <p><img src="39_speedtree_files/image011.jpg" width="794" height="413"></p>
+  <p><br>
+  </p>
+  <p>&#23545;&#20110;speedwind.ini &#25991;&#20214;&#30340;&#20462;&#25913;&#20063;&#21487;&#20197;&#36890;&#36807;client&#23458;&#25143;&#31471;&#30417;&#27979;&#39044;&#35272;.Caps+ F7 - Client settings - Weather - WindVelX and WindVelY</p>
+  <p>&#39118;&#36895;&#26368;&#22823;&#20026;15.  <a href="../content_creation/39_speedtree.html">39_speedtree</a></p>
+  <p><img src="39_speedtree_files/image003.jpg" width="264" height="333"></p>
+  <p>&#39118;&#30340;&#36895;&#24230;&#21644;&#39057;&#29575;&#26159;&#36890;&#36807; <a href="file:///C:/mf/bigworld/doc/content_creation/21_change_environ_settings.htm#Weather">weather system</a>&#23450;&#20041;&#30340;</p>
+  <p>&nbsp;</p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

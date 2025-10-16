@@ -1,0 +1,681 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>BigWorld &#26448;&#36136;&#31867;&#22411;&#21644;&#26448;&#36136;&#20351;&#29992;</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CREATE FX FILES AND MATERIALS -->
+<h1><a name="lessonTitle">BigWorld &#26448;&#36136;&#31867;&#22411;&#21644;&#26448;&#36136;&#20351;&#29992;</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Properties">&#26448;&#36136;&#23646;&#24615;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Kinds">&#26448;&#36136;&#31867;&#21035;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#BWShaders">BigWorld&#26448;&#36136;&#31867;&#22411;</A></LI>
+
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#apply_a_shader">&#22914;&#20309;&#22312;&#27169;&#22411;&#32534;&#36753;&#22120;&#20013;&#20351;&#29992;&#26448;&#36136;</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#UV">&#21019;&#24314;&#19968;&#20010; UV &#28378;&#21160;&#26448;&#36136;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="34_fx_files_and_materials.htm#Creating">&#20445;&#23384;&#19968;&#20010;&#26448;&#36136; MFM &#25991;&#20214;</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p><code>*.fx</code> &#25991;&#20214;&#26159;&#29992;&#26469;&#23450;&#20041;&#19968;&#20010;&#23545;&#35937;&#22312;&#28216;&#25103;&#24341;&#25806;&#20013;&#26159;&#22914;&#20309;&#34987;&#28210;&#26579;&#30340;&#26041;&#24335;&#30340;.</p>
+
+<p><code>*.mfm</code>&#25991;&#20214;&#26159;&#20803;&#25968;&#25454;&#25991;&#20214;, &#21253;&#25324;&#20102;&#24456;&#22810;&#21487;&#32534;&#36753;&#30340;&#33402;&#26415;&#29305;&#24449;, &#20363;&#22914; FX , &#26448;&#36136;&#30340;&#23646;&#24615;, &#36148;&#22270;&#20351;&#29992;,&#27169;&#22411;&#32534;&#36753;&#22120;&#21487;&#20197;&#21019;&#24314;&#19968;&#20010;&#26032;&#30340;&#26448;&#36136;&#25991;&#20214;&#24182;&#38468;&#32473;&#27169;&#22411;&#23545;&#35937;.</p>
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Properties">&#26448;&#36136;&#23646;&#24615;</a></h2>
+</span>
+<DIV>
+
+<p>&#23545;&#26448;&#36136;&#30340;&#36148;&#22270;&#20351;&#29992;&#21644;&#33402;&#26415;&#30456;&#20851;&#35774;&#23450;,&#37117;&#26159;&#22312;&#27169;&#22411;&#32534;&#36753;&#22120;&#30340;&#26448;&#36136;&#38754;&#26495;&#19979;&#25805;&#20316;, &#32780;&#27599;&#20010;&#26448;&#36136;&#25152;&#21253;&#21547;&#30340;&#23646;&#24615;&#37117;&#26159;&#30001;BigWorld&#26448;&#36136;(.fx)&#25991;&#20214;&#23450;&#20041;&#30340;.</p>
+<p>&#27880;: Bigworld &#30446;&#21069;&#20165;&#25903;&#25345;&#19968;&#22871;UV, &#39030;&#28857;&#33394;&#30446;&#21069;&#20063;&#19981;&#25903;&#25345;</p>
+<p>&#19979;&#34920;&#35299;&#37322;&#20102;&#20960;&#20010;&#26448;&#36136;&#20013;&#24120;&#35265;&#30340;&#23646;&#24615;&#25551;&#36848;:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr>
+       <th class=FirstCol    >&#23646;&#24615;</th>
+       <th                   >&#25551;&#36848;</th>
+   </tr>
+   <tr>
+       <td class=oddRow1stCol>&#30896;&#25758;&#26631;&#35760;</td>
+       <td class=oddRow      >
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera on Playser off</b>&ndash; &#35282;&#33394;&#19981;&#20570;&#30896;&#25758;&#23646;&#24615;, &#30456;&#26426;&#30896;&#25758;</p>
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera off Player on </b> &ndash; &#35282;&#33394;&#30896;&#25758;&#30456;&#26426;&#26080;&#30896;&#25758;</p>
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera off Player off </b> &ndash; &#35282;&#33394;&#21644;&#30456;&#26426;&#37117;&#19981;&#20570;&#30896;&#25758;</p>
+<p class=imgBlt><img src="images/bullet.gif"><b>Camera on Player on</b> &ndash; &#35282;&#33394;&#21644;&#30456;&#26426;&#37117;&#20570;&#30896;&#25758;</p></td></tr>
+
+   <tr>
+       <td class=evnRow1stCol>&#26448;&#36136;&#31181;&#31867;</td>
+       <td class=evnRow      >
+&#29992;&#35774;&#23450;&#29289;&#20307;&#25152;&#20851;&#32852;&#22768;&#38899;&#21644;&#31890;&#23376;&#31995;&#32479;.&#20363;&#22914;,&#22914;&#26524;&#20320;&#23556;&#20013;&#26408;&#22836;,&#37027;&#20040;&#26408;&#26448;&#30340;&#29289;&#20307;&#23601;&#20250;&#21457;&#20986;&#26408;&#36136;&#21709;&#22768;, &#21644;&#25955;&#33853;&#30340;&#26408;&#23633;&#25928;&#26524;.
+  <p>&#40664;&#35748;&#35774;&#32622; (&#20351;&#29992;<b> Visual&#25991;&#20214;&#30340;</b>) &#30340;&#26448;&#36136;&#31181;&#31867;</p></td></tr>
+
+   <tr><td class=oddRow1stCol>Texture Operation</td>
+       <td class=oddRow      >
+&#23450;&#20041;&#36148;&#22270;&#22914;&#20309;&#21472;&#21152;&#30340;&#26041;&#24335;.</td>
+   </tr>
+
+   <tr><td class=evnRow1stCol>vTransform/uTransform</td>
+       <td class=evnRow      >
+&#36825;&#20010;&#21151;&#33021;&#22312; <a href="../../17_create_a_new_material.htm"> &#21019;&#24314;&#19968;&#20010;&#26032;&#26448;&#36136;
+</a>,&#30340;&#31456;&#33410;: <a href="../../34_fx_files_and_materials.htm#UV"> 
+&#21019;&#24314;&#19968;&#20010;UV&#28378;&#21160;&#26448;&#36136;</a>&#20013;&#26377;&#35814;&#32454;&#20171;&#32461;.</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol>Alpha Reference</td>
+       <td class=oddRow      >
+&#23545;&#20110;&#20351;&#29992;alphatest&#30340;alpha&#36148;&#22270;&#28784;&#33394;&#35835;&#21462;&#21482;&#21306;&#20998;0&#21644;1&#20004;&#20010;&#20540;,&#37027;&#20040;&#22312;&#19968;&#20010;0-255&#30340;&#33539;&#22260;&#20869;,&#22914;&#26524;&#35774;&#23450;&#20540;&#20026;200,&#37027;&#20040;&#24341;&#25806;&#40664;&#35748;&#20302;&#20110;200&#30340;&#21306;&#22495;&#37117;&#20026;&#40657;,&#22823;&#20110;200&#30340;&#37117;&#26159;&#30333;.</td>
+   </tr>
+
+   <tr>
+       <td class=evnRow1stCol>Alpha Test</td>
+       <td class=evnRow      >
+&#23450;&#20041;&#26159;&#21542;&#21551;&#29992;alphatest</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol>Diffuse Light Extra Modulation</td>
+       <td class=oddRow      >
+<p>&#21472;&#21152;diff&#36148;&#22270;&#30340;&#25968;&#20540;, &#26356;&#22810;&#32454;&#33410;&#21442;&#32771;&#19979;&#38754; <a href="#Modulate">&#20351;&#29992;Modulate</a></p></td></tr>
+
+   <tr><td class=evnRow1stCol>Double Sided</td>
+       <td class=evnRow      >
+&#23450;&#20041;&#26159;&#21542;&#36148;&#22270;&#21452;&#38754;&#26174;&#31034;</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol>Self Illumination</td>
+       <td class=oddRow      >
+&#23450;&#20041;&#22914;&#26524;&#29289;&#20307;&#36148;&#22270;&#20316;&#20026;&#21457;&#20809;&#20307;&#30340;&#35805;,&#33258;&#21457;&#20809;&#31995;&#25968;</td>
+   </tr>
+
+   <tr><td class=evnRow1stCol>Light Enable</td>
+       <td class=evnRow      >
+&#23450;&#20041;&#26448;&#36136;&#26159;&#21542;&#25509;&#25910;&#28783;&#20809;&#24433;&#21709;. &#22914;&#26524;&#26159; <b>False</b>, &#37027;&#20040;&#20165;&#26174;&#31034;&#36148;&#22270;&#21407;&#33394;.</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol>Diffuse Map</td>
+       <td class=oddRow      >
+&#23450;&#20041;&#29289;&#20307;&#22266;&#26377;&#33394;&#36148;&#22270;, 
+  &#36148;&#22270;&#27599;&#20010;&#36890;&#36947;&#24517;&#39035;&#26159;8&#27604;&#29305;, &#26684;&#24335;&#20026;t <code>*.bmp</code> &#25110;&#32773; 
+  <code>*.tga</code>.</td>
+   </tr>
+
+   <tr><td class=evnRow1stCol>Specular Map</td>
+       <td class=evnRow      >
+&#23450;&#20041;&#39640;&#20809;&#24230;&#30340;&#36148;&#22270;, &#30333;&#33394;&#34920;&#31034;&#39640;&#20809;.</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol>Normal Map</td>
+       <td class=oddRow      >
+&#36890;&#36807;&#23545;&#20809;&#24433;&#30340;&#24433;&#21709;&#32473;&#29289;&#20307;&#28155;&#21152;&#32454;&#33410;, &#36148;&#22270;&#36890;&#36807;&#36890;&#36947;&#21453;&#26144;&#26041;&#21521;, &#32511;&#33394;=&#20026;&#19978;,&#32418;&#33394;=&#21491;.8-bit&#30340;RGB&#36890;&#36947;&#26684;&#24335;<code>*.bmp</code>.</td>
+   </tr>
+
+   <tr><td class=evnRow1stCol>Sub Surface Map</td>
+       <td class=evnRow      >
+&#23450;&#20041;&#27425;&#32423;&#34920;&#38754;&#39068;&#33394;&#30340;&#36148;&#22270;,alpha&#36890;&#36947;&#25511;&#21046;&#27425;&#32423;&#34920;&#38754;&#30340;&#20998;&#24067;, &#25991;&#20214;&#24517;&#39035;&#26159;8&#27604;&#29305;&#27599;&#20010;&#36890;&#36947;&#30340;tga&#25991;&#20214;</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol>Glow Map</td>
+       <td class=oddRow      >&#36148;&#22270;&#27169;&#20223;&#29289;&#20307;&#30340;&#33258;&#25918;&#20809;&#25928;&#26524;, &#24517;&#39035;&#26159;8bit&#30340;RGBA,&#30340;*.tga</td>
+   </tr>
+
+   <tr><td class=evnRow1stCol>Reflection Map</td>
+       <td class=evnRow      >&#27169;&#25311;&#29289;&#20307;&#21453;&#23556;&#23545;&#35937;&#30340;&#36148;&#22270;, <code>normalmap_chrome</code>&#26448;&#36136;&#25903;&#25345; <code>.dds</code> &#26684;&#24335;&#30340;Cube 
+Maps &#20316;&#20026;&#21453;&#23556;&#36148;&#22270;. <code>lightonly_chrome &#26448;&#36136;&#20351;&#29992;</code> <code>.bmp</code> &#26684;&#24335;.</td>
+   </tr>
+
+</tbody></table>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Kinds" id="Kinds">&#26448;&#36136;&#31867;&#21035;</a></span></h2>
+</span>
+<DIV>
+  <p>&#25991;&#20214; bigworld/res/system/data/material_kinds.xml &#21253;&#21547;&#20102;&#24403;&#21069;&#39044;&#35774;&#30340;&#26448;&#36136;&#31867;&#21035;&#65292; &#32780;&#19988;&#20063;&#21487;&#20197;&#33258;&#23450;&#20041;&#20462;&#25913;, &#35831;&#30475;&#19979;&#21015;:</p>
+  <p>&#9642; None (Default)&#26080;&#65288;&#40664;&#35748;&#65289;<br>
+    &#9642; Wood&#26408;&#26448;<br>
+    &#9642; Stone&#30707;&#22836;<br>
+    &#9642; Chain&#38142;&#23376;<br>
+    &#9642; Light metal&#36731;&#37329;&#23646;<br>
+    &#9642; Heavy metal&#37325;&#37329;&#23646;<br>
+    &#9642; Glass&#29627;&#29827;<br>
+    &#9642; Dirt&#27745;&#27877;<br>
+    &#9642; Grass&#33609;<br>
+  &#9642; Snow&#38634;</p>
+  <pre>	&lt;kind&gt;<br>		&lt;id&gt;	1	&lt;/id&gt;<br>		&lt;desc&gt;	Wood	&lt;/desc&gt;<br>		&lt;sound&gt; wood    &lt;/sound&gt;<br>		&lt;help&gt; Dull surfaces, not very reactive. &lt;/help&gt;<br>		&lt;sfx&gt;	sets/global/fx/sfx/sfx_pchang_wood.xml &lt;/sfx&gt;<br>	&lt;/kind&gt;</pre>
+  <p>&#26448;&#36136;&#31867;&#21035;&#20801;&#35768;&#20320;&#36890;&#36807;&#33050;&#26412;&#26681;&#25454;&#19981;&#21516;&#30340;&#38656;&#35201;&#38024;&#23545;&#30456;&#20851;&#30340;&#26448;&#36136;&#35774;&#23450;&#19981;&#21516;&#30340;&#22768;&#38899;&#65292;&#29305;&#25928;&#31561;&#12290;</p>
+  <p>&#22320;&#24418;&#36148;&#22270;&#20063;&#26159;&#21487;&#20197;&#34987;&#36171;&#20104; <a href="20_terrain_texture_maps.htm#TerrainMaterials">&#26448;&#36136;&#31867;&#21035;</a>&#30340;</p>
+  <p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="BWShaders">BigWorld&#26448;&#36136;&#31867;&#22411;</a></h2>
+</span>
+<DIV>
+<p>&#22312;&#25991;&#20214;&#22841;
+<code>bigworld/res/shaders/std_effects</code> &#19979;&#26377;&#38468;&#24102;&#30340;BigWorld&#21046;&#20316;&#30340;&#24120;&#29992;&#26448;&#36136;&#31867;&#22411;&#25991;&#20214;.</p>
+
+<p>&#19979;&#34920;&#35299;&#37322;&#25152;&#26377;&#40664;&#35748;&#30340;&#26448;&#36136;(fx)&#24615;&#36136;&#21644;&#24120;&#29992;&#35268;&#24459;, &#26032;&#30340;FX&#25991;&#20214;&#20063;&#21487;&#20197;&#34987;&#33258;&#24049;&#21019;&#24314;&#28155;&#21152;,&#20294;&#24517;&#39035;&#20351;&#29992;&#22312;BigWorld &#27169;&#22411;&#19978;.</p>
+<p>&#26448;&#36136;&#21629;&#21517;&#35299;&#35835;:</p>
+<p>lightonly: &#24102;diffuse&#36890;&#36947;&#30340;&#36148;&#22270;</p>
+<p>normalmap:&#25658;&#24102;normal&#21644;diffuse&#36148;&#22270;&#36890;&#36947;</p>
+<p>_normal: &#25658;&#24102;&#19968;&#24352;&#27704;&#36828;&#38754;&#30456;&#38236;&#22836;&#30340;&#26144;&#23556;&#36148;&#22270;</p>
+<p>skinned:&#36719;&#24615;&#33945;&#30382;&#27169;&#22411;,&#27599;&#20010;&#39030;&#28857;&#25509;&#25910;3&#20010;&#39592;&#39612;&#24433;&#21709;,GPU&#35745;&#31639;,</p>
+<p><span class="oddRow">Object is affected by pre-calculated static lighting.</span></p>
+<p>glow: &#24118;glow&#36148;&#22270;</p>
+<p>chrome: &#24102;cubemap&#21453;&#23556;&#36148;&#22270;</p>
+<p>specmap: &#24102;specular&#39640;&#20809;&#36148;&#22270;</p>
+<p>colourise: &#21487;&#24050;&#36890;&#36807;mask&#36148;&#22270;RGBA&#36890;&#36947;,&#32473;&#27169;&#22411;&#21464;&#33394;</p>
+<p>add:&#36776;&#35782;diffmap&#30340;&#39068;&#33394;,&#20197;additive&#26041;&#24335;&#21472;&#21152;,&#40657;&#33394;&#20026;&#36879;&#26126;</p>
+<p>skinned: &#20165;&#36866;&#29992;&#20110;&#36719;&#24615;&#33945;&#30382;&#30340;&#27169;&#22411;,&#20998;&#37197;&#35745;&#31639;&#21040;GPU&#19978;,&#23545;&#20110;&#24102;&#39592;&#39612;&#30340;&#27169;&#22411;&#25512;&#33616;&#20351;&#29992;</p>
+<p>alpha: &#30001;alpha&#36890;&#36947;&#26469;&#25351;&#23450;&#36879;&#26126;&#23646;&#24615;&#30340;&#26448;&#36136;</p>
+<p>uvtransform: &#31532;&#20108;&#24352;&#36148;&#22270;&#26681;&#25454;&#31532;&#19968;&#22871;UV&#30340;&#24067;&#23616;&#36890;&#36807;uv&#36816;&#21160;&#24418;&#25104;&#21160;&#30011;&#36148;&#22270;&#25928;&#26524;</p>
+<p>uvtransform2:&#31532;&#19968;&#22871;&#40664;&#35748;&#36148;&#22270;&#21644;&#31532;&#20108;&#22871;add&#30340;&#36148;&#22270;&#37117;&#21487;&#20197;&#36890;&#36807;&#35774;&#32622;UV&#20301;&#31227;&#25968;&#25454;&#20570;&#21160;&#30011;&#25928;&#26524;</p>
+<p>spintoface: billboard&#31867;&#22411;,&#26448;&#36136;&#27704;&#36828;&#38754;&#30456;&#38236;&#22836;</p>
+<p>parallax: &#24102;displacement&#30340;&#36148;&#22270;,&#23384;&#25918;&#22312;normalmap&#30340;alpha&#36890;&#36947;&#20013;</p>
+<p>distort: &#23545;&#35937;&#30340;&#21464;&#24418;&#30001;normal map&#20915;&#23450;,&#20854;&#20182;&#36824;&#21253;&#25324; diffuse, and reflection (cube map). &#39592;&#39612;&#21160;&#30011;&#22312;CPU&#19978;&#35745;&#31639;. <b>Fresnel falloff</b> &#21644; <b>fresnel constant</b> &#25511;&#21046;&#21453;&#23556;&#22240;&#35282;&#24230;&#30340;&#28129;&#20986;&#20851;&#31995;.</p>
+<p><b>Reflection amount</b> &#25511;&#21046;&#20102;&#21453;&#23556;cubemap&#30340;&#24378;&#24230;. <b>Distortion scale</b> &#23450;&#20041;&#21464;&#24418;&#25928;&#26524;&#30340;&#23646;&#24615;,&#35831;&#30830;&#20445;&#23454;&#29992;normalmap&#26469;&#20570;&#21464;&#24418;.&#25512;&#33616;&#20351;&#29992;&#22312;&#29627;&#29827;&#21644;&#27700;&#19978;</p>
+<p>lightonly_vertexcolour.fx - &#23545;&#35937;&#25903;&#25345;&#19968;&#24352;diffuse&#36148;&#22270;&#21644;&#39030;&#28857;&#33394;. &#20351;&#29992;&#27492;&#26448;&#36136;&#30340;&#24102;&#39592;&#39612;&#30340;&#21160;&#30011;&#23558;&#22312;CPU&#19978;&#35745;&#31639;,&#23545;&#35937;&#21463;&#39044;&#20808;&#35745;&#31639;&#30340;&#38745;&#24577;&#28783;&#20809;&#24433;&#21709;.</p>
+<p>lightonly_dual.fx - &#23545;&#35937;&#25903;&#25345;&#20004;&#20010;diffuse&#36148;&#22270;. Diffuse map 1 &#35782;&#21035; UV channel 1, diffuse map 2 &#35782;&#21035; UV channel 2. &#20351;&#29992;&#27492;&#26448;&#36136;&#30340;&#24102;&#39592;&#39612;&#30340;&#21160;&#30011;&#23558;&#22312;CPU&#19978;&#35745;&#31639;,&#23545;&#35937;&#21463;&#39044;&#20808;&#35745;&#31639;&#30340;&#38745;&#24577;&#28783;&#20809;&#24433;&#21709;.</p>
+<p>&nbsp;</p>
+<p>&#27880;&#24847;:<code>studinclude</code>&#26448;&#36136;&#26159;&#20316;&#20026;&#26448;&#36136;&#32534;&#36753;&#33539;&#20363;&#30340;,&#24182;&#38750;&#32654;&#26415;&#20351;&#29992;&#26448;&#36136;</p>
+<p>&nbsp;</p>
+<table class="alternate" cellspacing=0> <tbody>
+   <tr>
+       <th class=FirstCol    >&#25991;&#20214;</th>
+       <th                   >&#25551;&#36848;</th>
+   </tr>
+
+   <tr>
+     <td class=evnRow1stCol><code>normalmap</code>.fx</td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal and diffuse maps. Bone deformation animations are 
+performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><span class="evnRow1stCol"><code>normalmap</code><code>_skinned.fx</code></span></td>
+     <td class=oddRow      >Objects with normal and diffuse maps. Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr><td class=evnRow1stCol><code>normalmap_glow.fx</code></td>
+       <td class=evnRow      >
+Objects with normal, diffuse, and glow maps. Bone deformation animations are 
+performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_chrome.fx</code></td>
+     <td class=oddRow      > Objects with normal, diffuse, and cube reflection maps. Bone deformation animations are 
+performed on CPU. Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_chrome_skinned.fx</code></td>
+     <td class=evnRow      >Objects with normal, diffuse, and cube reflection maps.  Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object 
+is affected by pre-calculated static lighting. </td>
+   </tr>
+   <tr><td class=oddRow1stCol><code>normalmap_glow_alpha.fx</code></td>
+       <td class=oddRow      >
+Objects with normal, diffuse (including alpha blend transparency, values of 1 to
+256), and glow maps. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>normalmap_chrome_glow.fx</code></td>
+       <td class=evnRow      >
+Objects with normal, diffuse, glow and cube reflection maps. Bone deformation
+animations are performed on CPU. Object is affected by pre-calculated static 
+lighting. The reflection mask defines areas of reflectivity 
+&ndash; white areas are highly reflective, dark areas are not.</td>
+   </tr>
+
+
+   <tr><td class=oddRow1stCol><code>normalmap_glow_skinned.fx</code></td>
+       <td class=oddRow      >
+Objects with normal, diffuse, and glow maps. Soft-skinned (each vertex may have 
+up to three bones influencing it) animations are performed on GPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>normalmap_specmap.fx</code></td>
+       <td class=evnRow      >
+Objects with normal, diffuse, and specular maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_specmap_alpha.fx</code></td>
+     <td class=oddRow      ><span class="oddRow">Objects with normal, diffuse (including alpha blend transparency, values of 1 to
+256), and specular maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_specmap_chrome.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal, diffuse, specular maps and cube reflection maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_specmap_chrome_skinned.fx</code></td>
+     <td class=oddRow      >Objects with normal, diffuse, specular maps and cube reflection maps. <span class="evnRow"> Soft-skinned (each vertex may have 
+up to three bones influencing it) animations are performed on GPU.</span>  Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_specmap_chrome_glow.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal, diffuse, glow maps and cube reflection maps. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>normalmap_specmap_chrome_glow_skinned.fx</code></td>
+     <td class=oddRow      >Objects with normal, diffuse, glow maps and cube reflection maps.<span class="evnRow"> Soft-skinned (each vertex may have 
+up to three bones influencing it) animations are performed on GPU.</span> Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>normalmap_chrome_glow_skinned.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with normal, cube reflection and glow maps. Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object 
+is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr><td class=oddRow1stCol><code>normalmap_specmap_skinned.fx</code></td>
+       <td class=oddRow      >
+Objects with normal, diffuse, and specular maps. Soft-skinned (each vertex may 
+have up to three bones influencing it) animations are performed on GPU. Object 
+is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>colourise_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map. Bone deformation animations are performed on CPU. 
+Object is affected by pre-calculated static lighting. A single colour picker 
+affects additively the object's existing colour.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>colourise_normalmap_specmap_skinned.fx</code>
+                           <p><code>colourise_lightonly_skinned.fx</code>
+                           <p><code>colourise_subsurface_skinned.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse, and mask maps. Soft-skinned (each vertex may have up to 
+three bones influencing it) animations are performed on GPU. Object is affected 
+by pre-calculated static lighting. Channels of mask map used to select regions 
+of diffuse map for colourisation.</p>
+<p>This shader is perfect for creating customisable character variations. Each 
+channel of the mask map can define an area to be colourised.</p>
+<p>Because the shader multiplies the customised colour with the existing diffuse 
+colour, it is best to paint those sections to be colourised with almost 0 
+saturation (no colour), then brighten them somewhat, as the shader will only 
+make them darker. (See diffuse image below).</p>
+<p>The <code>colourise_lightonly_skinned.fx</code> version is a very efficient 
+(single-pass) shader that allows the user to customise colours of areas (defined 
+by  channels in a mask texture) of the diffuse texture.</p>
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image050.gif"></p>
+<p class=captLvl1>3 colour variations done with the shader</p>
+<table><tr><td valign=top><p class=imgLvl0> <img src="34_fx_files_and_materials_files/image051.gif"></p>
+               <p class=captLvl0>Diffuse map used with<br>the colourise shader &ndash;<br>note the desaturated<br>and lightened areas to<br>be colour customised</p></td>
+           <td width=5></td>
+           <td valign=top><p class=imgLvl0> <img src="34_fx_files_and_materials_files/image052.gif"></p>
+              <p class=captLvl0>Channels of the mask<br>map define areas to<br>be colourised on the<br>diffuse map</p></td>
+           <td width=5></td>
+           <td valign=top><p class=imgLvl0> <img src="34_fx_files_and_materials_files/image064.gif" width="84" height="84"></p>
+      <p class=captLvl0>Colours to be applied to<br>the colourised areas are<br>chosen ModelEditors's<br><b>Materials Settings</b> panel</p></td></tr></table></td></tr>
+
+   <tr>
+     <td class=evnRow1stCol><code>distort.fx</code></td>
+       <td class=evnRow    >
+         <p>Objects with distortion (normal map), diffuse, and reflection (cube map). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting. The shader contains many editable parameters which can dramatically alter the appearance of the object it is applied to.</p>
+         <p><b>Fresnel falloff</b> and <b>fresnel constant</b> control the way in which reflections fade off as a function of the viewing angle.</p>
+         <p><b>Reflection amount</b> controls the reflectivity of the object, or how much of the cube map is displayed on the object's surface.</p>
+         <p><b>Distortion scale</b> controls how strong the distortion map affects the scene behind the object &ndash; be sure to use a normal map as the distortion map.</p>
+        <p>This shader is great for semi-transparent objects that will distort the scene behind them. The classic example is stained glass or water.</p>
+        <p>Alpha test option will only work when the Use Diffuse Map option is set to True</p></td></tr>
+
+<tr><td class=oddRow1stCol><code>lightonly.fx</code></td>
+       <td class=oddRow      >
+Objects with a diffuse map (including alpha test transparency, values of 1 or 0 
+only). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_alpha.fx</code></td>
+       <td class=evnRow      >
+Objects with a diffuse map (including alpha blend transparency, values of 1 to 
+256). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_chrome.fx</code></td>
+       <td class=oddRow      >
+Objects with a diffuse map and transparency (within alpha blend, values of 1 to
+256). Bone deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting. The alpha map of the diffuse channel defines 
+areas of reflectivity &ndash; white areas are highly reflective, dark areas are 
+not.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_chrome_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse and additive reflective map. The combined diffuse and 
+reflection map adds to the background. Used in special effects, explosions, and 
+glass windows. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting. The alpha map of the diffuse channel 
+defines areas of reflectivity &ndash; white areas are highly reflective, dark 
+areas are not.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_chrome_alpha.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse (including alpha blend transparency, values of 1 to 256) 
+and reflection map. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+ <tr>
+     <td class=evnRow1stCol><code>lightonly_vertexcolour.fx</code></td>
+     <td class=evnRow      ><span class="evnRow">Objects with a diffuse map and vertex colourisation support. Bone deformation animations are performed on
+CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_dual.fx</code></td>
+       <td class=oddRow      ><span class="evnRow">Objects with two diffuse maps. Diffuse map 1 uses UV channel 1, diffuse map 2 uses UV channel 2. Bone deformation animations are performed on
+CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_glow.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse and glow map. Bone deformation animations are performed on
+CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_glow_alpha.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and glow map. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+
+   <tr><td class=evnRow1stCol><code>lightonly_normal</code></td>
+       <td class=evnRow      >
+Objects with diffuse map, and an additive texture projected from the camera
+space normals. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code class="oddRow1stCol">lightonly_normal_add.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map, and an additive texture projected from the camera 
+space normals. Blends additively with the background. Bone deformation 
+animations are performed on CPU. Object is affected by pre-calculated static 
+lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_normal_alpha.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture projected from the camera space normals. Bone 
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_projection.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map, and an additive <i>reflection</i> texture mapped
+from world space. World space texture will stay still even as object moves 
+around the world. Bone deformation animations are performed on CPU. Object is 
+affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_projection_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map, and an additive <i>reflection</i> texture mapped
+from world space. World space texture will stay still even as object moves 
+around the world. Blends additively with background. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_projection_alpha.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture mapped from world space. World space texture will 
+stay still even as object moves around the world. Bone deformation animations 
+are performed on CPU. Object is affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_skinned.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map. Soft-skinned (each vertex may have up to three bones 
+influencing it) animations are performed on GPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>lightonly_uvtransform.fx</code></td>
+       <td class=oddRow      >
+Objects with diffuse map, and an additive texture with rolling UVs. Bone
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>lightonly_uvtransform_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map, with rolling UVs. Blends 
+additively with the background. Bone deformation animations are performed on 
+CPU. Object is affected by pre-calculated static lighting. </td></tr>
+
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_uvtransform_alpha.fx</code></td>
+     <td class=oddRow      >Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture with rolling UVs. Bone deformation animations are
+performed on CPU. Object is affected by pre-calculated static lighting.</td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>lightonly_uvtransform2.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with diffuse map, and an additive texture with rolling UVs. Primary diffuse map also has rolling UVs. Bone
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_uvtransform2_add.fx</code></td>
+     <td class=oddRow      ><span class="evnRow">Objects with diffuse map, with rolling UVs .Primary diffuse map also has rolling UVs. Blends 
+additively with the background. Bone deformation animations are performed on 
+CPU. Object is affected by pre-calculated static lighting. </span></td>
+   </tr>
+   <tr>
+     <td class=evnRow1stCol><code>lightonly_uvtransform2_alpha.fx</code></td>
+     <td class=evnRow      ><span class="oddRow">Objects with diffuse map (including alpha blend transparency, values of 1 to 
+256), and an additive texture with rolling UVs. Primary diffuse map also has rolling UVs. Bone
+deformation animations are performed on CPU. Object is affected by 
+pre-calculated static lighting.</span></td>
+   </tr>
+   <tr>
+     <td class=oddRow1stCol><code>lightonly_add</code></td>
+      <td class=oddRow      ><span class="oddRow">Objects with diffuse map, and an additive texture. Bone deformation animations are
+performed on CPU. Object is affected by pre-calculated static lighting.</span></td>
+   </tr>
+
+   <tr><td class=evnRow1stCol><code>parallax_lighting_specmap.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse, normal, specular, and displacement (height) maps. 
+Displaces UV coordinates as a function of the heightmap away from the camera 
+view. Gives the appearance of 3D geometry. Best used on flat/semi-flat objects, 
+such as brick walls. Commonly referred to as <i>parallax</i> or 
+<i>displacement</i> mapping. Bone deformation animations are performed on CPU. 
+Object is affected by pre-calculated static lighting. Note: The displacement map is stored in the alpha channel of the normal map.</td>
+   </tr>
+
+   <tr><td class=oddRow1stCol><code>shimmer.fx</code></td>
+       <td class=oddRow      >
+A transparent heat like shimmer effect, commonly seen above heat sources. Alpha 
+channel defines localised shimmer intensity. The opacity parameter affects the 
+overall intensity. Requires a diffuse map. Bone deformation animations are 
+performed on CPU. Object is <b>not</b> affected by pre-calculated static 
+lighting.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>spintoface_add.fx</code></td>
+       <td class=evnRow      >
+Objects with diffuse map. Blends additively with the background. Object will 
+spin to face the camera. Bone deformation animations are performed on CPU. 
+Object is <b>not</b> affected by pre-calculated static lighting.</td></tr>
+
+   <tr><td class=oddRow1stCol><code>stdinclude.fx</code></td>
+       <td class=oddRow      >
+Utility FX file not used by artists &ndash; it has components referenced by all 
+other FX files.</td></tr>
+
+   <tr><td class=evnRow1stCol><code>subsurface_skinned.fx<br></code>
+                           <p></td>
+       <td class=evnRow      >
+Objects with diffuse, specular, and sub surface maps. The <code>skinned</code> 
+version performs soft-skinning on GPU (each vertex may have up to three bones 
+influencing it).
+<p>This advanced shader uses the angle of light and camera to simulate the
+sub-surface scattering that occurs when light enters skin.</p>
+<p>It also simulates rim/bounced lighting, by increasing the luminance of the 
+side of the model facing away from the primary light source.</p>
+<p>The amount of the sub-surface scattering is controlled by the alpha channel 
+of the sub surface map, and its colour is controlled by the RGB channels.</p>
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image015.png"></p>
+<p>As well as simulating sub-surface scattering, these shaders simulate bounced 
+light on the non-illuminated side of the object.</p>
+<p>The rim lighting strength and angle is controlled by the <b>Rim Strength</b> 
+and <b>Rim Width</b> settings.</p>
+<p>When painting a sub surface map for human skin, consider the thickness of the 
+surface &ndash; thicker parts end up dark red, while membranes and areas next to 
+bone end up light orange.</p>
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image017.png"></p>
+<p class=captLvl1>Gradient of colour used to define areas &ndash; from thicker areas (left) to thinner membranes (right)</p>
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image018.png"></p>
+<p class=captLvl1>Example sub surface map and its alpha channel</p>
+<p>Areas of thick skin and flesh are dark red, while areas close to the bone are 
+light orange.</p>
+<p>Dark areas of the alpha map (such as the hair and beard) reduce the amount of 
+sub-surface scattering.</p></td></tr>
+
+</table>
+</div>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.bmp"><a name="MultipleUVandVertexColour" id="MultipleUVandVertexColour">Multiple UV's and Vertex Colour </a></h3></span>
+<div>
+<p>BigWorld&#25903;&#25345;MAYA&#21644;3Dmax&#23548;&#20986;, &#22810;&#20010;UV&#36890;&#36947;&#36148;&#22270;&#21644;&#39030;&#28857;&#33394;&#20449;&#24687;.</p>
+<p>&#26448;&#36136;  <code>lightonly_dual.fx &#25903;&#25345;&#22810;&#37325;</code>UV's &#24182;&#19988;&#26356;&#26159;&#19968;&#20010;&#33539;&#20363;, &#20379;&#20320;&#20204;&#22242;&#38431;&#32534;&#20889;&#33258;&#24049;&#30340;&#22810;&#37325;UV&#26448;&#36136;&#26469;&#21443;&#32771;</p>
+<p>&#26448;&#36136; <code>lightonly_vertexcolour.fx </code>&#25903;&#25345;&#39030;&#28857;&#33394;&#20449;&#24687;, &#24182;&#19988;&#20063;&#20570;&#20026;&#20320;&#20204;&#33258;&#24049;&#32534;&#20889;&#39030;&#28857;&#33394;&#26448;&#36136;&#30340;&#33539;&#20363;&#21443;&#32771;.</p>
+</div>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.gif"><a name="Skybox_Shaders" id="Skybox_Shaders">&#22825;&#31354;&#30418;&#26448;&#36136; </a></h3></span>
+<div><p>&#20851;&#20110;&#22825;&#31354;&#26448;&#36136;&#30340;&#36164;&#26009;&#35831;&#26597;&#30475; <a href="../../21_change_environ_settings.htm#Creating">&#36825;&#37324; </a></p></div>
+<span onClick="toggle_heading()"><h3><img src="images/expanded.gif"><a name="Choose_Shader">&#22914;&#20309;&#25361;&#36873;&#21512;&#36866;&#30340;&#26448;&#36136;</a></h3></span>
+<DIV><DIV>
+<p>&#25361;&#36873;&#26448;&#36136;&#21069;&#35831;&#27880;&#24847;&#20197;&#19979;&#38382;&#39064;:</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>&#25105;&#35201;&#29992;normalmap&#20040;?&#36824;&#26159;&#21482;&#35201;&#24179;&#30340;&#20809;&#25928;?</b></p>
+
+<p class=lvl2>&#24102;&#26377; <code>normalmap</code> &#30340;&#26448;&#36136;&#20250;&#21033;&#29992;normalmap&#26469;&#35745;&#31639;&#22905;&#38376;&#30340;&#20809;&#25928;, &#32780;lightonly&#30340;&#26448;&#36136;,&#30452;&#25509;&#20351;&#29992;&#40664;&#35748;&#20809;&#35745;&#31639;.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>&#25105;&#26159;&#21542;&#35201;&#29992;&#21457;&#20809;, &#21453;&#23556;,&#25110;&#26159;&#21160;&#30011;UV&#30340;&#25928;&#26524; - Glow, 
+Chrome, Rolling UVs?</b></p>
+
+<p class=lvl2>&#24102;&#26377; <code>glow</code> &#30340;&#26448;&#36136;&#20250;&#35745;&#31639;&#19968;&#20010;&#33258;&#25918;&#20809;&#30340;&#20540;, &#24102;&#26377; chrome&#30340;&#26448;&#36136;&#20250;&#35745;&#31639;&#19968;&#20010;&#21453;&#20809;&#30340;cubemap, &#24102;&#26377;uvtransform&#30340;&#26448;&#36136;&#20250;&#35745;&#31639;&#28378;&#21160;UV&#30340;&#20849;&#21516;&#20316;&#29992;&#25928;&#26524;, &#36825;&#20123;&#37117;&#26159;&#20250;&#24433;&#21709;&#19968;&#23450;&#35745;&#31639;&#25928;&#29575;&#30340;, &#35831;&#26377;&#35745;&#21010;&#30340;&#20351;&#29992;.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>&#25105;&#30340;&#36879;&#26126;&#26041;&#24335;&#26159;&#35201;&#29992; Alpha Test 
+&#36824;&#26159; Alpha Blend?</b></p>
+
+<p class=lvl2>&#24102; <code>alpha</code> &#22312;&#21517;&#31216;&#20013;&#30340;&#26448;&#36136;,&#26681;&#25454;&#33258;&#24049;&#30340;diffmap &#20013;&#30340;alpha&#36890;&#36947;&#32473;&#20986;&#21322;&#36879;&#26126;&#25928;&#26524;, &#20540;&#20174;1 &#21040; 256 (8-bit). </p>
+
+<p class=lvl2>&#35831;&#27880;&#24847;,&#24456;&#22810;&#21517;&#31216;&#20013;&#27809;&#26377;alpha&#30340;&#26448;&#36136;,&#37117;&#21253;&#21547;&#20102;alphatest&#23646;&#24615;, &#23427;&#21487;&#20197;&#32473;&#20986;&#19968;&#20010;0/1&#30340;alpha&#20540;, (1bit). &#21487;&#20197;&#26681;&#25454;alpha ref&#30340;&#35774;&#32622;&#35843;&#25972;. &#22914;&#26524;&#25226; alpha ref &#35774;&#32622;&#25104;&#20026;128, &#21017;&#25152;&#26377;&#27604;128&#23567;&#30340;&#28784;&#24230;&#20540;,&#34987;&#35748;&#20026;&#26159;0(&#20840;&#36879;&#26126;), &#32780;&#22823;&#20110;128&#30340;&#34987;&#35748;&#20026;&#26159;1(&#19981;&#36879;&#26126;)</p>
+<p class=lvl2>&#20320;&#30340;&#27169;&#22411;&#26377;&#27809;&#26377;&#24456;&#22810;&#20114;&#30456;&#20132;&#38169;&#30340;&#32467;&#26500;? &#22312;&#20351;&#29992;alphablend&#30340;&#26102;&#20505;,&#36825;&#26679;&#30340;&#27169;&#22411;&#23481;&#26131;&#23548;&#33268;&#28210;&#26579;&#20081;&#24207;&#38382;&#39064;.</p>
+<p class=lvl2>&#24102;&#26377; Alpha blended &#30340;&#26448;&#36136;&#37117;&#19981;&#20351;&#29992;GPU, &#25152;&#20197;&#22914;&#26524;&#20351;&#29992;alpha blend &#21644;skinned &#19968;&#36215;, &#21017;&#25152;&#26377;&#21160;&#30011;&#22312;CPU&#19978;&#35745;&#31639;, &#36825;&#22238;&#24433;&#21709;&#28216;&#25103;&#36895;&#24230;(&#21464;&#24930;).</p>
+<p class=lvl2>&#22914;&#26524;&#25928;&#26524;&#30456;&#20284;, &#35831;&#23613;&#37327;&#20351;&#29992;alpha test,&#22914;&#26524;&#20351;&#29992;blend&#20250;&#22823;&#22823;&#24433;&#21709;&#28216;&#25103;&#25928;&#29575;. </p>
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>&#25105;&#38656;&#35201;&#20351;&#29992;skinned&#26448;&#36136;, &#36824;&#26159;&#38745;&#24577;&#26448;&#36136;?</b></p>
+
+<p class=lvl2>&#24102;&#26377; <code>skinned</code> &#26448;&#36136;&#20570;&#26580;&#24615;&#39592;&#39612;&#32465;&#23450; (&#27599;&#20010;&#39030;&#28857;&#26368;&#22810;&#21463;3&#20010;&#39592;&#39612;&#24433;&#21709;), &#22312;GPU&#19978;&#35745;&#31639;, &#29289;&#20307;&#22312;3d&#36719;&#20214;&#20013;&#24102;&#26377; <b>Skin</b>,  <b>Physique, </b> 
+<b>Skinning</b> &#32534;&#36753;&#22120;&#30340;,&#37117;&#24517;&#39035;&#20351;&#29992; <code>skinned</code> &#26448;&#36136;</p>
+
+<p class=lvl2>&#22312;&#36873;&#25321;&#26448;&#36136;&#32473;&#39592;&#39612;&#32465;&#23450;&#29289;&#20307;&#26102;&#35201;&#38750;&#24120;&#24403;&#24515;, &#20320;&#24517;&#39035;&#20351;&#29992; <code>skinned</code> &#26448;&#36136; &#39592;&#39612;&#30340;&#36816;&#21160;&#35745;&#31639;&#22312;GPU&#25191;&#34892;, &#36825;&#26679; (&#27604;&#22312;CPU)&#26356;&#26377;&#25928;,&#26356;&#24555;. &#22914;&#26524;&#24378;&#36843;CPU&#35745;&#31639;&#21160;&#30011;&#20449;&#24687;, &#28216;&#25103;&#25928;&#29575;&#24456;&#38590;&#20445;&#35777;.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>&#26159;&#19981;&#26159;&#20250;&#36896;&#25104;&#28216;&#25103;&#25928;&#29575;&#20302;&#30340;&#38382;&#39064;?</b></p>
+
+<p class=lvl2>&#36825;&#26159;&#26368;&#20851;&#38190;&#30340;&#38382;&#39064;, &#33267;&#23569;&#26159;&#20320;&#24517;&#39035;&#24605;&#32771;&#30340;&#38382;&#39064;. &#24102;&#26377;&#26356;&#22810;&#20449;&#24687;&#30340;&#39640;&#32423;&#26448;&#36136;(&#20363;&#22914;&#20351;&#29992;&#20102;normal, subsurface, &#21644;parallax&#36148;&#22270;&#30340;) &#20250;&#21344;&#26377;&#26356;&#22810;&#30340;&#35745;&#31639;, &#25152;&#20197;&#21644;&#24120;&#29992;&#30340;&#31616;&#21333;&#30340;&#26448;&#36136;&#22810;&#20570;&#27604;&#36739;, &#21512;&#29702;&#30340;&#20351;&#29992;&#39640;&#32423;&#26448;&#36136;&#25165;&#23545;.</p>
+
+<p class=imgBltLvl0><img src="images/bullet.gif"><b>&#26159;&#21542;&#38656;&#35201;&#26032;&#24314;&#33258;&#24049;&#30340;&#26448;&#36136;?</b></p>
+
+<p class=lvl2>&#26368;&#21518;, &#25105;&#20204;&#19981;&#21487;&#33021;&#25552;&#20379;&#25152;&#26377;&#38656;&#35201;&#30340;&#26448;&#36136;&#31867;&#22411;, &#22240;&#20026;&#36825;&#26679;&#30340;&#26448;&#36136;&#21487;&#20197;&#21015;&#20986;&#26080;&#38480;&#22810;. &#22810;&#25968;&#30340;&#23458;&#25143;&#20250;&#33258;&#24049;&#32534;&#20889;&#19968;&#20123;&#29305;&#26377;&#25928;&#26524;&#30340;&#26448;&#36136;&#26469;&#28385;&#36275;&#33258;&#24049;&#30340;&#38656;&#35201;.</p>
+
+</DIV>
+<span onClick="toggle_heading()">
+<h3><img src="images/expanded.gif"><a name="apply_a_shader">&#22914;&#20309;&#22312;&#27169;&#22411;&#32534;&#36753;&#22120;&#20013;&#20351;&#29992;&#26448;&#36136;</a></h3>
+</span>
+<DIV>
+
+<p>&#22312;&#27169;&#22411;&#32534;&#36753;&#22120; <b>Asset Browser</b>&#38754;&#26495;&#19979;, &#36873;&#25321; <b>Effects</b> 
+&#25991;&#20214;&#22841;, &#36825;&#37324;&#26377;&#25152;&#26377;&#30340; BigWorld &#26448;&#36136;&#31867;&#22411;</p>
+
+<p>&#35201;&#32473;&#27169;&#22411;&#20351;&#29992;&#26448;&#36136;, &#21482;&#35201;&#25226;&#20320;&#38656;&#35201;&#30340;fx&#25991;&#20214;&#25302;&#21040;&#26448;&#36136;&#38754;&#26495;&#19979;,effect&#23646;&#24615;&#26694;&#19979;&#25289;&#21015;&#34920;&#20013;.</p>
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image054.gif" width="461" height="272"></p>
+
+<p>BigWorld &#26448;&#36136;&#21487;&#20197;&#22312; 3dsMax&#20013;&#30452;&#25509;&#24212;&#29992;&#20026;&#26448;&#36136;&#29699;, ( Maya&#19981;&#25903;&#25345;&#27492;&#21151;&#33021;). &#27425;&#21151;&#33021;&#21442;&#35265; <a href="../../02b_create_objects.htm#ApplyDX9Materials">&#22312;maya &#21644; max &#20013;&#21019;&#24314;&#38745;&#24577;&#29289;&#20307;&#24182;&#23548;&#20986;/ &#30452;&#25509;&#22312;3ds Max &#20013;&#20351;&#29992;bigworld&#26448;&#36136;&#29699;</a> &#31456;&#33410;</p></DIV></DIV>
+
+<span onClick="toggle_heading()"><h2><img src="images/expanded.gif"><a name="UV">&#21019;&#24314;&#19968;&#20010; UV &#28378;&#21160;&#26448;&#36136;</a></h2>
+</span>
+<DIV>
+
+<p>&#24102;&#26377; <code>uvtransform</code> &#30340;&#26448;&#36136;,&#20363;&#22914;  
+<code>lightonly_uvtransform.fx</code>, &#21487;&#20197;&#21019;&#24314;&#19968;&#20010;UV&#28378;&#21160;&#30340;&#25928;&#26524;. &#35201;&#21019;&#24314;&#36825;&#26679;&#30340;&#25928;&#26524;,&#20808;&#25302;&#21160;&#19968;&#20010;&#24102; <code>uvtransform</code> &#26448;&#36136;&#21040;  <b>&#26448;&#36136;&#38754;&#26495;&#19979;</b><b>Effects</b> &#19979;&#25289;&#33756;&#21333;.</p>
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image056.gif"></p>
+
+<p>&#22312;&#26448;&#36136;&#38754;&#26495;&#19979;, &#21452;&#20987; <b>Transform Map</b> &#36873;&#25321;&#20320;&#24819;&#35201;&#20570;&#28378;&#21160;&#25928;&#26524;&#30340;&#36148;&#22270;. &#20320;&#21487;&#20197;&#22312; <b>Asset Browser</b>&#38754;&#26495;&#20013;&#36873;&#19968;&#20010;&#26448;&#36136;.</p> 
+
+<p>&#30690;&#37327;&#23646;&#24615;&#26469;&#25511;&#21046;uv&#28378;&#21160;&#30340; &#24179;&#38138;, &#20301;&#31227;,&#36895;&#24230;&#21644;&#26041;&#21521;.</p>
+
+<p>UV &#24179;&#38138;&#26159;<b>U Transform</b> 
+&#30340;&#31532;&#19968;&#39033; &#21644;<b>V Transform</b> &#30340;&#31532;&#20108;&#39033;&#25511;&#21046;&#30340;, &#20540;&#20026;&#20108;&#30340;&#35805;&#34920;&#31034;,&#22312;&#21407;&#33539;&#22260;&#20869;,&#36148;&#22270;&#24179;&#38138;&#20004;&#27425;</p>
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image057.gif"></p>
+
+<p>&#26059;&#36716; UV &#22352;&#26631;&#22312; <b>U Transform</b> &#31532;&#20108;&#39033;&#21644; <b>V 
+Transform</b> &#30340;&#31532;&#19968;&#39033;&#20013;&#35774;&#32622;</p> 
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image058.gif"></p>
+
+<p>&#36895;&#24230;&#22312; <b>U Transform</b>&#21644; <b>V Transform</b> &#30340;&#31532;&#19977;&#39033;&#20013;&#35774;&#32622;</p> 
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image059.gif"></p>
+
+<p>&#36215;&#22987;&#30340; UV &#20301;&#32622;&#30001; 
+<b>U Transform</b> &#21644; <b>V Transform</b> &#30340;&#31532;&#22235;&#39033;&#25511;&#21046;</p> 
+
+<p class=imgLvl1><img src="34_fx_files_and_materials_files/image060.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Creating">&#20445;&#23384;&#19968;&#20010;&#26448;&#36136; MFM &#25991;&#20214;</a></h2>
+</span>
+<DIV>
+<p>&#29616;&#26377;&#27169;&#22411;&#30340;&#26448;&#36136;&#21487;&#20197;&#34987;&#20445;&#23384;&#20026; <code>.mfm</code>&#25991;&#20214;, &#36825;&#26679;&#20320;&#21487;&#20197;&#20351;&#29992;&#30456;&#21516;&#30340;&#26448;&#36136;&#21040;&#19981;&#21516;&#27169;&#22411;&#19978;.</p>
+
+<p class=numBltLvl1>1 &#36873;&#25321;&#26448;&#36136;&#38754;&#26495;</p>
+
+<p class=numBltLvl1>2 &#36873;&#25321;&#20320;&#35201;&#20445;&#23384;&#30340;&#26448;&#36136;</p>
+
+<p class=imgLvl2><img src="34_fx_files_and_materials_files/image061.gif"></p>
+
+<p class=numBltLvl1>3 &#28857;&#20987; 
+<img src="34_fx_files_and_materials_files/image062.gif">, &#25171;&#24320;&#19968;&#20010;&#20445;&#23384;&#23545;&#35805;&#26694;</p>
+
+<p class=numBltLvl1>4 &#22312;&#21478;&#23384;&#20026; <b>Save As</b> &#23545;&#35805;&#26694;&#20013;, &#23450;&#20041;&#20320;&#35201;&#20445;&#23384;&#30340;&#36335;&#24452;&#21644;&#25991;&#20214;&#21517;, &#28857;&#20987;&#20445;&#23384;save&#21363;&#21487;.</p>
+
+<p>&#35201;&#24212;&#29992;&#19968;&#20010; MFM &#25991;&#20214;&#21040;&#27169;&#22411;&#28857;&#20987; 
+<img src="34_fx_files_and_materials_files/image063.gif"> &#25171;&#24320;&#27983;&#35272;&#38656;&#35201;&#30340;mfm&#26448;&#36136;&#25991;&#20214;&#21363;&#21487;.</p>
+
+</DIV>
+
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title> &#21019;&#24314;&#33258;&#23450;&#20041;BSPs</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle"> &#21019;&#24314;&#33258;&#23450;&#20041;BSPs</a></h1>
+
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="35_creating_custom_bsps.htm#Definition">&#27010;&#24565;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="35_creating_custom_bsps.htm#Creating">&#20026;&#19968;&#20010;&#24102;&#21160;&#30011;&#30340;&#29289;&#20307;&#20570;BSP</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="35_creating_custom_bsps.htm#Material_Kind">&#33258;&#23450;&#20041; BSP &#20197;&#21450;&#26448;&#36136;&#30896;&#25758;&#26631;&#35760;</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<!-- SECTION - DEFINITION -->
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Definition">&#27010;&#24565;</a></h2>
+</span>
+<DIV>
+
+<p>BSPs (Binary Space Partitioning - &#20108;&#21449;&#26641;&#21078;&#20998;&#25216;&#26415;) &#26159;BigWorld &#24341;&#25806;&#29992;&#26469;&#35745;&#31639;&#29289;&#20307;&#30896;&#25758;&#21644;&#22320;&#34920;&#25237;&#24433;&#30340;.  BigWorld's &#23548;&#20986;&#22120;&#21487;&#20197;&#33258;&#21160;&#20026;&#27809;&#26377;&#21160;&#30011;&#30340;&#29289;&#20307;&#21019;&#24314;BSP.</p>
+
+<p>&#20294;&#22312;&#19968;&#19979;&#24773;&#20917;&#19979;&#20250;&#38656;&#35201;&#33258;&#23450;&#20041;&#19968;&#20010;BSP:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">&#23450;&#20041;&#29289;&#20307;&#30340;&#26576;&#19968;&#37096;&#20998;&#38656;&#35201;&#30896;&#25758;.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">&#23450;&#20041;&#29289;&#20307;&#30340;&#26576;&#19968;&#37096;&#20998;&#38656;&#35201;&#25237;&#24433;.</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif">&#20026;&#19968;&#20010;&#24102;&#21160;&#30011;&#30340;&#23545;&#35937;&#21019;&#24314;BSP (BigWorld &#23548;&#20986;&#22120;&#26080;&#27861;&#32473;&#24102;&#21160;&#30011;&#30340;&#29289;&#20307;&#33258;&#21160;&#21019;&#24314;BSP,&#21482;&#33021;&#25163;&#21160;&#20102;).</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Creating">&#20026;&#19968;&#20010;&#24102;&#21160;&#30011;&#30340;&#29289;&#20307;&#20570;BSP</a></h2>
+</span>
+<DIV>
+
+<p>&#19979;&#22270;&#20013;&#30340;&#26641;&#26159;&#24102;&#21160;&#30011;&#30340;,&#25152;&#20197;&#22312;&#23548;&#20986;&#30340;&#26102;&#20505;&#20063;&#27809;&#26377;&#34987;&#21019;&#24314;&#20219;&#20309;&#30340;BSP&#30896;&#25758;. </p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image001.gif">
+                 <img src="35_creating_custom_bsps_files/image002.gif">
+                 <img src="35_creating_custom_bsps_files/image003.gif"></p>
+
+<p>&#22312;&#21019;&#24314;BSP&#26102;, &#21046;&#20316;&#19968;&#20010;&#20302;&#27169;,&#23613;&#37327;&#25509;&#36817;&#26641;&#30340;&#22806;&#24418;&#36718;&#24275;,&#23588;&#20854;&#26159;&#24517;&#39035;&#35201;&#26377;&#30896;&#25758;&#30340;&#21306;&#22495; (&#21487;&#20197;&#21442;&#32771;LOD&#30340;&#27169;&#22411;&#35774;&#35745;).</p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image004.gif">
+                 <img src="35_creating_custom_bsps_files/image005.gif"></p>
+
+<p>&#25226;&#36825;&#20010;&#20302;&#27169;&#21629;&#21517;&#24102;&#21518;&#32512; <code>_bsp</code>, &#19981;&#35201;&#38544;&#34255;BSP&#27169;&#22411;,&#24182;&#27491;&#24120;&#23548;&#20986;&#23545;&#35937;.</p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image006.gif"></p>
+
+<p>&#33258;&#23450;&#20041;&#30340;BSP&#23601;&#20570;&#22909;&#20102;,&#22312;&#27169;&#22411;&#32534;&#36753;&#22120;&#20013;<b>&#26174;&#31034;</b> &#38754;&#26495;&#19979;&#30340;<b>&#26174;&#31034; BSP</b> &#21246;&#36873;,&#23601;&#33021;&#26174;&#31034;&#20986;&#33258;&#23450;&#20041;&#30340;BSP&#27169;&#22411;.</p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image009.gif" width="339" height="275"></p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Material_Kind">&#33258;&#23450;&#20041; BSP &#20197;&#21450;&#26448;&#36136;&#30896;&#25758;&#26631;&#35760;</a></h2>
+</span>
+<DIV>
+
+<p>&#30896;&#25758;&#26631;&#35760;&#26159;&#22312;&#26448;&#36136;&#35774;&#23450;&#38754;&#26495;&#20013;&#30340;, &#24182;&#23450;&#20041;&#29289;&#20307;&#30340;&#30896;&#25758;&#31867;&#22411;.</p>
+
+<p class=imgLvl1><img src="35_creating_custom_bsps_files/image010.gif"></p>
+
+<p><b>&#30896;&#25758;&#26631;&#35760;</b> &#19979;&#25289;&#33756;&#21333;&#36873;&#39033;&#21151;&#33021;&#35831;&#30475;&#19979;&#34920;:</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr>
+       <th class=FirstCol    >&#23646;&#24615;</th>
+       <th                   >&#25551;&#36848; </th>
+   </tr>
+   <tr>
+       <td class=oddRow1stCol>camera on player on</td>
+       <td class=oddRow      >&#29289;&#20307;&#23545;&#30456;&#26426;&#21644;&#35282;&#33394;&#37117;&#20570;&#30896;&#25758;</td>
+   </tr>
+
+   <tr>
+     <td class=evnRow1stCol>camera off player on</td>
+     <td class=evnRow      >&#29289;&#20307;&#23545;&#35282;&#33394;&#26377;&#30896;&#25758;,&#23545;&#30456;&#26426;&#27809;&#26377;</td>
+   </tr>
+   <tr >
+       <td class=oddRow>camera on player off</td>
+       <td class=oddRow      >
+&#29289;&#20307;&#23545;&#30456;&#26426;&#26377;&#30896;&#25758;,&#20294;&#23545;&#35282;&#33394;&#27809;&#26377;</td>
+   </tr>
+
+   <tr>
+       <td class=evnRow>camera off player off</td>
+       <td class=evnRow      >
+&#29289;&#20307;&#27809;&#26377;&#30896;&#25758;&#23646;&#24615;</td>
+   </tr></table>
+
+<p>&#23545;&#20110;player&#29609;&#23478;&#36215;&#20316;&#29992;&#30340;&#30896;&#25758;&#23545;&#35937;&#20250;&#38459;&#27490;&#29609;&#23478;&#31359;&#36234;&#27492;&#23545;&#35937;. </p>
+<p>&#30456;&#26426;&#30896;&#25758;&#30456;&#23545;&#22797;&#26434;&#19968;&#20123;&#65292; &#22312;fantasy demo&#20013;&#40664;&#35748;&#30340;&#30456;&#26426;&#31867;&#22411;&#20250;&#30001;&#30456;&#26426;&#25237;&#23556;&#19968;&#26465;&#23556;&#32447;&#21040;&#35282;&#33394;&#65292; &#22914;&#26524;&#19968;&#20010;&#34987;&#35774;&#32622;&#20102;&#30456;&#26426;&#30896;&#25758;&#30340;&#23545;&#35937;&#23601;&#20250;&#20135;&#29983;&#23545;&#30456;&#26426;&#30340;&#20316;&#29992;&#65292; &#36843;&#20351;&#30456;&#26426;&#24555;&#36895;&#21521;&#21069;&#31359;&#26797;&#21040;&#36807;&#25972;&#20010;&#30896;&#25758;&#29289;&#20307;&#30452;&#21040;&#30475;&#21040;&#23545;&#35937;&#20026;&#27490;.</p>
+<p>&#30896;&#25758;&#20307;&#21487;&#20197;&#23616;&#37096;&#35774;&#23450;&#19981;&#21516;&#30340;&#30896;&#25758;&#26631;&#35760;, &#20294;&#21069;&#25552;&#26159;&#33258;&#23450;&#20041;BSP&#30340;&#26448;&#36136;&#35201;&#21644;&#20027;&#29289;&#20307;&#27169;&#22411;&#26448;&#36136;&#21629;&#21517;&#19968;&#33268;. </p>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

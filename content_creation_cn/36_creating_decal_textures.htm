@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>&#21046;&#20316;&#21360;&#33457;&#36148;&#22270;</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!-- CHAPTER -CREATE DECAL TEXTURES -->
+<h1><a name="lessonTitle">&#21046;&#20316;&#21360;&#33457;&#36148;&#22270;</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="36_creating_decal_textures.htm#Guidelines">&#21019;&#24314;&#25351;&#21335;</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>&#21360;&#33457;&#36148;&#22270;&#26159;&#21160;&#24577;&#28155;&#21152;&#21040;&#28216;&#25103;&#19990;&#30028;&#23545;&#35937;&#19978;&#30340;&#22270;&#20687;&#65292;&#20197;&#27169;&#25311;&#25439;&#22351;&#21644;&#24377;&#23380;&#20043;&#31867;&#30340;&#25928;&#26524;. &#19979;&#22270;&#30340;&#20363;&#23376;&#23601;&#26159;&#25163;&#27060;&#24377;&#29190;&#28856;</p>
+
+<p class=imgLvl1><img src="36_creating_decal_textures_files/image001.gif">
+                 <img src="36_creating_decal_textures_files/image002.gif"></p>
+<p class=imgLvl1>&#38656;&#35201;&#27880;&#24847;&#30340;&#26159;&#22312;BigWorld&#23458;&#25143;&#31471;&#22330;&#26223;&#30340;&#21360;&#33457;&#31995;&#32479;&#26159;&#20808;&#36827;&#34892;&#19968;&#20010;&#30456;&#36935;&#27979;&#35797;&#65292;&#28982;&#21518;&#23558;&#21360;&#33457;&#27169;&#22411;&#32622;&#20110;&#30896;&#25758;BSP&#19979;&#65292; &#22240;&#27492;&#65292;&#38590;&#20813;&#20250;&#20986;&#29616;&#35270;&#35273;&#35823;&#24046;&#65292;&#22914;&#26524;&#30896;&#25758;BSP&#27169;&#27169;&#22411;&#30456;&#23545;&#23454;&#38469;&#27169;&#22411;&#36739;&#20026;&#26126;&#26174;&#31361;&#20986;&#30340;&#35805;&#65292; &#23601;&#20250;&#20986;&#29616;&#30475;&#19978;&#21435;&#26159;&#24748;&#28014;&#31354;&#20013;&#30340;&#21360;&#33457;&#12290;</p>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Guidelines">&#21019;&#24314;&#25351;&#21335;</a></h2>
+</span>
+<DIV>
+
+<p>&#21360;&#33457;&#36148;&#22270;&#21644;&#22810;&#25968;&#24102;alpha&#36879;&#26126;&#36890;&#36947;&#30340;&#36148;&#22270;&#19981;&#21516;. &#19979;&#34920;&#35814;&#32454;&#25551;&#36848;&#20102;&#22312;&#21046;&#20316;&#21360;&#33457;&#36148;&#22270;&#36807;&#31243;&#20013;&#35201;&#36981;&#23432;&#30340;&#35268;&#21017;.</p>
+
+<table class="alternate" cellspacing=0> <tbody>
+   <tr>
+       <th class=FirstCol    >&#39033;&#30446;   </th>
+       <th                   >&#35268;&#21017;</th>
+   </tr>
+   <tr>
+       <td class=oddRow1stCol>&#23610;&#23544;</td>
+       <td class=oddRow      >
+&#21360;&#33457;&#36148;&#22270;&#23610;&#23544;&#24517;&#39035;&#26159; 64<i>x</i>64 &#20687;&#32032;.</td>
+   </tr>
+
+   <tr>
+       <td class=evnRow1stCol>&#26126;&#24230;</td>
+       <td class=evnRow      >
+&#22240;&#20026;&#21360;&#33457;&#36148;&#22270;&#19981;&#21463;&#28216;&#25103;&#28783;&#20809;&#24433;&#21709;,&#25152;&#20197;&#39640;&#20142;&#24230;&#30340;&#21360;&#33457;&#36148;&#22270;&#22312;&#26202;&#19978;&#26174;&#31034;&#20250;&#26377;&#33258;&#21457;&#20809;&#30340;&#24863;&#35273;,&#25152;&#20197;,&#25105;&#20204;&#24314;&#35758;&#19968;&#33324;&#36873;&#29992;&#28145;&#33394;&#26469;&#32472;&#21046;&#21360;&#33457;&#36148;&#22270;.</td>
+   </tr>
+
+   <tr>
+       <td class=oddRow1stCol><p>Alpha </p>
+        <p>&#36879;&#26126;&#36890;&#36947;</p></td>
+       <td class=oddRow      >
+&#21360;&#33457;&#36148;&#22270;&#24517;&#39035;&#24102;alpha&#36890;&#36947;,&#20294;&#26159;&#23427;&#26159;&#29992;&#26469;&#36776;&#35782;&#22312;&#21738;&#37324;&#32972;&#26223;&#26159;&#38656;&#35201;&#34987;&#24212;&#29992;&#30340;,&#32780;<strong>&#19981;&#26159;</strong>&#21360;&#33457;&#36148;&#22270;, &#35831;&#21442;&#32771;&#19979;&#26041;&#30340;&#22270;&#35299;&#35828;&#26126;
+<table><tr>
+  <td><p><span class="imgLvl0"><img src="36_creating_decal_textures_files/image003.gif"></span></p>
+    <p><span class="imgLvl0">&#29190;&#28856;&#36148;&#33457;&#30340;&#39068;&#33394;&#36890;&#36947;&#22914;&#19978;&#22270;&#25152;&#31034;.</span></p></td>
+  <td><p><span class="imgLvl0"><img src="36_creating_decal_textures_files/image004.gif"></span></p>
+      <p>&#29190;&#28856;&#36148;&#33457;&#30340;<SPAN lang="EN-US"> Alpha </SPAN>&#36890;&#36947;&#22914;&#19978;&#22270;&#25152;&#31034;.</p>      
+      </td></tr></table>
+
+</td></tr>
+
+   <tr>
+       <td class=evnRow1stCol>&#38544;&#34255;&#36793;&#30028;</td>
+       <td class=evnRow      >
+&#21360;&#33457;&#36148;&#22270;&#22312;BigWorld&#24341;&#25806;&#20013;&#20250;&#34987;&#33258;&#21160;&#25340;&#21512;&#25104;&#19968;&#24352;&#22823;&#30340;&#36148;&#22270;. &#25152;&#20197;&#20445;&#35777;&#27599;&#24352;&#30340;&#36793;&#32536;alpha&#36890;&#36947;&#20026;&#32431;&#30333;&#33394;(255,255,255)&#21644;&#33394;&#24425;&#36890;&#36947;&#20026;&#32431;&#40657; (0,0,0).
+  </p>
+  &#23601;&#38750;&#24120;&#37325;&#35201;&#20102;.
+  <p>&#22914;&#26524;&#26410;&#27491;&#30830;&#35774;&#32622;&#36825;&#20123;&#36890;&#36947;&#65292;&#37027;&#20040;&#65292;&#21462;&#26679;&#23558;&#20250;&#23548;&#33268;<SPAN lang="EN-US"> alpha </SPAN>&#36890;&#36947;&#21644;<SPAN lang="EN-US">/</SPAN>&#25110;&#39068;&#33394;&#36890;&#36947;&#30456;&#20114;&#28183;&#28431;&#65292;&#20174;&#32780;&#23548;&#33268;&#22312;&#24744;&#30340;&#36148;&#33457;&#32441;&#29702;&#19978;&#21487;&#20197;&#30475;&#21040;&#36793;&#30028;&#12290;</p>
+<p>&#35831;&#35760;&#20303;&#65292;&#21360;&#33457;&#36148;&#22270;&#26159;&#38468;&#21152;&#34701;&#21512;blended additively&#65292;&#22240;&#27492;&#65292;&#21363;&#20351;<SPAN lang="EN-US"> alpha </SPAN>&#36890;&#36947;&#22312;&#36793;&#30028;&#19978;&#26159;&#30333;&#33394;&#65292;&#32780;&#33394;&#24425;&#20026;&#32431;&#40657;&#33394;&#20197;&#22806;&#30340;&#20219;&#20309;&#39068;&#33394;&#20540;&#37117;&#23558;&#23548;&#33268;&#21487;&#35265;&#36793;&#30028;.</p></td></tr>
+
+</table>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

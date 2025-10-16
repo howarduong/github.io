@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>&#30446;&#26631;&#21464;&#24418;&#21644;&#24418;&#24577;&#34701;&#21512;</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1>&#30446;&#26631;&#21464;&#24418;&#21644;&#24418;&#24577;&#34701;&#21512;</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="40_morph_and_blend_shape_animation.html#3dsMax_Morph_Targets">3ds Max &#30446;&#26631;&#21464;&#24418;&#25805;&#20316;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="40_morph_and_blend_shape_animation.html#Export_Morph">3DMAX&#30446;&#26631;&#21464;&#24418;&#21160;&#30011;&#30340;&#23548;&#20986;</A></LI>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="40_morph_and_blend_shape_animation.html#Maya_Blend_Shapes">Maya Blend Shapes</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="40_morph_and_blend_shape_animation.html#Blendshapes_Skin">&#21516;&#26102;&#20351;&#29992;&#39592;&#39612;&#32465;&#23450;&#21160;&#30011;</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="40_morph_and_blend_shape_animation.html#Export_Blend_Shapes">&#23548;&#20986;Maya Blend Shapes&#21464;&#24418;&#21160;&#30011;</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p><SPAN lang="EN-US">BigWorld </SPAN>&#24341;&#25806;&#25903;&#25345;&#26469;&#33258;<SPAN lang="EN-US"> 3D Max </SPAN>&#30340;&#32593;&#26684;&#21464;&#24418;&#30446;&#26631;(morph)&#21644;<SPAN lang="EN-US"> Maya </SPAN>&#30340;&#32593;&#26684;&#34701;&#21512;&#24418;&#29366;( Blend)&#12290; &#25105;&#20204;&#19981;&#25903;&#25345;<SPAN lang="EN-US">&#30446;&#26631; UV </SPAN>&#21464;&#24418;&#12290;</p>
+<p>&#30446;&#26631;morph&#21464;&#24418;&#36890;&#24120;&#29992;&#20110;&#33080;&#37096;&#34920;&#24773;&#21160;&#30011;&#21644;&#21475;&#22411;&#21516;&#27493;, &#19981;&#36807;&#30446;&#26631;&#21464;&#24418;&#20063;&#19981;&#20165;&#38480;&#20110;&#36825;&#20123;&#29992;&#36884;.</p>
+<p>&#22312;&#21046;&#20316;&#38754;&#37096;&#21160;&#30011;&#26102;,&#26368;&#22909;&#20808;&#21019;&#24314;&#19968;&#20010;&#25918;&#26494;&#30340;&#34920;&#24773;&#20570;&#22522;&#30784;, &#24182;&#23558;&#25152;&#26377;&#33080;&#37096;&#30446;&#26631;&#34920;&#24773;&#27169;&#22411;&#25918;&#22312;&#21516;&#19968;&#25991;&#20214;&#20013;, &#20197;&#22791;&#21518;&#26399;&#30446;&#26631;&#25429;&#25417;&#20043;&#29992;.</p>
+
+<p>&#25152;&#26377;&#30340;&#21464;&#24418;&#30446;&#26631;&#24517;&#39035;&#21644;&#22522;&#30784;&#21407;&#22411;&#25317;&#26377;&#30456;&#21516;&#30340;&#39030;&#28857;&#25968;,&#25152;&#20197;&#25105;&#20204;&#24314;&#35758;&#22312;&#25972;&#20010;&#21046;&#20316;&#27969;&#31243;&#30340;&#21518;&#26399;&#20877;&#20570;&#38754;&#37096;&#21160;&#30011;&#30340;&#21019;&#24314;&#24037;&#20316;,&#22240;&#20026;&#20219;&#20309;&#23545;&#20110;&#27169;&#22411;&#30340;&#20462;&#25913;&#37117;&#20250;&#23548;&#33268;&#25972;&#20010;&#38754;&#37096;&#21160;&#30011;&#30340;&#36820;&#24037;.</p>
+
+<p>&#28857;&#21160;&#30011;&#35760;&#24405;&#30340;&#26159;&#27599;&#20010;&#23450;&#28857;&#30340;&#33258;&#36523;,&#23545;&#35937;&#23616;&#37096;&#22352;&#26631;, &#25152;&#20197;&#30446;&#26631;&#29289;&#20307;&#25918;&#22312;&#22330;&#26223;&#30340;&#20160;&#20040;&#20301;&#32622;&#26159;&#27809;&#26377;&#20851;&#31995;&#30340;. 
+&#23545;&#20110;&#30446;&#26631;&#29289;&#20307;&#30340;&#39030;&#28857;&#35831;&#19981;&#35201;&#20351;&#29992;&#20219;&#20309;&#20250;&#23548;&#33268;&#39030;&#28857;&#22352;&#26631;&#20449;&#24687;&#25110;&#25490;&#24207;&#20462;&#25913;&#30340;&#25805;&#20316;, &#21542;&#21017;&#25429;&#25417;&#21464;&#24418;&#26102;&#20250;&#22240;&#20026;&#39030;&#28857;&#24207;&#25968;&#25110;&#22352;&#26631;&#20449;&#24687;&#19981;&#23545;&#24212;&#21407;&#22411;&#32780;&#23548;&#33268;&#21160;&#30011;&#20986;&#38169;.</p>
+
+<p class=imgLvl1><img src="40_morph_and_blend_shape_animation_files/image001.jpg"></p>
+<p class=captLvl1>&#25429;&#25417;&#23545;&#35937;&#21644;&#21407;&#22411;&#34987;&#25918;&#32622;&#22312;&#21516;&#19968;&#22330;&#26223;&#20869;</p>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="3dsMax_Morph_Targets">3ds Max &#30446;&#26631;&#21464;&#24418;&#25805;&#20316;</a></h2>
+</span>
+<DIV>
+
+<p>&#22312;3ds Max&#19968;&#33324;&#21019;&#24314;&#27969;&#31243;&#26159;&#22797;&#21046;&#22810;&#20010;&#21407;&#22411;,&#24182;&#23545;&#22797;&#21046;&#29983;&#25104;&#30340;&#30446;&#26631;&#36827;&#34892;&#39030;&#28857;&#30340;&#31227;&#21160;&#20462;&#25913;,&#21019;&#24314;&#25152;&#38656;&#35201;&#30340;&#30446;&#26631;&#24418;&#24577;. &#35201;&#27880;&#24847;,&#20462;&#25913;&#26102;&#19981;&#21487;&#24341;&#36215;&#39030;&#28857;&#20010;&#25968;&#21464;&#21270;,&#25152;&#20197;&#31867;&#20284;<i>&#20999;&#21106;cut</i>, <i>&#31561;&#20998;divide</i>, &#21644;<i>&#25380;&#20986;extrude</i> &#20043;&#31867;&#30340;&#25805;&#20316;&#26159;&#19981;&#21487;&#20197;&#20351;&#29992;&#30340;.</p>
+
+<p>&#21464;&#24418;&#23545;&#35937;&#26159;&#36890;&#36807;<b>Morpher</b> modifier&#28155;&#21152;&#21040;&#21407;&#22411;&#19978;&#30340;.</p>
+
+<p class=numBltLvl1>1 &#36873;&#25321;&#22522;&#26412;&#22411;&#22312;&#32534;&#36753;&#38754;&#26495;&#37324;&#36873;&#25321; <b>Morpher</b>.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image001.gif"></p>
+
+<p class=numBltLvl1>2 &#20351;&#29992; <b>Pick Object from Scene</b>(&#22312;&#22330;&#26223;&#20869;&#36873;&#25321;&#30446;&#26631;)&#25110;&#32773;<b>Load Multiple Targets</b>(&#36873;&#21462;&#22810;&#20010;&#30446;&#26631;)&#26469;&#36873;&#25321;&#21464;&#24418;&#30446;&#26631;.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image002.gif"> 
+                 <img src="40_morph_and_blend_shape_animation_files/image003.gif"></p>
+
+<p class=numBltLvl1>3 &#23558;&#30446;&#26631;&#28155;&#21152;&#21040;&#23545;&#35937;&#20043;&#21518;&#65292;&#36890;&#36807;&#28369;&#22359;&#35774;&#32622;&#21464;&#21270;&#24378;&#24230;,&#21019;&#24314;&#20851;&#38190;&#24103;&#26469;&#21046;&#20316;&#21160;&#30011;&#21363;&#21487;</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image004.gif"></p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Export_Morph">3DMAX&#30446;&#26631;&#21464;&#24418;&#21160;&#30011;&#30340;&#23548;&#20986;</a></h2>
+</span>
+<DIV>
+<p>&#23548;&#20986;&#27169;&#22411;&#20043;&#21069;,&#35201;&#20445;&#35777;&#22312;morph&#21464;&#24418;&#24378;&#24230;&#35774;&#32622;&#20013;&#25152;&#26377;&#25968;&#20540;&#20026;0,&#21542;&#21017;&#23548;&#20986;&#30340;&#27169;&#22411;&#21487;&#33021;&#19981;&#26159;&#26368;&#21407;&#22987;&#30340;&#22522;&#30784;&#27169;&#22411;,&#32780;&#26159;&#24050;&#32463;&#38468;&#24102;&#21464;&#24418;&#20449;&#24687;&#30340;&#27169;&#22411;</p>
+<p>&#36825;&#26679;&#20250;&#23548;&#33268;&#22312;&#24341;&#25806;&#20013;&#23548;&#20837;&#21160;&#30011;&#26368;&#21518;&#20135;&#29983;&#21472;&#21152;&#25928;&#26524;,&#32780;&#19981;&#26159;&#25152;&#24819;&#35201;&#30340;&#21407;&#22987;&#21464;&#24418;&#21160;&#30011;&#20102;..</p>
+<blockquote>
+  <p>	<img src="40_morph_and_blend_shape_animation_files/image015.gif" width="145" height="81"></p>
+  </blockquote>
+  <p class="captLvl2">Morph &#23545;&#35937;&#26435;&#37325;&#37117;&#35774;&#20026;0,&#20197;&#21407;&#22987;&#33258;&#28982;&#27169;&#22411;&#23548;&#20986;visual&#25991;&#20214;.</p>
+  
+
+<p class=numBltLvl1>1 &#23558;&#27492;&#23545;&#35937;&#20316;&#20026;<SPAN lang="EN-US"> Animated Visual </SPAN>&#23548;&#20986;.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image005.gif"></p>
+
+<p class=numBltLvl1>2 &#21160;&#30011;&#23548;&#20986;&#26102;&#21246;&#36873;<b>Export Morph Animation</b>.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image006.gif"></p>
+
+</DIV>
+<span onclick=toggle_heading()><h2><img src="images/expanded.gif"><a name="Maya_Blend_Shapes">Maya Blend Shapes</a></h2></span>
+<DIV>
+
+<p>&#22312;maya&#20013;&#28155;&#21152;blendshapge&#21160;&#30011;&#27493;&#39588;&#22914;&#19979;:</p>
+<p class=numBltLvl1>1 &#39318;&#20808;&#20445;&#35777;&#25152;&#26377;&#32032;&#26448;&#29289;&#20307;&#25317;&#26377;&#21508;&#33258;&#29420;&#31435;&#30340;&#21629;&#21517;.</p>
+<p class=numBltLvl1>2 &#20351;&#29992;shift&#22810;&#39033;&#36873;&#25321;&#25152;&#26377;&#35201;blend&#30340;&#29289;&#20307;,&#20294;&#35760;&#20303;<strong>&#24517;&#39035;&#26368;&#21518;&#36873;&#25321;&#37027;&#20010;&#21407;&#22987;&#27169;&#22411;</strong>.</p>
+<p class=numBltLvl1>2 &#36873;&#25321;&#33756;&#21333; <b>Create Deformers &rarr; Blend Shape&rarr;
+<img src="40_morph_and_blend_shape_animation_files/image013.gif"></b> &#24377;&#20986; 
+<b>Create Blend Shape Options</b>&#23545;&#35805;&#26694;.</p>
+
+<p class=numBltLvl1>3 &#22312;<b>Create Blend Shape Options</b> &#23545;&#35805;&#26694;
+<b>Basic</b>&#26631;&#31614;&#19979;:</p>
+
+<p class=ltrBltLvl2>A &#22312; <b>BlendShape Node</b>&#20013;&#22635;&#20889;&#21464;&#24418;&#21160;&#30011;&#30340;&#21517;&#31216;.</p>
+
+<p class=ltrBltLvl2>B &#28857;&#20987;<b>Create</b>&#25353;&#38062;&#21019;&#24314;.</p>
+
+<p class=imgLvl3><img src="40_morph_and_blend_shape_animation_files/image014.gif"></p>
+
+<p>&#22914;&#26524;&#38656;&#35201;&#39044;&#35272;&#21644;&#32534;&#36753;&#21160;&#30011;,&#21487;&#20197;&#36873;&#25321;&#33756;&#21333;<b>Window &rarr;
+Animation Editors &rarr; Blend Shape</b>, &#20043;&#21518;&#26174;&#31034;<b>Blend Shape</b>&#23545;&#35805;&#26694;.</p>
+<p class=imgLvl1><img src="40_morph_and_blend_shape_animation_files/image010.gif"></p>
+<p class=imgLvl1>&nbsp;</p>
+<span onclick=toggle_heading()>
+<h3><img src="images/expanded.gif"><a name=Blendshapes_Skin id="Blendshapes_Skin">&#21516;&#26102;&#20351;&#29992;&#39592;&#39612;&#32465;&#23450;&#21160;&#30011;</a></h3>
+</span>
+<div>
+<p class=imgLvl1>&#22914;&#26524;&#35201;&#23545;&#20110;&#19968;&#20010;&#28155;&#21152;skin&#21160;&#30011;&#30340;&#29289;&#20307;&#20570;blend&#21464;&#24418;,&#24517;&#39035;&#20445;&#35777;&#22312;&#32465;&#23450;&#39592;&#39612;&#20043;&#21069;&#23545;&#29289;&#20307;&#28155;&#21152;blendshape, &#21542;&#21017;&#22312;bigworld&#20869;&#30340;&#26368;&#32456;&#21160;&#30011;&#25928;&#26524;&#19982;Maya&#30340;&#39044;&#35272;&#25928;&#26524;&#22823;&#30456;&#24452;&#24237;.</p>
+</div>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Export_Blend_Shapes">&#23548;&#20986;Maya Blend Shapes&#21464;&#24418;&#21160;&#30011;</a></h2>
+</span>
+<DIV>
+
+<p>&#22312;&#23548;&#20986;&#27169;&#22411;&#21644;&#21160;&#30011;&#26102;,&#35201;&#20999;&#24524;&#25226;&#25152;&#26377;blendshape&#25968;&#20540;&#35774;&#20026;0,&#21407;&#29702;&#21516;max, &#20445;&#35777;&#23548;&#20986;&#27169;&#22411;&#20026;&#21407;&#22987;&#22522;&#30784;&#27169;&#22411;,&#38450;&#27490;&#26368;&#21518;&#21160;&#30011;&#25928;&#26524;&#21472;&#21152;&#22312;&#21464;&#20102;&#22411;&#30340;&#29289;&#20307;&#19978;.</p>
+<p><span class="imgLvl1"><img src="40_morph_and_blend_shape_animation_files/image010.gif"></span></p>
+<p class="captLvl2">Blend shapes&#36873;&#39033;&#20445;&#35777;&#25968;&#20540;&#20026;0.</p>
+<p>&#22312;&#23548;&#20986;animation&#26102;&#35831;&#21442;&#32771;&#19968;&#19979;&#27493;&#39588;:</p>
+
+<p class=numBltLvl1>1 &#36873;&#33756;&#21333;<b>File &rarr; Export All</b>&#26174;&#31034; <b>Export</b>&#23545;&#35805;&#26694;.</p>
+
+<p class=numBltLvl1>2 &#22312;&#23545;&#35805;&#26694;&#20013;&#22635;&#20837;&#27491;&#30830;&#30340;&#25991;&#20214;&#36335;&#24452;&#20449;&#24687;,&#28857;&#20987;
+<b>Export</b>&#36755;&#20986;&#25353;&#38062;, &#24377;&#20986;<b>Visual Exporte</b> &#23545;&#35805;&#26694;.</p>
+
+<p class=numBltLvl1>3 &#36873;&#25321; 
+<b>Visual</b>&#20026;export&#26684;&#24335;, 
+<b>Animated, skinned</b> &#20026;visual type,&#28857;&#20987;<b>OK</b>.</p>
+
+<p class=imgLvl2><img src="40_morph_and_blend_shape_animation_files/image011.gif"></p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

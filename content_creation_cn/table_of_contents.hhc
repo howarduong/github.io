@@ -1,0 +1,2534 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><META http-equiv=Content-Type content="text/html; charset=gb18030"></HEAD><BODY>
+<UL>
+
+
+   <!-- &#32467;&#26500;&#22270;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="结构图">
+       <param name="Local" value="00_index_map.htm">
+       </OBJECT>
+
+
+
+   <!-- &#31616;&#20171;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="简介">
+       <param name="Local" value="00_introduction.htm">
+       </OBJECT>
+
+
+
+   <!-- &#26032;&#24314;&#19968;&#20010;&#39033;&#30446;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="新建一个项目">
+       <param name="Local" value="01_setup_new_project.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="资源路径 ">
+          <param name="Local" value="01_setup_new_project.htm#Res_Path">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="新建一个世界">
+          <param name="Local" value="01_setup_new_project.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="地表创建设定">
+             <param name="Local" value="01_setup_new_project.htm#Terrain_Settings">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="地面类型">
+             <param name="Local" value="01_setup_new_project.htm#Terrain_Types">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="切换空间">
+          <param name="Local" value="01_setup_new_project.htm#Changing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="地面LOD设置">
+          <param name="Local" value="01_setup_new_project.htm#Terrain_LOD">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Geomorphing地面的模型过渡变化">
+             <param name="Local" value="01_setup_new_project.htm#Geomorphing">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Geomipmaping地面贴图mipmap变化 ">
+             <param name="Local" value="01_setup_new_project.htm#3dsmax_DirectX">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Space.settings 文件">
+             <param name="Local" value="01_setup_new_project.htm#Space_settings">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#36164;&#28304;&#25972;&#29702;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="资源整理">
+       <param name="Local" value="02a_resource_management.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="字母盘">
+          <param name="Local" value="02a_resource_management.htm#Case">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="客户对BigWorld 美术资源的使用 ">
+          <param name="Local" value="02a_resource_management.htm#BWAssets">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" 整理美术资源 - Sets">
+          <param name="Local" value="02a_resource_management.htm#Sets">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" 角色 - Avatars和 NPC's">
+          <param name="Local" value="02a_resource_management.htm#Characters">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="其他常用资源">
+          <param name="Local" value="02a_resource_management.htm#Others">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="地面贴图">
+          <param name="Local" value="02a_resource_management.htm#Terrain">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="粒子">
+          <param name="Local" value="02a_resource_management.htm#Particles">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="原始创建文件的整理">
+          <param name="Local" value="02a_resource_management.htm#Source">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Asset Browser的使用">
+          <param name="Local" value="02a_resource_management.htm#Working_with_the_Asset_Browser">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="自定义 Asset  Browser">
+          <param name="Local" value="02a_resource_management.htm#Customise_Asset_Browser">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#22312;3DS MAX&#21644;MAYA&#20013;&#21019;&#24314;&#24182;&#23548;&#20986;&#38745;&#24577;&#23545;&#35937;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="在3ds Max和Maya中创建并导出静态对象">
+       <param name="Local" value="02b_create_objects.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="3ds Max 和 Maya 导出路径">
+          <param name="Local" value="02b_create_objects.htm#Export_Dir">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="3ds Max单位设置">
+          <param name="Local" value="02b_create_objects.htm#Max_Units">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Maya 单位和世界坐标设置">
+          <param name="Local" value="02b_create_objects.htm#Maya_Units">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="对象尺寸限制">
+          <param name="Local" value="02b_create_objects.htm#Size_Restricitons">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="防止Z fighting ">
+          <param name="Local" value="02b_create_objects.htm#Z_Fighting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="防止乱序问题 ">
+          <param name="Local" value="02b_create_objects.htm#Sorting_Problems">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="缩放物体容易导致错误">
+          <param name="Local" value="02b_create_objects.htm#Scaling_Objects">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="物体中心支点">
+          <param name="Local" value="02b_create_objects.htm#Orientation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="直接使用BigWorld 材质到3D Max模型上">
+          <param name="Local" value="02b_create_objects.htm#ApplyDX9Materials">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="设置3ds Max中的DirectX功能">
+             <param name="Local" value="02b_create_objects.htm#3dsmax_DirectX">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="直接使用 BigWorld 材质到3ds Max模型上">
+             <param name="Local" value="02b_create_objects.htm#FastAssignment_CreatingLib">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="预览 BigWorld UV- 旋转材质">
+          <param name="Local" value="02b_create_objects.htm#PreviewUvScrolling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="快速材质应用">
+          <param name="Local" value="02b_create_objects.htm#FastAssignment">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="创建一个BigWorld 3ds Max 材质库">
+             <param name="Local" value="02b_create_objects.htm#FastAssignment_CreatingLib">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="使用BigWorld 3ds Max 材质库">
+             <param name="Local" value="02b_create_objects.htm#FastAssignment_UseMaterialLib">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" 物体贴图的资源配置">
+          <param name="Local" value="02b_create_objects.htm#Referencing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" 在UV边界外保留出血框,防止贴图压缩出错">
+          <param name="Local" value="02b_create_objects.htm#Texturing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="复合材质类型">
+          <param name="Local" value="02b_create_objects.htm#Multiple_Materials">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" 3ds Max 中的复合材质">
+          <param name="Local" value="02b_create_objects.htm#Multiple_Materials_Max">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在 Maya 中使用复合材质">
+          <param name="Local" value="02b_create_objects.htm#Multiple_Materials_Maya">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="复合材质类型耗费量大">
+          <param name="Local" value="02b_create_objects.htm#Max_Material_Channels">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出多个UV通道 ">
+          <param name="Local" value="02b_create_objects.htm#Multi_UV">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="到处顶点色 ">
+          <param name="Local" value="02b_create_objects.htm#Vert_Colour">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="从3D软件中导出静态对象">
+          <param name="Local" value="02b_create_objects.htm#Exporting">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="使用BigWorld 3ds Max exporter 导出器导出静态对象">
+             <param name="Local" value="02b_create_objects.htm#3DSMaxExport">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="使用BigWorld Maya exporter 导出器,导出静态对象">
+             <param name="Local" value="02b_create_objects.htm#MAYAExport">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#22312;&#27169;&#22411;&#32534;&#36753;&#22120;&#20013;&#32534;&#36753;&#27169;&#22411;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="在模型编辑器中编辑模型">
+       <param name="Local" value="03_create_model.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导入对象">
+          <param name="Local" value="03_create_model.htm#Importing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="相机控制">
+          <param name="Local" value="03_create_model.htm#ManipulatingCamera">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="修改模型的材质类型/材质">
+          <param name="Local" value="03_create_model.htm#Loading">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="修改模型的贴图">
+          <param name="Local" value="03_create_model.htm#Changing_Textures">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用 MFM">
+          <param name="Local" value="03_create_model.htm#Saving">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="创建一个 MFM">
+             <param name="Local" value="03_create_model.htm#SaveMFM">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="应用 MFM 到模型上">
+             <param name="Local" value="03_create_model.htm#OpenMFM">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出一个材质参数到 Python">
+          <param name="Local" value="03_create_model.htm#Expose_Python">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="激活贴图源 texture feed">
+          <param name="Local" value="03_create_model.htm#Texture_Feed">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="修改模型缩略图">
+          <param name="Local" value="03_create_model.htm#Changing_Thumb">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#22312;&#19990;&#30028;&#20013;&#28155;&#21152;&#27169;&#22411;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="在世界中添加模型">
+       <param name="Local" value="04_place_models.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在资源浏览器面板中定位模型文件">
+          <param name="Local" value="04_place_models.htm#Locating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="	 世界编辑器视图调整">
+          <param name="Local" value="04_place_models.htm#Navigating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在地面上放置模型">
+          <param name="Local" value="04_place_models.htm#Placing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="模型操控">
+          <param name="Local" value="04_place_models.htm#Manipulating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用复制功能">
+          <param name="Local" value="04_place_models.htm#Using">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建不可见的障碍物 ">
+          <param name="Local" value="04_place_models.htm#Invisible">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="寻找丢失的文件">
+          <param name="Local" value="04_place_models.htm#Missing_Assets">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#22320;&#38754;&#36896;&#22411;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="地面造型">
+       <param name="Local" value="05_sculpt_terrain.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="调整地面高度">
+          <param name="Local" value="05_sculpt_terrain.htm#Changing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="平均笔刷">
+          <param name="Local" value="05_sculpt_terrain.htm#Average">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用滤镜优化">
+          <param name="Local" value="05_sculpt_terrain.htm#Adding">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="删除地面">
+          <param name="Local" value="05_sculpt_terrain.htm#Removing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#21019;&#24314;&#19968;&#20010;&#23460;&#20869;&#30340;&#22771;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="创建一个室内的壳">
+       <param name="Local" value="06_create_shell.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="什么是壳? ">
+          <param name="Local" value="06_create_shell.htm#What_is_a_Shell">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="壳的组成">
+          <param name="Local" value="06_create_shell.htm#Components_Shells">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Portals入口">
+             <param name="Local" value="06_create_shell.htm#Portal_restrictions">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="标准portal">
+                <param name="Local" value="06_create_shell.htm#Standard_Portal">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="出口portal">
+                <param name="Local" value="06_create_shell.htm#Exit_Portal">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="天窗portal">
+                <param name="Local" value="06_create_shell.htm#Heavenly_Portal">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="入口制作规范">
+                <param name="Local" value="06_create_shell.htm#Portal_Rules">
+                </OBJECT>
+
+            </UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="自定义外壳 ">
+             <param name="Local" value="06_create_shell.htm#Custom_Hull">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="自定义外壳的制作规则">
+                <param name="Local" value="06_create_shell.htm#PortalRules">
+                </OBJECT>
+
+            </UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="游戏模型">
+             <param name="Local" value="06_create_shell.htm#Game_Geometry">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="游戏模型制作规则">
+                <param name="Local" value="06_create_shell.htm#PortalRules">
+                </OBJECT>
+
+            </UL>
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在世界编辑器中壳的规整">
+          <param name="Local" value="06_create_shell.htm#ShellSnaps_WorldEditor">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="以房间为例建造一个壳">
+          <param name="Local" value="06_create_shell.htm#Modelling">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="创建有高度变化的屋顶">
+             <param name="Local" value="06_create_shell.htm#CreatingCeilingHeightVariation">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建入口portal">
+          <param name="Local" value="06_create_shell.htm#Portals">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="壳的合理规划 - 如何分割一个室内空间">
+          <param name="Local" value="06_create_shell.htm#Shell_Planning">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="城镇规划 - 如何利用portal入口优化空间渲染">
+          <param name="Local" value="06_create_shell.htm#Town">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="城市类型 1">
+             <param name="Local" value="06_create_shell.htm#Type1">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="必须考虑的问题">
+                <param name="Local" value="06_create_shell.htm#Type1Considerations">
+                </OBJECT>
+
+            </UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="城市类型 2">
+             <param name="Local" value="06_create_shell.htm#Type2">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="必须考虑的问题">
+                <param name="Local" value="06_create_shell.htm#Type2Considerations">
+                </OBJECT>
+
+            </UL>
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建入口: 自定义壳材质使用">
+          <param name="Local" value="06_create_shell.htm#Custom_Hull_Portals">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="防止边界闪烁">
+          <param name="Local" value="06_create_shell.htm#Preventing_Sparkles">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="壳的凸缘">
+             <param name="Local" value="06_create_shell.htm#Shell_Flanges">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="填充物">
+             <param name="Local" value="06_create_shell.htm#Plugs">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="标准portal的填充物">
+             <param name="Local" value="06_create_shell.htm#BuildingPlugForStandardPortal">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="出口portal填充物">
+             <param name="Local" value="06_create_shell.htm#BuildingPlugForExitPortal">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建一个隐秘区域">
+          <param name="Local" value="06_create_shell.htm#UnderCover">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="仅存在于外部分: 灯光属性">
+          <param name="Local" value="06_create_shell.htm#Outside_Only">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="资源关联-房间和填充物的贴图路径">
+          <param name="Local" value="06_create_shell.htm#Referencing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="壳的导出">
+          <param name="Local" value="06_create_shell.htm#Exporting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出填充物">
+          <param name="Local" value="06_create_shell.htm#Exporting2">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#29992;&#22771;&#22312;&#19990;&#30028;&#32534;&#36753;&#22120;&#20013;&#21019;&#24314;&#23460;&#20869;&#29615;&#22659;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="用壳在世界编辑器中创建室内环境">
+       <param name="Local" value="07_add_shells.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在世界中安放壳体">
+          <param name="Local" value="07_add_shells.htm#Placing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="壳的捕捉">
+          <param name="Local" value="07_add_shells.htm#ShellSnaps">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="填充物在室内的使用">
+          <param name="Local" value="07_add_shells.htm#Integrating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建壳体模板和预设模型">
+          <param name="Local" value="07_add_shells.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="壳体模板">
+             <param name="Local" value="07_add_shells.htm#Templates">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="预设模型">
+             <param name="Local" value="07_add_shells.htm#Prefabs">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#21019;&#24314; LOW-POLYGON &#35282;&#33394;&#20302;&#27169;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="创建 Low-Polygon 角色低模">
+       <param name="Local" value="08_create_lowpoly_char.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="定义角色朝向">
+          <param name="Local" value="08_create_lowpoly_char.htm#Orientation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="节点/ 骨骼数量限制">
+          <param name="Local" value="08_create_lowpoly_char.htm#BoneLimit">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="修改器和构造历史的顺序 ">
+          <param name="Local" value="08_create_lowpoly_char.htm#Order">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="正确节点坐标方位设置确保头部跟踪应用">
+          <param name="Local" value="08_create_lowpoly_char.htm#Trackers">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="角色骨骼">
+          <param name="Local" value="08_create_lowpoly_char.htm#Rigging">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用Skin编辑器给骨骼蒙皮">
+          <param name="Local" value="08_create_lowpoly_char.htm#SkinningWithSkin">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用Physique编辑器给角色蒙皮">
+          <param name="Local" value="08_create_lowpoly_char.htm#SkinningWithPhysique">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在Maya中给角色蒙皮 ">
+          <param name="Local" value="08_create_lowpoly_char.htm#Skinning_Maya">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在角色上添加用来连接部件的节点">
+          <param name="Local" value="08_create_lowpoly_char.htm#PlacingHPsOnCharacter">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在部件上添加节点">
+          <param name="Local" value="08_create_lowpoly_char.htm#PlacingHPsOnItems">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="角色贴图资源配置">
+          <param name="Local" value="08_create_lowpoly_char.htm#Referencing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出角色">
+          <param name="Local" value="08_create_lowpoly_char.htm#Exporting">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#21019;&#24314;&#35282;&#33394;&#21160;&#20316;&#21160;&#30011;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="创建角色动作动画">
+       <param name="Local" value="09_create_char_anims.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动画中根节点必须有位移">
+          <param name="Local" value="09_create_char_anims.htm#Root_Node_Translate">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Root Node根节点的线性运动">
+          <param name="Local" value="09_create_char_anims.htm#Using">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="同步融合过渡动画 ">
+          <param name="Local" value="09_create_char_anims.htm#Synchronising">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="起始位置 ">
+             <param name="Local" value="09_create_char_anims.htm#Stard_position">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="位移移动性质的动画">
+             <param name="Local" value="09_create_char_anims.htm#Locomotion">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="转身动画 ">
+             <param name="Local" value="09_create_char_anims.htm#Turn_Animations">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="下落动画">
+          <param name="Local" value="09_create_char_anims.htm#Falling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="死亡动画 ">
+          <param name="Local" value="09_create_char_anims.htm#Death_Animations">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动画帧率">
+          <param name="Local" value="09_create_char_anims.htm#FPS">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动画范围">
+          <param name="Local" value="09_create_char_anims.htm#Maya_Animation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用BigWorld导出器导出动画">
+          <param name="Local" value="09_create_char_anims.htm#Exporting">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="从 3ds Max 导出动画到Bigworld">
+             <param name="Local" value="09_create_char_anims.htm#3DSExportAnim">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="从MAYA导出动画到Bigworld">
+             <param name="Local" value="09_create_char_anims.htm#MAYAExportAnim">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="反转朝向Opposite Facing Direction ">
+          <param name="Local" value="09_create_char_anims.htm#OppositeFacing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="自定义角色装备设计">
+          <param name="Local" value="09_create_char_anims.htm#RigDesignCustomisable">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="超模">
+             <param name="Local" value="09_create_char_anims.htm#SuperModel">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="通过HP所连接的父级模型动作触发器，出发子级模型动作 ">
+             <param name="Local" value="09_create_char_anims.htm#RevHardPoints">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="如何修复顶点法相接缝 ">
+             <param name="Local" value="09_create_char_anims.htm#VertexNormal">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="参考层级关系/自定义辅助工具对项">
+          <param name="Local" value="09_create_char_anims.htm#ReferenceHierarchy">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="添加Node tracks节点轨迹来触发事件和声音 ">
+          <param name="Local" value="09_create_char_anims.htm#NoteTracks">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#32473;&#35282;&#33394;&#28155;&#21152;&#21160;&#30011;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="给角色添加动画">
+       <param name="Local" value="10_add_anims_to_chars.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导入一个新的角色">
+          <param name="Local" value="10_add_anims_to_chars.htm#Importing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="给模型添加动画 ">
+          <param name="Local" value="10_add_anims_to_chars.htm#Importing2">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="预览动画和查看帧率">
+          <param name="Local" value="10_add_anims_to_chars.htm#Viewing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="逐节点动画的叠加">
+          <param name="Local" value="10_add_anims_to_chars.htm#Node_Blending">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动画压缩">
+          <param name="Local" value="10_add_anims_to_chars.htm#Compressing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#37197;&#21512;&#21160;&#20316;&#35843;&#25972;&#21160;&#30011;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="配合动作调整动画">
+       <param name="Local" value="11_create_actions.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建动作">
+          <param name="Local" value="11_create_actions.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动作标签和轨迹">
+          <param name="Local" value="11_create_actions.htm#TagsAndTracks">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="动画轨迹">
+             <param name="Local" value="11_create_actions.htm#AnimationTracks">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动作叠加">
+          <param name="Local" value="11_create_actions.htm#Blending">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="角色动作">
+          <param name="Local" value="11_create_actions.htm#Movement">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="速度触发值">
+          <param name="Local" value="11_create_actions.htm#SpeedTriggerValues">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动作顺序和LOD">
+          <param name="Local" value="11_create_actions.htm#Order_LODs">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="飞行实体的动作使用">
+          <param name="Local" value="11_create_actions.htm#Flying">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="飞行闲置到移动动作">
+             <param name="Local" value="11_create_actions.htm#FlyingIdleToMovement">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="缩放播放速度 ">
+             <param name="Local" value="11_create_actions.htm#FlyingScalePlaybackSpeed">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动作预览">
+          <param name="Local" value="11_create_actions.htm#Viewing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动作查错 ">
+          <param name="Local" value="11_create_actions.htm#Debugging">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="通过phython控制台">
+             <param name="Local" value="11_create_actions.htm#DebugFromPython">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="通过CAT查错">
+             <param name="Local" value="11_create_actions.htm#DebugFromCAT">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="使用动作匹配调试器">
+             <param name="Local" value="11_create_actions.htm#AMDebugger">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="在模型编辑器中查错.">
+             <param name="Local" value="11_create_actions.htm#DebugFromModelEditor">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="如何在模型编辑器中预览动画过渡效果">
+                <param name="Local" value="11_create_actions.htm#HowToPreviewBlending">
+                </OBJECT>
+
+            </UL>
+         </UL>
+      </UL>
+
+
+   <!-- &#21019;&#24314;&#35282;&#33394;LOD&#27169;&#22411;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="创建角色LOD模型">
+       <param name="Local" value="14_create_character_lods.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" LOD模型原则">
+          <param name="Local" value="14_create_character_lods.htm#Mesh_Theory">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="优化对象密度">
+             <param name="Local" value="14_create_character_lods.htm#Optimising">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="LOD材质原则">
+          <param name="Local" value="14_create_character_lods.htm#Material_Theory">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="LOD节点(骨骼)原则">
+          <param name="Local" value="14_create_character_lods.htm#Node_Theory">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="减少骨骼节点后的蒙皮制作">
+          <param name="Local" value="14_create_character_lods.htm#Skinning">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出LOD组件">
+          <param name="Local" value="14_create_character_lods.htm#Exporting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="优化LOD">
+          <param name="Local" value="14_create_character_lods.htm#Implementing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#22914;&#20309;&#21019;&#24314;&#20132;&#20114;&#24335;&#25110;&#24102;&#21160;&#30011;&#30340;&#23454;&#20307;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="如何创建交互式或带动画的实体">
+       <param name="Local" value="15_create_interactive_entity.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建动画">
+          <param name="Local" value="15_create_interactive_entity.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="分段导出动画">
+          <param name="Local" value="15_create_interactive_entity.htm#Exporting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="连接一个连接点到对象上">
+          <param name="Local" value="15_create_interactive_entity.htm#Attaching">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#35282;&#33394;&#20114;&#21160;&#21160;&#30011;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="角色互动动画">
+       <param name="Local" value="16_animating_char_interactions.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="制作角色和实体的交互动画(协调动作)">
+          <param name="Local" value="16_animating_char_interactions.htm#Positioning">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="两个角色的互动">
+          <param name="Local" value="16_animating_char_interactions.htm#Two">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="角色动画创建接触点">
+          <param name="Local" value="16_animating_char_interactions.htm#Animating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="分段导出角色动画 ">
+          <param name="Local" value="16_animating_char_interactions.htm#Exporting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出实体对象">
+          <param name="Local" value="16_animating_char_interactions.htm#Exporting2">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="做节点动画 ">
+          <param name="Local" value="16_animating_char_interactions.htm#Animating_HardPoints">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- TINTS&#26032;&#33394;&#24425;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="Tints新色彩">
+       <param name="Local" value="17_create_a_new_material.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建一个色彩">
+          <param name="Local" value="17_create_a_new_material.htm#Tint">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="丰富世界中各对象的变化 - 在世界编辑器中使用tint">
+          <param name="Local" value="17_create_a_new_material.htm#Variation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" (LOD) 的tint色彩调用">
+          <param name="Local" value="17_create_a_new_material.htm#LODTints">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#36148;&#22270;&#21046;&#20316;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="贴图制作">
+       <param name="Local" value="18_animated_texture_maps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="贴图压缩设置">
+          <param name="Local" value="18_animated_texture_maps.htm#Texformat">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Texture detail levels.xml文件 - 定义压缩贴图">
+             <param name="Local" value="18_animated_texture_maps.htm#Detail_Levels">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="贴图格式 - 贴图压缩">
+             <param name="Local" value="18_animated_texture_maps.htm#Texformat_File">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="贴图动画">
+          <param name="Local" value="18_animated_texture_maps.htm#Animated_Textures">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="创建贴图动画文件">
+             <param name="Local" value="18_animated_texture_maps.htm#Creating">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="应用动画贴图到模型材质上">
+             <param name="Local" value="18_animated_texture_maps.htm#Applying">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="制作cubemap">
+          <param name="Local" value="18_animated_texture_maps.htm#cube_maps">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="可重设大小的GUI窗口界面贴图设计">
+             <param name="Local" value="18_animated_texture_maps.htm#gui_windows">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#21019;&#24314;&#24182;&#20351;&#29992;&#22320;&#38754;&#36148;&#22270;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="创建并使用地面贴图">
+       <param name="Local" value="20_terrain_texture_maps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="给地面画贴图">
+          <param name="Local" value="20_terrain_texture_maps.htm#Applying">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="为地面贴图设置材质类型 ">
+             <param name="Local" value="20_terrain_texture_maps.htm#MaterialType">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="利用蒙板绘制地面贴图">
+          <param name="Local" value="20_terrain_texture_maps.htm#Using_Masks">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="利用导入的蒙板快速的画出地面">
+             <param name="Local" value="20_terrain_texture_maps.htm#ImportedMasks">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="地面贴图管理">
+          <param name="Local" value="20_terrain_texture_maps.htm#Management">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="地面贴图调整">
+          <param name="Local" value="20_terrain_texture_maps.htm#Projection">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="地表贴图平铺">
+          <param name="Local" value="20_terrain_texture_maps.htm#Tiling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="地面高光贴图">
+          <param name="Local" value="20_terrain_texture_maps.htm#Specular">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="通过观察器调整地面高光属性">
+             <param name="Local" value="20_terrain_texture_maps.htm#AdjustSpecular">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="云的投影">
+          <param name="Local" value="20_terrain_texture_maps.htm#Cloud">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="去除贴图上的小突兀, 减弱重复感">
+          <param name="Local" value="20_terrain_texture_maps.htm#RemovingSmall">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="去除贴图上的大面积的色差或明暗差别,减弱重复感">
+          <param name="Local" value="20_terrain_texture_maps.htm#RemovingLarge">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#35843;&#25972;&#29615;&#22659;&#35774;&#32622;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="调整环境设置">
+       <param name="Local" value="21_change_environ_settings.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="概述">
+          <param name="Local" value="21_change_environ_settings.htm#Overview">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="夜晚的天穹Sky dome">
+          <param name="Local" value="21_change_environ_settings.htm#NightSkydome">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="白天的天穹Sky dome">
+          <param name="Local" value="21_change_environ_settings.htm#DaySkydome">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="天空色彩梯度贴图">
+             <param name="Local" value="21_change_environ_settings.htm#Creating">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="雾的颜色">
+             <param name="Local" value="21_change_environ_settings.htm#Fog">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="静态天空盒">
+          <param name="Local" value="21_change_environ_settings.htm#StaticSkyBoxes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="静态天空盒的材质 ">
+             <param name="Local" value="21_change_environ_settings.htm#StaicSkyBoxShaders">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="创建一个静态天空盒模型 ">
+             <param name="Local" value="21_change_environ_settings.htm#Create_skydome">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="动态天空盒 (天气)">
+          <param name="Local" value="21_change_environ_settings.htm#DynamicSkyBoxes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="动态 &quot;天气&quot; 天空盒材质 ">
+             <param name="Local" value="21_change_environ_settings.htm#DynamicSkyBoxShaders">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="创建一个动态天空盒模型">
+             <param name="Local" value="21_change_environ_settings.htm#Create_dynamic_skydome">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="给cloud_layer材质画贴图 ">
+             <param name="Local" value="21_change_environ_settings.htm#Maps_Cloud_Layer">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="天气系统特效和粒子系统 ">
+             <param name="Local" value="21_change_environ_settings.htm#SpecialEffectsAndParticles">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Bloom光晕效果">
+             <param name="Local" value="21_change_environ_settings.htm#Bloom">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="世界环境选项 ">
+          <param name="Local" value="21_change_environ_settings.htm#EnvironmentOptions">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="修改小时长度和起始时间 ">
+             <param name="Local" value="21_change_environ_settings.htm#Time_Slider">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="太阳和月亮的角度 ">
+             <param name="Local" value="21_change_environ_settings.htm#Angle">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="太阳的光晕 ">
+             <param name="Local" value="21_change_environ_settings.htm#Sun_Flare">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="当前时间设定">
+             <param name="Local" value="21_change_environ_settings.htm#Time_Slider">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="太阳光和环境色">
+             <param name="Local" value="21_change_environ_settings.htm#AmbientLight">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="大气效果">
+             <param name="Local" value="21_change_environ_settings.htm#AtmosphericEffects">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="修改远平面设置 ">
+             <param name="Local" value="21_change_environ_settings.htm#FarPlane">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="1.9版本之前的云的设置">
+             <param name="Local" value="21_change_environ_settings.htm#Clouds">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#22312;&#19990;&#30028;&#20013;&#28155;&#21152;&#28783;&#20809;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="在世界中添加灯光">
+       <param name="Local" value="22_add_lights_to_world.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="光照环境">
+          <param name="Local" value="22_add_lights_to_world.htm#LightingEnvironments">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="室内照明">
+             <param name="Local" value="22_add_lights_to_world.htm#IndoorLighting">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="室外照明">
+             <param name="Local" value="22_add_lights_to_world.htm#OutdoorLighting">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="灯光类型">
+          <param name="Local" value="22_add_lights_to_world.htm#LightTypes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="真实灯光">
+             <param name="Local" value="22_add_lights_to_world.htm#True_Lights">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="基于图像灯光(耀斑)">
+             <param name="Local" value="22_add_lights_to_world.htm#Image_Lights">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="光照属性">
+          <param name="Local" value="22_add_lights_to_world.htm#Properties">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="灯光布局">
+          <param name="Local" value="22_add_lights_to_world.htm#LightPlacement">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="显示灯光贡献作用">
+          <param name="Local" value="22_add_lights_to_world.htm#Contribution">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="放置环境光">
+          <param name="Local" value="22_add_lights_to_world.htm#Placing_Ambient">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="放置灯光">
+          <param name="Local" value="22_add_lights_to_world.htm#Placing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="灯光颜色调整">
+          <param name="Local" value="22_add_lights_to_world.htm#Adjusting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="添加光晕和拖影">
+          <param name="Local" value="22_add_lights_to_world.htm#Coronas">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="添加聚光灯">
+          <param name="Local" value="22_add_lights_to_world.htm#Spotlights">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建和编辑耀斑">
+          <param name="Local" value="22_add_lights_to_world.htm#Create_Flares">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#32534;&#36753;&#21644;&#20351;&#29992;NORMAL MAP &#27861;&#21521;&#36148;&#22270;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="编辑和使用normal map 法向贴图">
+       <param name="Local" value="23_normal_maps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="BigWorld 引擎对normalmap法向贴图的使用">
+          <param name="Local" value="23_normal_maps.htm#Technical">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="通道方向">
+             <param name="Local" value="23_normal_maps.htm#Channel_Direction">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="BigWorld引擎使用切空间法向贴图(Tangent space normals) ">
+             <param name="Local" value="23_normal_maps.htm#UV_Lowpolygon">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="命名规范">
+          <param name="Local" value="23_normal_maps.htm#Naming">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Normal map法向贴图制作要点提示">
+          <param name="Local" value="23_normal_maps.htm#HintsnTips">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="normal map效果的检查方法">
+             <param name="Local" value="23_normal_maps.htm#Visualising">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="&quot;Flat Blue&quot;表现法相贴图上的无方向效果">
+             <param name="Local" value="23_normal_maps.htm#UV_Lowpolygon">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用哪种工具制作法向贴图">
+          <param name="Local" value="23_normal_maps.htm#Which_App">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="模型基础的法向贴图">
+          <param name="Local" value="23_normal_maps.htm#Mesh">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="利用Zbrush制作法向贴图">
+             <param name="Local" value="23_normal_maps.htm#Zbrush">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="用3ds Max/Maya制作法向贴图(normal map)">
+             <param name="Local" value="23_normal_maps.htm#3ds_Max_Maya">
+             </OBJECT>
+
+
+            <UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="建造高模">
+                <param name="Local" value="23_normal_maps.htm#HighPolygon">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="制作低模">
+                <param name="Local" value="23_normal_maps.htm#LowPolygon">
+                </OBJECT>
+
+
+               <UL>
+               <LI><OBJECT type="text/sitemap">
+                   <param name="Name" value="给低模展UV">
+                   <param name="Local" value="23_normal_maps.htm#UV">
+                   </OBJECT>
+
+               </UL>
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="在3ds Max 中生成法向贴图">
+                <param name="Local" value="23_normal_maps.htm#Generating3DS">
+                </OBJECT>
+
+            <LI><OBJECT type="text/sitemap">
+                <param name="Name" value="在 Maya 8.0 中生成法向贴图">
+                <param name="Local" value="23_normal_maps.htm#GeneratingMAYA">
+                </OBJECT>
+
+            </UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="ATI 法向贴图工具">
+             <param name="Local" value="23_normal_maps.htm#GeneratingATI">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="基于图片的法向贴图">
+          <param name="Local" value="23_normal_maps.htm#Texture">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="结合模型和贴图为基础的法向贴图">
+          <param name="Local" value="23_normal_maps.htm#Combining">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="normal map法向贴图的数据规范">
+          <param name="Local" value="23_normal_maps.htm#Renormalising">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#23460;&#20869;&#22806;&#36716;&#25442;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="室内外转换">
+       <param name="Local" value="29_outdoor_to_indoor_transitions.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建出入口">
+          <param name="Local" value="29_outdoor_to_indoor_transitions.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="剪切地表">
+          <param name="Local" value="29_outdoor_to_indoor_transitions.htm#Cutting">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="放置室内壳体">
+          <param name="Local" value="29_outdoor_to_indoor_transitions.htm#Placing">
+          </OBJECT>
+
+      </UL>
+
+
+   <!--  &#31890;&#23376;&#31995;&#32479;&#21644;&#29305;&#25928;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value=" 粒子系统和特效">
+       <param name="Local" value="30_particles.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="特效 - 模型和粒子的结合">
+          <param name="Local" value="30_particles.htm#Special_FX">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建你的粒子系统">
+          <param name="Local" value="30_particles.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Source组件">
+          <param name="Local" value="30_particles.htm#Source">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="添加Sink组件控制粒子的消失">
+          <param name="Local" value="30_particles.htm#Sink">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="力的添加, 模拟风的作用">
+          <param name="Local" value="30_particles.htm#Force">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="给粒子添加新的子系统">
+          <param name="Local" value="30_particles.htm#Adding">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="给粒子上色">
+          <param name="Local" value="30_particles.htm#Colouring">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="修改粒子产生的数量">
+          <param name="Local" value="30_particles.htm#Changing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="子系统组件">
+          <param name="Local" value="30_particles.htm#SubSystem">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="系统属性次级面板">
+             <param name="Local" value="30_particles.htm#SystemProperties">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="渲染属性次级面板">
+             <param name="Local" value="30_particles.htm#RendererProperties">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value=" 使用网格粒子在世界中添加小型的对象.">
+             <param name="Local" value="30_particles.htm#Meshparticles">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Source次级面板">
+             <param name="Local" value="30_particles.htm#Source2">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Sink 次级面板">
+             <param name="Local" value="30_particles.htm#Sink2">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Barrier 次级面板">
+             <param name="Local" value="30_particles.htm#Barrier">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Force 次级面板">
+             <param name="Local" value="30_particles.htm#Force2">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Stream 次级面板">
+             <param name="Local" value="30_particles.htm#Stream">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Jitter 次级面板">
+             <param name="Local" value="30_particles.htm#Jitter">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Scaler 次级面板">
+             <param name="Local" value="30_particles.htm#Scaler">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Tint Shader次级面板">
+             <param name="Local" value="30_particles.htm#TintShader">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Node Clamp次级面板">
+             <param name="Local" value="30_particles.htm#NodeClamp">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Orbitor次级面板">
+             <param name="Local" value="30_particles.htm#Orbitor">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flare 次级面板">
+             <param name="Local" value="30_particles.htm#Flare">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Collide次级面板">
+             <param name="Local" value="30_particles.htm#Collide">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Matrix Swarm 次级面板">
+             <param name="Local" value="30_particles.htm#MatrixSwarm">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Magnet 次级面板">
+             <param name="Local" value="30_particles.htm#Magnet">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Splat 次级面板">
+             <param name="Local" value="30_particles.htm#Splat">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="限制">
+          <param name="Local" value="30_particles.htm#Limitations">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用Python语言在游戏中预览粒子系统 ">
+          <param name="Local" value="30_particles.htm#Using_Python">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="为玩家调用武器">
+             <param name="Local" value="30_particles.htm#Attach_Weapon">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="调用模型动作 ">
+             <param name="Local" value="30_particles.htm#PlayAction">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="调用粒子系统到节点上">
+             <param name="Local" value="30_particles.htm#Attach_Particle">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="切换主角模型 ">
+             <param name="Local" value="30_particles.htm#Attach_Particle">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#21019;&#24314;&#24182;&#20351;&#29992;&#26893;&#29289;&#32676;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="创建并使用植物群">
+       <param name="Local" value="31_flora.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建你需要的生态型模型">
+          <param name="Local" value="31_flora.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="生态性贴图的尺寸和模型面数要求">
+             <param name="Local" value="31_flora.htm#FloraPolyTex">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="植物模型的UV 布局要求">
+             <param name="Local" value="31_flora.htm#FloraUV">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="控制植物模型渲染乱序问题">
+             <param name="Local" value="31_flora.htm#FloraZ">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="游戏设置">
+          <param name="Local" value="31_flora.htm#Configuring">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Flora.xml">
+             <param name="Local" value="31_flora.htm#FloraXML">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="植物群的绘制范围">
+             <param name="Local" value="31_flora.htm#FloraDRAW">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="给植物群一个自然的疏密分布">
+          <param name="Local" value="31_flora.htm#Noise">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="植物群噪点">
+             <param name="Local" value="31_flora.htm#FloraNoise">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="如何使用 weight 权重标签保持绘制的道路上没有植物群">
+             <param name="Local" value="31_flora.htm#FloraWeight">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="各类 xml 标签">
+          <param name="Local" value="31_flora.htm#Misc_Tags">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="美术和游戏效率相关提示">
+          <param name="Local" value="31_flora.htm#Tips">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#26368;&#20339;&#32451;&#20064;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="最佳练习">
+       <param name="Local" value="32_best_practices.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用游戏执行效率控制台( the Realtime Profiling Console)测试游戏运行表现 ">
+          <param name="Local" value="32_best_practices.htm#Realtime_Profiling">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用客户端监测器来定义有问题的场景">
+          <param name="Local" value="32_best_practices.htm#Problem_Assets">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="测试portal剪切渲染">
+          <param name="Local" value="32_best_practices.htm#Testing_Portal">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="树动画 - 利用LOD模型共享动画">
+          <param name="Local" value="32_best_practices.htm#Animation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="批渲染">
+          <param name="Local" value="32_best_practices.htm#Batch_Rendering">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DPVS 和 Umbra">
+          <param name="Local" value="32_best_practices.htm#Umbra">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="DPVS">
+             <param name="Local" value="32_best_practices.htm#DPVS">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Umbra">
+             <param name="Local" value="32_best_practices.htm#Umbra">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="为DPVS和Umbra创建文件">
+             <param name="Local" value="32_best_practices.htm#AssetsUmbra">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用用户接入工具Client Access Tool (CAT) ">
+          <param name="Local" value="32_best_practices.htm#CAT">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="完整范围的使用贴图和灯光">
+          <param name="Local" value="32_best_practices.htm#Textures">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用 SpeedTree">
+          <param name="Local" value="32_best_practices.htm#SpeedTree">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="广告板">
+             <param name="Local" value="32_best_practices.htm#SpeedTreeBillboards">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="优化">
+             <param name="Local" value="32_best_practices.htm#SpeedTreeOptimizations">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value=" 锁定服务器;同时编辑同一世界">
+          <param name="Local" value="32_best_practices.htm#Lock_Daemon">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="修改锁定边界和其效果">
+             <param name="Local" value="32_best_practices.htm#XExtent">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#20351;&#29992; MAYA&#23548;&#20986;&#22120;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="使用 Maya导出器">
+       <param name="Local" value="33_maya_exporter.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用导出器exporter">
+          <param name="Local" value="33_maya_exporter.htm#UsingExporter">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用 BigWorld shelf 定义portal">
+          <param name="Local" value="33_maya_exporter.htm#Shelf">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在 Maya 中 制作 Hard Point 节点">
+          <param name="Local" value="33_maya_exporter.htm#HardPoints">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- BIGWORLD &#26448;&#36136;&#31867;&#22411;&#21644;&#26448;&#36136;&#20351;&#29992;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="BigWorld 材质类型和材质使用">
+       <param name="Local" value="34_fx_files_and_materials.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="材质属性">
+          <param name="Local" value="34_fx_files_and_materials.htm#Properties">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="材质类别">
+          <param name="Local" value="34_fx_files_and_materials.htm#Kinds">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="BigWorld材质类型">
+          <param name="Local" value="34_fx_files_and_materials.htm#BWShaders">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Multiple UV's and Vertex Colour ">
+             <param name="Local" value="34_fx_files_and_materials.htm#MultipleUVandVertexColour">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="天空盒材质 ">
+             <param name="Local" value="34_fx_files_and_materials.htm#Skybox_Shaders">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="如何挑选合适的材质">
+             <param name="Local" value="34_fx_files_and_materials.htm#Choose_Shader">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="如何在模型编辑器中使用材质">
+             <param name="Local" value="34_fx_files_and_materials.htm#apply_a_shader">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建一个 UV 滚动材质">
+          <param name="Local" value="34_fx_files_and_materials.htm#UV">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="保存一个材质 MFM 文件">
+          <param name="Local" value="34_fx_files_and_materials.htm#Creating">
+          </OBJECT>
+
+      </UL>
+
+
+   <!--  &#21019;&#24314;&#33258;&#23450;&#20041;BSPS-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value=" 创建自定义BSPs">
+       <param name="Local" value="35_creating_custom_bsps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="概念">
+          <param name="Local" value="35_creating_custom_bsps.htm#Definition">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="为一个带动画的物体做BSP">
+          <param name="Local" value="35_creating_custom_bsps.htm#Creating">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="自定义 BSP 以及材质碰撞标记">
+          <param name="Local" value="35_creating_custom_bsps.htm#Material_Kind">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#21046;&#20316;&#21360;&#33457;&#36148;&#22270;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="制作印花贴图">
+       <param name="Local" value="36_creating_decal_textures.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建指南">
+          <param name="Local" value="36_creating_decal_textures.htm#Guidelines">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#25552;&#39640;&#26641;&#30340;&#20809;&#24433;&#25928;&#26524;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="提高树的光影效果">
+       <param name="Local" value="37_creating_trees_with_better_lighting.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用 mungenormals脚本">
+          <param name="Local" value="37_creating_trees_with_better_lighting.htm#mungenormals">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#22312;BIGWORLD&#24341;&#25806;&#20013;&#20351;&#29992;SPEEDTREE-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="在BigWorld引擎中使用Speedtree">
+       <param name="Local" value="39_speedtree.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在世界编辑器中添加speedtree ">
+          <param name="Local" value="39_speedtree.htm#PlacingTrees">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="技巧提示">
+          <param name="Local" value="39_speedtree.htm#Hints">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="颜色和浓度">
+             <param name="Local" value="39_speedtree.htm#Values">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="高光反射 ">
+             <param name="Local" value="39_speedtree.htm#Specular">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="防止贴图空间的浪费">
+             <param name="Local" value="39_speedtree.htm#ReduceTextureSpace">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Billboard 数量和贴图尺寸的使用">
+             <param name="Local" value="39_speedtree.htm#Billboards">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="Billboard 的光效">
+             <param name="Local" value="39_speedtree.htm#BillboardLighting">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="定义树的碰撞体 ">
+          <param name="Local" value="39_speedtree.htm#Collision_Volume">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SpeedTree 的LOD">
+          <param name="Local" value="39_speedtree.htm#LOD">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SpeedTree 和风效">
+          <param name="Local" value="39_speedtree.htm#SpeedTreeWind">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#30446;&#26631;&#21464;&#24418;&#21644;&#24418;&#24577;&#34701;&#21512;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="目标变形和形态融合">
+       <param name="Local" value="40_morph_and_blend_shape_animation.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="3ds Max 目标变形操作">
+          <param name="Local" value="40_morph_and_blend_shape_animation.htm#3dsMax_Morph_Targets">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="3DMAX目标变形动画的导出">
+          <param name="Local" value="40_morph_and_blend_shape_animation.htm#Export_Morph">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Maya Blend Shapes">
+          <param name="Local" value="40_morph_and_blend_shape_animation.htm#Maya_Blend_Shapes">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="同时使用骨骼绑定动画">
+             <param name="Local" value="40_morph_and_blend_shape_animation.htm#Blendshapes_Skin">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出Maya Blend Shapes变形动画">
+          <param name="Local" value="40_morph_and_blend_shape_animation.htm#Export_Blend_Shapes">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#22312;&#19990;&#30028;&#20013;&#28155;&#21152;&#27700;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="在世界中添加水">
+       <param name="Local" value="41_water.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在世界编辑器中添加水">
+          <param name="Local" value="41_water.htm#WorldEditor">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="水表面">
+          <param name="Local" value="41_water.htm#WaterSurface">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="水的属性">
+          <param name="Local" value="41_water.htm#WaterProperties">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#20351;&#29992;&#28784;&#38454;&#39640;&#24230;&#36148;&#22270;&#32534;&#36753;&#22320;&#38754;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="使用灰阶高度贴图编辑地面">
+       <param name="Local" value="42_heightmaps.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="创建高度图">
+          <param name="Local" value="42_heightmaps.htm#Creating">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="关卡设计蓝本高度图">
+             <param name="Local" value="42_heightmaps.htm#Design_Prototyping">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导入高度图">
+          <param name="Local" value="42_heightmaps.htm#Importing_Height_Maps">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="导出高度图">
+          <param name="Local" value="42_heightmaps.htm#Exporting_Height_Maps">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#20351;&#29992; UDO&#29992;&#25143;&#25968;&#25454;&#23545;&#35937; (USER DATA OBJECTS)-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="使用 UDO用户数据对象 (User Data Objects)">
+       <param name="Local" value="43_user_data_objects.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="UDO 的属性">
+          <param name="Local" value="43_user_data_objects.htm#Properties">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="放置 UDOs">
+             <param name="Local" value="43_user_data_objects.htm#Placing">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="使用 UDO 相机节点测试游戏表現">
+          <param name="Local" value="43_user_data_objects.htm#Profiling">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- &#22330;&#26223;&#27983;&#35272;&#22120;&#30340;&#20351;&#29992;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="场景浏览器的使用">
+       <param name="Local" value="44_using_the_scene_browser.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="场景浏览器 ">
+          <param name="Local" value="44_using_the_scene_browser.htm#SceneBrowser">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="公共属性 ">
+             <param name="Local" value="44_using_the_scene_browser.htm#Common">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="通过场景浏览器发现问题对象">
+             <param name="Local" value="44_using_the_scene_browser.htm#Common">
+             </OBJECT>
+
+         </UL>
+      </UL>
+
+
+   <!-- &#21518;&#26399;&#22788;&#29702;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="后期处理">
+       <param name="Local" value="45_post_processing.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="后期处理 ">
+          <param name="Local" value="45_post_processing.htm#PostProcessing">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="后期处理链">
+          <param name="Local" value="45_post_processing.htm#PPChain">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="渲染目标和缓冲">
+          <param name="Local" value="45_post_processing.htm#BackBuffer">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Filter Quad 四元过滤组件">
+          <param name="Local" value="45_post_processing.htm#FilterQuad">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="后期处理效果 ">
+          <param name="Local" value="45_post_processing.htm#PPEffects">
+          </OBJECT>
+
+
+         <UL>
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="影线效果Hatching">
+             <param name="Local" value="45_post_processing.htm#PPEffectsHatching">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="颜色调整 color correct">
+             <param name="Local" value="45_post_processing.htm#PPEffectsColourCorrect">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="HSV 颜色调整 ">
+             <param name="Local" value="45_post_processing.htm#PPEffectsHSV">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="鱼眼效果">
+             <param name="Local" value="45_post_processing.htm#PPEffectsFisheye">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="彩虹">
+             <param name="Local" value="45_post_processing.htm#PPEffectsRainbow">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="夜视效果 ">
+             <param name="Local" value="45_post_processing.htm#PPEffectsScoptic">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="分色及边匡效果 ">
+             <param name="Local" value="45_post_processing.htm#PPEffectsPosteriseEdge">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="景深效果">
+             <param name="Local" value="45_post_processing.htm#PPEffectsDOF">
+             </OBJECT>
+
+         <LI><OBJECT type="text/sitemap">
+             <param name="Name" value="胶片颗粒效果">
+             <param name="Local" value="45_post_processing.htm#PPEffectsOldFilm">
+             </OBJECT>
+
+         </UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="在特效中使用后期处理效果">
+          <param name="Local" value="45_post_processing.htm#PPSFX">
+          </OBJECT>
+
+      </UL>
+
+
+   <!-- BIGWORLD MAX&#33050;&#26412;-->
+   <LI><OBJECT type="text/sitemap">
+       <param name="Name" value="BigWorld MAX脚本">
+       <param name="Local" value="46_bigworld_maxscripts.htm">
+       </OBJECT>
+
+
+      <UL>
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="安装">
+          <param name="Local" value="46_bigworld_maxscripts.htm#Installation">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="添加自定义壳">
+          <param name="Local" value="46_bigworld_maxscripts.htm#CustomHull">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="添加入口属性">
+          <param name="Local" value="46_bigworld_maxscripts.htm#AddPortal">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="倒入HP节点">
+          <param name="Local" value="46_bigworld_maxscripts.htm#ImportHP">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="添加一个节点轨迹">
+          <param name="Local" value="46_bigworld_maxscripts.htm#AddNoteTrack">
+          </OBJECT>
+
+      <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="标记为 BSP (碰撞体)">
+          <param name="Local" value="46_bigworld_maxscripts.htm#FlagBSP">
+          </OBJECT>
+
+      </UL>
+</UL>
+</BODY>
+</HTML>

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>&#22320;&#38754;&#36896;&#22411;</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!-------- CHAPTER TITLE -------->
+<h1><a name="lessonTitle">&#22320;&#38754;&#36896;&#22411;</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Changing">&#35843;&#25972;&#22320;&#38754;&#39640;&#24230;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Average">&#24179;&#22343;&#31508;&#21047;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Adding">&#20351;&#29992;&#28388;&#38236;&#20248;&#21270;</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="05_sculpt_terrain.htm#Removing">&#21024;&#38500;&#22320;&#38754;</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<!-------- SECTION - CHANGING THE SURFACE HEIGHT -------->
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expandable.gif"><a name="Changing">&#35843;&#25972;&#22320;&#38754;&#39640;&#24230;</a></h2>
+</span>
+<DIV>
+
+<p>&#25353;&#29031;&#20197;&#19979;&#27493;&#39588;&#35843;&#25972;&#22320;&#38754;&#39640;&#24230;:</p>
+
+<p class="numbltlvl1">1&#19990;&#30028;&#32534;&#36753;&#22120;&#20351;&#29992;3d&#31508;&#21047;&#35843;&#25972;&#22320;&#38754;&#39640;&#24230;.</p> 
+
+<p class="lvl2">&#28857;&#20987; 
+<img src="05_sculpt_terrain_files/image002.png">&#24037;&#20855;&#25353;&#38062;&#20351;&#29992;&#31508;&#21047;, - &#36825;&#20010;&#25171;&#24320;<b>Terrain Height</b> &#38754;&#26495;, &#35843;&#25972;&#31508;&#21047;&#30340;&#22823;&#23567;&#21644;&#24378;&#24230;(&#25511;&#21046;&#31508;&#21047;&#20316;&#29992;&#22320;&#38754;&#21464;&#21270;&#30340;&#36895;&#24230;).
+<p class="imgLvl2"><img src="05_sculpt_terrain_files/image003.png"></p>
+<p class="captLvl2"><b>Terrain Height</b> &#38754;&#26495;</p>
+
+<p class="tiplvl2"><img src="images/tip.gif">&#27599;&#20010;&#23646;&#24615;&#30340;&#21464;&#21270;&#33539;&#22260;&#21487;&#20197;&#36890;&#36807;&#28857;&#20987; <img src="05_sculpt_terrain_files/image005.png">&#25353;&#38062;&#26469;&#35843;&#25972;(&#25353;&#38062;&#21551;&#21160; <b>&#28369;&#21160;&#26465;&#21442;&#25968;&#33539;&#22260;</b> &#23545;&#35805;&#26694;)</p>
+<p class="imgLvl4"><img src="05_sculpt_terrain_files/image004.png"></p>
+<p class="captLvl4">&#29992;&#26469;&#35774;&#32622;&#28369;&#22359;&#38480;&#24230;&#30340;&#23545;&#35805;&#26694;</p>
+
+<p class="numbltlvl1">2 &#31508;&#21047;&#25353;&#29031;3d&#34394;&#32447;&#22278;&#22280;&#34920;&#31034;,&#26174;&#31034;&#24433;&#21709;&#21306;&#22495;</p>
+
+<p class="imgLvl2"><img src="05_sculpt_terrain_files/05_sur_hei_02.png"></p> 
+<p class="captlvl2">&#35270;&#35282;&#20013;&#31508;&#21047;&#20809;&#26631;&#26174;&#31034;&#22270;</p>
+
+<p class="numbltlvl1">3 &#35843;&#25972;&#31508;&#21047;&#22823;&#23567;, &#25110;&#32773;&#20351;&#29992;&#24555;&#25463;&#38190; '[' (&#24038;&#26041;&#25324;&#21495;&#26159;&#21464;&#23567;) ']'(&#21491;&#26041;&#25324;&#21495;&#26159;&#21464;&#22823;)  
+&#25913;&#21464;&#31508;&#21047;&#30452;&#24452;.</p> 
+
+<p class="noteLvl2"><img src="images/note.jpg">&#24555;&#25463;&#38190;<code>Shift</code>+<code>[</code>&#21644;<code>Shift</code>-<code>]</code> &#20998;&#21035;&#22686;&#22823;&#21644;&#20943;&#24369;&#31508;&#21047;&#24378;&#24230;. &#36825;&#20010;&#23545;&#20110;&#31508;&#21047;&#20809;&#26631;&#26174;&#31034;&#27809;&#26377;&#24433;&#21709;. &#21482;&#24433;&#21709;&#22320;&#38754;&#21463;&#24433;&#21709;&#21464;&#21270;&#30340;&#36895;&#24230;</p>
+
+<p class="numbltlvl1">4 &#21047;&#30340;&#26102;&#20505;, &#28857;&#20987;&#40736;&#26631;&#24038;&#38190;&#22312;&#38656;&#35201;&#30340;&#21306;&#22495;&#23601;&#21487;&#20197;</p> 
+
+<p class="lvl2">&#22320;&#38754;&#22312;&#30456;&#24212;&#37096;&#20301;&#20984;&#36215;, &#22914;&#26524;&#20320;&#27809;&#26377;&#21457;&#29616;&#26126;&#26174;&#21464;&#21270;,&#23601;&#35831;&#22686;&#21152;&#31508;&#21047;&#24378;&#24230;</p>
+
+<p class="lvl2"><b>Brush Falloff</b> &#23450;&#20041;&#20102;&#22320;&#38754;&#26681;&#25454;&#31508;&#21047;&#21464;&#21270;&#30340;&#22806;&#24418;, &#26377;&#19977;&#31181;&#36873;&#25321;, &ndash; <b>Linear</b><strong>&#32447;&#24615;</strong>, <b>Curve&#26354;&#32447; </b>, &#21644; <b>Flat&#24179;&#38754;</b>.</p>
+
+<img src="05_sculpt_terrain_files/image001.jpg" width="445" height="138"></p>
+<p class="captLvl4">
+&#22320;&#38754;&#20351;&#29992;&#19977;&#31181;&#31508;&#21047;&#30340;&#25928;&#26524;, &#20174;&#24038;&#24448;&#21491;&#26159;, flat, linear,curve</p>
+
+<p class="tiplvl2"><img src="images/tip.gif">&#20320;&#21487;&#20197;&#25764;&#38144;&#21018;&#25165;&#30340;&#31508;&#21047;&#25805;&#20316;, &#20351;&#29992;<img src="05_sculpt_terrain_files/image006.png"> &#24037;&#20855;, &#25110;&#32773;&#24555;&#25463;&#38190; <code>Ctrl+Z</code> &#20004;&#31181;&#26041;&#24335;&#37117;&#21487;&#20197;&#25764;&#38144;&#22810;&#27493;&#25805;&#20316;.<br>
+&#21487;&#20197;&#25764;&#38144;&#30340;&#26159;&#40736;&#26631;&#28857;&#20987;&#19968;&#27425;&#30340;&#21160;&#20316;, &#20063;&#23601;&#26159;&#35828;,&#22914;&#26524;&#20320;&#38271;&#25353;&#40736;&#26631;,&#37027;&#20040;&#25764;&#38144;&#30340;&#23601;&#26159;&#21018;&#22312;&#25972;&#20010;&#40736;&#26631;&#28857;&#20987;&#24182;&#25918;&#24320;&#30340;&#25805;&#20316;.<br>
+&#20026;&#20102;&#38450;&#27490;&#20002;&#22833;&#36807;&#22810;&#30340;&#20449;&#24687;, &#25105;&#20204;&#25512;&#33616;&#19981;&#35201;&#19968;&#31508;&#20351;&#29992;&#26102;&#38388;&#36807;&#38271;</p> 
+
+<p class="numbltlvl1">5 &#20351;&#29992;&#40736;&#26631;&#20013;&#38190;&#22320;&#38754;&#19979;&#27785;.</p>
+
+<p class="imglvl2"><img src="05_sculpt_terrain_files/05_sur_hei_06.png"></p>
+<p class="captLvl4">&#28857;&#20987;&#20013;&#38190;,&#22320;&#38754;&#19979;&#27785;</p> 
+
+<p class="numbltlvl1">6 &#20351;&#29992;&#32477;&#23545;&#39640;&#24230; <b>Explicit Height</b> &#21487;&#20197;&#25226;&#22320;&#38754;&#30452;&#25509;&#25302;&#21040;&#19968;&#23450;&#39640;&#24230;.</p> 
+
+<p class="lvl2">&#22320;&#38754;&#20351;&#29992;explicit height ,&#35831;&#21442;&#32771;&#22914;&#19979;&#27493;&#39588;:</p>
+
+<p class="ltrbltlvl2">A &#35774;&#23450; <b>Explicit Height</b> &#20540;&#20026;&#20320;&#38656;&#35201;&#30340;&#39640;&#24230;&#21333;&#20301;&#31859; &ndash; &#22320;&#38754;&#39640;&#24230;&#21487;&#20197;&#36890;&#36807;&#24555;&#25463;&#38190; 
+<code>Alt</code> &#26597;&#30475;</p> 
+
+<p class="ltrbltlvl2">B &#25353;&#20303; <code>Ctrl</code>, &#34987;&#20809;&#26631;&#25302;&#21160;&#30340;&#21306;&#22495;&#20869; - &#22320;&#38754;&#20250;&#30452;&#25509;&#36339;&#21040;&#25152;&#35774;&#23450;&#30340;&#39640;&#24230;.</p>
+
+<p class="lvl3"><table>
+  <tr>
+   <td valign="top" class="captLvl4"><p class="imglvl0"><img src="05_sculpt_terrain_files/image007.png" width="190" height="143"></p>       
+      <p class="captLvl4"><b>Explicit Height</b>&#35774;&#23450;&#38754;&#26495;</p></td>
+   <td valign="top" class="captLvl4"><p class="imglvl0"><img src="05_sculpt_terrain_files/05_sur_hei_08.png"></p>
+	                  <p class="captLvl4">&#22320;&#38754;&#39640;&#24230;&#21040;&#32477;&#23545;&#39640;&#24230;</p></td></tr></table></p>
+
+<p class="tiplvl3"><img src="images/tip.gif">&#20320;&#24517;&#39035;&#25302;&#21160;&#40736;&#26631;&#22312;&#25152;&#38656;&#35201;&#30340;&#21306;&#22495;&#28369;&#21160;&#26469;&#25913;&#21464;&#39640;&#24230; - &#25353;&#20303;ctrl&#24182;&#28857;&#20987;&#19968;&#27425;&#40736;&#26631;&#21482;&#24433;&#21709;&#25152;&#28857;&#20987;&#28857;&#30340;&#22320;&#38754;&#39640;&#24230;.</p>
+
+<p class="notelvl3"><img src="images/note.gif"><b>Explicit Height</b> &#20540;, &#22312;&#21472;&#21152;&#26102;&#26377;&#20004;&#31181;&#26041;&#24335;:  <b>Absolute</b> (&#30452;&#25509;&#26367;&#25442;&#24403;&#21069;&#39640;&#24230;&#20026;&#35774;&#23450;&#20540;<b></b>); &#20197;&#21450;<b>Relative</b> (&#22312;&#24403;&#21069;&#39640;&#24230;&#20540;&#19978;&#28155;&#21152;&#35774;&#23450;&#39640;&#24230;).</p>
+
+<p class="numbltlvl1">7 &#26597;&#30475;&#22320;&#38754;&#30340;&#26041;&#27861;&#26377;&#19977;&#31181;</p>
+
+<p class="ltrbltlvl2">A &#22312;<b> &#36873;&#39033;</b> &#38754;&#26495;&#19979;, <b>&#26174;&#31034;</b>
+&#21015;&#34920;&#20013;, <b>Terrain&rarr;&#21246;&#36873;Wireframe</b></p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/image008.png"></p>
+<p class="captLvl4"> &#38754;&#26495;&#19979;, <b>Show</b> &#21015;&#34920;</span></p> 
+
+<p class="ltrbltlvl2">B &#28857;&#20987;<b>Chunk Visualisation</b> 
+&#24037;&#20855;&#25353;&#38062;: 
+<img src="05_sculpt_terrain_files/image009.png"> (<b>Normal</b> &#27491;&#24120;&#27169;&#24335;), 
+<img src="05_sculpt_terrain_files/image010.png"> (<b>Chunk borders</b>&#26174;&#31034;chunk&#36793;&#30028;), 
+<img src="05_sculpt_terrain_files/image011.png"> (<b>Pole markers</b> &#26631;&#35760;&#28857;&#27169;&#24335;), &#25110;&#32773;
+<img src="05_sculpt_terrain_files/image012.png"> (<b>Wireframe</b> &#32447;&#26694;&#27169;&#24335;).</p>
+
+<p class="ltrbltlvl2">C &#20351;&#29992;&#24555;&#25463;&#38190; <code>F6</code> &#22312;&#25972;&#20010; chunk&#39044;&#35272;&#26041;&#24335;&#19979;&#24490;&#29615;&#20999;&#25442;, &#39034;&#24207;&#25353;&#29031;&#24037;&#20855;&#26639;&#25490;&#21015;&#39034;&#24207;
+</p></div>
+<!-------- SECTION - ADDING REFINEMENT FILTERS -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expandable.gif"><a name="Average" id="Average">&#24179;&#22343;&#31508;&#21047;</a></h2>
+</span>
+<DIV>
+  <p>&#24179;&#22343;&#21270;&#31508;&#21047;&#26159;&#20570;&#36947;&#36335;&#21644;&#23567;&#24452;&#30340;&#23454;&#29992;&#24037;&#20855;. &#23427;&#36890;&#36807;&#35745;&#31639;&#31508;&#21047;&#33539;&#22260;&#20869;&#22320;&#38754;&#30340;&#39640;&#24230;&#24182;&#35745;&#31639;&#20986;&#24179;&#22343;&#20540;,&#24182;&#37325;&#26032;&#36171;&#20104;&#39640;&#24230;.</p>
+  <p>&#20351;&#29992;&#24179;&#22343;average&#31508;&#21047;&#27880;&#24847;;</p>
+  <p class="imglvl2">A &#28857;&#20987; <img src="05_sculpt_terrain_files/image002.png"> &#24037;&#20855;&#25353;&#38062;,&#28608;&#27963;&#22320;&#24418;&#39640;&#24230;&#25511;&#21046;&#38754;&#26495; <b>Terrain Height</b>;</p>
+  <p class="ltrbltlvl2">B &#36873;&#25321;&#24179;&#22343;&#31508;&#21047; </p>
+  <p class="ltrbltlvl2">C &#35843;&#25972;&#22823;&#23567;&#21644;&#24378;&#24230;<b></b></p>
+  <p class="ltrbltlvl2"><img src="05_sculpt_terrain_files/image002.jpg" width="244" height="112"></p>
+  <p class="ltrbltlvl2"><img src="05_sculpt_terrain_files/image003.jpg" width="311" height="277"></p>
+  <p class="imglvl2">&#27492;&#22270;&#29255;&#32473;&#20986;&#20102;&#22914;&#20309;&#24212;&#29992;&#24179;&#22343;&#31508;&#21047;&#30340;&#26696;&#20363;. </p>
+</DIV>
+<p class="ltrbltlvl2">
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expandable.gif"><a name="Adding">&#20351;&#29992;&#28388;&#38236;&#20248;&#21270;</a></h2>
+</span>
+<DIV>
+
+<p>&#20351;&#29992;&#28388;&#38236;&#24037;&#20855; 
+<img src="05_sculpt_terrain_files/image013.png"> &#20248;&#21270;&#22320;&#38754;,&#24555;&#25463;&#38190;&#20026; &quot;<strong>4</strong>&quot; &ndash; &#21551;&#21160; <b>Terrain Filtering </b> &#38754;&#26495;</p>
+
+<p class="numbltlvl1">1 &#28388;&#38236;&#25353;&#29031;&#19968;&#23450;&#31639;&#27861;&#23545;&#20320;&#30011;&#30340;&#21306;&#22495;&#20570;&#35745;&#31639;, &#21487;&#20197;&#24179;&#28369;, &#38160;&#21270;,&#25110;&#32773;&#32473;&#22320;&#38754;&#28155;&#21152;&#26434;&#28857;.</p>
+
+<p class="imglvl2"><img src="05_sculpt_terrain_files/image014.png"></p>
+<p class="captLvl4"><b>Terrain Filtering</b> &#38754;&#26495;</span></p>
+
+<p class="tiplvl2"><img src="images/tip.gif"><i>Smooth</i> &#24179;&#28369;&#28388;&#38236;&#26159;&#29096;&#24179;&#25163;&#21160;&#20570;&#22320;&#38754;&#39640;&#24230;&#30340;&#29702;&#24819;&#24037;&#20855;.<i>Sharpen</i> &#38160;&#21270;&#24037;&#20855;&#21487;&#20197;&#32473;&#22320;&#38754;&#22686;&#21152;&#23567;&#21464;&#21270;.
+Noise &#26434;&#28857;&#28388;&#38236;&#21487;&#20197;&#32473;&#22320;&#38754;&#33829;&#36896;&#26356;&#33258;&#28982;&#30340;&#25928;&#26524;.<br>
+</p>
+<p class="imglvl4"><img src="05_sculpt_terrain_files/image015.png"></p>
+
+<p class="numbltlvl1">2 &#25353;&#27493;&#39588;&#20351;&#29992;&#38656;&#35201;&#30340;&#28388;&#38236;.</p>
+
+<p class="ltrbltlvl2">A &#28857;&#20987; <img src="05_sculpt_terrain_files/image002.png">
+&#25171;&#24320; <b>&#22320;&#24418;&#39640;&#24230; </b>&#38754;&#26495;</p>
+ 
+<p class="ltrbltlvl2">B &#35843;&#25972;<strong>&#23610;&#23544;</strong>,<b>&#24378;&#24230;</b>, &#21644;<strong>&#25351;&#23450;&#39640;&#24230;</strong>&#21040;&#29702;&#24819;&#25968;&#20540;</p>
+
+<p class="ltrbltlvl2">C &#36873;&#25321;&#38656;&#35201;&#30340; <b>&#31508;&#21047;</b>.</p>
+
+<p class="ltrbltlvl2">D &#28857;&#20987; <img src="05_sculpt_terrain_files/image013.png">
+&#28608;&#27963; <b>&#22320;&#24418;&#36807;&#28388;&#22120;</b> &#38754;&#26495;</p>
+ 
+<p class="ltrbltlvl2">E &#36873;&#25321;&#38656;&#35201;&#30340;&#28388;&#38236;</p>
+
+<p class="ltrbltlvl2">F &#22312;&#22320;&#38754;&#28857;&#20987;&#20351;&#29992;.</p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/05_ref_flt_05.png"></p>
+<p class="captLvl4">&#28388;&#38236;&#30340;&#25928;&#26524;&#23545;&#27604;</p>
+
+<!-------- SECTION - REMOVING TERRAIN -------->
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Removing">&#21024;&#38500;&#22320;&#38754;</a></h2>
+</span>
+<DIV>
+
+<p>&#21098;&#20999;&#24037;&#20855; <img src="05_sculpt_terrain_files/image016.png">&#25353;&#38062;, &#28857;&#20987;&#25171;&#24320;<b>&#22320;&#24418;&#32593;&#26684;&#21098;&#20999;/&#20462;&#34917;</b> &#38754;&#26495;, &#21487;&#20197;&#21098;&#20999;&#25110;&#32773;&#24674;&#22797;&#25972;&#20010;&#22320;&#38754;&#27169;&#22411;</p>
+
+<p class="imglvl2"><img src="05_sculpt_terrain_files/image017.png"></p>
+<p class="captlvl2"><b>Terrain Mesh Cut/Repair&#22320;&#24418;&#32593;&#26684;&#21098;&#20999;/&#20462;&#34917;</b> &#38754;&#26495;</p>
+
+<p>&#25353;&#20197;&#19979;&#27493;&#39588;&#21098;&#20999;&#22320;&#38754;:</p> 
+
+<p class="numbltlvl1">1 &#36873;&#25321;&#21098;&#20999; <b>Cut</b>.</p>
+
+<p class="numbltlvl1">2 &#35843;&#25972;&#21098;&#20999;&#31508;&#21047;&#30340;&#22823;&#23567;&#20540; &ndash; &#20197;&#32511;&#33394;&#30340;&#26041;&#26694;&#34920;&#31034;
+</p>
+
+<p class="numbltlvl1">3 &#21319;&#39640;&#30456;&#26426;&#21040;&#20463;&#35270;&#35282;&#24230;, &#21487;&#20197;&#36890;&#36807;&#20197;&#19979;&#26041;&#27861;&#35843;&#25972;&#35270;&#35282;:
+<p class="imgbltLvl2"><img src="images/bullet.gif">&#20351;&#29992; <code>Q</code>, <code>W</code>, <code>E</code>, <code>A</code>, 
+<code>S</code>, &#21644; <code>D</code>&#24555;&#25463;&#38190;&#35843;&#25972;&#35270;&#35282;</p>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif">&#25302;&#21160;&#40736;&#26631;&#35843;&#25972;</b>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif">&#28857;&#20987; 
+<img src="05_sculpt_terrain_files/image018.png">&#29992;&#20027;&#35282;&#35270;&#35282;&#27169;&#24335; 
+<b>Orthographic View</b></p>
+
+<p class="numbltlvl1">4 &#21098;&#20999;&#22320;&#38754;.</p>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif">&#28857;&#20987;&#40736;&#26631;&#25353;&#38656;&#35201;&#30340;&#22823;&#23567;&#21098;&#20999;.</p>
+
+<p class="lvl3">&mdash;<span class="procedureor">&#25110;&#32773;</span>&mdash;</p>
+
+<p class="imgbltLvl2"><img src="images/bullet.gif" alt="*">&#28857;&#20987;&#24182;&#25302;&#21160;&#40736;&#26631; &ndash; &#25152;&#21010;&#36807;&#30340;&#21306;&#22495;&#22320;&#38754;&#37117;&#34987;&#21098;&#20999;.</p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/05_rem_ter_02.png"></p>
+<p class="captLvl4">&#34987;&#21098;&#20999;&#21518;&#30340;&#22320;&#38754;</p>
+
+<p class="numbltlvl1">5 &#20351;&#29992;&#20462;&#22797; <B>Repair</b> &#21487;&#20197;&#36890;&#36807;&#31508;&#21047;&#34917;&#22238;&#34987;&#21098;&#20999;&#30340;&#22320;&#38754;&#27169;&#22411;.</p>
+
+<p class="imglvl3"><img src="05_sculpt_terrain_files/05_rem_ter_03.png"></p>
+<p class="captLvl4">&#20351;&#29992;repair&#21518;&#30340;&#22320;&#38754;</p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

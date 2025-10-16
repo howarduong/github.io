@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>&#20351;&#29992; Maya&#23548;&#20986;&#22120;</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+function parser(targetFile) {
+  location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; 
+}
+</script>
+
+<!-- CHAPTER - USE MAYA VISUAL EXPORTER -->
+<h1>&#20351;&#29992; Maya&#23548;&#20986;&#22120;</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="33_maya_exporter.htm#UsingExporter">&#20351;&#29992;&#23548;&#20986;&#22120;exporter</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="33_maya_exporter.htm#Shelf">&#20351;&#29992; BigWorld shelf &#23450;&#20041;portal</A></LI>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="33_maya_exporter.htm#HardPoints">&#22312; Maya &#20013; &#21046;&#20316; Hard Point &#33410;&#28857;</A></LI>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p><img src="images/note.gif">&#23398;&#20064;&#27492;&#37096;&#20998;&#21069;&#35831;&#30830;&#35748;&#27491;&#30830;&#23433;&#35013;&#20102; BigWorld shelf &#21644; maya exporter &#22312;&#20320;&#30005;&#33041;&#19978;. &#20851;&#20110;&#22914;&#20309;&#27491;&#30830;&#23433;&#35013;,&#35831;&#21443;&#32771; 
+  <a onClick="parser('content_tools_reference_guide.pdf')">
+  <span class="linkToFile">Content Tools Reference Guide</span></a>, &#31456;&#33410; 
+  <span class="reference">3ds Max and Maya Exporter</span>, &#27573;&#33853;
+  <span class="reference">Maya</span> &rarr;
+  <span class="reference">Installing the 3ds Max Exporters</span>.</p>
+
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="UsingExporter">&#20351;&#29992;&#23548;&#20986;&#22120;exporter</a></h2>
+</span>
+<DIV>
+
+<p class=numBltLvl1>1&#21551;&#21160;&#23548;&#20986;&#36807;&#31243;.</p> 
+ 
+<p class=imgBltLvl2><img src="images/bullet.gif">&#36873;&#25321; 
+<b>File&rarr;Export All</b> &#30446;&#24405;&#23548;&#20986;&#25152;&#26377;&#22330;&#26223;&#20013;&#30340;&#29289;&#20307;.&#21253;&#25324;&#38544;&#34255;&#23545;&#35937;.</p> 
+ 
+<p class=lvl3><span class=procedureOr>&ndash;&#25110;&#32773;&ndash;</p> 
+
+<p class=imgBltLvl2><img src="images/bullet.gif">&#36873;&#25321; 
+<b>File&rarr;Export Selection</b> &#30446;&#24405;&#23548;&#20986;, &#24403;&#21069;&#36873;&#25321;&#30340;&#23545;&#35937;.</p>
+
+<p class=lvl2>&#24377;&#20986;&#23548;&#20986;&#23545;&#35805;&#26694;.</p>
+
+<p class=imgLvl2><img src="33_maya_exporter_files/image018.gif"></p>
+
+<p class=numBltLvl1>3 &#22312;&#23548;&#20986;&#22120;&#23545;&#35805;&#26694;&#20013;:</p>
+
+<p class=ltrBltLvl2>A &#22312; <b>Look In</b> &#19979;&#25289;&#21015;&#34920;&#20013;, &#25351;&#23450;&#24819;&#35201;&#23548;&#20986;&#30340;&#25991;&#20214;&#22841;.</p>
+
+<p class=ltrBltLvl2>B &#22312; <b>File Name</b> &#19979;&#25289;&#21015;&#34920;&#20013;, &#23450;&#20041;&#20320;&#25991;&#20214;&#30340;&#21517;&#31216;.</p>
+
+<p class=ltrBltLvl2>C &#22312; <b>Files Of Type</b> &#19979;&#25289;&#21015;&#34920;&#20013;&#36873;&#25321;<b>BigWorld Asset</b>&#26684;&#24335;</p>
+
+<p class=ltrBltLvl2>D &#28857;&#20987; <b>Options</b> &#25353;&#38062;, &#26681;&#25454;&#20043;&#21069;&#36873;&#25321;&#30340; &#39033;&#30446;&#33756;&#21333; <b>Export All Options</b> &#25110;&#32773; <b>Export 
+Selection Options</b> &#23545;&#35805;&#26694;&#20250;&#35843;&#20986;.</p>
+
+<p class=imgBltLvl3><img src="images/bullet.gif">&#22312;&#23545;&#35805;&#26694; <b>General 
+Options</b>&#20013;,&#35774;&#32622;<b>File Type</b> &#19979;&#25289;&#36873;&#25321; 
+<b>BigWorld Asset</b>.</p>
+
+<p class=imgBltLvl3><img src="images/bullet.gif">&#28857;&#20987; <b>Export All</b> &#25110;
+<b>Export Selection</b>&#25353;&#38062; (&#26159;&#26681;&#25454;&#20043;&#21069;&#36873;&#25321;&#24377;&#20986;&#30340;) &ndash; &#36825;&#20250;&#20851;&#38381;&#24403;&#21069;&#31383;&#21475;,&#24182;&#21453;&#22238;&#21069;&#27493;&#39588; <b>Export</b>.</p>
+
+<p class=imgLvl4><img src="33_maya_exporter_files/image017.gif"></p>
+
+<p class=ltrBltLvl2>E &#28857;&#20987; <b>Export</b> &#24377;&#20986; <b>Visual 
+Exporter</b> &#23545;&#35805;&#26694;.</p>
+
+<p class=imgLvl3><img src="33_maya_exporter_files/image019.gif"></p>
+ 
+<p class=imgBltLvl3><img src="images/bullet.gif"><b>Visual Exporter</b> 
+&#23545;&#35805;&#26694;&#20013;&#28857;&#20987; <b>OK</b> &#25991;&#20214;&#23548;&#20986;&#21040;&#23450;&#20041;&#22909;&#30340;&#20301;&#32622;.</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="Shelf">&#20351;&#29992; BigWorld shelf &#23450;&#20041;portal</a> </h2>
+</span>
+<DIV>
+
+<p>BigWorld Maya shelf&#25552;&#20379;&#24037;&#20855;&#26469;&#23450;&#20041;portal. &#20854;&#20013;&#26377;&#19977;&#20010;&#22270;&#26631;, &#20998;&#21035;&#29992;&#20110;, <em>P</em><i>ortal</i>, 
+<i>Exit</i>, &#21644; <i>Heaven</i> portal &#30340;&#31867;&#22411;.</p>
+
+<p class=imgLvl1><img src="33_maya_exporter_files/image020.gif"></p>
+
+<p>&#19977;&#31181;&#22270;&#26631;:</p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><img src="33_installing_and_using_the_maya_exporter_files/standard_portal.jpg" alt="" width="32" height="32">&ndash;
+<b><i>Portal</i> flag</b></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><img src="33_installing_and_using_the_maya_exporter_files/exit_portal.jpg" alt="" width="32" height="32">&ndash;<b> <i>Exit</i> flag</b></p>
+
+<p class=imgBltLvl1><img src="images/bullet.gif"><img src="33_installing_and_using_the_maya_exporter_files/heavenly_portal.jpg" alt="" width="32" height="32">&ndash;<b> <i>Heaven</i> flag</b></p>
+
+<p>&#35201;&#23450;&#20041;&#19968;&#20010;&#23545;&#35937;&#20026; portal, &#39318;&#20808;&#36873;&#25321;&#20320;&#38656;&#35201;&#30340;portal&#31867;&#22411;.  &#26816;&#26597;&#23646;&#24615;.</p>
+
+<p class=imgLvl1><img src="33_maya_exporter_files/image011.gif"></p>
+
+<p><b>Extra Attributes</b> &#19979;&#30340; <b>Portal</b> &#36873;&#39033;&#21345; 
+&ndash; &#23427;&#20250;&#26681;&#25454;&#23646;&#24615;&#26174;&#31034; <b>Heaven</b> &#25110;&#32773; <b>Exit</b>.
+<p>&#30830;&#35748;&#21518;&#23601;&#21487;&#20197;&#23548;&#20986;&#20102;.</p>
+
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.gif"><a name="HardPoints">&#22312; Maya &#20013; &#21046;&#20316; Hard Point &#33410;&#28857;</a></h2>
+</span>
+<DIV>
+
+<p>&#36825;&#20010;&#31687;&#31456;&#20171;&#32461;&#20102;&#22914;&#20309;&#22312;maya&#20013;&#23450;&#20041;portal&#21644;&#21019;&#24314; hard 
+point. &#20294;&#26159;&#27492;&#31687;&#19981;&#33021;&#26367;&#20195;&#21478;&#22806;&#20004;&#35838;&#30340;&#20869;&#23481;, <a href="08_create_lowpoly_char.htm">&#21019;&#24314;&#35282;&#33394;LOD</a> &#21644; <a href="done/06_create_shell.htm">&#21019;&#24314;&#23460;&#20869;shell</a> &ndash; &#36825;&#20004;&#20010;&#35838;&#31243;&#26159;&#24517;&#39035;&#23398;&#20064;&#30340;</p> 
+ 
+<p>HardPiont &#35201;&#20197; polygen&#30340;&#21407;&#22411;&#26469;&#21019;&#24314; , &#24182;&#19988;&#35201;&#26041;&#20415;&#36776;&#35782;&#23545;&#35937;&#30340; XYZ&#36724;&#25351;&#21521;. &#36825;&#26679;&#25165;&#33021;&#22312;&#21512;&#36866;&#30340;&#20301;&#32622;&#27491;&#30830;&#20351;&#29992;.</p>
+
+<p>&#36825;&#37324;&#30340; &#22806;&#24418;, &#24530;&#22270;&#21644;&#20960;&#20309;&#20307;,&#20165;&#20165;&#20316;&#20026;&#32654;&#24037;&#30340;&#35270;&#35273;&#24037;&#20855;. Bigworld &#24341;&#25806;&#20165;&#36890;&#36807;&#23545;&#35937;&#30340;&#21629;&#21517; HP_ &#26469;&#36776;&#35782;&#33410;&#28857;&#23646;&#24615;. &#20854;&#20013;&#21253;&#21547;HP&#25152;&#36830;&#25509;&#21040;&#30340;&#39592;&#39612;node.</p>
+
+<p class=imgLvl1><img src="33_maya_exporter_files/image013.gif"></p>
+
+<p>&#27492;&#20363;&#20013;,&#25105;&#20204;&#21019;&#24314;&#19968;&#20010;&#36830;&#25509;&#22312;&#35282;&#33394;&#21491;&#25163;&#19978;&#30340;HP&#33410;&#28857;.</p>
+
+<p class=numBltLvl1>1&#21019;&#24314;&#19968;&#20010;&#21512;&#36866;&#30340;&#20960;&#20309;&#20307;</p>
+<p class=numBltLvl1>2&#36873;&#25321;&#33756;&#21333; <b>Window &rarr; Hypergraph</b> &#33756;&#21333;&#39033;&#30446; 
+  &ndash; <b>Hypergraph</b> &#31383;&#21475;&#25171;&#24320;.</p>
+<p class=numBltLvl1>3&#21491;&#38190;&#28857;&#20987;node,&#36873;&#25321; <b>Rename</b>&#37325;&#21629;&#21517;.</p>
+
+<p class=numBltLvl1>4&#37325;&#21629;&#21517;&#20026; <code>HP_RightHand</code>.</p>
+
+<p class=imgLvl2><img src="33_maya_exporter_files/image015.gif"></p>
+
+<p class=numBltLvl1>5&#20013;&#38190;&#28857;&#20987; <code>HP_RightHand</code> node, &#25302;&#25341;&#21040;&#29238;&#32423; <code>RightHand</code> &#33410;&#28857;.</p>
+
+<p class=imgLvl2><img src="33_maya_exporter_files/image016.gif"></p>
+
+<p class=numBltLvl1>6 &#29616;&#22312;HP&#24050;&#32463;&#27491;&#30830;&#36830;&#25509;&#24182;&#19988;&#21487;&#20197;&#20351;&#29992;&#20102;.</p>
+
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body>
+</html>

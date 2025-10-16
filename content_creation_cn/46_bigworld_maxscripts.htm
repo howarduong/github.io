@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>BigWorld MAX&#33050;&#26412;</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ </head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+
+<h1><a name="lessonTitle">BigWorld MAX&#33050;&#26412;</a></h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#Installation">&#23433;&#35013;</a></LI>
+<LI><IMG SRC="images/expandable.bmp" alt="" ONCLICK=toggle()><a href="46_bigworld_maxscripts.htm#CustomHull">&#21046;&#20316;&#33258;&#23450;&#20041;&#22806;&#22771;</a></LI>
+<LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><a href="46_bigworld_maxscripts.htm#AddPortal">&#28155;&#21152;&#20837;&#21475;&#23646;&#24615;</a></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#AnimationTracks">Animation tracks</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#ImportHP">&#23548;&#20837;HP&#32467;&#28857;</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#AddNoteTrack">&#28155;&#21152;&#19968;&#20010;&#33410;&#28857;&#36712;&#36857;</a></LI>
+<LI><IMG SRC="images/leaf.bmp"><a href="46_bigworld_maxscripts.htm#FlagBSP">&#26631;&#35760;&#20026; BSP (&#30896;&#25758;&#20307;)</a></LI>
+ <UL STYLE="display:none">
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#DebugFromPython">From Python console</A></LI>
+   <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#DebugFromCAT">Debug actions from CAT</A></LI>
+   <LI><IMG SRC="images/expandable.bmp" ONCLICK=toggle()><A HREF="11_create_actions.htm#DebugFromModelEditor">Debug actions from within Model Editor</A></LI>
+   <UL STYLE="display:none">
+     <LI><IMG SRC="images/leaf.bmp"><A HREF="11_create_actions.htm#HowToPreviewBlending">How to preview blending in ModelEditor</A></LI>
+   </UL>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+<p>BigWorld MAX&#33050;&#26412;&#31616;&#21270;&#20102;&#19968;&#20123; BigWorld &#36164;&#28304;&#21019;&#24314;&#30340;&#29305;&#27530;&#20219;&#21153;. </p>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="Installation" id="Installation">&#23433;&#35013;</a></h2>
+</span>
+<DIV>
+
+<p>&#25302;&#25341; BigWorld_MAXScripts.mzp &#25991;&#20214;&#21040; 3dsMax &#30340;3d &#35270;&#22270;&#20013;&#12290; </p>
+<p><img src="46_bigworld_maxscripts_files/image002.jpg" width="338" height="220"></p>
+<p>&#37325;&#21551; 3dsMax. </p>
+<p>&nbsp;</p>
+<p>&#21040;&#30446;&#24405; <em>Customize - Customize User Interface </em></p>
+<p><img src="46_bigworld_maxscripts_files/image002.gif" width="323" height="325"></p>
+<p>&nbsp;</p>
+<p>&#36873;&#25321; <em>Toolbars</em> &#38754;&#26495;&#24182;&#21019;&#24314;&#19968;&#20010;&#26032;&#30340;&#24037;&#20855;&#26639;<em> </em>toolbar. &#21629;&#21517;&#26032;&#24037;&#20855;&#26639;&#20026; &quot;BigWorld&quot;&#24182;&#28857;&#20987; OK &#30830;&#35748;. </p>
+<p><img src="46_bigworld_maxscripts_files/image003.gif" width="561" height="555"></p>
+<p>&nbsp;</p>
+
+<p>&#19968;&#20010;&#26032;&#30340;&#28014;&#21160;&#24037;&#20855;&#26639;&#20250;&#26174;&#31034;&#22312;3d&#35270;&#22270;&#20013;&#65292; &#25302;&#25341;&#31383;&#21475;&#21040;&#30446;&#24405;&#26639;&#19978;&#20197;&#20813;&#24433;&#21709;&#35270;&#22270;&#12290;</p>
+<p><img src="46_bigworld_maxscripts_files/image004.gif" width="333" height="209"></p>
+<p>&nbsp;</p>
+<p>&#36820;&#22238;&#21040; Customise User Interface&#35774;&#32622; - Toolbars &#24037;&#20855;&#26639;&#38754;&#26495;. &#22312; <em>Category&#19979; BigWorld</em> &#32452;&#20013; &#25302;&#25341;&#21487;&#29992;&#30340;&#33050;&#26412;&#21040; BigWorld &#24037;&#20855;&#26639;&#19978;&#12290;</p>
+<p><img src="46_bigworld_maxscripts_files/image006.gif" width="747" height="412"></p>
+<p>&nbsp;</p>
+<p>&#29616;&#22312;&#20320;&#30340;&#24037;&#20855;&#26639;&#24050;&#32463;&#21487;&#20197;&#34987;&#20351;&#29992;&#20102;&#12290;</p>
+<p><img src="46_bigworld_maxscripts_files/image001.gif" width="230" height="39"></p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="CustomHull" id="AddPortal2">&#28155;&#21152;&#33258;&#23450;&#20041;&#22771;</a></span></h2>
+</span>
+<DIV>
+  <p>&#26356;&#22810;&#20851;&#20110; &#33258;&#23450;&#20041;&#22771;&#30340;&#20449;&#24687;&#35831;&#21442;&#35265;&#20301;&#20110; bigworld/doc/content_creation.chm  &#30340;&#21019;&#24314;&#24037;&#20855;&#25163;&#20876;&#12290;</p>
+<p> &#28857;&#20987;&#28155;&#21152;&#33258;&#23450;&#20041;&#22771;&#22270;&#26631;  <img src="46_bigworld_maxscripts_files/image004.jpg" width="25" height="24"> &#20250;&#36716;&#21270;&#36873;&#20013;&#30340;&#23545;&#35937;&#20026; <strong>&#33258;&#23450;&#20041;&#22771;</strong>, &#23545;&#35937;&#30340;&#21517;&#23383;&#20250;&#26174;&#31034;&#20026;&#24102;&#21518;&#32512; &quot;_hull&quot;. &#19968;&#20010;&#33258;&#23450;&#20041;&#22771;&#30340;&#26448;&#36136;&#20250;&#34987;&#36171;&#20104;&#23545;&#35937;&#20197;&#26041;&#20415;&#35270;&#35273;&#35782;&#21035;&#12290; </p>
+<p>&#22771;&#30340;&#22810;&#36793;&#24418;&#21487;&#20197;&#36890;&#36807;&#20854;&#20182;&#33050;&#26412;&#34987;&#35774;&#23450;&#25104;&#20026;portal&#38376;. </p>
+<p><img src="46_bigworld_maxscripts_files/image005.jpg" width="230" height="168"></p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="AddPortal" id="AddPortal">&#28155;&#21152;&#20837;&#21475;&#23646;&#24615;</a></h2>
+</span>
+<DIV>
+
+<p>&#26356;&#22810;&#20851;&#20110;portal&#30340;&#20449;&#24687;&#35831;&#21442;&#32771; bigworld/doc/content_creation.chm &#20869;&#23481;&#24037;&#20855;&#21019;&#24314;&#25163;&#20876;</p>
+<p>&#36890;&#36807;&#28857;&#20987;&#28155;&#21152;&#38376;&#30340;&#25353;&#38062;&#65292;&#33050;&#26412;&#20250;&#33258;&#21160;&#25351;&#35748;&#19968;&#20010;&#38376;&#30340;&#23646;&#24615;&#21040;&#36873;&#25321;&#30340;&#23545;&#35937;&#12290;</p>
+<p><img src="46_bigworld_maxscripts_files/image007.gif" width="31" height="30"> &#28155;&#21152;&#19968;&#20010;&#26631;&#20934;&#30340;&#38376; portal &#26631;&#24535;</p>
+<p><img src="46_bigworld_maxscripts_files/image008.gif" width="31" height="30"> &#28155;&#21152;&#19968;&#20010;&#20986;&#21475; portal &#26631;&#24535;</p>
+<p><img src="46_bigworld_maxscripts_files/image009.gif" width="31" height="30"> &#28155;&#21152;&#19968;&#20010;&#22825;&#31383; portal &#26631;&#24535;</p>
+<p>portal&#20837;&#21475;&#30340;&#25351;&#35748;&#20250;&#28155;&#21152;&#19968;&#20010;&#26448;&#36136;&#36947;&#36873;&#25321;&#30340;&#23545;&#35937;&#19978;&#20197;&#26041;&#20415;&#35782;&#21035;. &#26448;&#36136;&#34987;&#23384;&#20648;&#20110;&#20301;&#20110;<em> bigworld/tools/maxscripts/resources/materiallibraries/</em> &#30340;&#25991;&#20214; <em>BigWorld_MaterialLibrary.mat</em> &#20013;&#12290;</p>
+<p><img src="46_bigworld_maxscripts_files/image001.jpg" width="281" height="208"></p>
+<p>&#26377;&#20004;&#31181;&#26041;&#27861;&#21487;&#20197;&#29992;&#26469;&#20351;&#29992;&#36825;&#20010;&#33050;&#26412;&#25351;&#27966;&#20837;&#21475;. </p>
+<p>1. &#25972;&#20010;&#23545;&#35937; (&#19968;&#20010;&#24179;&#38754;) &#21487;&#20197;&#26631;&#31034;&#20837;&#21475;&#26631;&#35760;, &#36890;&#36807;&#20351;&#29992;&#33258;&#23450;&#20041;&#23646;&#24615; &quot;portal = true&quot;&#12290;</p>
+<p>2. &#25110;&#32773;&#65292;&#22914;&#26524;&#36873;&#25321;&#19968;&#20010;<strong>&#33258;&#23450;&#20041;&#22771;</strong>&#30340;&#27425;&#32423;&#23545;&#35937;<strong>&#22810;&#36793;&#24418;</strong>, &#28982;&#21518;&#37027;&#20010;&#38754;&#20250;&#34987;&#36171;&#20104;&#20837;&#21475;&#26448;&#36136;. </p>
+<DIV> </DIV>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="ImportHP" id="ImportHP">&#20498;&#20837;HP&#33410;&#28857;</a></h2>
+</span>
+<DIV>
+
+<p>&#26356;&#22810;&#20851;&#20110;Hard Point &#65288;HP&#65289;&#33410;&#28857;&#30340;&#20449;&#24687;&#35831;&#21442;&#32771; bigworld/doc/content_creation.chm f &#20869;&#23481;&#21019;&#24314;&#24037;&#20855;&#25163;&#20876;</p>
+<p>&#24403;&#22810;&#20010;&#32654;&#24037;&#22312;&#21019;&#24314;&#30456;&#20114;&#20851;&#32852;&#30340;&#36164;&#28304;&#26102; (&#20363;&#22914;&#65292;&#19968;&#25226;&#26538;&#21644;&#19968;&#20010;&#35282;&#33394;&#30340;&#25163;), &#20250;&#20986;&#29616;HP&#20301;&#32622;&#30340;&#19981;&#19968;&#33268;&#38382;&#39064;&#12290; &#36825;&#20010;&#33050;&#26412;&#21487;&#20197;&#38477;&#20302;&#34892;&#21015;&#19981;&#40784;&#30340;&#20960;&#29575;&#12290;&#23427;&#21487;&#20197;&#26631;&#20934;&#21270;HP&#30340;&#27169;&#22411;&#21644;&#20854;&#23545;&#20854;&#29238;&#32423;&#33410;&#28857;&#30340;&#26041;&#24335;&#12290;</p>
+<p>&#28857;&#20987;&#25353;&#38062;&#20498;&#20837;HP&#33410;&#28857; <img src="46_bigworld_maxscripts_files/image011.gif" width="31" height="30"> &#20250;&#33258;&#21160;&#21019;&#24314;&#24182;&#36830;&#25509;&#19968;&#20010;&#26631;&#20934;&#21270;&#30340;HP&#27169;&#22411;&#21040;&#25152;&#36873;&#29289;&#20307;&#12290;</p>
+<p>&#22914;&#26524;&#27809;&#26377;&#36873;&#25321;&#23545;&#35937;&#65292; &#26032;&#24314;&#30340;HP&#20250;&#34987;&#36171;&#20104;&#21040;&#19990;&#30028;&#20013;&#24515;&#21407;&#28857; (0,0,0).</p>
+<p>&#36825;&#20010;&#34920;&#31034;Hard Point &#30340;&#27169;&#22411;&#20250;&#33258;&#21160;&#32553;&#25918;&#65292;&#25152;&#20197;&#23427;&#22312;&#22330;&#26223;&#20013;&#24635;&#26159;&#32422;&#31561;&#20110;20c&#21400;&#31859;&#26080;&#35770;&#20320;&#30340;&#31995;&#32479;unit&#35774;&#32622;&#20026;&#22810;&#23569;&#12290;&#27492;&#27169;&#22411;&#26159;&#19968;&#20010; BigWorld &#31649;&#29702;&#31995;&#32479;&#30340;&#20195;&#34920;&#12290;</p>
+<p>&#36825;&#20010;hard point &#27169;&#22411; <em>hard_point.fbx </em>&#34987;&#23433;&#35013;&#21040; 3dsMax's &#39033;&#30446;project &#25991;&#20214;&#22841;&#20869;:<em>&#23548;&#20837;</em>&#25991;&#20214;&#22841;&#24182;&#20351;&#29992; <em>BigWorld_MaterialLibrary.mat</em> &#20013;&#30340;&#26448;&#36136;&#12290;</p>
+<p><img src="46_bigworld_maxscripts_files/image012.gif" width="247" height="247"></p>
+<p>&nbsp;</p>
+</DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expanded.bmp"><a name="AddNoteTrack" id="AddNoteTrack">&#28155;&#21152;&#19968;&#20010;&#33410;&#28857;&#36712;&#36857;</a></h2>
+</span>
+<DIV>
+
+<p>&#26356;&#22810;&#28304;&#20110;&#33410;&#28857;&#36712;&#36857;&#30340;&#20449;&#24687;&#35831;&#21442;&#32771; bigworld/doc/content_creation.chm &#20869;&#23481;&#21019;&#24314;&#24037;&#20855;&#25163;&#20876;</p>
+<p>&#28857;&#20987;&#25353;&#38062;&#28155;&#21152;&#19968;&#20010;&#33410;&#28857;&#36712;&#36857; <img src="46_bigworld_maxscripts_files/image010.gif" width="31" height="30"> &#20250;&#20801;&#35768;&#29992;&#25143;&#24555;&#36895;&#28155;&#21152;&#19968;&#20010;&#31867;&#22411;&#20026; cue &#25110;&#32773; sound &#30340;&#33410;&#28857;&#36712;&#36857;&#21040;&#24403;&#21069;&#26102;&#38388;&#30340;&#25152;&#36873;&#29289;&#20307;&#12290;</p>
+<p><img src="46_bigworld_maxscripts_files/image013.gif" width="437" height="289"></p>
+</DIV>
+<!-- HORIZONTAL RULE -->
+<h2><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="FlagBSP" id="AddNoteTrack2">&#26631;&#35760;&#20026; BSP (&#30896;&#25758;&#20307;)</a></span></h2>
+<DIV>
+  <p>&#26356;&#22810;&#20851;&#20110;BSP &#30896;&#25758;&#20307;&#30340;&#20449;&#24687;&#35831;&#21442;&#35265;&#20301;&#20110; bigworld/doc/content_creation.chm  &#30340;&#21019;&#24314;&#24037;&#20855;&#25163;&#20876;&#12290;</p>
+  <p>&#28857;&#20987;&#36716;&#25442; BSP &#25353;&#38062; <img src="46_bigworld_maxscripts_files/image014.gif" width="37" height="37"> &#21487;&#20197;&#36716;&#25442;&#20219;&#20309;&#20960;&#20309;&#20307;&#23545;&#35937;&#20026;&#19968;&#20010; BigWorld BSP&#30896;&#25758;&#20307;. &#34987;&#36873;&#25321;&#23545;&#35937;&#30340;&#21517;&#23383;&#20250;&#34987;&#28155;&#21152;&#21518;&#32512; &quot;_bsp&quot; , &#21516;&#26102;&#19968;&#20010;&#26448;&#36136;&#20250;&#34987;&#33258;&#21160;&#28155;&#21152;&#21040;&#23545;&#35937;&#19978;&#65292;&#20197;&#26041;&#20415;&#22312; 3dsMax &#20013;&#35782;&#21035;BSP&#29289;&#20307;&#12290;</p>
+  <p><img src="46_bigworld_maxscripts_files/image003.jpg" width="363" height="180"></p>
+<p>&nbsp;</p>
+</DIV>
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>    
+  <title>&#26032;&#24314;&#19968;&#20010;&#39033;&#30446;</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style type="text/css">
+<!--
+.style1 {color: #000000}
+.style2 {color: #00CC33}
+.style5 {color: #0066CC}
+-->
+  </style>
+  </head>
+<body>
+<!-- SCRIPT TO TOGGLE HEADING'S VISIBILITY -->
+<SCRIPT>
+function toggle_heading() {
+ if (window.event.srcElement.tagName == "H2" || window.event.srcElement.tagName == "H3" || window.event.srcElement.tagName == "H4" || window.event.srcElement.tagName == "H5" || window.event.srcElement.tagName == "H6") { varObj=window.event.srcElement.parentElement.nextSibling; }
+ else { varObj=window.event.srcElement.parentElement.parentElement.nextSibling; }
+ if      (window.event.srcElement.tagName == "IMG") { varObjImg=window.event.srcElement; }
+ else if (window.event.srcElement.tagName == "A")   { varObjImg=window.event.srcElement.previousSibling; }
+ else                                               { varObjImg=window.event.srcElement.firstChild; }
+ for ( ; varObj.tagName != "DIV" && varObj.tagName != "H1" && varObj.tagName != "H2" && varObj.tagName != "H3" && varObj.tagName != "H4" && varObj.tagName != "H5"; varObj=varObj.nextSibling) {}
+  if (varObj.tagName == "DIV") { 
+   if (varObj.style.display == "none") { varObj.style.display="block"; varObjImg.src="images/expanded.bmp";   }
+   else                                { varObj.style.display="none";  varObjImg.src="images/expandable.bmp"; } } }
+</script>
+<!--- SCRIPT TO LINK TO FILES OUTSIDE THIS CHM --->
+<script language="JScript">
+  function parser(targetFile) {
+  location.href = 'file:///' + location.href.substring((location.href.search(/:/) == 2 ? 14 : 7), location.href.lastIndexOf("\\")+1) + targetFile; }
+</script>
+
+<!-------- CHAPTER TITLE -------->
+<h1>&#26032;&#24314;&#19968;&#20010;&#39033;&#30446;</h1>
+<DIV CLASS="TopOfPageTOC">
+<SCRIPT>
+function toggle() {
+ var numOfChildren=window.event.srcElement.parentElement.childNodes.length;
+ for (var varIdx=0 ; varIdx < numOfChildren && window.event.srcElement.parentElement.childNodes[varIdx].tagName != "UL" ; varIdx++) {}
+ if (varIdx <= numOfChildren) {
+  if (window.event.srcElement.parentElement.childNodes[varIdx].style.display == "none") {
+   window.event.srcElement.src="images/expanded.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="inline"; }
+  else {
+   window.event.srcElement.src="images/expandable.bmp";
+   window.event.srcElement.parentElement.childNodes[varIdx].style.display="none"; } } }
+</SCRIPT>
+<UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Res_Path">&#36164;&#28304;&#36335;&#24452; </A></LI>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="01_setup_new_project.htm#Creating">&#26032;&#24314;&#19968;&#20010;&#19990;&#30028;</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Terrain_Types">&#22320;&#38754;&#31867;&#22411;</A></LI>
+ </UL>
+<LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Changing">&#20999;&#25442;&#31354;&#38388;</A></LI>
+<LI><IMG SRC="images/leaf.bmp" ONCLICK=toggle()><A HREF="01_setup_new_project.htm#Terrain_LOD">&#22320;&#38754;LOD&#35774;&#32622;</A></LI>
+ <UL STYLE="display:none">
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Geomorphing">Geomorphing&#22320;&#38754;&#30340;&#27169;&#22411;&#36807;&#28193;&#21464;&#21270;</A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#3dsmax_DirectX">Geomipmaping&#22320;&#38754;&#36148;&#22270;mipmap&#21464;&#21270; </A></LI>
+ <LI><IMG SRC="images/leaf.bmp"><A HREF="01_setup_new_project.htm#Space_settings">Space.settings &#25991;&#20214;</A></LI>
+ </UL>
+</UL>
+<HR>
+</DIV> <!-- END TopOfPageTOC -->
+
+<p>&nbsp;</p>
+
+<!-------- SECTION - Resource Paths -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expandable.gif"><a name="Res_Path" id="Res_Path">&#36164;&#28304;&#36335;&#24452; </a></h2>
+</span>
+<DIV>
+<p>&#22312;BigWorld1.8&#20013;&#25152;&#20351;&#29992;&#30340; <code>BW_RES_PATH</code> &#21487;&#21464;&#29615;&#22659;&#36164;&#28304;&#36335;&#24452;&#23450;&#20041;&#19981;&#20877;&#20351;&#29992;, &#21462;&#32780;&#20195;&#20043;&#30340;&#26159;, <code>paths.xml</code> 
+&#37197;&#32622;&#25991;&#20214;, &#23450;&#20301;&#27599;&#20010;&#24037;&#20855;&#36335;&#24452;. &#20855;&#20307;&#20869;&#23481;,&#35831;&#21442;&#32771;&#25991;&#26723; <a onClick="parser('content_tools_reference_guide.pdf')"><span class="linkToFile">
+Content Tools Reference Guide</span></a>, &#31456;&#33410;<b>Starting the Tools</b>.</p></DIV>
+<!-------- SECTION - CREATING A NEW SPACE -------->
+<span onclick=toggle_heading()>
+<h2><img src="images/expandable.gif"><a name="Creating">&#26032;&#24314;&#19968;&#20010;&#19990;&#30028;</a></h2>
+</span>
+<DIV>
+<div>
+
+<!-- Procedure -->
+<p>&#25353;&#27493;&#39588;&#26032;&#24314;&#19968;&#20010;&#19990;&#30028;:</p>
+
+   <!-- Number-bulleted list --> 
+   <p class="numbltlvl1">1 &#25171;&#24320;&#19990;&#30028;&#32534;&#36753;&#22120;.</p> 
+      <p class="FYILvl2 style1">&#21487;&#25191;&#34892;&#25991;&#20214; <code>worldeditor.exe</code> &#20301;&#20110; <code>bigworld/tools/worldeditor&#19979;</code>.</p> 
+
+  <p class="numbltlvl1">2 &#36873;&#25321; <span class="interface">&#25991;&#20214; &rarr; &#26032;&#24314;&#31354;&#38388;</span>.</p>
+      <!-- Image -->
+      <p class="imglvl2"><img src="01_setup_new_project_files/image001.png" alt="" width="210" height="79"></p>
+  <p class="numbltlvl1">3 &#26032;&#24314;&#31354;&#38388;&#23545;&#35805;&#26694;.</p>
+<!-- Image -->
+      <p class="imglvl2"><img src="01_setup_new_project_files/image002.gif"></p>
+  <p class="numbltlvl1">4 &#26032;&#24314;&#31354;&#38388;:,</p>  
+
+  <p class="lvl3">&bull; &#26032;&#24314;&#31354;&#38388;&#24517;&#39035;&#22312; <code>spaces</code> &#25991;&#20214;&#22841;&#19979;.</p>
+      <p class="lvl3">&bull; &#23450;&#20041;&#19990;&#30028;&#23485;&#24230;&#21644;&#38271;&#24230; (&#20856;&#22411;&#30340;chunk&#22823;&#23567; &#20026; 100X100&#31859;).</p>
+      <p class="lvl3">&bull; &#32473;&#20320;&#30340;&#19990;&#30028;&#36873;&#25321;&#21512;&#36866;&#30340;&#31354;&#38388;&#22320;&#24418;&#35774;&#23450;(&#27599;&#20010;&#35774;&#23450;&#30340;&#25551;&#36848;&#35831;&#30475;&#19979;&#38754;)</p>
+  <p class="lvl3">&bull; &#28857;&#20987;&#21019;&#24314;&#25353;&#38062;.</p>
+  <p class="lvl3">&#21246;&#36873;<strong>&#20351;&#29992;&#31616;&#21333;&#22320;&#24418;</strong> &#20915;&#23450;&#26159;&#19981;&#26159;&#35201;&#20351;&#29992;&#22320;&#24418;&#30340;&#39640;&#32423;&#21151;&#33021;&#26469;&#21019;&#24314;&#26032;&#19990;&#30028;</p>
+  <p class="numbltlvl1">5 &#19990;&#30028;&#32534;&#36753;&#22120;&#33258;&#21160;&#25171;&#24320;&#26032;&#21019;&#24314;&#30340;&#31354;&#38388;. </p>
+  </DIV>
+  <h3><span onClick="toggle_heading()"><img src="images/expanded.bmp"><a name="Terrain_Settings" id="Terrain_Types2">&#22320;&#34920;&#21019;&#24314;&#35774;&#23450;</a></span></h3>
+  <div>
+<p class="numbltlvl1"><strong>&#39640;&#24230;&#36148;&#22270;&#20998;&#36776;&#29575;</strong><br>
+  &#23450;&#20041;&#19968;&#20010;Chunk&#21333;&#20301;&#20013;&#21333;&#20010;&#22352;&#26631;&#36724;&#30340;&#39640;&#24230;&#26497;&#28857;&#20010;&#25968;,&#25152;&#20197;&#35774;&#23450;&#20998;&#36776;&#29575;&#20026;256&#30340;&#32467;&#26524;&#26159;&#22312;&#27599;&#20010;chunk&#20013;&#33267;&#23569;&#26377; 65536&#20010;&#39030;&#28857;.<br>
+&#25105;&#20204;&#25512;&#33616;&#20351;&#29992; <strong>128</strong> &#25110;&#32773;&#26356;&#20302;&#30340;&#20998;&#36776;&#29575;&#26469;&#21019;&#24314;&#19968;&#20123;&#21315;&#31859;&#22823;&#23567;&#30340;&#19990;&#30028;. &#20351;&#29992;256&#31934;&#24230;&#30340;&#35774;&#32622;&#22312;&#22823;&#19990;&#30028;&#19978;&#20250;&#25240;&#25439;&#28216;&#25103;&#27969;&#30021;&#24230;.<br>
+  <br>
+  <strong>&#27861;&#32447;&#36148;&#22270;&#20998;&#36776;&#29575;</strong><br>
+  &#36825;&#20010;&#27861;&#32447;&#36148;&#22270;&#26159;&#29992;&#22312; <a href="#Geomorphing">&#36828;&#36317;&#31163; </a>&#22320;&#34920;&#30340;&#20302;&#31934;&#24230;&#27169;&#22411;&#38754;&#19978;&#30340;&#27861;&#32447;&#36148;&#22270;&#20998;&#36776;&#36335;.<br>
+  &#20026;&#20102;&#20445;&#30041;&#31867;&#20284;&#26356;&#39640;&#31934;&#24230;&#22320;&#24418;&#27169;&#22411;&#38754;&#35270;&#35273;&#30340;&#20016;&#23500;&#25928;&#26524;, &#25105;&#20204;&#24212;&#29992;&#20102;&#19968;&#20010;&#27861;&#32447;&#36148;&#22270;&#22312;&#36828;&#22788;&#20302;&#31934;&#24230;&#30340;&#22320;&#24418;&#27169;&#22411;&#19978;.<br>
+  &#25968;&#20540;&#20026; <strong>128</strong> &#30340;&#35774;&#23450;&#24050;&#32463;&#36275;&#22815;&#24212;&#29992;&#20110;&#22810;&#25968;&#19990;&#30028;&#30340;&#20302;&#31934;&#24230;&#27169;&#22411;&#30340;&#20351;&#29992;&#19978;.<br>
+  <br>
+  <strong> &#38210;&#31354;&#36148;&#22270;&#20998;&#36776;&#29575;</strong><br>
+  &#27492;&#20998;&#36776;&#29575;&#30340;&#35774;&#23450;&#26159;&#38024;&#23545;&#22320;&#24418;&#21098;&#20999;&#24037;&#20855; (&#21098;&#20992;). &#22914;&#26524;&#35774;&#32622;&#31934;&#24230;&#36807;&#20302;, &#20320;&#23601;&#20250;&#21482;&#33021;&#22312;&#22320;&#24418;&#19978;&#21098;&#20999;&#20986;&#24456;&#22823;&#30340;&#27934;, &#35774;&#32622;&#25968;&#20540;&#22914;&#26524;&#24456;&#39640;,&#20320;&#23601;&#21487;&#20197;&#22312;&#22320;&#38754;&#19978;&#21098;&#20999;&#26356;&#23567;&#30340;&#27934;. &#22914;&#26524;&#20320;&#27809;&#26377;&#22312;&#22320;&#38754;&#19978;&#39057;&#32321;&#21098;&#20999;&#30340;&#35774;&#35745;,&#25105;&#20204;&#24314;&#35758;&#20351;&#29992;&#27604;&#36739;&#20302;&#30340;&#25968;&#20540;&#35774;&#23450;.<br>
+  <br>
+  <strong>&#38452;&#24433;&#36148;&#22270;&#20998;&#36776;&#29575;</strong><br>
+  &#23450;&#20041;&#25237;&#24433;&#22312;&#22320;&#34920;&#19978;&#30340;&#31934;&#24230;.&#22914;&#26524;&#20320;&#26377;&#19968;&#20010;&#24456;&#22823;&#30340;&#19990;&#30028;(&#20219;&#20309;&#36229;&#36807;&#19968;&#21315;&#24179;&#26041;&#31859;&#30340;) 
+  &#25105;&#20250;&#24314;&#35758;&#20320;&#20204;&#35774;&#23450;&#25968;&#20540;&#20026;64, &#22914;&#26524;&#35774;&#23450;&#20540;&#20026;128&#25110;&#32773;256&#22312;&#19968;&#20010;&#22823;&#22411;&#30340;&#19990;&#30028;&#19978;, &#20250;&#25240;&#25439;&#28216;&#25103;&#30340;&#27969;&#30021;&#24230;.<br>
+  <br>
+  <strong>&#32441;&#29702;&#36148;&#22270;&#28151;&#21512;&#20998;&#36776;&#29575;</strong><br>
+  &#36825;&#26159;&#25511;&#21046;&#20004;&#20010;&#19981;&#21516;&#36148;&#22270;&#20043;&#38388;&#28151;&#21512;&#30340;&#20998;&#36776;&#29575;. &#22914;&#26524;&#20320;&#21482;&#26159;&#31616;&#21333;&#30340;&#32472;&#21046;&#30456;&#37051;&#36148;&#22270;A&#21644;&#36148;&#22270;B. &#36148;&#22270;&#28151;&#21512;&#20998;&#36776;&#29575;&#23450;&#20041;&#20102;&#20004;&#20010;&#36148;&#22270;&#36807;&#24230;&#25152;&#38656;&#35201;&#30340;&#36317;&#31163;.<br>
+  <br>
+  &#20320;&#26368;&#20339;&#30340;&#25484;&#25569;&#25511;&#21046;&#36825;&#20123;&#35774;&#32622;&#30340;&#26041;&#27861;&#23601;&#26159;&#20808;&#31616;&#21333;&#21019;&#24314;&#19968;&#20123;&#21644;&#20320;&#35745;&#21010;&#30340;&#19990;&#30028;&#19968;&#26679;&#22823;&#30340;&#21021;&#32423;&#27979;&#35797;&#19990;&#30028;.&#28982;&#21518;&#35843;&#25972;&#19981;&#21516;&#30340;&#25968;&#20540;&#35774;&#23450;. &#22914;&#26524;&#22312;&#35270;&#35273;&#34920;&#29616;&#27809;&#26377;&#22826;&#22823;&#24433;&#21709;&#30340;&#21069;&#25552;&#19979;, &#35774;&#23450;&#25968;&#20540;&#36234;&#20302;&#23545;&#25972;&#20010;&#28216;&#25103;&#30340;&#36816;&#34892;&#34920;&#29616;&#21644;&#27969;&#30021;&#24230;&#36234;&#26377;&#21033;.<br>
+  </p>
+<p class="numbltlvl1">&#36825;&#26159;&#25105;&#20204;&#22312;demo&#20013;&#30340;&#19990;&#30028;highland&#19978;&#25152;&#20351;&#29992;&#30340;&#25968;&#20540;&#35774;&#23450;, &#29702;&#24819;&#36816;&#34892;&#29615;&#22659;&#23545;&#35937;&#26159;&#27604;&#36739;&#39640;&#31471;&#30340;&#37197;&#32622;&#26426;&#22120;. Highlands &#19990;&#30028;&#30340;&#38754;&#31215;&#22823;&#23567;&#26159; 10km x 10km (100x100 chunks) <br>
+  &lt;heightMapSize&gt;  	128	&lt;/heightMapSize&gt;<br>
+  &lt;normalMapSize&gt;	128	  &lt;/normalMapSize&gt;<br>
+  &lt;holeMapSize&gt;	64	&lt;/holeMapSize&gt;<br>
+  &lt;shadowMapSize&gt;  	64	&lt;/shadowMapSize&gt;<br>
+  &lt;blendMapSize&gt;	256	  &lt;/blendMapSize&gt;</p>
+  </div>
+  
+ 
+<p class="numbltlvl1">&nbsp;</p>
+  <span onclick=toggle_heading()> <h3><img src="images/expandable.gif"><a name="Terrain_Types" id="Terrain_Types">&#22320;&#38754;&#31867;&#22411;</a></h3>
+  </span>
+   <div>
+   <p>BigWorld&#21253;&#21547;&#20004;&#20010;&#22320;&#38754;&#31867;&#22411;, &#31616;&#21333;&#22320;&#38754;&#30340;&#21644;&#39640;&#32423;&#22320;&#38754;. </p>
+   <table class="alternate" cellspacing=0>
+     <tbody>
+       <tr>
+         <th class=FirstCol    >&#23646;&#24615;</th>
+         <th                   >&#25551;&#36848;</th>
+       </tr>
+       <tr>
+         <td class=oddRow1stCol>&#31616;&#21333;&#22320;&#38754;</td>
+         <td class=oddRow      ><p class=imgBlt><img src="images/bullet.gif">&#20302;&#31471;&#26174;&#21345;&#37197;&#32622;</p>
+             <p class=imgBlt><img src="images/bullet.gif">&#27599;4&#31859;&#19968;&#20010;&#39640;&#24230;&#25511;&#21046;&#33410;&#28857;</p>
+           <p class=imgBlt><img src="images/bullet.gif">&#27599;&#20010;chunk (100X100m)&#38480;&#21046;&#20351;&#29992;4&#24352;&#36148;&#22270; </p>
+           <p class=imgBlt><img src="images/bullet.gif">&#36148;&#22270;&#28151;&#21512;&#22312;4m&#22522;&#30784;&#19978;&#35745;&#31639; </p>
+           <p class=imgBlt><img src="images/bullet.gif">&#21487;&#20197;&#36716;&#25442;&#20026;&#39640;&#32423;&#22320;&#38754; </p>
+           <p class=imgBlt><img src="images/bullet.gif">&#21482;&#25509;&#21463;&#19968;&#20010;&#31616;&#21333;&#30340;&#26041;&#21521;&#28783;&#20809; (&#22826;&#38451;) </p>
+           <p class=imgBlt>&nbsp;</p></td>
+       </tr>
+       <tr>
+         <td class=evnRow1stCol>&#39640;&#32423;&#22320;&#38754;</td>
+         <td class=evnRow      ><p class=imgBlt><img src="images/bullet.gif">&#35201;&#27714;&#39640;&#31471;&#26174;&#21345;,&#33267;&#23569;shader model 2.0</p>
+           <p class=imgBlt><img src="images/bullet.gif">&#39640;&#24230;&#25511;&#21046;&#33410;&#28857;&#21487;&#33258;&#23450;&#20041;&#23494;&#24230;</p>
+           <p class=imgBlt><img src="images/bullet.gif">&#27599;&#20010;chunk&#25903;&#25345;&#26080;&#38480;&#21046;&#36148;&#22270;</p>
+           <p class=imgBlt><img src="images/bullet.gif">&#36148;&#22270;&#34701;&#21644;&#30340;&#31934;&#24230;&#20063;&#21487;&#33258;&#23450;&#20041;</p>
+           <p class=imgBlt><img src="images/bullet.gif">shadow map&#30340;&#31934;&#24230;&#21487;&#20197;&#35843;&#33410;</p>
+           <p class=imgBlt><img src="images/bullet.gif">&#27599;&#23618;&#36148;&#22270;&#21487;&#20197;&#26377;&#33258;&#23450;&#20041;&#30340;UV </p>
+           <p class=imgBlt><img src="images/bullet.gif">&#25509;&#25910;&#22810;&#31181;&#22810;&#20010;&#20809;&#28304;&#24433;&#21709;</p>
+           <p class=imgBlt><img src="images/bullet.gif">Geomorphing&#22320;&#38754;&#25903;&#25345;&#27169;&#22411;&#36807;&#28193;&#21464;&#21270;</p>
+           <p class=imgBlt><img src="images/bullet.gif">Geomipmapping</p>
+           <p class=imgBlt><img src="images/bullet.gif">&#19981;&#33021;&#25226;&#39640;&#32423;&#22320;&#38754;&#36716;&#25442;&#20026;&#20302;&#31471;&#22320;&#38754;</p></td>
+       </tr>
+     </tbody>
+   </table>
+   <p class="numbltlvl1">&#19990;&#30028;&#32534;&#36753;&#22120;&#21487;&#20197;&#36716;&#25442;&#31616;&#21333;&#22320;&#24418;&#20026;&#39640;&#32423;&#22320;&#24418;, &#36890;&#36807;&#33756;&#21333;<span class="numbltlvl1"><span class="interface">&#25991;&#20214; &rarr; &#36716;&#25442;&#20026;&#39640;&#32423;&#22320;&#24418;</span></span>. &#20999;&#35760;&#20808;&#20445;&#23384;&#20320;&#30340;&#31616;&#21333;&#22320;&#24418;,&#22240;&#20026;&#19968;&#26086;&#36716;&#25442;&#20026;&#39640;&#32423;&#22320;&#24418;&#21518;&#25105;&#20204;&#26080;&#27861;&#20877;&#27425;&#23558;&#23427;&#36716;&#25442;&#20026;&#31616;&#21333;&#22320;&#24418;&#20102;.</p>
+      <p><img src="01_setup_new_project_files/image003.jpg" width="234" height="277"></p>
+</DIV></DIV>
+<span onclick=toggle_heading()>
+<h2><img src="images/expandable.gif"><a name="Changing">&#20999;&#25442;&#31354;&#38388;</a></h2>
+</span>
+<DIV>
+
+<p>&#20999;&#25442;&#32534;&#36753;&#30340;&#31354;&#38388;:
+
+</p>
+<p class="numbltlvl1">1 &#25171;&#24320;&#19990;&#30028;&#32534;&#36753;&#22120;</p>
+
+<p class="numbltlvl1">2 &#36873;&#25321;<strong>&#25991;&#20214;&rarr;&#25171;&#24320;&#31354;&#38388;</strong>&#33756;&#21333;.</p>
+<!-- Image -->
+   <p class="imgLvl2"><img src="01_setup_new_project_files/image003.gif"></p>
+  <p class="numbltlvl1">3 &#27983;&#35272;&#25991;&#20214;&#22841; <strong>Browse For Folder </strong>&#23545;&#35805;&#26694;&#26174;&#31034;.</p> 
+
+<!-- Image -->
+   <p class="imgLvl2"><img src="01_setup_new_project_files/image004.gif"></p>
+  <p class="numbltlvl1">4 &#36873;&#25321;&#24819;&#35201;&#20999;&#25442;&#30340;&#31354;&#38388;. </p> 
+
+<p class="numbltlvl1">5 &#36873;&#25321;openspace&#25353;&#38062;.</p>
+<p class="numbltlvl1">&nbsp;</p></DIV>
+<h2><span onClick="toggle_heading()"><img src="images/expanded.gif"><a name="Terrain_LOD" id="Terrain_LOD">&#22320;&#38754;LOD&#35774;&#32622;</a></span></h2>
+<DIV>
+  <p> BigWorld&#20013;&#26377;&#20004;&#31181;&#22320;&#38754;&#35774;&#32622;. &#31616;&#21333;&#30340;&#21644;&#39640;&#32423;&#30340;&#22320;&#38754;. &#36825;&#20010;&#37096;&#20998;&#38024;&#23545;&#39640;&#32423;&#22320;&#38754;&#30340;LOD&#20171;&#32461;&#21644;&#21508;&#23646;&#24615;&#23545;&#25928;&#29575;&#24433;&#21709;&#30340;&#35299;&#37322;. </p>
+  <span onClick="toggle_heading()"><h3><img src="images/expanded.gif"><a name="Geomorphing" id="Geomorphing">Geomorphing&#22320;&#38754;&#30340;&#27169;&#22411;&#36807;&#28193;&#21464;&#21270;</a></h3>
+  </span>
+  <div>
+  <p>&#30001;&#29609;&#23478;&#21521;&#21069;,chunk&#36880;&#28176;&#30001;&#39640;&#31934;&#24230;&#30340;&#36807;&#28193;&#21040;&#20302;&#31934;&#24230;&#30340;&#27169;&#22411;.&#36825;&#26679;&#38477;&#20302;&#20102;&#24341;&#25806;&#38656;&#35201;&#35745;&#31639;&#30340;&#24635;&#38754;&#25968;. &#20026;&#20102;&#38450;&#27490;&#29609;&#23478;&#26126;&#26174;&#24863;&#35273;&#21040;&#27169;&#22411;&#31934;&#24230;&#20999;&#25442;&#30340;&#21464;&#21270;, &#25105;&#20204;&#35774;&#35745;&#30001;&#39640;&#31934;&#24230;&#27169;&#22411;&#36880;&#28176;&#21464;&#24418;&#36807;&#28193;&#21040;&#20302;&#31934;&#24230;&#27169;&#22411;.&#20026;&#20102;&#20445;&#35777;&#20302;&#31934;&#24230;&#30340;&#27169;&#22411;&#25928;&#26524;&#27169;&#25311;&#31867;&#20284;&#39640;&#31934;&#22320;&#38754;&#30340;&#25928;&#26524;,&#25105;&#20204;&#22312;&#20302;&#31934;&#24230;&#22320;&#38754;&#19978;&#20351;&#29992;normalmap&#36148;&#22270;.</p>
+  <p><img src="01_setup_new_project_files/image002.jpg" width="334" height="253"></p></div>
+  <span onClick="toggle_heading()"><h3><img src="images/expanded.gif"><a name="3dsmax_DirectX">Geomipmaping&#22320;&#38754;&#36148;&#22270;mipmap&#21464;&#21270; </a></h3></span>
+  <div><p>As you move away from the player, chunks of higher resolution terrain mesh are  replaced by lower mesh resolution chunks. This reduces the number of polygons that need to be drawn by the game engine. To avoid a  visual pop between chunks  we first swap to a higher resolution chunk that mimics the shape of the lower resolution chunk, then slowly morph in the higher resolution details.</p>
+    <p>In order to retain the more visually complex information held in the higher resolution chunks we apply a normal map of this information to the lower resolution chunks in the distance. </p>
+    <table width="463" border="0">
+    <tr>
+      <td width="141"><img src="01_setup_new_project_files/image001.jpg" width="136" height="489"></td>
+      <td width="306"><p>&nbsp;</p>
+          <p>&#22312;&#24038;&#22270;&#30340;&#24213;&#37096;,&#20320;&#21487;&#20197;&#30475;&#21040;&#22320;&#38754;&#38752;&#36817;&#30456;&#26426;&#30340;&#37096;&#20998;&#26159;&#39640;&#31934;&#24230;&#30340;chunk, (&#22810;&#36793;&#24418;&#23494;&#24230;&#22823;,&#38754;&#25968;&#39640;). &#36880;&#28176;&#24819;&#19978;&#30475;&#22270;&#29255;&#36825;&#20123;&#39640;&#31934;&#24230;&#30340;&#27169;&#22411;&#36880;&#28176;&#34987;&#31616;&#21333;&#30340;&#22320;&#38754;&#27169;&#22411;&#26367;&#20195;</p></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</DIV>
+
+  <span onClick="toggle_heading()"><h3><img src="images/expanded.gif"><a name="Space_settings">Space.settings &#25991;&#20214;</a></h3></span><DIV>
+  <p>LOD &#35774;&#32622;&#22312;&#27599;&#20010;space&#30340; <em>space.settings</em> &#25991;&#20214;&#20013;<br>
+  </p>
+  <pre>&lt;space.settings&gt;<br>	&lt;timeOfDay&gt;	system/data/sky.xml	&lt;/timeOfDay&gt;<br>	&lt;skyGradientDome&gt;	system/data/sky.xml	&lt;/skyGradientDome&gt;<br>	&lt;bounds&gt;<br>		&lt;minX&gt;	-48	&lt;/minX&gt;<br>		&lt;maxX&gt;	47	&lt;/maxX&gt;<br>		&lt;minY&gt;	-48	&lt;/minY&gt;<br>		&lt;maxY&gt;	47	&lt;/maxY&gt;<br>	&lt;/bounds&gt;<br>	&lt;terrain&gt;<br>		&lt;version&gt;	200	&lt;/version&gt;<br>		&lt;heightMapSize&gt;	128	&lt;/heightMapSize&gt;<br>		&lt;normalMapSize&gt;	128	&lt;/normalMapSize&gt;<br>		&lt;holeMapSize&gt;	64	&lt;/holeMapSize&gt;<br>		&lt;shadowMapSize&gt;	64	&lt;/shadowMapSize&gt;<br>		&lt;blendMapSize&gt;	256	&lt;/blendMapSize&gt;<br>		&lt;lodInfo&gt;<br>			&lt;startBias&gt;	0.800000	&lt;/startBias&gt;<br>			&lt;endBias&gt;	0.990000	&lt;/endBias&gt;<br>			<span class="style2">&lt;lodTextureStart&gt;	150.000000	&lt;/lodTextureStart&gt;<br>			&lt;lodTextureDistance&gt;	80.000000	&lt;/lodTextureDistance&gt;<br>			&lt;blendPreloadDistance&gt;	100.000000	&lt;/blendPreloadDistance&gt;<br>			<span class="style1">&lt;lodNormalStart&gt;	300.000000	&lt;/lodNormalStart&gt;<br>			&lt;lodNormalDistance&gt;	100.000000	&lt;/lodNormalDistance&gt;<br>			&lt;normalPreloadDistance&gt;	100.000000	&lt;/normalPreloadDistance&gt;<br>			&lt;defaultHeightMapLod&gt;	2	&lt;/defaultHeightMapLod&gt;<br>			&lt;detailHeightMapDistance&gt;	500.000000	&lt;/detailHeightMapDistance&gt;</span></span><br>			<span class="style5">&lt;lodDistances&gt;<br>				&lt;distance0&gt;	25.000000	&lt;/distance0&gt;<br>				&lt;distance1&gt;	120.000000	&lt;/distance1&gt;<br>				&lt;distance2&gt;	250.000000	&lt;/distance2&gt;<br>				&lt;distance3&gt;	700.000000	&lt;/distance3&gt;<br>				&lt;distance4&gt;	1100.000000	&lt;/distance4&gt;<br>				&lt;distance5&gt;	1700.000000	&lt;/distance5&gt;<br>			&lt;/lodDistances&gt;</span><br>			&lt;server&gt;<br>				&lt;heightMapLod&gt;	2	&lt;/heightMapLod&gt;<br>			&lt;/server&gt;<br>		&lt;/lodInfo&gt;<br>	&lt;/terrain&gt;<br>	&lt;farPlane&gt;	1500.000000	&lt;/farPlane&gt;<br>	&lt;startPosition&gt;	607.810730 211.184265 -206.891937	&lt;/startPosition&gt;<br>	&lt;startDirection&gt;	0.000000 0.010000 0.009964	&lt;/startDirection&gt;<br>	&lt;oldClouds&gt;	false	&lt;/oldClouds&gt;<br>	&lt;minimap&gt;<br>		&lt;mapName&gt;	spaces/highlands/space.outdoors.dds	&lt;/mapName&gt;<br>		&lt;worldMapWidth&gt;	3200.0	&lt;/worldMapWidth&gt;<br>		&lt;worldMapHeight&gt;	-3200.0	&lt;/worldMapHeight&gt;<br>		&lt;worldMapAnchor&gt;	00.0 00.0	&lt;/worldMapAnchor&gt;<br>	&lt;/minimap&gt;<br>	&lt;skyDome&gt;	system/models/clear_overhead.visual	&lt;/skyDome&gt;<br>	&lt;skyDome&gt;	system/models/horizon_ring_cloud.visual	&lt;/skyDome&gt;<br>&lt;/space.settings&gt;
+  </pre>
+  <p> &#22312; <em>space.settings</em> &#25991;&#20214;&#30340; <span class="style2">&#32511;&#33394;&#37096;&#20998;</span> &#25551;&#36848;&#20102;GeoMipMapping.  <em>&#22312;&#27492;&#26696;&#20363;&#30340;space.settings</em> &#25991;&#20214;&#23450;&#20041;&#20102;100% <strong>blends</strong> &#19968;&#30452;&#20316;&#29992;&#21040;150&#31859;&#22788;. &#25509;&#30528;&#28129;&#20986;100m&#36317;&#31163;, &#21516;&#26102;&#32467;&#21512; <strong>terrain photograph </strong> &#30340;&#28129;&#20837;.  250M&#20043;&#21518; ( <span class="style2">&lt;lodTextureStart&gt; +	&lt;blendPreloadDistance&gt; = 250<span class="style1">) &#21482;&#26377; <strong>terrain photograph</strong></span></span> </p>
+<p>&#36825;&#20123;&#22320;&#24418;&#36148;&#22270;&#30340;LOD&#36317;&#31163;&#35774;&#32622;&#21487;&#20197;&#36890;&#36807;&#19990;&#30028;&#32534;&#36753;&#22120;, &#29615;&#22659;&#38754;&#26495;&#19979;&#30340;U&#30028;&#38754;&#35843;&#25972;.</p>
+  <p><img src="01_setup_new_project_files/image001.gif" width="263" height="109"></p>
+  <p>&#36825;&#37324;&#35201;&#27880;&#24847;,blends&#26368;&#32456;&#20316;&#29992;&#20102;250&#31859;&#30340;&#36317;&#31163;,&#30001;&#20110;blends&#23545;&#36164;&#28304;&#28040;&#32791;&#30340;&#35201;&#27714;&#26356;&#39640;, &#25152;&#20197;&#30830;&#20445;&#23427;&#30340;&#33539;&#22260;&#38480;&#21046;(&#21253;&#25324;&#36807;&#28193;&#37096;&#20998;&#30340;)&#23545;&#28216;&#25103;&#24456;&#37325;&#35201;. </p>
+  <p>&#25991;&#20214;<span class="style5">&#34013;&#33394;&#37096;&#20998;</span> &#23450;&#20041;&#20102; GeoMorphing, &#36825;&#37324;distinct LOD&#23450;&#20041;&#20102;&#36880;&#32423;lod&#21464;&#21270;&#30340;&#36317;&#31163;.</p>
+  <p></p>
+</DIV>
+<p class="numbltlvl1">&nbsp;</p>
+</DIV>
+
+<!-------- HORIZONTAL RULE -------->
+<hr align="center" size="2" width="100%">
+<p class="copyrightInfo">Copyright 1999-2010 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+
+<!-------- END OF DOCUMENT -------->
+</body></html>
